@@ -6,8 +6,8 @@ export const theme = createTheme({
 	},
 	palette: {
 		primary: {
-			main: "rgba(238, 193, 45, 1)",
-			dark: "rgba(221, 172, 12, 1)",
+			main: "rgba(100,207,186,255)",
+			dark: "rgba(1,0,1,255)",
 			light: "rgba(255, 199, 15, 1)"
 		},
 		secondary: {
