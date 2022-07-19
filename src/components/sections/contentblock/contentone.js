@@ -1,0 +1,90 @@
+import React from 'react';
+
+import { Box, List, ListItem, ListItemText, Typography } from "@mui/material";
+import { styled } from "@mui/system";
+
+const StyledContentBlockOne = styled(Box)(({ theme }) => ({
+	textAlign: "left"
+}))
+
+const styledHeaders = {
+	color: "white",
+	fontWeight: "700",
+	fontSize: "27px"
+}
+
+const styledSubHeaders = {
+	fontWeight: "700",
+	fontSize: "20px"
+}
+
+const StyledList = styled(List)(({ theme }) => ({
+
+}))
+
+const StyledListItem = styled(ListItem)(({ theme }) => ({
+
+}))
+
+const StyledListItemContent = styled(Box)(({ theme }) => ({
+	display: "flex",
+	justifyContent: "left",
+	alignItems: "center",
+	textAlign: "left",
+	marginBottom: "10px"
+}))
+
+const StyledNumbering = styled(Box)(({ theme }) => ({
+	backgroundColor: "white",
+	padding: "5px",
+	borderRadius: "50%",
+	width: "25px",
+	height: "25px",
+	marginRight: "10px",
+	display: "flex",
+	justifyContent: "center",
+	alignItems: "center",
+	textAlign: "center"
+}))
+
+const ContentBlockOne = ({ data }) => {
+	return (
+		<StyledContentBlockOne>
+			<Typography variant="h3" sx={styledHeaders} gutterBottom>
+				{ data.title }
+			</Typography>
+			<Typography variant="h5" sx={styledSubHeaders} gutterBottom>
+				{ data.subtitle }
+			</Typography>
+			{
+				data &&
+				data.paragraph &&
+				data.paragraph.map((el, i) => (
+					<Typography variant="body1" gutterBottom key={i}>
+						{ el }
+					</Typography>
+				))
+			}
+			<StyledList>
+				{
+					data &&
+					data.list &&
+					data.list.map((el, i) => (
+						<StyledListItem key={i} disablePadding>
+							<StyledListItemContent>
+								<StyledNumbering>
+									{ i }
+								</StyledNumbering>
+								<Typography varint="body1">
+									{ el.text }
+								</Typography>
+							</StyledListItemContent>
+						</StyledListItem>
+					))
+				}
+			</StyledList>
+		</StyledContentBlockOne>
+	)
+}
+
+export default ContentBlockOne

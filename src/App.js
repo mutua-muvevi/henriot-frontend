@@ -9,6 +9,7 @@ import Register from "./pages/auth/register/register";
 import Login from "./pages/auth/login/login";
 import ForgotPassword from "./pages/auth/forgotpassword/forgotpassword";
 import ResetPassword from "./pages/auth/resetpassword/resetpassword";
+import Setup from "./pages/auth/setup/setup";
 
 const App = () => {
 	return (
@@ -18,6 +19,7 @@ const App = () => {
 					<Routes>
 						<Route path="/auth" element={<AuthLayout/>}>
 							<Route path="/auth/register" element={<Register/>}/>
+							<Route path="/auth/setup" element={<Setup/>}/>
 							<Route path="/auth/login" element={<Login/>}/>
 							<Route path="/auth/forgotpassword" element={<ForgotPassword/>}/>
 							<Route path="/auth/resetpassword/:resetToken" element={<ResetPassword/>}/>
