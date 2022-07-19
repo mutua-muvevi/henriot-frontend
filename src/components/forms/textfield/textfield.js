@@ -2,7 +2,7 @@ import { TextField } from "@mui/material";
 import React from 'react';
 import { useField } from "formik";
 
-const Textfield = ({name, ...otherProps}) => {
+const TextfieldWrapper = ({name, ...otherProps}) => {
 
 	const [field, meta] = useField(name)
 
@@ -25,4 +25,4 @@ const Textfield = ({name, ...otherProps}) => {
 	)
 }
 
-export default Textfield
+export default TextfieldWrapper

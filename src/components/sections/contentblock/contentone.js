@@ -72,7 +72,7 @@ const ContentBlockOne = ({ data }) => {
 						<StyledListItem key={i} disablePadding>
 							<StyledListItemContent>
 								<StyledNumbering>
-									{ i }
+									{ i + 1 }
 								</StyledNumbering>
 								<Typography varaint="body1">
 									{ el.text }
