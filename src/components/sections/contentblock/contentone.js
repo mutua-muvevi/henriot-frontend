@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { Box, List, ListItem, ListItemText, Typography } from "@mui/material";
+import { Box, List, ListItem, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
 const StyledContentBlockOne = styled(Box)(({ theme }) => ({
-	textAlign: "left"
+	textAlign: "left",
+	minWidth: "40vw",
 }))
 
 const styledHeaders = {
-	color: "white",
 	fontWeight: "700",
 	fontSize: "27px"
 }
@@ -35,7 +35,6 @@ const StyledListItemContent = styled(Box)(({ theme }) => ({
 }))
 
 const StyledNumbering = styled(Box)(({ theme }) => ({
-	backgroundColor: "white",
 	padding: "5px",
 	borderRadius: "50%",
 	width: "25px",
@@ -75,7 +74,7 @@ const ContentBlockOne = ({ data }) => {
 								<StyledNumbering>
 									{ i }
 								</StyledNumbering>
-								<Typography varint="body1">
+								<Typography varaint="body1">
 									{ el.text }
 								</Typography>
 							</StyledListItemContent>

@@ -1,4 +1,5 @@
-// import { MdArrowForwardIos } from "react-icons"
+// import { MdArrowForwardIos } from "react-icons/md"
+import { FaCheck } from "react-icons/fa"
 
 const iconStyles = {
 
@@ -52,6 +53,49 @@ export const lowercontent = {
 				path: "https://css-tricks.com/snippets/javascript/array-of-country-names/",
 				icon: ""
 			}
+		},
+	]
+}
+
+export const tabareainfo = {
+	title : [
+		{
+			value: "1",
+			label: "individuals"
+		},
+		{
+			value: "2",
+			label: "institutions"
+		},
+	],
+	pannel: [
+		{
+			node: "",
+			list: {
+				title: "For each account holder, you will need:",
+				icon: <FaCheck style={iconStyles}/>,
+				items: [
+					"Personal and contact information.",
+					"Income and tax residency information.",
+					"Information on trading experience and objectives.",
+					"Bank account information."
+				],
+			},
+			value: "1",
+		},
+		{
+			node: "",
+			list: {
+				title: "You will need the following:",
+				icon: <FaCheck style={iconStyles}/>,
+				items: [
+					"Tax and contact information of the organization.",
+					"Personal and contact information of the Authorized Person on this account.",
+					"Documents proving the existence of your organization.",
+					"Bank account information.",
+				]
+			},
+			value: "2",
 		},
 	]
 }

@@ -15,7 +15,8 @@ const StyledRegistrationWrapper = styled(Grid)(({ theme }) => ({
 }))
 
 const StyledRegistrationExpl = styled(Grid)(({ theme }) => ({
-	backgroundColor: "red",
+	backgroundColor: theme.palette.primary.dark,
+	color: theme.palette.primary.main,
 	display: "flex",
 	flexDirection: "column",
 	justifyContent: "center",
