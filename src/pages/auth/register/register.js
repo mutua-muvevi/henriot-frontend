@@ -5,6 +5,7 @@ import { styled } from "@mui/system";
 import UpperContent from "./uppercontent";
 import TabsArea from "./tabsarea";
 import LowerContent from "./lowercontent";
+import RegisterForm from "./form";
 
 const StyledRegistration = styled(Box)(({ theme }) => ({
 
@@ -16,7 +17,8 @@ const StyledRegistrationWrapper = styled(Grid)(({ theme }) => ({
 
 const StyledRegistrationExpl = styled(Grid)(({ theme }) => ({
 	backgroundColor: theme.palette.primary.dark,
-	color: theme.palette.primary.main,
+	// color: theme.palette.primary.main,
+	color: "grey",
 	display: "flex",
 	flexDirection: "column",
 	justifyContent: "center",
@@ -26,7 +28,7 @@ const StyledRegistrationExpl = styled(Grid)(({ theme }) => ({
 }))
 
 const StyledRegistrationForm = styled(Grid)(({ theme }) => ({
-	backgroundColor: "green"
+	// backgroundColor: "green"
 
 }))
 
@@ -42,7 +44,7 @@ const Register = () => {
 				</StyledRegistrationExpl>
 
 				<StyledRegistrationForm item xl={6} lg={6} md={12} sm={12} xs={12}>
-					right
+					<RegisterForm/>
 				</StyledRegistrationForm>
 
 			</StyledRegistrationWrapper>

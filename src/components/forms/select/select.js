@@ -29,13 +29,14 @@ const SelectField = ({ name, options, ...otherProps }) => {
 
 	return (
 		<TextField {...configSelect}>
-		{Object.keys(options).map((item, pos) => {
-			return (
-			<MenuItem key={pos} value={item}>
-				{options[item]}
-			</MenuItem>
-			)
-		})}
+			{console.log(name)}
+			{Object.keys(options).map((item, pos) => {
+				return (
+				<MenuItem key={pos} value={item}>
+					{options[item]}
+				</MenuItem>
+				)
+			})}
 		</TextField>
 	);
 };
