@@ -13,11 +13,20 @@ const iconStyles = {
 const StyledTabsWrapper = styled(Box)(({ theme }) => ({
 	textAlign: "left",
 	minWidth: "40vw",
+	width: "100%",
 }))
 
 const StyledList = styled(List)(({ theme }) => ({
-
+	padding: "0",
+	width: "100%",
 }))
+
+
+const styledSubHeaders = {
+	fontWeight: "700",
+	fontSize: "20px",
+	letterSpacing: "2px",
+}
 
 const StyledListItem = styled(ListItem)(({ theme }) => ({
 	marginBottom: "10px"
@@ -31,6 +40,10 @@ const StyledListItemContent = styled(Box)(({ theme }) => ({
 	marginBottom: "10px",
 }))
 
+const styledTabListContent = {
+	wordWrap: "break-word"
+}
+
 
 const Tabs = ({data}) => {
 	const [value, setValue] = React.useState('1');
@@ -42,7 +55,7 @@ const Tabs = ({data}) => {
 	return (
 		<StyledTabsWrapper sx={{ width: '100%', typography: 'body1' }}>
 			<TabContext value={value}>
-				<Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+				<Box sx={{ borderBottom: 1, borderColor: 'divider'}}>
 					<TabList onChange={handleChange} aria-label="lab API tabs example">
 						{
 							data.title &&
@@ -55,9 +68,9 @@ const Tabs = ({data}) => {
 				{
 					data.pannel &&
 					data.pannel.map((el, i) => (
-						<TabPanel key={i} value={el.value}>
+						<TabPanel key={i} value={el.value} sx={{paddingLeft: 0}}>
 							<StyledList>
-								<Typography variant="h5" gutterBottom>
+								<Typography variant="h6" gutterBottom sx={styledSubHeaders}>
 									{ el.list.title }
 								</Typography>
 								{
@@ -67,7 +80,7 @@ const Tabs = ({data}) => {
 										<StyledListItem key={i} disablePadding>
 											<StyledListItemContent>
 												<FaCheck style={iconStyles}/>
-												<Typography varaint="body2">
+												<Typography varaint="body2" sx={styledTabListContent}>
 													{ li }
 												</Typography>
 											</StyledListItemContent>
@@ -78,8 +91,6 @@ const Tabs = ({data}) => {
 						</TabPanel>
 					))
 				}
-				{/* <TabPanel value="2">Item Two</TabPanel>
-				<TabPanel value="3">Item Three</TabPanel> */}
 			</TabContext>
 		</StyledTabsWrapper>
 	);

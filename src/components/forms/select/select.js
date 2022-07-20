@@ -29,11 +29,10 @@ const SelectField = ({ name, options, ...otherProps }) => {
 
 	return (
 		<TextField {...configSelect}>
-			{console.log(name)}
-			{Object.keys(options).map((item, pos) => {
+			{options.map((item, pos) => {
 				return (
-				<MenuItem key={pos} value={item}>
-					{options[item]}
+				<MenuItem key={pos} value={item.Name}>
+					{item.Name}
 				</MenuItem>
 				)
 			})}

@@ -8,14 +8,15 @@ const StyledContentBlockOne = styled(Box)(({ theme }) => ({
 	minWidth: "40vw",
 }))
 
-const styledHeaders = {
+const styledMainHeaders = {
 	fontWeight: "700",
-	fontSize: "27px"
+	fontSize: "40px",
+	marginBottom: "20px",
 }
 
 const styledSubHeaders = {
 	fontWeight: "700",
-	fontSize: "20px"
+	fontSize: "20px",
 }
 
 const StyledList = styled(List)(({ theme }) => ({
@@ -49,7 +50,7 @@ const StyledNumbering = styled(Box)(({ theme }) => ({
 const ContentBlockOne = ({ data }) => {
 	return (
 		<StyledContentBlockOne>
-			<Typography variant="h3" sx={styledHeaders} gutterBottom>
+			<Typography variant="h3" sx={styledMainHeaders} gutterBottom>
 				{ data.title }
 			</Typography>
 			<Typography variant="h5" sx={styledSubHeaders} gutterBottom>

@@ -50,7 +50,15 @@ export const lowercontent = {
 			sentence: "Do you want to continue a previously started application?",
 			link: {
 				text: "click here",
-				path: "https://css-tricks.com/snippets/javascript/array-of-country-names/",
+				path: "https://github.com/mutua-muvevi",
+				icon: ""
+			}
+		},
+		{
+			sentence: "Do you want to continue a previously started application?",
+			link: {
+				text: "click here",
+				path: "https://github.com/mutua-muvevi",
 				icon: ""
 			}
 		},
