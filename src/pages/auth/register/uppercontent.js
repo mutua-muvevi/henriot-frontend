@@ -7,7 +7,7 @@ import ContentBlockOne from "../../../components/sections/contentblock/contenton
 import { uppercontent } from "./info"
 
 const StyledUpperContent = styled(Box)(({ theme }) => ({
-
+	
 }))
 
 const UpperContent = () => {

@@ -18,18 +18,33 @@ const StyledRegistrationWrapper = styled(Grid)(({ theme }) => ({
 const StyledRegistrationExpl = styled(Grid)(({ theme }) => ({
 	backgroundColor: theme.palette.primary.dark,
 	// color: theme.palette.primary.main,
-	color: "grey",
 	display: "flex",
 	flexDirection: "column",
 	justifyContent: "center",
-	alignItems: "center",
+	alignItems: "flex-end",
 	minHeight: "100vh !important",
-	padding: "0"
+	padding: "0",
+	width: "100%"
+}))
+
+const StyledRegistrationExplContent = styled(Box)(({ theme }) => ({
+	width: "70%",
+	height: "auto",
+	color: "whitesmoke"
 }))
 
 const StyledRegistrationForm = styled(Grid)(({ theme }) => ({
-	// backgroundColor: "green"
+	minHeight: "100vh !important",
 
+}))
+
+const StyledRegistrationFormContent = styled(Box)(({ theme }) => ({
+	width: "100%",
+	height: "100%",
+	display: "flex",
+	flexDirection: "column",
+	justifyContent: "center",
+	alignItems: "flex-end",
 }))
 
 const Register = () => {
@@ -38,13 +53,17 @@ const Register = () => {
 			<StyledRegistrationWrapper container columnSpacing={3}>
 
 				<StyledRegistrationExpl item xl={6} lg={6} md={12} sm={12} xs={12}>
-					<UpperContent/>
-					<TabsArea/>
-					<LowerContent/>
+					<StyledRegistrationExplContent>
+						<UpperContent/>
+						<TabsArea/>
+						<LowerContent/>
+					</StyledRegistrationExplContent>
 				</StyledRegistrationExpl>
 
 				<StyledRegistrationForm item xl={6} lg={6} md={12} sm={12} xs={12}>
-					<RegisterForm/>
+					<StyledRegistrationFormContent>
+						<RegisterForm/>
+					</StyledRegistrationFormContent>
 				</StyledRegistrationForm>
 
 			</StyledRegistrationWrapper>

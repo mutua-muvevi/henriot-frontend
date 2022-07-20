@@ -10,21 +10,34 @@ import * as Yup from "yup";
 import TextfieldWrapper from "../../../components/forms/textfield/textfield";
 import SelectField from "../../../components/forms/select/select";
 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+import Logo from "../../../assets/logo/transparentblacklogo.png"
+import { countries } from "../../../content/countries"
+
+
 const StyledRegistrationForm = styled(Box)(({ theme }) => ({
-	minHeight: "100vh",
 	display: "flex",
 	flexDirection: "column",
 	alignItems: "center",
 	justifyContent: "center",
 	textAlign: "left",
+	width: "100%"
 
 }))
 
+const StyledLogoSection = styled(Box)(({ theme }) => ({
+	marginBottom: "20px",
+	display: "flex",
+	alignItems: "center",
+	justifyContent: "left",
+	width: "450px"
+}))
+
+const styledLogoImage = {
+	width: "450px"
+}
 
 const StyledInputArea = styled(Box)(({ theme }) => ({
-	// backgroundColor: "grey",
-	margin: "10px -300px",
+	minWidth: "500px",
 }))
 
 const StyledAuthInputs = styled(Box)(({ theme }) => ({
@@ -32,9 +45,13 @@ const StyledAuthInputs = styled(Box)(({ theme }) => ({
 }))
 
 const styledAuthTextField = {
-	margin: "10px auto",
+	margin: "15px auto",
 }
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+const StyledButton = styled(Button)(({theme}) => ({
+	width: "100%",
+	marginTop: "30px"
+}))
 
 const INITIAL_FORM_STATE = {
 	email: "",
@@ -108,25 +125,19 @@ const RegisterForm = () => {
 		},
 	]
 
-	const registrationSelect = {
-		name: "country",
-		label: "Country",
-		placeholder: "Required",
-		type: "text",
-		required: true,
-		xs: 12,
-		sm: 12,
-		md: 12,
-		lg: 12,
-		xl: 12
-	}
-
 	const submitHandler = (values) => {
 		console.log(values)
 	}
 
 	return (
 		<StyledRegistrationForm>
+			<StyledLogoSection>
+				<img
+					src={Logo}
+					alt="Henriot logo"
+					style={styledLogoImage}
+				/>
+			</StyledLogoSection>
 			<Formik
 				initialValues={{
 					...INITIAL_FORM_STATE
@@ -136,26 +147,31 @@ const RegisterForm = () => {
 			>
 				<Form>
 					<StyledInputArea>
-					{
-						registrationInputs.map((el, i) => (
-							<StyledAuthInputs key={i} >
-								<TextfieldWrapper sx={styledAuthTextField} 
-									type={el.type} 
-									name={el.name} 
-									label={el.label}
-									size="small"
-									required
-								/>
-								{/* <SelectField sx={styledAuthTextField}
-									type="text"
-									name="country"
-									label="country"
-									size="small"
-									required
-								/> */}
-							</StyledAuthInputs>
-						))
-					}
+						{
+							registrationInputs.map((el, i) => (
+								<StyledAuthInputs key={i} >
+									<TextfieldWrapper sx={styledAuthTextField} 
+										type={el.type} 
+										name={el.name} 
+										label={el.label}
+										placeholder={el.placeholder}
+										size="small"
+										required
+									/>
+								</StyledAuthInputs>
+							))
+						}
+						<SelectField sx={styledAuthTextField}
+							type="text"
+							name="country"
+							label="country"
+							size="small"
+							options={countries}
+							required
+						/>
+						<StyledButton variant="contained" type="submit">
+							Submit
+						</StyledButton>
 					</StyledInputArea>
 				</Form>
 			</Formik>
