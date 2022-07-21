@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import { Alert, AlertTitle, Box, Button, Grid, Grow } from "@mui/material";
 import { styled } from "@mui/system";
 
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 
@@ -81,11 +83,7 @@ const RegisterForm = () => {
 			placeholder: "Required",
 			type: "email",
 			required: true,
-			xs: 12,
-			sm: 12,
-			md: 12,
-			lg: 12,
-			xl: 12
+			inputprops: {}
 		},
 		{
 			name: "username",
@@ -93,11 +91,7 @@ const RegisterForm = () => {
 			placeholder: "Required",
 			type: "",
 			required: true,
-			xs: 12,
-			sm: 12,
-			md: 12,
-			lg: 12,
-			xl: 12
+			inputprops: {}
 		},
 		{
 			name: "password",
@@ -105,11 +99,7 @@ const RegisterForm = () => {
 			placeholder: "Required",
 			type: passwordType,
 			required: true,
-			xs: 12,
-			sm: 12,
-			md: 12,
-			lg: 12,
-			xl: 12
+			inputprops: {}
 		},
 		{
 			name: "confirmpassword",
@@ -117,11 +107,7 @@ const RegisterForm = () => {
 			placeholder: "Required",
 			type: passwordType,
 			required: true,
-			xs: 12,
-			sm: 12,
-			md: 12,
-			lg: 12,
-			xl: 12
+			inputprops: {}
 		},
 	]
 
