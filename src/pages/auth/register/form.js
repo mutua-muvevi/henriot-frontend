@@ -17,6 +17,7 @@ import Logo from "../../../assets/logo/transparentblacklogo.png"
 import { countries } from "../../../content/countries";
 import { registerUser } from "../../../redux/auth/actions";
 import ReusableModal from "../../../components/modal/modal";
+import RegisterResponse from "./response";
 
 
 const StyledRegistrationForm = styled(Box)(({ theme }) => ({
@@ -206,7 +207,7 @@ const RegisterForm = ({ registerUser, errMessage }) => {
 				style={modalStyle}
 				arialabel="Registration success modal"
 				ariadescription="You have registered successfully. Check your email and confirm your email address"
-				data={user ? user : null}
+				children={<RegisterResponse data={user ? user : null} />}
 				/>
 		</StyledRegistrationForm>
 	)
