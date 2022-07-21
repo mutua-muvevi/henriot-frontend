@@ -7,8 +7,8 @@ export const theme = createTheme({
 	palette: {
 		primary: {
 			main: "rgba(100,207,186,255)",
-			dark: "rgba(1,0,1,255)",
-			light: "rgba(255, 199, 15, 1)"
+			dark: "rgba(131, 216, 199, 1))",
+			light: "rgba(115, 211, 192, 1)"
 		},
 		secondary: {
 			main: "rgba(27, 139, 198, 1)",
@@ -21,8 +21,9 @@ export const theme = createTheme({
 			disabled: "#6f8ba4"
 		},
 		background: {
-			// paper: "rgba(38,38,38,255)",
-			// default: "rgba(23,22, 22, 255)"
+			paper: "rgba(38,38,38,255)",
+			default: "rgba(241, 250, 248, 1)",
+			dark: "rgba(1,0,1,255)",
 		},
 	},
 	shape: {
@@ -30,7 +31,7 @@ export const theme = createTheme({
 		rounded: 10
 	},
 	typography: {
-		fontFamily: "'Ibarra Real Nova', serif;",
+		fontFamily: "'Fira Sans', sans-serif",
 		h1: {
 			fontFamily: "'Ibarra Real Nova', serif;",
 			fontWeight: 700,
@@ -54,31 +55,31 @@ export const theme = createTheme({
 
 		},
 		h5: {
-			fontFamily: "'Ibarra Real Nova', serif;",
+			fontFamily: "'Fira Sans', sans-serif",
 		},
 		h6: {
-			fontFamily: "'Ibarra Real Nova', serif;",
+			fontFamily: "'Fira Sans', sans-serif",
 		},
 		subtitle1: {
-			fontFamily: "'Ibarra Real Nova', serif;",
+			fontFamily: "'Fira Sans', sans-serif",
 		},
 		subtitle2: {
-			fontFamily: "'Ibarra Real Nova', serif;",
+			fontFamily: "'Fira Sans', sans-serif",
 		},
 		body1: {
-			fontFamily: "'Ibarra Real Nova', serif;",
+			fontFamily: "'Fira Sans', sans-serif",
 		},
 		body2: {
-			fontFamily: "'Ibarra Real Nova', serif;",
+			fontFamily: "'Fira Sans', sans-serif",
 		},
 		button: {
-			fontFamily: "'Ibarra Real Nova', serif;",
+			fontFamily: "'Fira Sans', sans-serif",
 		},
 		caption: {
-			fontFamily: "'Ibarra Real Nova', serif;",
+			fontFamily: "'Fira Sans', sans-serif",
 		},
 		overline: {
-			fontFamily: "'Ibarra Real Nova', serif;",
+			fontFamily: "'Fira Sans', sans-serif",
 		},
 		
 	},
