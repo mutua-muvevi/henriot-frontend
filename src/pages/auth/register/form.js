@@ -16,6 +16,7 @@ import SelectField from "../../../components/forms/select/select";
 import Logo from "../../../assets/logo/transparentblacklogo.png"
 import { countries } from "../../../content/countries";
 import { registerUser } from "../../../redux/auth/actions";
+import ReusableModal from "../../../components/modal/modal";
 
 
 const StyledRegistrationForm = styled(Box)(({ theme }) => ({
@@ -57,6 +58,13 @@ const StyledButton = styled(Button)(({theme}) => ({
 	marginTop: "30px"
 }))
 
+const modalStyle = {
+	width: "85vw",
+	margin: "10vh auto",
+	border: 'none',
+}
+
+
 const INITIAL_FORM_STATE = {
 	email: "",
 	username: "",
@@ -75,10 +83,13 @@ const FORM_VALIDATION = Yup.object().shape({
 
 const RegisterForm = ({ registerUser, errMessage }) => {
 
-	const [passwordType, setPasswordType] = useState("password");
+	const [ passwordType, setPasswordType ] = useState("password");
 	const [ showSuccess, setShowSuccess ] = useState(undefined);
 	const [ alertSuccess, setAlertSuccess ] = useState(true);
 	const [ alertSuccessDisplay, setAlertSuccessDisplay ] = useState("");
+	const [ user, setUser ] = useState(undefined)
+
+	const [ openModal, setOpenModal ] = useState(false)
 	
 	const registrationInputs = [
 		{
@@ -118,6 +129,8 @@ const RegisterForm = ({ registerUser, errMessage }) => {
 	const submitHandler = (values) => {
 		registerUser(values)
 		setShowSuccess(true)
+		setOpenModal(true)
+		setUser(values)
 		console.log(values)
 	}
 
@@ -187,6 +200,14 @@ const RegisterForm = ({ registerUser, errMessage }) => {
 					</StyledInputArea>
 				</Form>
 			</Formik>
+			<ReusableModal 
+				modal={openModal}
+				setModal={setOpenModal}
+				style={modalStyle}
+				arialabel="Registration success modal"
+				ariadescription="You have registered successfully. Check your email and confirm your email address"
+				data={user ? user : null}
+				/>
 		</StyledRegistrationForm>
 	)
 }
