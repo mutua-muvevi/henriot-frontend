@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-
 import { Alert, AlertTitle, Box, Button, Grid, Grow } from "@mui/material";
 import { styled } from "@mui/system";
 
@@ -73,8 +72,10 @@ const FORM_VALIDATION = Yup.object().shape({
 
 const RegisterForm = () => {
 
-	const [passwordType, setPasswordType] = useState("password")
+	const [passwordType, setPasswordType] = useState("password");
+	const [ error, setError ] = useState(false)
 
+	if (error) throw new Error("News error!");
 	
 	const registrationInputs = [
 		{
@@ -161,6 +162,9 @@ const RegisterForm = () => {
 					</StyledInputArea>
 				</Form>
 			</Formik>
+						<StyledButton variant="contained" onClick={() => {setError(true)}}>
+							Error
+						</StyledButton>
 		</StyledRegistrationForm>
 	)
 }

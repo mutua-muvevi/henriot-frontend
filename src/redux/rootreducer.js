@@ -1,5 +1,5 @@
-import { createStore } from 'redux';
-import { persistStore, persistReducer } from 'redux-persist';
+import { combineReducers } from 'redux';
+import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 const config = {
@@ -11,7 +11,7 @@ const config = {
 };
 
 const rootReducer = combineReducers({
-	auth: authReducer,
+	// auth: authReducer,
 
 });
 

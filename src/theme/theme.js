@@ -8,12 +8,12 @@ export const theme = createTheme({
 		primary: {
 			main: "rgba(100,207,186,255)",
 			dark: "rgba(131, 216, 199, 1))",
-			light: "rgba(115, 211, 192, 1)"
+			light: "rgba(115, 211, 192, 1)",
 		},
 		secondary: {
 			main: "rgba(27, 139, 198, 1)",
 			dark: "rgba(3, 71, 106, 1)",
-			light: "rgba(0, 153, 234, 1)"
+			light: "rgba(0, 153, 234, 1)",
 		},
 		text: {
 			primary: "#222222",
@@ -24,6 +24,26 @@ export const theme = createTheme({
 			paper: "rgba(38,38,38,255)",
 			default: "rgba(241, 250, 248, 1)",
 			dark: "rgba(1,0,1,255)",
+		},
+		success: {
+			main: "#2e7d32",
+			dark: "#1b5e20",
+			light: "#4caf50",
+		},
+		info: {
+			main: "#0288d1",
+			dark: "#01579b",
+			light: "#03a9f4",
+		},
+		warning: {
+			main: "#ed6c02",
+			dark: "#e65100",
+			light: "#ff9800",
+		},
+		error: {
+			main: "#d32f2f",
+			dark: "#c62828",
+			light: "ef2828",
 		},
 	},
 	shape: {
