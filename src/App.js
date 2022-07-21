@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import { ThemeProvider } from "@mui/material/styles";
@@ -11,24 +11,37 @@ import ForgotPassword from "./pages/auth/forgotpassword/forgotpassword";
 import ResetPassword from "./pages/auth/resetpassword/resetpassword";
 import Setup from "./pages/auth/setup/setup";
 
+import Fallback from "./components/fallback/fallback"
+
+import { connect } from "react-redux";
+
 const App = () => {
 	return (
 		<div className="App">
 			<BrowserRouter>
 				<ThemeProvider theme={theme}>
-					<Routes>
-						<Route path="/auth" element={<AuthLayout/>}>
-							<Route path="/auth/register" element={<Register/>}/>
-							<Route path="/auth/setup" element={<Setup/>}/>
-							<Route path="/auth/login" element={<Login/>}/>
-							<Route path="/auth/forgotpassword" element={<ForgotPassword/>}/>
-							<Route path="/auth/resetpassword/:resetToken" element={<ResetPassword/>}/>
-						</Route>
-					</Routes>
+					<Suspense fallback={<Fallback/>}>
+						<Routes>
+							<Route path="/auth" element={<AuthLayout/>}>
+								<Route path="/auth/register" element={<Register/>}/>
+								<Route path="/auth/setup" element={<Setup/>}/>
+								<Route path="/auth/login" element={<Login/>}/>
+								<Route path="/auth/forgotpassword" element={<ForgotPassword/>}/>
+								<Route path="/auth/resetpassword/:resetToken" element={<ResetPassword/>}/>
+							</Route>
+						</Routes>
+					</Suspense>
 				</ThemeProvider>
 			</BrowserRouter>
 		</div>
 	);
 }
 
-export default App;
+const mapStateToProps = ({ auth }) => ({
+	token: auth.token,
+	errMessage: auth.errMessage
+})
+
+
+
+export default connect(mapStateToProps)(App);

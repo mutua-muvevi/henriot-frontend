@@ -10,7 +10,7 @@ const StyledCatchErrors = styled(Box)(({theme}) => ({
 	flexDirection: "column",
 	alignItems: "center",
 	justifyContent: "center",
-	backgroundColor: "#d32f2f",
+	backgroundColor: "#ef2828",
 }))
 
 const StyledErrorContainer = styled(Container)(({theme}) => ({
@@ -19,7 +19,7 @@ const StyledErrorContainer = styled(Container)(({theme}) => ({
 	alignItems: "center",
 	justifyContent: "center",
 	textAlign: "center",
-	backgroundColor: "yellow",
+	backgroundColor: "#c62828",
 	minHeight: "50vh",
 	borderRadius: "4px"
 }))

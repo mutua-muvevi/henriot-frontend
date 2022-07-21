@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { connect } from "react-redux";
+
 import { Alert, AlertTitle, Box, Button, Grid, Grow } from "@mui/material";
 import { styled } from "@mui/system";
 
@@ -12,7 +14,8 @@ import TextfieldWrapper from "../../../components/forms/textfield/textfield";
 import SelectField from "../../../components/forms/select/select";
 
 import Logo from "../../../assets/logo/transparentblacklogo.png"
-import { countries } from "../../../content/countries"
+import { countries } from "../../../content/countries";
+import { registerUser } from "../../../redux/auth/actions";
 
 
 const StyledRegistrationForm = styled(Box)(({ theme }) => ({
@@ -70,12 +73,12 @@ const FORM_VALIDATION = Yup.object().shape({
 	country: Yup.string().min(4, "Too short country name").max(56, "Too long country name").required("Please add your country"),
 })
 
-const RegisterForm = () => {
+const RegisterForm = ({ registerUser, errMessage }) => {
 
 	const [passwordType, setPasswordType] = useState("password");
-	const [ error, setError ] = useState(false)
-
-	if (error) throw new Error("News error!");
+	const [ showSuccess, setShowSuccess ] = useState(undefined);
+	const [ alertSuccess, setAlertSuccess ] = useState(true);
+	const [ alertSuccessDisplay, setAlertSuccessDisplay ] = useState("");
 	
 	const registrationInputs = [
 		{
@@ -113,11 +116,33 @@ const RegisterForm = () => {
 	]
 
 	const submitHandler = (values) => {
+		registerUser(values)
+		setShowSuccess(true)
 		console.log(values)
 	}
 
 	return (
 		<StyledRegistrationForm>
+			{ 
+				showSuccess === true && !errMessage ? (
+					<Grow  style={{ transformOrigin: '10 20 50' }} sx={{marginBottom: "10px", width: "500px"}} in={alertSuccess} >
+						<Alert style={{display: `${alertSuccessDisplay}`}} severity="success" variant="filled">
+							<AlertTitle>Registration Success!!</AlertTitle>
+							Email with confirmation code has been sent to you
+						</Alert>
+					</Grow>
+				) : null
+			}
+			{
+				errMessage || showSuccess === false   ? (
+					<Grow  style={{ transformOrigin: '10 20 50' }} sx={{marginBottom: "10px", width: "500px"}} in timeout={1000}>
+						<Alert severity="error" variant="filled">
+							<AlertTitle>Registration Error!</AlertTitle>
+							{ errMessage }
+						</Alert>
+					</Grow>
+				) : null
+			}
 			<StyledLogoSection>
 				<img
 					src={Logo}
@@ -162,11 +187,16 @@ const RegisterForm = () => {
 					</StyledInputArea>
 				</Form>
 			</Formik>
-						<StyledButton variant="contained" onClick={() => {setError(true)}}>
-							Error
-						</StyledButton>
 		</StyledRegistrationForm>
 	)
 }
 
-export default RegisterForm
+const mapStateToProps = ({ auth }) => ({
+	errMessage: auth.errMessage
+})
+
+const mapDispatchToProps = (dispatch) => ({
+	registerUser: (values) => dispatch(registerUser(values))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterForm)

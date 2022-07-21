@@ -1,4 +1,4 @@
-import authTypes from './authtypes';
+import authTypes from './types';
 
 const initialState = {
 	token: null,
@@ -6,9 +6,6 @@ const initialState = {
 	isLoading: false,
 	isAuthenticated: false,
 	errMessage: undefined,
-	loginError: undefined,
-	resetError: undefined,
-	forgotError: undefined
 };
 
 const authReducer = (state = initialState, { type, payload }) => {
@@ -21,9 +18,6 @@ const authReducer = (state = initialState, { type, payload }) => {
 				isLoading: true,
 				isAuthenticated: false,
 				errMessage: undefined,
-				loginError: undefined,
-				resetError: undefined,
-				forgotError: undefined
 			};
 		case authTypes.SUCCESS_REGISTER_USER:
 			return {
@@ -33,9 +27,6 @@ const authReducer = (state = initialState, { type, payload }) => {
 				isLoading: false,
 				isAuthenticated: true,
 				errMessage: undefined,
-				loginError: undefined,
-				resetError: undefined,
-				forgotError: undefined
 			};
 		case authTypes.FAIL_REGISTER_USER:
 			return {
@@ -44,9 +35,6 @@ const authReducer = (state = initialState, { type, payload }) => {
 				isLoading: false,
 				isAuthenticated: false,
 				errMessage: payload,
-				loginError: undefined,
-				resetError: undefined,
-				forgotError: undefined
 			};
 		
 
@@ -58,9 +46,6 @@ const authReducer = (state = initialState, { type, payload }) => {
 				isLoading: true,
 				isAuthenticated: false,
 				errMessage: undefined,
-				loginError: undefined,
-				resetError: undefined,
-				forgotError: undefined
 			};
 		case authTypes.SUCCESS_LOGIN_USER:
 			return {
@@ -70,9 +55,6 @@ const authReducer = (state = initialState, { type, payload }) => {
 				isLoading: false,
 				isAuthenticated: true,
 				errMessage: undefined,
-				loginError: undefined,
-				resetError: undefined,
-				forgotError: undefined
 			};
 		case authTypes.FAIL_LOGIN_USER:
 			return {
@@ -81,10 +63,7 @@ const authReducer = (state = initialState, { type, payload }) => {
 				data: null,
 				isLoading: false,
 				isAuthenticated: false,
-				errMessage: undefined,
-				loginError: payload,
-				resetError: undefined,
-				forgotError: undefined
+				errMessage: payload,
 			};
 		
 
@@ -97,9 +76,6 @@ const authReducer = (state = initialState, { type, payload }) => {
 				isLoading: true,
 				isAuthenticated: false,
 				errMessage: undefined,
-				loginError: undefined,
-				resetError: undefined,
-				forgotError: undefined
 			}
 
 		case authTypes.SUCCESS_FORGOT_PASSWORD: 
@@ -110,9 +86,6 @@ const authReducer = (state = initialState, { type, payload }) => {
 				isLoading: false,
 				isAuthenticated: false,
 				errMessage: undefined,
-				loginError: undefined,
-				resetError: undefined,
-				forgotError: undefined
 			}
 
 		case authTypes.FAIL_FORGOT_PASSWORD: 
@@ -122,10 +95,7 @@ const authReducer = (state = initialState, { type, payload }) => {
 				data: null,
 				isLoading: false,
 				isAuthenticated: false,
-				errMessage: undefined,
-				loginError: undefined,
-				resetError: undefined,
-				forgotError: payload
+				errMessage: payload
 			}
 		
 
@@ -138,9 +108,6 @@ const authReducer = (state = initialState, { type, payload }) => {
 				isLoading: true,
 				isAuthenticated: false,
 				errMessage: undefined,
-				loginError: undefined,
-				resetError: undefined,
-				forgotError: undefined
 			}
 
 		case authTypes.SUCCESS_RESET_PASSWORD: 
@@ -151,9 +118,6 @@ const authReducer = (state = initialState, { type, payload }) => {
 				isLoading: false,
 				isAuthenticated: false,
 				errMessage: undefined,
-				loginError: undefined,
-				resetError: undefined,
-				forgotError: undefined
 			}
 
 		case authTypes.FAIL_RESET_PASSWORD: 
@@ -163,10 +127,8 @@ const authReducer = (state = initialState, { type, payload }) => {
 				data: null,
 				isLoading: false,
 				isAuthenticated: false,
-				errMessage: undefined,
-				loginError: undefined,
-				resetError: payload,
-				forgotError: undefined
+				errMessage: payload,
+				
 			}
 
 		default:

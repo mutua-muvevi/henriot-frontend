@@ -21,7 +21,7 @@ export const theme = createTheme({
 			disabled: "#6f8ba4"
 		},
 		background: {
-			paper: "rgba(38,38,38,255)",
+			paper: "aliceblue",
 			default: "rgba(241, 250, 248, 1)",
 			dark: "rgba(1,0,1,255)",
 		},
@@ -43,7 +43,7 @@ export const theme = createTheme({
 		error: {
 			main: "#d32f2f",
 			dark: "#c62828",
-			light: "ef2828",
+			light: "#ef2828",
 		},
 	},
 	shape: {

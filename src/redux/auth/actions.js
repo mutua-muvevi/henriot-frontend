@@ -1,4 +1,4 @@
-import authTypes from "./authtypes";
+import authTypes from "./types";
 import axios from "axios";
 
 
@@ -66,10 +66,11 @@ export const signOutUser = () => ({
 })
 
 export const registerUser = (formData) => {
+	console.log("ACTION", formData)
 	return async (dispatch) => {
 		try {
 			const res = await axios.post(
-				`https://rhinojonapi.herokuapp.com/api/user/register`,
+				`http://localhost:8100/api/user/register`,
 				formData,
 				{
 					headers: {
