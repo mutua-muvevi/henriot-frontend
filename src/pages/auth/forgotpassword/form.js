@@ -9,11 +9,10 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 
 import TextfieldWrapper from "../../../components/forms/textfield/textfield";
-import { loginForm } from "./info";
-import { loginUser } from "../../../redux/auth/actions";
+import { forgotPassword } from "../../../redux/auth/actions";
 
 
-const StyledLoginForm = styled(Box)(({ theme }) => ({
+const StyledForgotPasswordForm = styled(Box)(({ theme }) => ({
 	display: "flex",
 	flexDirection: "column",
 	alignItems: "center",
@@ -42,21 +41,19 @@ const StyledButton = styled(Button)(({theme}) => ({
 
 
 const INITIAL_FORM_STATE = {
-	username: "",
-	password: "",
+	email: "",
 }
 
 const FORM_VALIDATION = Yup.object().shape({
-	username: Yup.string().min(5, "Too short username").max(80, "Too long username").required("Please add a username"),
-	password: Yup.string().required("Please add a password"),
+	email: Yup.string().required("Please add a username")
 })
 
-const LoginForm = ({ loginUser, errMessage }) => {
+const ForgotPasswordForm = ({ forgotPassword, errMessage }) => {
 	
 	const [ alertSuccess, setAlertSuccess ] = useState(false);
 	
 	const submitHandler = (values) => {
-		loginUser(values)
+		forgotPassword(values)
 
 		if(errMessage ) {
 			setAlertSuccess(false)
@@ -70,12 +67,12 @@ const LoginForm = ({ loginUser, errMessage }) => {
 	}
 
 	return (
-		<StyledLoginForm>
+		<StyledForgotPasswordForm>
 			{ 
 				alertSuccess === true ? (
 					<Grow  style={{ transformOrigin: '10 20 50' }} sx={{marginBottom: "10px", width: "500px"}} in={alertSuccess} >
 						<Alert style={{display: `${alertSuccess}`}} severity="success" variant="filled">
-							<AlertTitle>Login Success!!</AlertTitle>
+							<AlertTitle>Forgot Password Request Success!!</AlertTitle>
 							Login Successful redirecting ...
 						</Alert>
 					</Grow>
@@ -85,7 +82,7 @@ const LoginForm = ({ loginUser, errMessage }) => {
 				errMessage && alertSuccess === false   ? (
 					<Grow  style={{ transformOrigin: '10 20 50' }} sx={{marginBottom: "10px", width: "500px"}} in timeout={1000}>
 						<Alert severity="error" variant="filled">
-							<AlertTitle>Login Error!</AlertTitle>
+							<AlertTitle>Forgot Password Request Error!</AlertTitle>
 							{ errMessage }
 						</Alert>
 					</Grow>
@@ -101,27 +98,23 @@ const LoginForm = ({ loginUser, errMessage }) => {
 			>
 				<Form>
 					<StyledInputArea>
-						{
-							loginForm.map((el, i) => (
-								<StyledAuthInputs key={i} >
-									<TextfieldWrapper sx={styledAuthTextField} 
-										type={el.type} 
-										name={el.name} 
-										label={el.label}
-										placeholder={el.placeholder}
-										size="small"
-										required
-									/>
-								</StyledAuthInputs>
-							))
-						}
+						<StyledAuthInputs  >
+							<TextfieldWrapper sx={styledAuthTextField} 
+								type="email"
+								name="email"
+								label="Email"
+								placeholder="Enter your email"
+								size="small"
+								required
+							/>
+						</StyledAuthInputs>
 						<StyledButton variant="contained" type="submit">
 							Submit
 						</StyledButton>
 					</StyledInputArea>
 				</Form>
 			</Formik>			
-		</StyledLoginForm>
+		</StyledForgotPasswordForm>
 	)
 }
 
@@ -130,7 +123,7 @@ const mapStateToProps = ({ auth }) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-	loginUser: (values) => dispatch(loginUser(values))
+	forgotPassword: (values) => dispatch(forgotPassword(values))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)
+export default connect(mapStateToProps, mapDispatchToProps)(ForgotPasswordForm)
