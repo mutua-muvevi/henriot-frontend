@@ -105,7 +105,7 @@ const RegisterForm = ({ registerUser, errMessage }) => {
 			name: "username",
 			label: "Username",
 			placeholder: "Required",
-			type: "",
+			type: "text",
 			required: true,
 			inputprops: {}
 		},

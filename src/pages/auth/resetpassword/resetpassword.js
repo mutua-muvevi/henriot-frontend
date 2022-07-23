@@ -5,6 +5,7 @@ import { styled } from "@mui/system";
 
 import ResetPasswordForm from "./form";
 import Logo from "../../../assets/logo/transparentblacklogo.png";
+import { resetPasswordInputs } from "./info";
 
 
 const StyledResetPassword = styled(Box)(({ theme }) => ({

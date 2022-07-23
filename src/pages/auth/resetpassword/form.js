@@ -10,6 +10,7 @@ import * as Yup from "yup";
 
 import TextfieldWrapper from "../../../components/forms/textfield/textfield";
 import { resetPassword } from "../../../redux/auth/actions";
+import { resetPasswordInputs } from "./info";
 
 
 const StyledResetPasswordForm = styled(Box)(({ theme }) => ({
@@ -41,11 +42,13 @@ const StyledButton = styled(Button)(({theme}) => ({
 
 
 const INITIAL_FORM_STATE = {
-	email: "",
+	password: "",
+	confirmpassword: ""
 }
 
 const FORM_VALIDATION = Yup.object().shape({
-	email: Yup.string().required("Please add a username")
+	password: Yup.string().required("Please add a password"),
+	confirmpassword: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords do not match').required("Please retype password again"),
 })
 
 const ResetPasswordForm = ({ resetPassword, errMessage }) => {
@@ -98,16 +101,20 @@ const ResetPasswordForm = ({ resetPassword, errMessage }) => {
 			>
 				<Form>
 					<StyledInputArea>
-						<StyledAuthInputs  >
-							<TextfieldWrapper sx={styledAuthTextField} 
-								type="email"
-								name="email"
-								label="Email"
-								placeholder="Enter your email"
-								size="small"
-								required
-							/>
-						</StyledAuthInputs>
+						{
+							resetPasswordInputs.map((el, i) => (
+								<StyledAuthInputs key={i} >
+									<TextfieldWrapper sx={styledAuthTextField} 
+										type={el.type} 
+										name={el.name} 
+										label={el.label}
+										placeholder={el.placeholder}
+										size="small"
+										required
+									/>
+								</StyledAuthInputs>
+							))
+						}
 						<StyledButton variant="contained" type="submit">
 							Submit
 						</StyledButton>
