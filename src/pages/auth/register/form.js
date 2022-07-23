@@ -129,10 +129,14 @@ const RegisterForm = ({ registerUser, errMessage }) => {
 
 	const submitHandler = (values) => {
 		registerUser(values)
-		setShowSuccess(true)
-		setOpenModal(true)
-		setUser(values)
-		console.log(values)
+
+		if(!errMessage ) {
+			setShowSuccess(true)
+			setOpenModal(true)
+			setUser(values)
+			return
+		}
+		
 	}
 
 	return (

@@ -61,10 +61,6 @@ export const postResetPasswordFail = (errMessage) => ({
 })
 
 
-export const signOutUser = () => ({
-	type: authTypes.LOGOUT_USER
-})
-
 export const registerUser = (formData) => {
 	console.log("ACTION", formData)
 	return async (dispatch) => {
