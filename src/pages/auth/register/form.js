@@ -13,7 +13,7 @@ import * as Yup from "yup";
 import TextfieldWrapper from "../../../components/forms/textfield/textfield";
 import SelectField from "../../../components/forms/select/select";
 
-import Logo from "../../../assets/logo/transparentblacklogo.png"
+import Logo from "../../../assets/logo/transparentblacklogo.png";
 import { countries } from "../../../content/countries";
 import { registerUser } from "../../../redux/auth/actions";
 import ReusableModal from "../../../components/modal/modal";
@@ -143,7 +143,7 @@ const RegisterForm = ({ registerUser, errMessage }) => {
 		<StyledRegistrationForm>
 			{ 
 				showSuccess === true && !errMessage ? (
-					<Grow  style={{ transformOrigin: '10 20 50' }} sx={{marginBottom: "10px", width: "500px"}} in={alertSuccess} >
+					<Grow  style={{ transformOrigin: '10 20 50' }} sx={{marginBottom: "10px", width: "500px"}} in={showSuccess} >
 						<Alert style={{display: `${alertSuccessDisplay}`}} severity="success" variant="filled">
 							<AlertTitle>Registration Success!!</AlertTitle>
 							Email with confirmation code has been sent to you
@@ -152,7 +152,7 @@ const RegisterForm = ({ registerUser, errMessage }) => {
 				) : null
 			}
 			{
-				errMessage || showSuccess === false   ? (
+				errMessage && showSuccess === false   ? (
 					<Grow  style={{ transformOrigin: '10 20 50' }} sx={{marginBottom: "10px", width: "500px"}} in timeout={1000}>
 						<Alert severity="error" variant="filled">
 							<AlertTitle>Registration Error!</AlertTitle>

@@ -86,7 +86,7 @@ export const loginUser = (formData) => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.post(
-				`https://rhinojonapi.herokuapp.com/api/user/login`,
+				`http://localhost:8100/api/user/login`,
 				formData,
 				{
 					headers: {
@@ -108,7 +108,7 @@ export const forgotPassword = (formData) => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.post(
-				`https://rhinojonapi.herokuapp.com/api/user/forgotpassword`,
+				`http://localhost:8100/api/user/forgotpassword`,
 				formData,
 				{
 					headers: {
@@ -128,7 +128,7 @@ export const resetPassword = (values, params) => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.post(
-				`https://rhinojonapi.herokuapp.com/api/user/resetpasword/${params}`,
+				`http://localhost:8100/api/user/resetpasword/${params}`,
 				values,
 				{
 					headers: {
