@@ -1,9 +1,67 @@
-import React from 'react'
+import React from 'react';
+
+import { Alert, AlertTitle, Box, Button, Container, Grid, Grow, Typography } from "@mui/material";
+import { styled } from "@mui/system";
+
+import AboutForm from "./aboutform";
+import AboutContent from "./aboutcontent";
+import IdentityForm from "./identityform";
+import IdentityContent from "./identitycontent";
+
+const StyledSetupAbout = styled(Container)(({ theme }) => ({
+	
+}))
+
+const StyledContactArea = styled(Grid)(({ theme }) => ({
+
+}))
+
+const styledHeaderFont = {
+	fontWeight: "700"
+}
+
+const StyledSetupAboutGridItem = styled(Grid)(({ theme }) => ({
+
+}))
+
+const StyledIdentityArea = styled(Grid)(({ theme }) => ({
+
+}))
 
 const SetupAbout = () => {
-  return (
-	<div>SetupAbout</div>
-  )
+	return (
+		<StyledSetupAbout maxWidth="lg">
+			<StyledContactArea container spacing={2}>
+				<StyledSetupAboutGridItem item xl={12} lg={12} md={6} sm={12} xs={12}>
+					<Typography variant="h3" gutterBottom sx={styledHeaderFont}>
+						Contact information
+					</Typography>
+				</StyledSetupAboutGridItem>
+				<StyledSetupAboutGridItem item xl={9} lg={9} md={6} sm={12} xs={12}>
+					<AboutForm/>
+				</StyledSetupAboutGridItem>
+
+				<StyledSetupAboutGridItem item xl={3} lg={3} md={6} sm={12} xs={12}>
+					<AboutContent/>
+				</StyledSetupAboutGridItem>
+			</StyledContactArea>
+
+			<StyledIdentityArea container spacing={2}>
+				<StyledSetupAboutGridItem item xl={12} lg={12} md={6} sm={12} xs={12}>
+					<Typography variant="h3" gutterBottom sx={styledHeaderFont}>
+						Identity information
+					</Typography>
+				</StyledSetupAboutGridItem>
+				<StyledSetupAboutGridItem item xl={9} lg={9} md={6} sm={12} xs={12}>
+					<IdentityForm/>
+				</StyledSetupAboutGridItem>
+
+				<StyledSetupAboutGridItem item xl={3} lg={3} md={6} sm={12} xs={12}>
+					<IdentityContent/>
+				</StyledSetupAboutGridItem>
+			</StyledIdentityArea>
+		</StyledSetupAbout>
+	)
 }
 
 export default SetupAbout

@@ -7,6 +7,11 @@ import SetupAbout from "../../pages/auth/setup/about";
 import SetupAccount from "../../pages/auth/setup/account";
 import SetupRegulatory from "../../pages/auth/setup/regulatory";
 
+const StyledStepper = styled(Stepper)(({ theme }) => ({
+	marginBottom: "50px",
+	minHeight: "70px",
+}))
+
 const StepperComponent = ({ steps }) => {
 
 	const [activeStep, setActiveStep] = useState(0);
@@ -73,7 +78,7 @@ const StepperComponent = ({ steps }) => {
 
 	return (
 		<Box sx={{ width: '100%' }}>
-			<Stepper activeStep={activeStep}>
+			<StyledStepper activeStep={activeStep}>
 				{
 					steps.map((label, index) => {
 						const stepProps = {};
@@ -94,7 +99,7 @@ const StepperComponent = ({ steps }) => {
 						);
 					})
 				}
-			</Stepper>
+			</StyledStepper>
 
 			{
 				activeStep === steps.length ? (
@@ -115,6 +120,7 @@ const StepperComponent = ({ steps }) => {
 								color="inherit"
 								disabled={activeStep === 0}
 								onClick={handleBack}
+								variant="contained"
 								sx={{ mr: 1 }}
 							>
 								Back
@@ -128,7 +134,7 @@ const StepperComponent = ({ steps }) => {
 								)
 							}
 
-							<Button onClick={handleNext}>
+							<Button onClick={handleNext} variant="contained">
 								{activeStep === steps.length - 1 ? 'Finish' : 'Next'}
 							</Button>
 						</Box>

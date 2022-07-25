@@ -6,7 +6,12 @@ export const setupfields = {
 			placeholder: "Email address",
 			type: "email",
 			required: true,
-			inputprops: {}
+			inputprops: {},
+			xl: 4,
+			lg: 4,
+			md: 6,
+			sm: 12,
+			xs: 12
 		},
 		{
 			name: "phone_number",
@@ -14,7 +19,12 @@ export const setupfields = {
 			placeholder: "Phone Number",
 			type: "text",
 			required: true,
-			inputprops: {}
+			inputprops: {},
+			xl: 4,
+			lg: 4,
+			md: 6,
+			sm: 12,
+			xs: 12
 		},
 		{
 			name: "street_address",
@@ -22,7 +32,12 @@ export const setupfields = {
 			placeholder: "Street Address",
 			type: "text",
 			required: true,
-			inputprops: {}
+			inputprops: {},
+			xl: 4,
+			lg: 4,
+			md: 6,
+			sm: 12,
+			xs: 12
 		},
 		{
 			name: "unit",
@@ -30,7 +45,12 @@ export const setupfields = {
 			placeholder: "Unit",
 			type: "text",
 			required: true,
-			inputprops: {}
+			inputprops: {},
+			xl: 4,
+			lg: 4,
+			md: 6,
+			sm: 12,
+			xs: 12
 		},
 		{
 			name: "postal_code",
@@ -38,7 +58,12 @@ export const setupfields = {
 			placeholder: "Postal Code",
 			type: "text",
 			required: true,
-			inputprops: {}
+			inputprops: {},
+			xl: 4,
+			lg: 4,
+			md: 6,
+			sm: 12,
+			xs: 12
 		},
 		{
 			name: "state",
@@ -46,7 +71,12 @@ export const setupfields = {
 			placeholder: "Your State",
 			type: "text",
 			required: true,
-			inputprops: {}
+			inputprops: {},
+			xl: 4,
+			lg: 4,
+			md: 6,
+			sm: 12,
+			xs: 12
 		},
 		{
 			name: "city",
@@ -54,7 +84,12 @@ export const setupfields = {
 			placeholder: "Your City",
 			type: "text",
 			required: true,
-			inputprops: {}
+			inputprops: {},
+			xl: 4,
+			lg: 4,
+			md: 6,
+			sm: 12,
+			xs: 12
 		},
 		{
 			name: "country",
@@ -62,7 +97,12 @@ export const setupfields = {
 			placeholder: "Your Country",
 			type: "text",
 			required: true,
-			inputprops: {}
+			inputprops: {},
+			xl: 4,
+			lg: 4,
+			md: 6,
+			sm: 12,
+			xs: 12
 		},
 	],
 	identityFields : [
@@ -72,7 +112,12 @@ export const setupfields = {
 			placeholder: "First Name",
 			type: "text",
 			required: true,
-			inputprops: {}
+			inputprops: {},
+			xl: 4,
+			lg: 4,
+			md: 6,
+			sm: 12,
+			xs: 12
 		},
 		{
 			name: "middle_name",
@@ -80,7 +125,12 @@ export const setupfields = {
 			placeholder: "Middlename",
 			type: "text",
 			required: false,
-			inputprops: {}
+			inputprops: {},
+			xl: 4,
+			lg: 4,
+			md: 6,
+			sm: 12,
+			xs: 12
 		},
 		{
 			name: "family_name",
@@ -88,7 +138,12 @@ export const setupfields = {
 			placeholder: "Family Name",
 			type: "text",
 			required: true,
-			inputprops: {}
+			inputprops: {},
+			xl: 4,
+			lg: 4,
+			md: 6,
+			sm: 12,
+			xs: 12
 		},
 		{
 			name: "date_of_birth",
@@ -96,7 +151,12 @@ export const setupfields = {
 			placeholder: "Date of birth",
 			type: "text",
 			required: true,
-			inputprops: {}
+			inputprops: {},
+			xl: 4,
+			lg: 4,
+			md: 6,
+			sm: 12,
+			xs: 12
 		},
 		{
 			name: "tax_id",
@@ -104,7 +164,12 @@ export const setupfields = {
 			placeholder: "Tax ID",
 			type: "text",
 			required: true,
-			inputprops: {}
+			inputprops: {},
+			xl: 4,
+			lg: 4,
+			md: 6,
+			sm: 12,
+			xs: 12
 		},
 		{
 			name: "tax_id_type",
@@ -112,7 +177,12 @@ export const setupfields = {
 			placeholder: "Tax ID Type",
 			type: "text",
 			required: true,
-			inputprops: {}
+			inputprops: {},
+			xl: 4,
+			lg: 4,
+			md: 6,
+			sm: 12,
+			xs: 12
 		},
 		{
 			name: "country_of_citizenship",
@@ -120,7 +190,12 @@ export const setupfields = {
 			placeholder: "Country of citizenship",
 			type: "text",
 			required: true,
-			inputprops: {}
+			inputprops: {},
+			xl: 4,
+			lg: 4,
+			md: 6,
+			sm: 12,
+			xs: 12
 		},
 		{
 			name: "country_of_birth",
@@ -128,7 +203,12 @@ export const setupfields = {
 			placeholder: "Country of birth",
 			type: "text",
 			required: true,
-			inputprops: {}
+			inputprops: {},
+			xl: 4,
+			lg: 4,
+			md: 6,
+			sm: 12,
+			xs: 12
 		},
 		{
 			name: "country_of_tax_residence",
@@ -136,7 +216,12 @@ export const setupfields = {
 			placeholder: "Country of Tax residence",
 			type: "text",
 			required: true,
-			inputprops: {}
+			inputprops: {},
+			xl: 4,
+			lg: 4,
+			md: 6,
+			sm: 12,
+			xs: 12
 		},
 		{
 			name: "funding_source",
@@ -144,7 +229,12 @@ export const setupfields = {
 			placeholder: "Funding Source",
 			type: "text",
 			required: true,
-			inputprops: {}
+			inputprops: {},
+			xl: 4,
+			lg: 4,
+			md: 6,
+			sm: 12,
+			xs: 12
 		},
 	],
 	enabledAssets: {
@@ -153,7 +243,12 @@ export const setupfields = {
 		placeholder: "Enabled assets",
 		type: "text",
 		required: true,
-		inputprops: {}
+		inputprops: {},
+		xl: 4,
+		lg: 4,
+		md: 6,
+		sm: 12,
+		xs: 12
 	},
 }
 
