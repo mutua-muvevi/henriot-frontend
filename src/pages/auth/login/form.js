@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 import { connect } from "react-redux";
 
@@ -54,6 +55,7 @@ const FORM_VALIDATION = Yup.object().shape({
 const LoginForm = ({ loginUser, errMessage }) => {
 	
 	const [ alertSuccess, setAlertSuccess ] = useState(false);
+	const navigate = useNavigate()
 	
 	const submitHandler = (values) => {
 		loginUser(values)
@@ -64,8 +66,9 @@ const LoginForm = ({ loginUser, errMessage }) => {
 		}
 		
 		setAlertSuccess(true)
+
 		setTimeout(() => {
-			
+			navigate("/auth/setup")
 		}, 2000);
 	}
 
