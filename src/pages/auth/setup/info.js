@@ -1,3 +1,10 @@
+import { FaUser } from "react-icons/fa";
+import { BsFillPhoneFill } from "react-icons/bs";
+
+const iconStyles = {
+	fontSize: "50px"
+}
+
 export const setupfields = {
 	contactFields : [
 		{
@@ -262,4 +269,25 @@ export const selectFields = {
 		"Business",
 	],
 
+}
+
+export const rightSideInformation = {
+	information: {
+		icon: <FaUser style={iconStyles}/>,
+		title: "Why do we collect Contact Information?",
+		description: `
+			We are required to collect the personal information in this application to comply with 
+			government anti-money laundering regulations. We understand that confidentiality and 
+			security of the personal information that you share with us is important.
+		`
+	},
+	phone: {
+		icon: <BsFillPhoneFill style={iconStyles}/>,
+		title: "Why do we collect Identity Information?",
+		description: `
+			We are required to collect the personal information in this application to comply with 
+			government anti-money laundering regulations. We understand that confidentiality and 
+			security of the personal information that you share with us is important.
+		`		
+	}
 }
