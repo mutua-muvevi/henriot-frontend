@@ -8,7 +8,7 @@ import AboutContent from "./aboutcontent";
 import TrustedContactForm from "./trustedcontactform";
 
 const StyledSetupAbout = styled(Container)(({ theme }) => ({
-	
+	paddingTop: "50px"
 }))
 
 const StyledSetupFormGridContainer = styled(Grid)(({ theme }) => ({
@@ -16,7 +16,7 @@ const StyledSetupFormGridContainer = styled(Grid)(({ theme }) => ({
 }))
 
 const styledHeaderFont = {
-	fontWeight: "700"
+	fontWeight: "700",
 }
 
 const StyledSetupAboutGridItem = styled(Grid)(({ theme }) => ({
@@ -28,7 +28,7 @@ const SetupAbout = ({ activeStep, handleBack, handleNext, steps }) => {
 		<StyledSetupAbout maxWidth="lg">
 			<StyledSetupFormGridContainer container columnSpacing={5}>
 				<StyledSetupAboutGridItem item xl={12} lg={12} md={6} sm={12} xs={12}>
-					<Typography variant="h3" gutterBottom sx={styledHeaderFont}>
+					<Typography variant="h5" gutterBottom sx={styledHeaderFont}>
 						Contact information
 					</Typography>
 				</StyledSetupAboutGridItem>
@@ -43,7 +43,7 @@ const SetupAbout = ({ activeStep, handleBack, handleNext, steps }) => {
 
 			<StyledSetupFormGridContainer container columnSpacing={5}>
 				<StyledSetupAboutGridItem item xl={12} lg={12} md={6} sm={12} xs={12}>
-					<Typography variant="h3" gutterBottom sx={styledHeaderFont}>
+					<Typography variant="h5" gutterBottom sx={styledHeaderFont}>
 						Trusted Contacts
 					</Typography>
 				</StyledSetupAboutGridItem>
@@ -57,7 +57,7 @@ const SetupAbout = ({ activeStep, handleBack, handleNext, steps }) => {
 				</StyledSetupAboutGridItem>
 
 				<StyledSetupAboutGridItem item xl={12} lg={12} md={6} sm={12} xs={12}>
-					<Typography variant="h3" gutterBottom sx={styledHeaderFont}>
+					<Typography variant="h5" gutterBottom sx={styledHeaderFont}>
 							<Box sx={{ display: 'flex', flexDirection: 'row', pt: 2, pb: 2}}>
 								<Button
 									color="inherit"

@@ -20,7 +20,10 @@ const StyledStepper = styled(Stepper)(({ theme }) => ({
 	alignItems: "center",
 	textAlign: "center",
 	width: "100%",
-	// color: "white"
+	
+	".MuiStepLabel-label": {
+		color: "white"
+	}
 }))
 
 const StyledStepperContent = styled(Container)(({theme}) => ({
@@ -154,7 +157,7 @@ const StepperComponent = ({ steps, styles }) => {
 
 							return (
 								<Step key={label} {...stepProps}>
-									<StepLabel {...labelProps}>{label}</StepLabel>
+									<StepLabel {...labelProps} color="#fff">{label}</StepLabel>
 								</Step>
 							);
 						})

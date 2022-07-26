@@ -9,7 +9,7 @@ import EnabledAssetsForm from "./enabledassetsform";
 import IdentityContent from "./identitycontent";
 
 const StyledSetupOthers = styled(Container)(({ theme }) => ({
-	
+	paddingTop: "50px"
 }))
 
 const StyledSetupFormGridContainer = styled(Grid)(({ theme }) => ({
@@ -29,7 +29,7 @@ const SetupOthers = ({ activeStep, handleBack, handleNext, steps }) => {
 		<StyledSetupOthers maxWidth="lg">
 			<StyledSetupFormGridContainer container spacing={2}>
 				<StyledSetupOthersGridItem item xl={12} lg={12} md={6} sm={12} xs={12}>
-					<Typography variant="h3" gutterBottom sx={styledHeaderFont}>
+					<Typography variant="h5" gutterBottom sx={styledHeaderFont}>
 						Disclosures
 					</Typography>
 				</StyledSetupOthersGridItem>
@@ -44,7 +44,7 @@ const SetupOthers = ({ activeStep, handleBack, handleNext, steps }) => {
 
 			<StyledSetupFormGridContainer container spacing={2}>
 				<StyledSetupOthersGridItem item xl={12} lg={12} md={6} sm={12} xs={12}>
-					<Typography variant="h3" gutterBottom sx={styledHeaderFont}>
+					<Typography variant="h5" gutterBottom sx={styledHeaderFont}>
 						Agreements
 					</Typography>
 				</StyledSetupOthersGridItem>
@@ -60,7 +60,7 @@ const SetupOthers = ({ activeStep, handleBack, handleNext, steps }) => {
 
 
 				<StyledSetupOthersGridItem item xl={12} lg={12} md={6} sm={12} xs={12}>
-					<Typography variant="h3" gutterBottom sx={styledHeaderFont}>
+					<Typography variant="h5" gutterBottom sx={styledHeaderFont}>
 							<Box sx={{ display: 'flex', flexDirection: 'row', pt: 2, pb: 2}}>
 								<Button
 									color="inherit"
