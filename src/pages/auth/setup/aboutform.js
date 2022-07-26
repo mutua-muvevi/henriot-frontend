@@ -27,7 +27,7 @@ const AboutForm = () => {
 					setupfields &&
 					setupfields.contactFields &&
 					setupfields.contactFields.map((el, i) => (
-						<StyledAboutFormContentGridItem item xl={el.xl} lg={el.lg} md={el.md} sm={el.sm} xs={el.xs}>
+						<StyledAboutFormContentGridItem item key={i} xl={el.xl} lg={el.lg} md={el.md} sm={el.sm} xs={el.xs}>
 							<TextfieldWrapper
 								name={el.name}
 								label={el.label}

@@ -1,37 +1,44 @@
 import React, { useState } from 'react';
 
-import { Box, Stepper, Step, StepLabel, Button, Typography } from '@mui/material';
+import { Box, Container, Stepper, Step, StepLabel, Typography } from '@mui/material';
 import { styled } from "@mui/system";
 
 import SetupAbout from "../../pages/auth/setup/about";
 import SetupIdentity from "../../pages/auth/setup/identity";
 import SetupOthers from "../../pages/auth/setup/others";
+import SimpleCard from "../../components/card/simple";
+import CompletedStepper from "./completed";
 
 const StyledStepper = styled(Stepper)(({ theme }) => ({
-	marginBottom: "50px",
+	marginBottom: "10px",
 	minHeight: "70px",
+	padding: "0px",
+	backgroundColor: theme.palette.background.dark,
+	display: "flex",
+	flexDirectin: "column",
+	justifyContent: "center",
+	alignItems: "center",
+	textAlign: "center",
+	width: "100%",
+	// color: "white"
 }))
 
-const StepperComponent = ({ steps }) => {
+const StyledStepperContent = styled(Container)(({theme}) => ({
+
+}))
+
+const StepperComponent = ({ steps, styles }) => {
 
 	const [activeStep, setActiveStep] = useState(0);
 	const [skipped, setSkipped] = useState(new Set());
 
-	const renderStepperBody = (activeStep) => {
-		switch (activeStep) {
-			case 0:
-				return <SetupAbout/>;
+	const [stepError, setStepError] = useState(false)
 
-			case 1:
-				return <SetupIdentity/>;
+	const isStepFailed = (step) => {
+		setStepError(true)
+		return step === 1;
+	};
 
-			case 2: 
-				return <SetupOthers/>;
-		
-			default:
-				<div>Invalid</div>;
-		}
-	}
 
 	const isStepOptional = (step) => {
 		return step === 1;
@@ -57,91 +64,114 @@ const StepperComponent = ({ steps }) => {
 		setActiveStep((prevActiveStep) => prevActiveStep - 1);
 	};
 
-	const handleSkip = () => {
-		if (!isStepOptional(activeStep)) {
-			throw new Error("You can't skip a step that isn't optional.");
-		}
+	// const handleSkip = () => {
+	// 	if (!isStepOptional(activeStep)) {
+	// 		throw new Error("You can't skip a step that isn't optional.");
+	// 	}
 
-		setActiveStep((prevActiveStep) => prevActiveStep + 1);
+	// 	setActiveStep((prevActiveStep) => prevActiveStep + 1);
 
-		setSkipped((prevSkipped) => {
-			const newSkipped = new Set(prevSkipped.values());
-			newSkipped.add(activeStep);
-			return newSkipped;
-		});
-	};
+	// 	setSkipped((prevSkipped) => {
+	// 		const newSkipped = new Set(prevSkipped.values());
+	// 		newSkipped.add(activeStep);
+	// 		return newSkipped;
+	// 	});
+	// };
 	
 	const handleReset = () => {
 		setActiveStep(0);
 	};
 	
+	const handleSubmit = () => {
+		setActiveStep(0);
+	};
+	
+	
+	const renderStepperBody = (activeStep) => {
+		switch (activeStep) {
+			case 0:
+				return (
+					<SetupAbout 
+						activeStep={activeStep}
+						handleBack={handleBack}
+						handleNext={handleNext}
+						steps={steps}
+						/>
+				);
+
+			case 1:
+				return(
+					<SetupIdentity
+						activeStep={activeStep}
+						handleBack={handleBack}
+						handleNext={handleNext}
+						steps={steps}
+						/>
+					);
+
+			case 2: 
+				return (
+					<SetupOthers
+						activeStep={activeStep}
+						handleBack={handleBack}
+						handleNext={handleNext}
+						steps={steps}
+					/>
+				);
+		
+			default:
+				<div>Invalid Choice</div>;
+		}
+	}
 
 	return (
-		<Box sx={{ width: '100%' }}>
-			<StyledStepper activeStep={activeStep}>
-				{
-					steps.map((label, index) => {
-						const stepProps = {};
-						const labelProps = {};
+		<SimpleCard>
+			<Box sx={{ width: '100%' }}>
+				<StyledStepper activeStep={activeStep} >
+					{
+						steps.map((label, index) => {
+							const stepProps = {};
+							const labelProps = {};
 
-						if (isStepOptional(index)) {
-							labelProps.optional = (
-								<></>
-							);
-						}
-						if (isStepSkipped(index)) {
-							stepProps.completed = false;
-						}
-						return (
-							<Step key={label} {...stepProps}>
-								<StepLabel {...labelProps}>{label}</StepLabel>
-							</Step>
-						);
-					})
-				}
-			</StyledStepper>
-
-			{
-				activeStep === steps.length ? (
-					<>
-						<Typography sx={{ mt: 2, mb: 1 }}>
-							All steps completed - youre finished
-						</Typography>
-						<Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-							<Box sx={{ flex: '1 1 auto' }} />
-							<Button onClick={handleReset}>Reset</Button>
-						</Box>
-					</>
-				) : (
-					<>
-						{renderStepperBody(activeStep)}
-						<Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-							<Button
-								color="inherit"
-								disabled={activeStep === 0}
-								onClick={handleBack}
-								variant="contained"
-								sx={{ mr: 1 }}
-							>
-								Back
-							</Button>
-							<Box sx={{ flex: '1 1 auto' }} />
-							{
-								isStepOptional(activeStep) && (
-								<Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
-									Skip
-								</Button>
-								)
+							if (isStepOptional(index)) {
+								labelProps.optional = (
+									<></>
+								);
+							}
+							if (isStepSkipped(index)) {
+								stepProps.completed = false;
 							}
 
-							<Button onClick={handleNext} variant="contained">
-								{activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-							</Button>
-						</Box>
-					</>
-				)
-			}
-		</Box>
+							// if (isStepFailed(index)) {
+							// 	labelProps.optional = (
+							// 		<Typography variant="caption" color="error">
+							// 			Alert message
+							// 		</Typography>
+							// 	);
+					
+							// 	labelProps.error = true;
+							// }
+
+							return (
+								<Step key={label} {...stepProps}>
+									<StepLabel {...labelProps}>{label}</StepLabel>
+								</Step>
+							);
+						})
+					}
+				</StyledStepper>
+
+				{
+					activeStep === steps.length ? (
+						<CompletedStepper handleSubmit={handleSubmit} handleReset={handleReset} style={styles}/>
+					) : (
+						<StyledStepperContent maxWidth="xl" style={styles}>
+							{renderStepperBody(activeStep)}
+						</StyledStepperContent>
+					)
+				}
+			</Box>
+		</SimpleCard>
 	);
 }
 

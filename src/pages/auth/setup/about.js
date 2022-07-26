@@ -5,6 +5,7 @@ import { styled } from "@mui/system";
 
 import AboutForm from "./aboutform";
 import AboutContent from "./aboutcontent";
+import TrustedContactForm from "./trustedcontactform";
 
 const StyledSetupAbout = styled(Container)(({ theme }) => ({
 	
@@ -22,10 +23,10 @@ const StyledSetupAboutGridItem = styled(Grid)(({ theme }) => ({
 
 }))
 
-const SetupAbout = () => {
+const SetupAbout = ({ activeStep, handleBack, handleNext, steps }) => {
 	return (
 		<StyledSetupAbout maxWidth="lg">
-			<StyledSetupFormGridContainer container spacing={2}>
+			<StyledSetupFormGridContainer container columnSpacing={5}>
 				<StyledSetupAboutGridItem item xl={12} lg={12} md={6} sm={12} xs={12}>
 					<Typography variant="h3" gutterBottom sx={styledHeaderFont}>
 						Contact information
@@ -38,6 +39,44 @@ const SetupAbout = () => {
 				<StyledSetupAboutGridItem item xl={3} lg={3} md={6} sm={12} xs={12}>
 					<AboutContent/>
 				</StyledSetupAboutGridItem>
+			</StyledSetupFormGridContainer>
+
+			<StyledSetupFormGridContainer container columnSpacing={5}>
+				<StyledSetupAboutGridItem item xl={12} lg={12} md={6} sm={12} xs={12}>
+					<Typography variant="h3" gutterBottom sx={styledHeaderFont}>
+						Trusted Contacts
+					</Typography>
+				</StyledSetupAboutGridItem>
+
+				<StyledSetupAboutGridItem item xl={9} lg={9} md={6} sm={12} xs={12}>
+					<TrustedContactForm/>
+				</StyledSetupAboutGridItem>
+
+				<StyledSetupAboutGridItem item xl={3} lg={3} md={6} sm={12} xs={12}>
+					{/* <AboutContent/> */}
+				</StyledSetupAboutGridItem>
+
+				<StyledSetupAboutGridItem item xl={12} lg={12} md={6} sm={12} xs={12}>
+					<Typography variant="h3" gutterBottom sx={styledHeaderFont}>
+							<Box sx={{ display: 'flex', flexDirection: 'row', pt: 2, pb: 2}}>
+								<Button
+									color="inherit"
+									disabled={activeStep === 0}
+									onClick={handleBack}
+									variant="contained"
+									sx={{ mr: 1 }}
+								>
+									Back
+								</Button>
+								<Box sx={{ flex: '1 1 auto' }} />
+
+								<Button onClick={handleNext} variant="contained">
+									{activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+								</Button>
+							</Box>
+					</Typography>
+				</StyledSetupAboutGridItem>
+
 			</StyledSetupFormGridContainer>
 		</StyledSetupAbout>
 	)

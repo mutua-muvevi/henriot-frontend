@@ -27,7 +27,7 @@ const IdentityForm = () => {
 					setupfields &&
 					setupfields.identityFields &&
 					setupfields.identityFields.map((el, i) => (
-						<StyledIdentityFormContentGridItem item xl={el.xl} lg={el.lg} md={el.md} sm={el.sm} xs={el.xs}>
+						<StyledIdentityFormContentGridItem key={i} item xl={el.xl} lg={el.lg} md={el.md} sm={el.sm} xs={el.xs}>
 							<TextfieldWrapper
 								name={el.name}
 								label={el.label}

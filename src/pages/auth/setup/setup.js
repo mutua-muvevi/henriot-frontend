@@ -19,18 +19,12 @@ const StyledSetup = styled(Box)(({ theme }) => ({
 	alignItems: "center",
 }))
 
-const StyledSetupContent = styled(Grid)(({ theme }) => ({
-	
-}))
-
-const StyledSetupForm = styled(Grid)(({ theme }) => ({
-}))
-
-const StyledSetupRight = styled(Grid)(({ theme }) => ({
-	backgroundColor: "green",
-
-}))
-
+const stepperStyles = {
+	maxHeight: "80vh",
+	minWidth: "60vw",
+	overflowY: "scroll",
+	minHeight: "40vh",
+}
 
 const INITIAL_FORM_STATE = {
 	contact: {
@@ -183,18 +177,9 @@ const Setup = () => {
 				onSubmit = { submitHandler }
 			>
 				<Form>
-					<StepperComponent steps={steps}/>
+					<StepperComponent steps={steps} styles={stepperStyles}/>
 				</Form>
 			</Formik>
-
-
-			<StyledSetupContent container columnSpacing={2}>
-				<StyledSetupForm item xl={9} lg={9} md={6} sm={12} xs={12}>
-				</StyledSetupForm>
-				<StyledSetupRight item xl={3} lg={3} md={6} sm={12} xs={12}>
-
-				</StyledSetupRight>
-			</StyledSetupContent>
 		</StyledSetup>
 	)
 }

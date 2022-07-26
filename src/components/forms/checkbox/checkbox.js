@@ -1,41 +1,36 @@
 import React from 'react';
-import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material';
-import { useField } from 'formik';
 
-const CheckBoxField = ({
-	name,
-	label,
-	legend,
-	...otherProps
-}) => {
+import {  Checkbox,  FormControl, FormControlLabel, FormGroup, FormLabel } from '@mui/material';
+import { useField, useFormikContext } from 'formik';
+
+const CheckBoxField = ({ name, label, legend,  ...otherProps }) => {
+	const { setFieldValue } = useFormikContext();
 	const [field, meta] = useField(name);
 
-	const configFormControl = {}
-
-	const configCheckbox = {
-		...field
+	const handleChange = evt => {
+		const { checked } = evt.target;
+		setFieldValue(name, checked);
 	};
 
+	const configCheckbox = {
+		...field,
+		onChange: handleChange
+	};
 
-	if(meta && meta.touched && meta.error) {
+	const configFormControl = {};
+	if (meta && meta.touched && meta.error) {
 		configFormControl.error = true;
-		configFormControl.helperText = meta.error;
 	}
 
 	return (
-		<FormControl>
+		<FormControl {...configFormControl}>
 			<FormLabel component="legend">{legend}</FormLabel>
-			<RadioGroup name={name} {...configCheckbox} row defaultValue="client">
-				    <FormControlLabel 
-						value="admin" 
-						control={<Radio/>} 
-						label="Admin" />
-						
-    				<FormControlLabel 
-						value="client" 
-						control={<Radio/>} 
-						label="Client" />
-			</RadioGroup>
+			<FormGroup>
+				<FormControlLabel
+					control={<Checkbox {...configCheckbox} />}
+					label={label}
+				/>
+			</FormGroup>
 		</FormControl>
 	);
 };
