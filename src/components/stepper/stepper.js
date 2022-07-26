@@ -4,8 +4,8 @@ import { Box, Stepper, Step, StepLabel, Button, Typography } from '@mui/material
 import { styled } from "@mui/system";
 
 import SetupAbout from "../../pages/auth/setup/about";
-import SetupAccount from "../../pages/auth/setup/account";
-import SetupRegulatory from "../../pages/auth/setup/regulatory";
+import SetupIdentity from "../../pages/auth/setup/identity";
+import SetupOthers from "../../pages/auth/setup/others";
 
 const StyledStepper = styled(Stepper)(({ theme }) => ({
 	marginBottom: "50px",
@@ -23,10 +23,10 @@ const StepperComponent = ({ steps }) => {
 				return <SetupAbout/>;
 
 			case 1:
-				return <SetupAccount/>;
+				return <SetupIdentity/>;
 
 			case 2: 
-				return <SetupRegulatory/>;
+				return <SetupOthers/>;
 		
 			default:
 				<div>Invalid</div>;
