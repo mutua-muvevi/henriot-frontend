@@ -20,9 +20,12 @@ const StyledStepper = styled(Stepper)(({ theme }) => ({
 	alignItems: "center",
 	textAlign: "center",
 	width: "100%",
-	
+
 	".MuiStepLabel-label": {
-		color: "white"
+		color: "grey",
+	},
+	".Mui-completed": {
+		color: "white",
 	}
 }))
 
@@ -145,19 +148,11 @@ const StepperComponent = ({ steps, styles }) => {
 								stepProps.completed = false;
 							}
 
-							// if (isStepFailed(index)) {
-							// 	labelProps.optional = (
-							// 		<Typography variant="caption" color="error">
-							// 			Alert message
-							// 		</Typography>
-							// 	);
-					
-							// 	labelProps.error = true;
-							// }
+							// with error here
 
 							return (
 								<Step key={label} {...stepProps}>
-									<StepLabel {...labelProps} color="#fff">{label}</StepLabel>
+									<StepLabel {...labelProps}>{label}</StepLabel>
 								</Step>
 							);
 						})
