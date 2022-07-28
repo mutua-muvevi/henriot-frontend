@@ -76,7 +76,7 @@ const DisclosureForm = ({values}) => {
 										context &&
 										context.length > 0 ? 
 										context.map((el, index) => (
-											<StyledDisclosureFormContentGridFieldArrayWrapper>
+											<StyledDisclosureFormContentGridFieldArrayWrapper key={index}>
 												<StyledDisclosureFormContentGridFieldArray container rowSpacing={3} key={index}>
 													{
 														setupfields &&

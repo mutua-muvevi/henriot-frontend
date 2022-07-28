@@ -4,7 +4,7 @@ import { Alert, AlertTitle, Box, Button, Container, Grid, Grow, Typography } fro
 import { styled } from "@mui/system";
 
 import DisclosureForm from "./disclosuresform";
-import SetupDocumentsForm from "./documentsform";
+import AgreementForm from "./agreementsform";
 import EnabledAssetsForm from "./enabledassetsform";
 import IdentityContent from "./identitycontent";
 
@@ -49,7 +49,7 @@ const SetupOthers = ({ activeStep, handleBack, handleNext, steps, values }) => {
 					</Typography>
 				</StyledSetupOthersGridItem>
 				<StyledSetupOthersGridItem item xl={9} lg={9} md={6} sm={12} xs={12}>
-					<SetupDocumentsForm/>
+					<AgreementForm values={values}/>
 				</StyledSetupOthersGridItem>
 			</StyledSetupFormGridContainer>
 

@@ -42,13 +42,13 @@ const SetupIdentity = ({ activeStep, handleBack, handleNext, steps, values }) =>
 			</StyledSetupFormGridContainer>
 
 			<StyledSetupFormGridContainer container spacing={2}>
-				<StyledSetupIdentityGridItem item xl={12} lg={12} md={6} sm={12} xs={12}>
+				<StyledSetupIdentityGridItem item xl={12} lg={12} md={12} sm={12} xs={12}>
 					<Typography variant="h5" gutterBottom sx={styledHeaderFont}>
 						Documents
 					</Typography>
 				</StyledSetupIdentityGridItem>
 				<StyledSetupIdentityGridItem item xl={9} lg={9} md={6} sm={12} xs={12}>
-					<SetupDocumentsForm/>
+					<SetupDocumentsForm values={values}/>
 				</StyledSetupIdentityGridItem>
 
 				

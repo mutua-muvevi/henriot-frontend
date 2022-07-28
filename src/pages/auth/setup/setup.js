@@ -74,22 +74,22 @@ const INITIAL_FORM_STATE = {
 			}
 		],
 	},
-	// agreements: [
-	// 	{
-	// 		agreement: "",
-	// 		signed_at: "",
-	// 		ip_address: "",
-	// 		revision: ""
-	// 	}
-	// ],
-	// documents: [
-	// 	{
-	// 		document_type: "",
-	// 		document_sub_type: "",
-	// 		content: "",
-	// 		mime_type: ""
-	// 	}
-	// ],
+	agreements: [
+		{
+			agreement: "",
+			signed_at: "",
+			ip_address: "",
+			revision: ""
+		}
+	],
+	documents: [
+		{
+			document_type: "",
+			document_sub_type: "",
+			content: "",
+			mime_type: ""
+		}
+	],
 }
 
 const FORM_VALIDATION = Yup.object().shape({
@@ -132,7 +132,7 @@ const FORM_VALIDATION = Yup.object().shape({
 			Yup.object().shape({
 				context_type: Yup.string().min(3, "Too short context type").max(50, "Too long context type").required(true, "item req"),
 				company_name: Yup.string().min(3, "Too short company name").max(50, "Too long company name"),
-				company_street_address: Yup.array().min(3, "Minimum address required 1").max(5, "Maximum addresses required 5"),
+				company_street_address: Yup.string().min(3, "Minimum address required 1").max(50, "Maximum addresses required 5"),
 				company_state: Yup.string().min(4, "Too short state name").max(15, "Too long state name"),
 				company_city: Yup.string().min(2, "Too short city name").max(85, "Too long city name"),
 				company_country: Yup.string().min(4, "Too short country name").max(56, "Too long country name"),
@@ -140,20 +140,22 @@ const FORM_VALIDATION = Yup.object().shape({
 			})
 		)
 	}),
-	// agreements: Yup.object().shape({
-	// 	agreement: Yup.string().min(3, "Agreement characters too short").max(50, "Agreement characters too long"),
-	// 	signed_at: Yup.string().min(4, "Minimum characters for signed at is 4").max(10, "Minimum characters for signed at is 10"),
-	// 	ip_address: Yup.string().min(8, "Too short IP address").max(128, "Too long IP address"),
-	// 	revision: Yup.string().min(3, "Too short Revision").max(50, "Too long Revision"),
-	// }),
-	// documents: Yup.array().of(
-	// 	Yup.object().shape({
-	// 		document_type: Yup.string().min(3, "Too short Document type").max(50, "Too long Document type"),
-	// 		document_sub_type: Yup.string().min(3, "Too short document subtype").max(50, "Too long document subtype"),
-	// 		content: Yup.string().min(3, "Too short document content").max(50, "Too long document content"),
-	// 		mime_type: Yup.string().min(3, "Too short document mime type").max(50, "Too long document mime type"),
-	// 	})
-	// )
+	agreements: Yup.array().of(
+		Yup.object().shape({
+			agreement: Yup.string().min(3, "Agreement characters too short").max(50, "Agreement characters too long"),
+			signed_at: Yup.string().min(4, "Minimum characters for signed at is 4").max(10, "Maximum characters for signed at is 10"),
+			ip_address: Yup.string().min(8, "Too short IP address").max(128, "Too long IP address"),
+			revision: Yup.string().min(3, "Too short Revision").max(50, "Too long Revision"),
+		}),
+	),
+	documents: Yup.array().of(
+		Yup.object().shape({
+			document_type: Yup.string().min(3, "Too short Document type").max(50, "Too long Document type"),
+			document_sub_type: Yup.string().min(3, "Too short document subtype").max(50, "Too long document subtype"),
+			content: Yup.string().min(3, "Too short document content").max(50, "Too long document content"),
+			mime_type: Yup.string().min(3, "Too short document mime type").max(50, "Too long document mime type"),
+		})
+	)
 })
 
 const Setup = () => {
