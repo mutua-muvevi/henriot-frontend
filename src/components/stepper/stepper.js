@@ -29,8 +29,14 @@ const StyledStepper = styled(Stepper)(({ theme }) => ({
 const StyledStep = styled(Step)(({ theme }) => ({
 	".Mui-completed": {
 		color: "white !important",
-	}
+	},
 	
+}))
+
+const StyledStepLabel = styled(StepLabel)(({ theme }) => ({
+	".Mui-active": {
+		color: "aliceblue !important"
+	}
 }))
 
 const StyledStepperContent = styled(Container)(({theme}) => ({
@@ -155,7 +161,7 @@ const StepperComponent = ({ steps, styles, submitHandler, values }) => {
 
 							return (
 								<StyledStep key={label} {...stepProps}>
-									<StepLabel {...labelProps}>{label}</StepLabel>
+									<StyledStepLabel {...labelProps}>{label}</StyledStepLabel>
 								</StyledStep>
 							);
 						})

@@ -59,7 +59,10 @@ const CompletedStepper = ({children, handleReset, submitHandler, style, values})
 						About summary
 					</Typography>
 					{
-						JSON.stringify(values)
+						JSON.stringify(values.contact)
+					}
+					{
+						JSON.stringify(values.trusted_contact)
 					}
 				</StyledCompletedSetupUnit>
 
@@ -68,7 +71,10 @@ const CompletedStepper = ({children, handleReset, submitHandler, style, values})
 						Identity summary
 					</Typography>
 					{
-						JSON.stringify(values)
+						JSON.stringify(values.identity)
+					}
+					{
+						JSON.stringify(values.documents)
 					}
 				</StyledCompletedSetupUnit>
 
@@ -77,7 +83,10 @@ const CompletedStepper = ({children, handleReset, submitHandler, style, values})
 						Other fiels summary
 					</Typography>
 					{
-						JSON.stringify(values)
+						JSON.stringify(values.disclosures)
+					}
+					{
+						JSON.stringify(values.agreements)
 					}
 				</StyledCompletedSetupUnit>
 
@@ -85,7 +94,7 @@ const CompletedStepper = ({children, handleReset, submitHandler, style, values})
 					<Box sx={{ flex: '1 1 auto' }} />
 					<ButtonGroup variant="contained" >
 						<Button onClick={handleReset} aria-label="Account setup reset button">
-							Reset
+							Back
 						</Button>
 						<Button type="submit" aria-label="Account setup submit button">
 							Confirm

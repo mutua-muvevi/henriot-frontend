@@ -120,6 +120,7 @@ const DisclosureForm = ({values}) => {
 												<ButtonGroup type="button" variant="contained">
 													<Button
 														color="error"
+														{ ...context.length === 0 ? "disabled" : null}
 														onClick={() => arrayHelpers.remove(index)}
 														>
 														Remove context
