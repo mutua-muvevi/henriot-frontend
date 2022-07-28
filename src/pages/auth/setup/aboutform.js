@@ -4,6 +4,9 @@ import { Alert, AlertTitle, Box, Button, Grid, Grow, Typography } from "@mui/mat
 import { styled } from "@mui/system";
 
 import TextfieldWrapper from "../../../components/forms/textfield/textfield";
+import SelectField from "../../../components/forms/select/select";
+import { countries } from "../../../content/countries";
+import { USAstates } from "../../../content/states";
 import { setupfields } from "./info";
 
 
@@ -38,6 +41,26 @@ const AboutForm = () => {
 						</StyledAboutFormContentGridItem>
 					))
 				}
+				<StyledAboutFormContentGridItem item xl={4} lg={4} md={6} sm={12} xs={12}>
+					<SelectField
+						type="text"
+						name="contact.state"
+						label="states"
+						size="small"
+						options={USAstates}
+						required
+					/>
+				</StyledAboutFormContentGridItem>
+				<StyledAboutFormContentGridItem item xl={4} lg={4} md={6} sm={12} xs={12}>
+					<SelectField
+						type="text"
+						name="contact.country"
+						label="country"
+						size="small"
+						options={countries}
+						required
+					/>
+				</StyledAboutFormContentGridItem>
 			</StyledAboutFormContentGrid>
 		</StyledAboutForm>
 	)

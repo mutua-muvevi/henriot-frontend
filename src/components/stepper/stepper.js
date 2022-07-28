@@ -24,9 +24,13 @@ const StyledStepper = styled(Stepper)(({ theme }) => ({
 	".MuiStepLabel-label": {
 		color: "grey",
 	},
+}))
+
+const StyledStep = styled(Step)(({ theme }) => ({
 	".Mui-completed": {
-		color: "white",
+		color: "white !important",
 	}
+	
 }))
 
 const StyledStepperContent = styled(Container)(({theme}) => ({
@@ -150,9 +154,9 @@ const StepperComponent = ({ steps, styles, submitHandler, values }) => {
 							// with error here
 
 							return (
-								<Step key={label} {...stepProps}>
+								<StyledStep key={label} {...stepProps}>
 									<StepLabel {...labelProps}>{label}</StepLabel>
-								</Step>
+								</StyledStep>
 							);
 						})
 					}
@@ -160,7 +164,12 @@ const StepperComponent = ({ steps, styles, submitHandler, values }) => {
 
 				{
 					activeStep === steps.length ? (
-						<CompletedStepper submitHandler={submitHandler} handleReset={handleReset} style={styles}/>
+						<CompletedStepper
+							submitHandler={submitHandler}
+							handleReset={handleReset} 
+							style={styles}
+							values={values}
+						/>
 					) : (
 						<StyledStepperContent maxWidth="xl" style={styles}>
 							{renderStepperBody(activeStep)}

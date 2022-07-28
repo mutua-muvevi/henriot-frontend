@@ -7,6 +7,10 @@ import { FieldArray } from "formik"
 
 import CheckBoxField from "../../../components/forms/checkbox/checkbox";
 import TextfieldWrapper from "../../../components/forms/textfield/textfield";
+import SelectField from "../../../components/forms/select/select";
+
+import { countries } from "../../../content/countries";
+import { USAstates } from "../../../content/states";
 import { setupfields } from "./info";
 
 
@@ -24,7 +28,6 @@ const StyledDisclosureFormContentGridCheckBox = styled(Grid)(({ theme }) => ({
 }));
 
 const StyledDisclosureFormContentGridItemCheckBox = styled(Grid)(({ theme }) => ({
-	// backgroundColor: "green",
 	
 }));
 
@@ -93,6 +96,26 @@ const DisclosureForm = ({values}) => {
 															</StyledDisclosureFormContentGridItemFieldArray>
 														))
 													}
+													<StyledDisclosureFormContentGridItemFieldArray item xl={6} lg={6} md={12} sm={12} xs={12}>
+														<SelectField
+															type="text"
+															name={`disclosures.context.${index}.company_state`}
+															label="Company State"
+															size="small"
+															options={USAstates}
+															required
+														/>
+													</StyledDisclosureFormContentGridItemFieldArray>
+													<StyledDisclosureFormContentGridItemFieldArray item  xl={6} lg={6} md={12} sm={12} xs={12}>
+														<SelectField
+															type="text"
+															name={`disclosures.context.${index}.company_country`}
+															label="Company Country"
+															size="small"
+															options={countries}
+															required
+														/>
+													</StyledDisclosureFormContentGridItemFieldArray>
 												</StyledDisclosureFormContentGridFieldArray>
 												<ButtonGroup type="button" variant="contained">
 													<Button
@@ -112,7 +135,6 @@ const DisclosureForm = ({values}) => {
 																company_state: "",
 																company_city: "",
 																company_country: "",
-																subheader: "",
 																company_compliance_email: "",
 															})
 														}

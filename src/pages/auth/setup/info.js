@@ -73,19 +73,6 @@ export const setupfields = {
 			xs: 12
 		},
 		{
-			name: "contact.state",
-			label: "Your State",
-			placeholder: "Your State",
-			type: "text",
-			required: true,
-			inputprops: {},
-			xl: 4,
-			lg: 4,
-			md: 6,
-			sm: 12,
-			xs: 12
-		},
-		{
 			name: "contact.city",
 			label: "Your City",
 			placeholder: "Your City",
@@ -97,20 +84,7 @@ export const setupfields = {
 			md: 6,
 			sm: 12,
 			xs: 12
-		},
-		{
-			name: "contact.country",
-			label: "Your Country",
-			placeholder: "Your Country",
-			type: "text",
-			required: true,
-			inputprops: {},
-			xl: 4,
-			lg: 4,
-			md: 6,
-			sm: 12,
-			xs: 12
-		},
+		}
 	],
 
 	identityFields : [
@@ -157,7 +131,7 @@ export const setupfields = {
 			name: "identity.date_of_birth",
 			label: "Date of birth",
 			placeholder: "Date of birth",
-			type: "text",
+			type: "date",
 			required: true,
 			inputprops: {},
 			xl: 4,
@@ -183,45 +157,6 @@ export const setupfields = {
 			name: "identity.tax_id_type",
 			label: "Tax ID Type",
 			placeholder: "Tax ID Type",
-			type: "text",
-			required: true,
-			inputprops: {},
-			xl: 4,
-			lg: 4,
-			md: 6,
-			sm: 12,
-			xs: 12
-		},
-		{
-			name: "identity.country_of_citizenship",
-			label: "Country of citizenship",
-			placeholder: "Country of citizenship",
-			type: "text",
-			required: true,
-			inputprops: {},
-			xl: 4,
-			lg: 4,
-			md: 6,
-			sm: 12,
-			xs: 12
-		},
-		{
-			name: "identity.country_of_birth",
-			label: "Country of birth",
-			placeholder: "Country of birth",
-			type: "text",
-			required: true,
-			inputprops: {},
-			xl: 4,
-			lg: 4,
-			md: 6,
-			sm: 12,
-			xs: 12
-		},
-		{
-			name: "identity.country_of_tax_residence",
-			label: "Country of Tax residence",
-			placeholder: "Country of Tax residence",
 			type: "text",
 			required: true,
 			inputprops: {},
@@ -377,32 +312,32 @@ export const setupfields = {
 			sm: 12,
 			xs: 12
 		},
-		{
-			name: "company_state",
-			label: "Company State",
-			placeholder: "Company State",
-			type: "text",
-			required: true,
-			inputprops: {},
-			xl: 6,
-			lg: 6,
-			md: 12,
-			sm: 12,
-			xs: 12
-		},
-		{
-			name: "company_country",
-			label: "Company Country",
-			placeholder: "Company Country",
-			type: "text",
-			required: true,
-			inputprops: {},
-			xl: 6,
-			lg: 6,
-			md: 12,
-			sm: 12,
-			xs: 12
-		},
+		// {
+		// 	name: "company_state",
+		// 	label: "Company State",
+		// 	placeholder: "Company State",
+		// 	type: "text",
+		// 	required: true,
+		// 	inputprops: {},
+		// 	xl: 6,
+		// 	lg: 6,
+		// 	md: 12,
+		// 	sm: 12,
+		// 	xs: 12
+		// },
+		// {
+		// 	name: "company_country",
+		// 	label: "Company Country",
+		// 	placeholder: "Company Country",
+		// 	type: "text",
+		// 	required: true,
+		// 	inputprops: {},
+		// 	xl: 6,
+		// 	lg: 6,
+		// 	md: 12,
+		// 	sm: 12,
+		// 	xs: 12
+		// },
 	],
 
 	agreements: [
@@ -422,8 +357,8 @@ export const setupfields = {
 		{
 			name: "signed_at",
 			label: "Signed at",
-			placeholder: "Signed at",
-			type: "text",
+			placeholder: "",
+			type: "datetime-local",
 			required: true,
 			inputprops: {},
 			xl: 4,
@@ -559,7 +494,6 @@ export const setupfields = {
 
 
 export const selectFields = {
-	salutation : ["Mr.", "Mrs.", "Miss"],
 	phoneType: [
 		"Home",
 		"Mobile",

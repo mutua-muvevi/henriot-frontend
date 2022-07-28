@@ -99,7 +99,7 @@ const FORM_VALIDATION = Yup.object().shape({
 		street_address: Yup.string().min(2, "Too short street address").max(63, "Too long street address").required("Please add a street address"),
 		unit: Yup.string().min(2, "Too short unit").max(80, "Too long unit").required("Please add a unit"),
 		postal_code: Yup.string().min(5, "Too short postal code").max(11, "Too long postal code").required("Please add a postal code"),
-		state: Yup.string().min(4, "Too short state name").max(15, "Too long state name").required("Please add a state name"),
+		state: Yup.string().min(4, "Too short state name").max(30, "Too long state name").required("Please add a state name"),
 		city: Yup.string().min(2, "Too short city name").max(85, "Too long city name").required("Please add a city name"),
 		country: Yup.string().min(4, "Too short country name").max(56, "Too long country name").required("Please add a country name"),
 	}),
@@ -108,7 +108,7 @@ const FORM_VALIDATION = Yup.object().shape({
 		given_name: Yup.string().min(3, "Too short first name").max(50, "Too long first name").required("Please add a first name"),
 		middle_name: Yup.string().min(3, "Too short middle name").max(50, "Too long middle name").required("Please add a middle name"),
 		family_name: Yup.string().min(3, "Too short family name").max(50, "Too long family name").required("Please add a family name"),
-		date_of_birth: Yup.string().min(4, "Too short date of birth").max(10, "Too long date of birth").required("Please add a date of birth"),
+		date_of_birth: Yup.string().min(4, "Too short date of birth").max(16, "Too long date of birth").required("Please add a date of birth"),
 		tax_id: Yup.string().min(4, "Too short tax ID").max(19, "Too long tax ID").required("Please add a tax ID"),
 		tax_id_type: Yup.string().min(4, "Too short tax ID type").max(19, "Too long tax ID type").required("Please add a Tax ID Type"),
 		country_of_citizenship: Yup.string().min(4, "Too short country name").max(56, "Too long country name").required("Please add a country name"),
@@ -133,7 +133,7 @@ const FORM_VALIDATION = Yup.object().shape({
 				context_type: Yup.string().min(3, "Too short context type").max(50, "Too long context type").required(true, "item req"),
 				company_name: Yup.string().min(3, "Too short company name").max(50, "Too long company name"),
 				company_street_address: Yup.string().min(3, "Minimum address required 1").max(50, "Maximum addresses required 5"),
-				company_state: Yup.string().min(4, "Too short state name").max(15, "Too long state name"),
+				company_state: Yup.string().min(4, "Too short state name").max(30, "Too long state name"),
 				company_city: Yup.string().min(2, "Too short city name").max(85, "Too long city name"),
 				company_country: Yup.string().min(4, "Too short country name").max(56, "Too long country name"),
 				company_compliance_email: Yup.string().min(5, "Too short email").max(80, "Too long email").email("Please add a valid email"),
@@ -143,7 +143,7 @@ const FORM_VALIDATION = Yup.object().shape({
 	agreements: Yup.array().of(
 		Yup.object().shape({
 			agreement: Yup.string().min(3, "Agreement characters too short").max(50, "Agreement characters too long"),
-			signed_at: Yup.string().min(4, "Minimum characters for signed at is 4").max(10, "Maximum characters for signed at is 10"),
+			signed_at: Yup.string().min(4, "Minimum characters for signed at is 4").max(18, "Maximum characters for signed at is 18"),
 			ip_address: Yup.string().min(8, "Too short IP address").max(128, "Too long IP address"),
 			revision: Yup.string().min(3, "Too short Revision").max(50, "Too long Revision"),
 		}),
@@ -165,7 +165,6 @@ const Setup = () => {
 		
 	
 	const submitHandler = (values) => {
-		console.log("FORMIK VALUES ARE", values)
 		alert(JSON.stringify(values))
 	}
 
