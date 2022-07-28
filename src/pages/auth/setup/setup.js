@@ -36,7 +36,6 @@ const INITIAL_FORM_STATE = {
 		state: "",
 		city: "",
 		country: ""
-		
 	},
 
 	identity: {
@@ -57,7 +56,7 @@ const INITIAL_FORM_STATE = {
 		family_name: "",
 	},
 
-	enabled_assets: "",
+	enabled_assets: false,
 	disclosures: {
 		is_control_person: false,
 		is_affiliated_exchange_or_finra: false,
@@ -75,22 +74,22 @@ const INITIAL_FORM_STATE = {
 			}
 		],
 	},
-	agreements: [
-		{
-			agreement: "",
-			signed_at: "",
-			ip_address: "",
-			revision: ""
-		}
-	],
-	documents: [
-		{
-			document_type: "",
-			document_sub_type: "",
-			content: "",
-			mime_type: ""
-		}
-	],
+	// agreements: [
+	// 	{
+	// 		agreement: "",
+	// 		signed_at: "",
+	// 		ip_address: "",
+	// 		revision: ""
+	// 	}
+	// ],
+	// documents: [
+	// 	{
+	// 		document_type: "",
+	// 		document_sub_type: "",
+	// 		content: "",
+	// 		mime_type: ""
+	// 	}
+	// ],
 }
 
 const FORM_VALIDATION = Yup.object().shape({
@@ -116,7 +115,6 @@ const FORM_VALIDATION = Yup.object().shape({
 		country_of_birth: Yup.string().min(4, "Too short country name").max(56, "Too long country name").required("Please add a country name"),
 		country_of_tax_residence: Yup.string().min(4, "Too short country name").max(56, "Too long country name").required("Please add a country name"),
 		funding_source: Yup.string().min(4, "Too short funding name characters").max(19, "Too long funding name characters").required("Please add a funding name"),
-		
 	}),
 	trusted_contact: Yup.object().shape({
 		given_name: Yup.string().min(3, "Too short first name").max(50, "Too long first name"),
@@ -124,7 +122,7 @@ const FORM_VALIDATION = Yup.object().shape({
 		family_name: Yup.string().min(3, "Too short family name").max(50, "Too long family name"),		
 	}),
 	
-	enabled_assets: Yup.string().min(2, "Too short characters").max(50, "Too long characters"),
+	enabled_assets: Yup.boolean(),
 	disclosures: Yup.object().shape({
 		is_control_person: Yup.boolean(),
 		is_affiliated_exchange_or_finra: Yup.boolean(),
@@ -132,7 +130,7 @@ const FORM_VALIDATION = Yup.object().shape({
 		immediate_family_exposed: Yup.boolean(),
 		context: Yup.array().of(
 			Yup.object().shape({
-				context_type: Yup.string().min(3, "Too short context type").max(50, "Too long context type"),
+				context_type: Yup.string().min(3, "Too short context type").max(50, "Too long context type").required(true, "item req"),
 				company_name: Yup.string().min(3, "Too short company name").max(50, "Too long company name"),
 				company_street_address: Yup.array().min(3, "Minimum address required 1").max(5, "Maximum addresses required 5"),
 				company_state: Yup.string().min(4, "Too short state name").max(15, "Too long state name"),
@@ -142,20 +140,20 @@ const FORM_VALIDATION = Yup.object().shape({
 			})
 		)
 	}),
-	agreements: Yup.object().shape({
-		agreement: Yup.string().min(3, "Agreement characters too short").max(50, "Agreement characters too long"),
-		signed_at: Yup.string().min(4, "Minimum characters for signed at is 4").max(10, "Minimum characters for signed at is 10"),
-		ip_address: Yup.string().min(8, "Too short IP address").max(128, "Too long IP address"),
-		revision: Yup.string().min(3, "Too short Revision").max(50, "Too long Revision"),
-	}),
-	documents: Yup.array().of(
-		Yup.object().shape({
-			document_type: Yup.string().min(3, "Too short Document type").max(50, "Too long Document type"),
-			document_sub_type: Yup.string().min(3, "Too short document subtype").max(50, "Too long document subtype"),
-			content: Yup.string().min(3, "Too short document content").max(50, "Too long document content"),
-			mime_type: Yup.string().min(3, "Too short document mime type").max(50, "Too long document mime type"),
-		})
-	)
+	// agreements: Yup.object().shape({
+	// 	agreement: Yup.string().min(3, "Agreement characters too short").max(50, "Agreement characters too long"),
+	// 	signed_at: Yup.string().min(4, "Minimum characters for signed at is 4").max(10, "Minimum characters for signed at is 10"),
+	// 	ip_address: Yup.string().min(8, "Too short IP address").max(128, "Too long IP address"),
+	// 	revision: Yup.string().min(3, "Too short Revision").max(50, "Too long Revision"),
+	// }),
+	// documents: Yup.array().of(
+	// 	Yup.object().shape({
+	// 		document_type: Yup.string().min(3, "Too short Document type").max(50, "Too long Document type"),
+	// 		document_sub_type: Yup.string().min(3, "Too short document subtype").max(50, "Too long document subtype"),
+	// 		content: Yup.string().min(3, "Too short document content").max(50, "Too long document content"),
+	// 		mime_type: Yup.string().min(3, "Too short document mime type").max(50, "Too long document mime type"),
+	// 	})
+	// )
 })
 
 const Setup = () => {
@@ -163,8 +161,10 @@ const Setup = () => {
 	const steps = ['About', 'Identity', 'Others'];
 
 		
+	
 	const submitHandler = (values) => {
-		console.log(values)
+		console.log("FORMIK VALUES ARE", values)
+		alert(JSON.stringify(values))
 	}
 
 	return (
@@ -176,9 +176,18 @@ const Setup = () => {
 				validationSchema={ FORM_VALIDATION }
 				onSubmit = { submitHandler }
 			>
-				<Form>
-					<StepperComponent steps={steps} styles={stepperStyles}/>
-				</Form>
+				{
+					({ values , setFieldValue}) => (
+						<Form>
+							<StepperComponent 
+								steps={steps}
+								styles={stepperStyles}
+								submitHandler={submitHandler}
+								values = {values}
+								/>
+						</Form>
+					)
+				}
 			</Formik>
 		</StyledSetup>
 	)

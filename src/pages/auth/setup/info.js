@@ -8,7 +8,7 @@ const iconStyles = {
 export const setupfields = {
 	contactFields : [
 		{
-			name: "email_address",
+			name: "contact.email_address",
 			label: "Email address",
 			placeholder: "Email address",
 			type: "email",
@@ -21,7 +21,7 @@ export const setupfields = {
 			xs: 12
 		},
 		{
-			name: "phone_number",
+			name: "contact.phone_number",
 			label: "Phone Number",
 			placeholder: "Phone Number",
 			type: "text",
@@ -34,7 +34,7 @@ export const setupfields = {
 			xs: 12
 		},
 		{
-			name: "street_address",
+			name: "contact.street_address",
 			label: "Street Address",
 			placeholder: "Street Address",
 			type: "text",
@@ -47,7 +47,7 @@ export const setupfields = {
 			xs: 12
 		},
 		{
-			name: "unit",
+			name: "contact.unit",
 			label: "Unit",
 			placeholder: "Unit",
 			type: "text",
@@ -60,7 +60,7 @@ export const setupfields = {
 			xs: 12
 		},
 		{
-			name: "postal_code",
+			name: "contact.postal_code",
 			label: "Postal Code",
 			placeholder: "Postal Code",
 			type: "text",
@@ -73,7 +73,7 @@ export const setupfields = {
 			xs: 12
 		},
 		{
-			name: "state",
+			name: "contact.state",
 			label: "Your State",
 			placeholder: "Your State",
 			type: "text",
@@ -86,7 +86,7 @@ export const setupfields = {
 			xs: 12
 		},
 		{
-			name: "city",
+			name: "contact.city",
 			label: "Your City",
 			placeholder: "Your City",
 			type: "text",
@@ -99,7 +99,7 @@ export const setupfields = {
 			xs: 12
 		},
 		{
-			name: "country",
+			name: "contact.country",
 			label: "Your Country",
 			placeholder: "Your Country",
 			type: "text",
@@ -115,7 +115,7 @@ export const setupfields = {
 
 	identityFields : [
 		{
-			name: "given_name",
+			name: "identity.given_name",
 			label: "First Name",
 			placeholder: "First Name",
 			type: "text",
@@ -128,7 +128,7 @@ export const setupfields = {
 			xs: 12
 		},
 		{
-			name: "middle_name",
+			name: "identity.middle_name",
 			label: "Middlename",
 			placeholder: "Middlename",
 			type: "text",
@@ -141,7 +141,7 @@ export const setupfields = {
 			xs: 12
 		},
 		{
-			name: "family_name",
+			name: "identity.family_name",
 			label: "Family Name",
 			placeholder: "Family Name",
 			type: "text",
@@ -154,7 +154,7 @@ export const setupfields = {
 			xs: 12
 		},
 		{
-			name: "date_of_birth",
+			name: "identity.date_of_birth",
 			label: "Date of birth",
 			placeholder: "Date of birth",
 			type: "text",
@@ -167,7 +167,7 @@ export const setupfields = {
 			xs: 12
 		},
 		{
-			name: "tax_id",
+			name: "identity.tax_id",
 			label: "Tax ID",
 			placeholder: "Tax ID",
 			type: "text",
@@ -180,7 +180,7 @@ export const setupfields = {
 			xs: 12
 		},
 		{
-			name: "tax_id_type",
+			name: "identity.tax_id_type",
 			label: "Tax ID Type",
 			placeholder: "Tax ID Type",
 			type: "text",
@@ -193,7 +193,7 @@ export const setupfields = {
 			xs: 12
 		},
 		{
-			name: "country_of_citizenship",
+			name: "identity.country_of_citizenship",
 			label: "Country of citizenship",
 			placeholder: "Country of citizenship",
 			type: "text",
@@ -206,7 +206,7 @@ export const setupfields = {
 			xs: 12
 		},
 		{
-			name: "country_of_birth",
+			name: "identity.country_of_birth",
 			label: "Country of birth",
 			placeholder: "Country of birth",
 			type: "text",
@@ -219,7 +219,7 @@ export const setupfields = {
 			xs: 12
 		},
 		{
-			name: "country_of_tax_residence",
+			name: "identity.country_of_tax_residence",
 			label: "Country of Tax residence",
 			placeholder: "Country of Tax residence",
 			type: "text",
@@ -232,7 +232,7 @@ export const setupfields = {
 			xs: 12
 		},
 		{
-			name: "funding_source",
+			name: "identity.funding_source",
 			label: "Funding Source",
 			placeholder: "Funding Source",
 			type: "text",
@@ -262,11 +262,10 @@ export const setupfields = {
 
 	disclosures: [
 		{
-			name: "is_control_person",
+			name: "disclosures.is_control_person",
 			label: "Is this the control person?",
 			placeholder: "Control Person?",
 			type: "checkbox",
-			// required: true,
 			inputprops: {},
 			xl: 12,
 			lg: 12,
@@ -275,11 +274,10 @@ export const setupfields = {
 			xs: 12
 		},
 		{
-			name: "is_affiliated_exchange_or_finra",
+			name: "disclosures.is_affiliated_exchange_or_finra",
 			label: "Is this an affilliate exchange or Finra?",
 			placeholder: "Affilliate exchange or Finra?",
 			type: "checkbox",
-			// required: true,
 			inputprops: {},
 			xl: 12,
 			lg: 12,
@@ -288,11 +286,10 @@ export const setupfields = {
 			xs: 12
 		},
 		{
-			name: "is_politically_exposed",
+			name: "disclosures.is_politically_exposed",
 			label: "Is this person politically exposed?",
 			placeholder: "Politically exposed person?",
 			type: "checkbox",
-			// required: true,
 			inputprops: {},
 			xl: 12,
 			lg: 12,
@@ -301,11 +298,10 @@ export const setupfields = {
 			xs: 12
 		},
 		{
-			name: "immediate_family_exposed",
+			name: "disclosures.immediate_family_exposed",
 			label: "Is immediate family exposed?",
 			placeholder: "Immediate family exposed?",
 			type: "checkbox",
-			// required: true,
 			inputprops: {},
 			xl: 12,
 			lg: 12,
@@ -521,7 +517,7 @@ export const setupfields = {
 
 	trustedContact: [
 		{
-			name: "given_name",
+			name: "trusted_contact.given_name",
 			label: "Firstname",
 			placeholder: "Firstname",
 			type: "text",
@@ -534,7 +530,7 @@ export const setupfields = {
 			xs: 12
 		},
 		{
-			name: "middle_name",
+			name: "trusted_contact.middle_name",
 			label: "Middlename",
 			placeholder: "Middlename",
 			type: "text",
@@ -546,7 +542,7 @@ export const setupfields = {
 			xs: 12
 		},
 		{
-			name: "family_name",
+			name: "trusted_contact.family_name",
 			label: "Family name",
 			placeholder: "Family name",
 			type: "text",

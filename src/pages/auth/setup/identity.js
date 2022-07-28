@@ -23,7 +23,7 @@ const StyledSetupIdentityGridItem = styled(Grid)(({ theme }) => ({
 
 }))
 
-const SetupIdentity = ({ activeStep, handleBack, handleNext, steps }) => {
+const SetupIdentity = ({ activeStep, handleBack, handleNext, steps, values }) => {
 	return (
 		<StyledSetupIdentity maxWidth="lg">
 			<StyledSetupFormGridContainer container spacing={2}>

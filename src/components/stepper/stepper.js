@@ -33,17 +33,17 @@ const StyledStepperContent = styled(Container)(({theme}) => ({
 
 }))
 
-const StepperComponent = ({ steps, styles }) => {
+const StepperComponent = ({ steps, styles, submitHandler, values }) => {
 
 	const [activeStep, setActiveStep] = useState(0);
 	const [skipped, setSkipped] = useState(new Set());
 
-	const [stepError, setStepError] = useState(false)
+	// const [stepError, setStepError] = useState(false)
 
-	const isStepFailed = (step) => {
-		setStepError(true)
-		return step === 1;
-	};
+	// const isStepFailed = (step) => {
+	// 	setStepError(true)
+	// 	return step === 1;
+	// };
 
 
 	const isStepOptional = (step) => {
@@ -88,10 +88,6 @@ const StepperComponent = ({ steps, styles }) => {
 		setActiveStep(0);
 	};
 	
-	const handleSubmit = () => {
-		setActiveStep(0);
-	};
-	
 	
 	const renderStepperBody = (activeStep) => {
 		switch (activeStep) {
@@ -102,6 +98,7 @@ const StepperComponent = ({ steps, styles }) => {
 						handleBack={handleBack}
 						handleNext={handleNext}
 						steps={steps}
+						values={values}
 						/>
 				);
 
@@ -112,6 +109,7 @@ const StepperComponent = ({ steps, styles }) => {
 						handleBack={handleBack}
 						handleNext={handleNext}
 						steps={steps}
+						values={values}
 						/>
 					);
 
@@ -122,6 +120,7 @@ const StepperComponent = ({ steps, styles }) => {
 						handleBack={handleBack}
 						handleNext={handleNext}
 						steps={steps}
+						values={values}
 					/>
 				);
 		
@@ -161,7 +160,7 @@ const StepperComponent = ({ steps, styles }) => {
 
 				{
 					activeStep === steps.length ? (
-						<CompletedStepper handleSubmit={handleSubmit} handleReset={handleReset} style={styles}/>
+						<CompletedStepper submitHandler={submitHandler} handleReset={handleReset} style={styles}/>
 					) : (
 						<StyledStepperContent maxWidth="xl" style={styles}>
 							{renderStepperBody(activeStep)}
