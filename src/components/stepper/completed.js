@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Box, CircularProgress, Container, Card, Stepper, Step, StepLabel, Button, ButtonGroup,  Typography } from '@mui/material';
+import { Box, Button, ButtonGroup,  CircularProgress, Container, Card, Grid, Stepper, Step, StepLabel, Typography } from '@mui/material';
 import { styled } from "@mui/system";
 
 
@@ -28,6 +28,18 @@ const subHeaderFont = {
 	marginBottom: "10px"
 }
 
+const listKeyFont = {
+	textTransform: "capitalize",
+	marginRight: "10px",
+	padding: "5px"
+}
+
+const listValueFont = {
+	textTransform: "capitalize",
+	backgroundColor: "aliceblue",
+	padding: "5px"
+}
+
 const StyledCompletedSetupUnit = styled(Box)(({ theme }) => ({
 	padding: "10px",
 	borderRadius: theme.shape.default,
@@ -46,6 +58,17 @@ const StyledCompletedSetupUnitContent = styled(Box)(({ theme }) => ({
 
 }))
 
+const StyledCompletedSetupList = styled(Grid)(({ theme }) => ({
+	marginBottom: "30px"
+}))
+
+const StyledCompletedSetupListItems = styled(Grid)(({ theme }) => ({
+	display: "flex",
+	justifyContent: "left",
+	alignItems: "center",
+	textAlign: "center",
+}))
+
 const StyledButtonSection = styled(Box)(({ theme }) => ({
 	// backroundColor: "green",
 	margin: "20px auto",
@@ -54,7 +77,8 @@ const StyledButtonSection = styled(Box)(({ theme }) => ({
 
 const CompletedStepper = ({children, handleReset, submitHandler, style, values, handleBack, isSubmitting, errors}) => {
 
-	const val = Object.values(values.contact)
+	const contacts = Object.entries(values.contact)
+	const trustedContacts = Object.entries(values.trusted_contact)
 
 	return (
 		<StyledCompletedStepper style={style}>
@@ -67,18 +91,40 @@ const CompletedStepper = ({children, handleReset, submitHandler, style, values, 
 					<Typography variant="h6" gutterBottom sx={subHeaderFont}>
 						About summary
 					</Typography>
-					{
-						JSON.stringify(values.contact)
-					}
+					<StyledCompletedSetupList container spacing={3}>
+						{
+							contacts &&
+							contacts.map((el, i) => (
+								<StyledCompletedSetupListItems key={i} item xl={4} lg={4} md={4} sm={12} xs={12}>
+									<Typography variant="body1" gutterBottom sx={listKeyFont}>
+										{`${el[0]} : `}
+									</Typography>
+									<Typography variant="body1" gutterBottom sx={listValueFont}>
+										{el[1]}
+									</Typography>
+								</StyledCompletedSetupListItems>
+							))
+						}
+					</StyledCompletedSetupList>
+
 					<Typography variant="h6" gutterBottom sx={subHeaderFont}>
 						Trusted contact
 					</Typography>
-					<StyledCompletedSetupUnitContent>
-						{console.log("VALUES", val)}
-					</StyledCompletedSetupUnitContent>
-					{
-						JSON.stringify(values.trusted_contact)
-					}
+					<StyledCompletedSetupList container spacing={3}>
+						{
+							trustedContacts &&
+							trustedContacts.map((el, i) => (
+								<StyledCompletedSetupListItems key={i} item xl={4} lg={4} md={4} sm={12} xs={12}>
+									<Typography variant="body1" gutterBottom sx={listKeyFont}>
+										{`${el[0]} : `}
+									</Typography>
+									<Typography variant="body1" gutterBottom sx={listValueFont}>
+										{el[1]}
+									</Typography>
+								</StyledCompletedSetupListItems>
+							))
+						}
+					</StyledCompletedSetupList>
 				</StyledCompletedSetupUnit>
 
 				<StyledCompletedSetupUnit>
@@ -88,6 +134,9 @@ const CompletedStepper = ({children, handleReset, submitHandler, style, values, 
 					{
 						JSON.stringify(values.identity)
 					}
+					<Typography variant="h6" gutterBottom sx={subHeaderFont}>
+						Documents
+					</Typography>
 					{
 						JSON.stringify(values.documents)
 					}
@@ -100,6 +149,9 @@ const CompletedStepper = ({children, handleReset, submitHandler, style, values, 
 					{
 						JSON.stringify(values.disclosures)
 					}
+					<Typography variant="h6" gutterBottom sx={subHeaderFont}>
+						Agreements
+					</Typography>
 					{
 						JSON.stringify(values.agreements)
 					}
@@ -110,7 +162,7 @@ const CompletedStepper = ({children, handleReset, submitHandler, style, values, 
 					<ButtonGroup variant="contained" >
 						<Button
 							type="button"
-							disabled={isSubmitting}
+							// disabled={isSubmitting}
 							onClick={handleBack}
 							aria-label="Account setup reset button"
 							>
@@ -119,7 +171,7 @@ const CompletedStepper = ({children, handleReset, submitHandler, style, values, 
 						{console.log("SUB", errors)}
 						<Button
 							startIcon={isSubmitting ? <CircularProgress size="1rem" /> : null}
-							disabled={errors}
+							// disabled={errors ? true : false}
 							type="submit" 
 							aria-label="Account setup submit button"
 							>
