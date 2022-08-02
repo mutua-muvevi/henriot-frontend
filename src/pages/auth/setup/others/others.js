@@ -5,8 +5,8 @@ import { styled } from "@mui/system";
 
 import DisclosureForm from "./disclosuresform";
 import AgreementForm from "./agreementsform";
-import EnabledAssetsForm from "./enabledassetsform";
-import IdentityContent from "./identitycontent";
+import EnabledAssetsForm from "../enabledassetsform";
+import SetupOthersContent from "./otherscontent";
 
 const StyledSetupOthers = styled(Container)(({ theme }) => ({
 	paddingTop: "50px"
@@ -38,7 +38,7 @@ const SetupOthers = ({ activeStep, handleBack, handleNext, steps, values }) => {
 				</StyledSetupOthersGridItem>
 
 				<StyledSetupOthersGridItem item xl={3} lg={3} md={6} sm={12} xs={12}>
-					<IdentityContent/>
+					<SetupOthersContent/>
 				</StyledSetupOthersGridItem>
 			</StyledSetupFormGridContainer>
 
@@ -67,13 +67,14 @@ const SetupOthers = ({ activeStep, handleBack, handleNext, steps, values }) => {
 									disabled={activeStep === 0}
 									onClick={handleBack}
 									variant="contained"
+									type="button"
 									sx={{ mr: 1 }}
 								>
 									Back
 								</Button>
 								<Box sx={{ flex: '1 1 auto' }} />
 
-								<Button onClick={handleNext} variant="contained">
+								<Button type="button" onClick={handleNext} variant="contained">
 									{activeStep === steps.length - 1 ? 'Finish' : 'Next'}
 								</Button>
 							</Box>

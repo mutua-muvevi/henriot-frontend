@@ -54,6 +54,9 @@ const INITIAL_FORM_STATE = {
 		given_name: "",
 		middle_name: "",
 		family_name: "",
+		email: "",
+		phone_number: "",
+		address: ""
 	},
 
 	enabled_assets: false,
@@ -120,6 +123,9 @@ const FORM_VALIDATION = Yup.object().shape({
 		given_name: Yup.string().min(3, "Too short first name").max(50, "Too long first name"),
 		middle_name: Yup.string().min(3, "Too short middle name").max(50, "Too long middle name"),
 		family_name: Yup.string().min(3, "Too short family name").max(50, "Too long family name"),		
+		email: Yup.string().email("Please add a valid email").min(3, "Too short email").max(50, "Too long email"),
+		phone_number: Yup.string().min(3, "Too short phone number").max(50, "Too long phone number"),
+		address: Yup.string().min(3, "Too short address").max(50, "Too long address"),
 	}),
 	
 	enabled_assets: Yup.boolean(),
@@ -152,7 +158,7 @@ const FORM_VALIDATION = Yup.object().shape({
 		Yup.object().shape({
 			document_type: Yup.string().min(3, "Too short Document type").max(50, "Too long Document type"),
 			document_sub_type: Yup.string().min(3, "Too short document subtype").max(50, "Too long document subtype"),
-			content: Yup.string().min(3, "Too short document content").max(50, "Too long document content"),
+			content: Yup.string().min(3, "Too short document content").max(1000, "Too long document content"),
 			mime_type: Yup.string().min(3, "Too short document mime type").max(50, "Too long document mime type"),
 		})
 	)
@@ -178,13 +184,15 @@ const Setup = () => {
 				onSubmit = { submitHandler }
 			>
 				{
-					({ values , setFieldValue}) => (
-						<Form>
+					({ values , setFieldValue, isSubmitting, errors }) => (
+						<Form autoComplete="off" autoCorrect="off" >
 							<StepperComponent 
 								steps={steps}
 								styles={stepperStyles}
 								submitHandler={submitHandler}
 								values = {values}
+								isSubmitting={isSubmitting}
+								errors={errors}
 								/>
 						</Form>
 					)

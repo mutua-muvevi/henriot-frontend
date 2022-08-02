@@ -129,8 +129,8 @@ export const setupfields = {
 		},
 		{
 			name: "identity.date_of_birth",
-			label: "Date of birth",
-			placeholder: "Date of birth",
+			label: "",
+			placeholder: "",
 			type: "date",
 			required: true,
 			inputprops: {},
@@ -312,32 +312,6 @@ export const setupfields = {
 			sm: 12,
 			xs: 12
 		},
-		// {
-		// 	name: "company_state",
-		// 	label: "Company State",
-		// 	placeholder: "Company State",
-		// 	type: "text",
-		// 	required: true,
-		// 	inputprops: {},
-		// 	xl: 6,
-		// 	lg: 6,
-		// 	md: 12,
-		// 	sm: 12,
-		// 	xs: 12
-		// },
-		// {
-		// 	name: "company_country",
-		// 	label: "Company Country",
-		// 	placeholder: "Company Country",
-		// 	type: "text",
-		// 	required: true,
-		// 	inputprops: {},
-		// 	xl: 6,
-		// 	lg: 6,
-		// 	md: 12,
-		// 	sm: 12,
-		// 	xs: 12
-		// },
 	],
 
 	agreements: [
@@ -424,22 +398,9 @@ export const setupfields = {
 		},
 		{
 			name: "content",
-			label: "Document content",
-			placeholder: "Document content",
-			type: "text",
-			required: true,
-			inputprops: {},
-			xl: 4,
-			lg: 4,
-			md: 6,
-			sm: 12,
-			xs: 12
-		},
-		{
-			name: "mime_type",
-			label: "Document MIME type",
-			placeholder: "Document MIME type",
-			type: "text",
+			label: "",
+			placeholder: "",
+			type: "file",
 			required: true,
 			inputprops: {},
 			xl: 4,
@@ -458,8 +419,8 @@ export const setupfields = {
 			type: "text",
 			required: true,
 			inputprops: {},
-			xl: 12,
-			lg: 12,
+			xl: 4,
+			lg: 4,
 			md: 12,
 			sm: 12,
 			xs: 12
@@ -470,8 +431,8 @@ export const setupfields = {
 			placeholder: "Middlename",
 			type: "text",
 			inputprops: {},
-			xl: 12,
-			lg: 12,
+			xl: 4,
+			lg: 4,
 			md: 12,
 			sm: 12,
 			xs: 12
@@ -482,8 +443,44 @@ export const setupfields = {
 			placeholder: "Family name",
 			type: "text",
 			inputprops: {},
-			xl: 12,
-			lg: 12,
+			xl: 4,
+			lg: 4,
+			md: 12,
+			sm: 12,
+			xs: 12
+		},
+		{
+			name: "trusted_contact.email",
+			label: "Email",
+			placeholder: "Email",
+			type: "email",
+			inputprops: {},
+			xl: 4,
+			lg: 4,
+			md: 12,
+			sm: 12,
+			xs: 12
+		},
+		{
+			name: "trusted_contact.phone_number",
+			label: "Phone Number",
+			placeholder: "Phone Number",
+			type: "tel",
+			inputprops: {},
+			xl: 4,
+			lg: 4,
+			md: 12,
+			sm: 12,
+			xs: 12
+		},
+		{
+			name: "trusted_contact.address",
+			label: "Address",
+			placeholder: "Address",
+			type: "text",
+			inputprops: {},
+			xl: 4,
+			lg: 4,
 			md: 12,
 			sm: 12,
 			xs: 12
@@ -523,3 +520,22 @@ export const rightSideInformation = {
 		`		
 	}
 }
+
+export const MIMETYPE = [
+	{
+		Name: "jpg"
+	},
+	{
+		Name: "jpeg"
+	},
+	{
+		Name: "png"
+	},
+	{
+		Name: "txt"
+	},
+	{
+		Name: "pdf"
+	},
+	// "jpg", "jpeg", "png", "txt", "pdf"
+]

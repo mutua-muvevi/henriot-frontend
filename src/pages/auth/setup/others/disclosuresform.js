@@ -5,17 +5,17 @@ import { styled } from "@mui/system";
 
 import { FieldArray } from "formik"
 
-import CheckBoxField from "../../../components/forms/checkbox/checkbox";
-import TextfieldWrapper from "../../../components/forms/textfield/textfield";
-import SelectField from "../../../components/forms/select/select";
+import CheckBoxField from "../../../../components/forms/checkbox/checkbox";
+import TextfieldWrapper from "../../../../components/forms/textfield/textfield";
+import SelectField from "../../../../components/forms/select/select";
 
-import { countries } from "../../../content/countries";
-import { USAstates } from "../../../content/states";
-import { setupfields } from "./info";
+import { countries } from "../../../../content/countries";
+import { USAstates } from "../../../../content/states";
+import { setupfields } from "../info";
 
 
 const StyledDisclosureForm = styled(Box)(({ theme }) => ({
-	
+	marginBottom: "50px"
 }));
 
 const StyledDisclosureFormContent = styled(Box)(({ theme }) => ({
@@ -36,7 +36,8 @@ const StyledDisclosureFormContentGridFieldArrayWrapper = styled(Box)(({ theme })
 }));
 
 const StyledDisclosureFormContentGridFieldArray = styled(Grid)(({ theme }) => ({
-	margin: "10px auto"
+	marginBottom: "50px",
+	marginTop: "20px"
 }));
 
 const StyledDisclosureFormContentGridItemFieldArray = styled(Grid)(({ theme }) => ({
@@ -80,7 +81,7 @@ const DisclosureForm = ({values}) => {
 										context.length > 0 ? 
 										context.map((el, index) => (
 											<StyledDisclosureFormContentGridFieldArrayWrapper key={index}>
-												<StyledDisclosureFormContentGridFieldArray container rowSpacing={3} key={index}>
+												<StyledDisclosureFormContentGridFieldArray container spacing={3} key={index}>
 													{
 														setupfields &&
 														setupfields.disclosuresContext &&
@@ -120,7 +121,6 @@ const DisclosureForm = ({values}) => {
 												<ButtonGroup type="button" variant="contained">
 													<Button
 														color="error"
-														{ ...context.length === 0 ? "disabled" : null}
 														onClick={() => arrayHelpers.remove(index)}
 														>
 														Remove context

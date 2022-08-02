@@ -2,19 +2,19 @@ import React from 'react';
 
 import { Alert, AlertTitle, Box, Button, ButtonGroup, Grid, Grow, Typography } from "@mui/material";
 import { styled } from "@mui/system";
+import { BsPlusLg } from "react-icons/bs";
 
 import { FieldArray } from "formik"
 
-import TextfieldWrapper from "../../../components/forms/textfield/textfield";
-import { setupfields } from "./info";
+import TextfieldWrapper from "../../../../components/forms/textfield/textfield";
+import SelectField from "../../../../components/forms/select/select";
+import { setupfields, MIMETYPE } from "../info";
+import FilesField from "../../../../components/forms/files/files";
+
 
 
 const StyledSetupDocumentsForm = styled(Box)(({ theme }) => ({
-	marginBottom: "45px"
-}));
-
-const StyledSetupDocumentsFormContentGrid = styled(Grid)(({ theme }) => ({
-
+	marginBottom: "50px"
 }));
 
 const StyledSetupDocumentsFormContentGridItem = styled(Grid)(({ theme }) => ({
@@ -26,19 +26,17 @@ const StyledDisclosureFormContentGridFieldArrayWrapper = styled(Box)(({ theme })
 }));
 
 const StyledDisclosureFormContentGridFieldArray = styled(Grid)(({ theme }) => ({
-	margin: "10px auto"
+	marginBottom: "50px",
+	marginTop: "20px"
 }));
 
-const StyledDisclosureFormContentGridItemFieldArray = styled(Grid)(({ theme }) => ({
-	
-
-}));
 
 const SetupDocumentsForm = ({values}) => {
 	return (
 		<StyledSetupDocumentsForm>
 			
-			<FieldArray 
+			<FieldArray
+			
 					name="documents"
 					render={
 						arrayHelpers => {
@@ -51,7 +49,7 @@ const SetupDocumentsForm = ({values}) => {
 										documents.length > 0 ? 
 										documents.map((element, index) => (
 											<StyledDisclosureFormContentGridFieldArrayWrapper key={index}>
-												<StyledDisclosureFormContentGridFieldArray container rowSpacing={3} key={index}>
+												<StyledDisclosureFormContentGridFieldArray container spacing={3} key={index}>
 													{
 														setupfields &&
 														setupfields.documents &&
@@ -67,6 +65,18 @@ const SetupDocumentsForm = ({values}) => {
 															</StyledSetupDocumentsFormContentGridItem>
 														))
 													}
+
+													<StyledSetupDocumentsFormContentGridItem item xl={4} lg={4} md={12} sm={12} xs={12}>
+														<SelectField
+															type="text"
+															name={`documents.${index}.mime_type`}
+															label="MIME Type"
+															size="small"
+															options={MIMETYPE}
+															required
+														/>
+													</StyledSetupDocumentsFormContentGridItem>
+
 												</StyledDisclosureFormContentGridFieldArray>
 												<ButtonGroup type="button" variant="contained">
 													<Button

@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
 
-import { Box, Container, Card, Stepper, Step, StepLabel, Button, ButtonGroup,  Typography } from '@mui/material';
+import { Box, CircularProgress, Container, Card, Stepper, Step, StepLabel, Button, ButtonGroup,  Typography } from '@mui/material';
 import { styled } from "@mui/system";
+
+
+const StyledCompletedStepper = styled(Box)(({ theme }) => ({
+	maxWidth: "90vw",
+	margin: "auto"
+}))
 
 const StyledCompletedSetupWrapper = styled(Container)(({ theme }) => ({
 	display: "flex",
 	flexDirection: "column",
 	alignItems: "flex-start",
 	justifyContent: "center",
-	textAlign: "center"
+	textAlign: "center",
 }))
 
 const headerFont = {
@@ -36,16 +42,19 @@ const StyledCompletedSetupUnit = styled(Box)(({ theme }) => ({
 	margin: "10px auto"
 }))
 
+const StyledCompletedSetupUnitContent = styled(Box)(({ theme }) => ({
+
+}))
+
 const StyledButtonSection = styled(Box)(({ theme }) => ({
-	backroundColor: "green",
+	// backroundColor: "green",
 	margin: "20px auto",
 	width: "200px !important"
 }))
 
-const CompletedStepper = ({children, handleReset, submitHandler, style, values}) => {
-	const StyledCompletedStepper = styled(Box)(({ theme }) => ({
-		backgroundColor: ""
-	}))
+const CompletedStepper = ({children, handleReset, submitHandler, style, values, handleBack, isSubmitting, errors}) => {
+
+	const val = Object.values(values.contact)
 
 	return (
 		<StyledCompletedStepper style={style}>
@@ -61,6 +70,12 @@ const CompletedStepper = ({children, handleReset, submitHandler, style, values})
 					{
 						JSON.stringify(values.contact)
 					}
+					<Typography variant="h6" gutterBottom sx={subHeaderFont}>
+						Trusted contact
+					</Typography>
+					<StyledCompletedSetupUnitContent>
+						{console.log("VALUES", val)}
+					</StyledCompletedSetupUnitContent>
 					{
 						JSON.stringify(values.trusted_contact)
 					}
@@ -93,11 +108,22 @@ const CompletedStepper = ({children, handleReset, submitHandler, style, values})
 				<StyledButtonSection>
 					<Box sx={{ flex: '1 1 auto' }} />
 					<ButtonGroup variant="contained" >
-						<Button onClick={handleReset} aria-label="Account setup reset button">
-							Back
+						<Button
+							type="button"
+							disabled={isSubmitting}
+							onClick={handleBack}
+							aria-label="Account setup reset button"
+							>
+								Back
 						</Button>
-						<Button type="submit" aria-label="Account setup submit button">
-							Confirm
+						{console.log("SUB", errors)}
+						<Button
+							startIcon={isSubmitting ? <CircularProgress size="1rem" /> : null}
+							disabled={errors}
+							type="submit" 
+							aria-label="Account setup submit button"
+							>
+								Confirm
 						</Button>
 					</ButtonGroup>
 				</StyledButtonSection>

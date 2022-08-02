@@ -3,10 +3,10 @@ import React from 'react';
 import { Alert, AlertTitle, Box, Button, Grid, Grow } from "@mui/material";
 import { styled } from "@mui/system";
 
-import TextfieldWrapper from "../../../components/forms/textfield/textfield";
-import SelectField from "../../../components/forms/select/select";
-import { countries } from "../../../content/countries";
-import { setupfields } from "./info";
+import TextfieldWrapper from "../../../../components/forms/textfield/textfield";
+import SelectField from "../../../../components/forms/select/select";
+import { countries } from "../../../../content/countries";
+import { setupfields } from "../info";
 
 
 const StyledIdentityForm = styled(Box)(({ theme }) => ({

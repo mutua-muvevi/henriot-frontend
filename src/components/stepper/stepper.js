@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import { Box, Container, Stepper, Step, StepLabel, Typography } from '@mui/material';
 import { styled } from "@mui/system";
 
-import SetupAbout from "../../pages/auth/setup/about";
-import SetupIdentity from "../../pages/auth/setup/identity";
-import SetupOthers from "../../pages/auth/setup/others";
+import SetupAbout from "../../pages/auth/setup/about/about";
+import SetupIdentity from "../../pages/auth/setup/identity/identity";
+import SetupOthers from "../../pages/auth/setup/others/others";
 import SimpleCard from "../../components/card/simple";
 import CompletedStepper from "./completed";
 
@@ -43,7 +43,7 @@ const StyledStepperContent = styled(Container)(({theme}) => ({
 
 }))
 
-const StepperComponent = ({ steps, styles, submitHandler, values }) => {
+const StepperComponent = ({ steps, styles, submitHandler, values, isSubmitting, errors }) => {
 
 	const [activeStep, setActiveStep] = useState(0);
 	const [skipped, setSkipped] = useState(new Set());
@@ -109,6 +109,7 @@ const StepperComponent = ({ steps, styles, submitHandler, values }) => {
 						handleNext={handleNext}
 						steps={steps}
 						values={values}
+						isSubmitting={isSubmitting}
 						/>
 				);
 
@@ -120,6 +121,7 @@ const StepperComponent = ({ steps, styles, submitHandler, values }) => {
 						handleNext={handleNext}
 						steps={steps}
 						values={values}
+						isSubmitting={isSubmitting}
 						/>
 					);
 
@@ -131,6 +133,7 @@ const StepperComponent = ({ steps, styles, submitHandler, values }) => {
 						handleNext={handleNext}
 						steps={steps}
 						values={values}
+						isSubmitting={isSubmitting}
 					/>
 				);
 		
@@ -172,9 +175,12 @@ const StepperComponent = ({ steps, styles, submitHandler, values }) => {
 					activeStep === steps.length ? (
 						<CompletedStepper
 							submitHandler={submitHandler}
-							handleReset={handleReset} 
+							handleReset={handleReset}
+							handleBack={handleBack} 
 							style={styles}
 							values={values}
+							isSubmitting={isSubmitting}
+							errors={errors}
 						/>
 					) : (
 						<StyledStepperContent maxWidth="xl" style={styles}>

@@ -5,20 +5,12 @@ import { styled } from "@mui/system";
 
 import { FieldArray } from "formik"
 
-import TextfieldWrapper from "../../../components/forms/textfield/textfield";
-import { setupfields } from "./info";
+import TextfieldWrapper from "../../../../components/forms/textfield/textfield";
+import { setupfields } from "../info";
 
 
 const StyledAgreementForm = styled(Box)(({ theme }) => ({
-	
-}));
-
-const StyledAgreementFormContentGrid = styled(Grid)(({ theme }) => ({
-
-}));
-
-const StyledAgreementFormContentGridItem = styled(Grid)(({ theme }) => ({
-
+	marginBottom: "50px"
 }));
 
 const StyledSetupDocumentsFormContentGridItem = styled(Grid)(({ theme }) => ({
@@ -27,10 +19,12 @@ const StyledSetupDocumentsFormContentGridItem = styled(Grid)(({ theme }) => ({
 
 const StyledDisclosureFormContentGridFieldArrayWrapper = styled(Box)(({ theme }) => ({
 	margin: "10px auto",
+	
 }));
 
 const StyledDisclosureFormContentGridFieldArray = styled(Grid)(({ theme }) => ({
-	margin: "10px auto"
+	marginBottom: "50px",
+	marginTop: "20px"
 }));
 
 const AgreementForm = ({values}) => {
@@ -49,7 +43,7 @@ const AgreementForm = ({values}) => {
 									agreements.length > 0 ? 
 									agreements.map((element, index) => (
 										<StyledDisclosureFormContentGridFieldArrayWrapper key={index}>
-											<StyledDisclosureFormContentGridFieldArray container rowSpacing={3} key={index}>
+											<StyledDisclosureFormContentGridFieldArray container spacing={3} key={index}>
 												{
 													setupfields &&
 													setupfields.agreements &&

@@ -40,9 +40,9 @@ const CatchErrors = ({ error, errorInfo }) => {
 				<Typography variant="h1" sx={styledErrorHeader}>
 					Error
 				</Typography>
-				<Typography variant="h2" sx={StyledErrorSubHeader}>
-					Something went wrong
+				<Typography variant="h3" sx={StyledErrorSubHeader}>
 				</Typography>
+					{JSON.stringify(error)}
 			</StyledErrorContainer>
 		</StyledCatchErrors>
 	)

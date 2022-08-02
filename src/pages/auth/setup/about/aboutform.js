@@ -3,11 +3,11 @@ import React from 'react';
 import { Alert, AlertTitle, Box, Button, Grid, Grow, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
-import TextfieldWrapper from "../../../components/forms/textfield/textfield";
-import SelectField from "../../../components/forms/select/select";
-import { countries } from "../../../content/countries";
-import { USAstates } from "../../../content/states";
-import { setupfields } from "./info";
+import TextfieldWrapper from "../../../../components/forms/textfield/textfield";
+import SelectField from "../../../../components/forms/select/select";
+import { countries } from "../../../../content/countries";
+import { USAstates } from "../../../../content/states";
+import { setupfields } from "../info";
 
 
 const StyledAboutForm = styled(Box)(({ theme }) => ({
