@@ -17,6 +17,7 @@ const TextfieldWrapper = ({name, ...otherProps}) => {
 	if (meta && meta.touched && meta.error){
 		configTextField.error = true
 		configTextField.helperText = meta.error
+		console.log("FIELD NAME", name)
 	}
 
 	return (

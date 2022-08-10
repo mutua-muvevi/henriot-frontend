@@ -10,6 +10,7 @@ import TextfieldWrapper from "../../../../components/forms/textfield/textfield";
 import SelectField from "../../../../components/forms/select/select";
 import { setupfields, MIMETYPE } from "../info";
 import FilesField from "../../../../components/forms/files/files";
+import FileField from "../../../../components/forms/files/files";
 
 
 
@@ -31,7 +32,7 @@ const StyledDisclosureFormContentGridFieldArray = styled(Grid)(({ theme }) => ({
 }));
 
 
-const SetupDocumentsForm = ({values}) => {
+const SetupDocumentsForm = ({values, setFieldValue}) => {
 	return (
 		<StyledSetupDocumentsForm>
 			
@@ -65,6 +66,15 @@ const SetupDocumentsForm = ({values}) => {
 															</StyledSetupDocumentsFormContentGridItem>
 														))
 													}
+
+													<StyledSetupDocumentsFormContentGridItem item xl={4} lg={4} md={12} sm={12} xs={12}>
+														<FileField
+															name={`documents.${index}.content`}
+															setFieldValue={setFieldValue}
+															style={{width: "100%"}}
+															// value={undefined}
+														/>
+													</StyledSetupDocumentsFormContentGridItem>
 
 													<StyledSetupDocumentsFormContentGridItem item xl={4} lg={4} md={12} sm={12} xs={12}>
 														<SelectField

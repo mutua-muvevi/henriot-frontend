@@ -7,6 +7,7 @@ import { FieldArray } from "formik"
 
 import TextfieldWrapper from "../../../../components/forms/textfield/textfield";
 import { setupfields } from "../info";
+import FileField from "../../../../components/forms/files/files";
 
 
 const StyledAgreementForm = styled(Box)(({ theme }) => ({
@@ -27,7 +28,7 @@ const StyledDisclosureFormContentGridFieldArray = styled(Grid)(({ theme }) => ({
 	marginTop: "20px"
 }));
 
-const AgreementForm = ({values}) => {
+const AgreementForm = ({values, setFieldValue}) => {
 	return (
 		<StyledAgreementForm>
 			<FieldArray 
@@ -59,6 +60,16 @@ const AgreementForm = ({values}) => {
 														</StyledSetupDocumentsFormContentGridItem>
 													))
 												}
+
+												<StyledSetupDocumentsFormContentGridItem item xl={4} lg={4} md={12} sm={12} xs={12}>
+													<FileField
+														name={`agreements.${index}.agreement`}
+														setFieldValue={setFieldValue}
+														style={{width: "100%"}}
+														// value={undefined}
+													/>
+												</StyledSetupDocumentsFormContentGridItem>
+
 											</StyledDisclosureFormContentGridFieldArray>
 											<ButtonGroup type="button" variant="contained">
 												<Button

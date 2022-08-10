@@ -43,7 +43,7 @@ const StyledStepperContent = styled(Container)(({theme}) => ({
 
 }))
 
-const StepperComponent = ({ steps, styles, submitHandler, values, isSubmitting, errors }) => {
+const StepperComponent = ({ setFieldValue, steps, styles, submitHandler, values, isSubmitting, errors }) => {
 
 	const [activeStep, setActiveStep] = useState(0);
 	const [skipped, setSkipped] = useState(new Set());
@@ -110,6 +110,7 @@ const StepperComponent = ({ steps, styles, submitHandler, values, isSubmitting, 
 						steps={steps}
 						values={values}
 						isSubmitting={isSubmitting}
+						setFieldValue={setFieldValue}
 						/>
 				);
 
@@ -122,6 +123,7 @@ const StepperComponent = ({ steps, styles, submitHandler, values, isSubmitting, 
 						steps={steps}
 						values={values}
 						isSubmitting={isSubmitting}
+						setFieldValue={setFieldValue}
 						/>
 					);
 
@@ -134,6 +136,7 @@ const StepperComponent = ({ steps, styles, submitHandler, values, isSubmitting, 
 						steps={steps}
 						values={values}
 						isSubmitting={isSubmitting}
+						setFieldValue={setFieldValue}
 					/>
 				);
 		

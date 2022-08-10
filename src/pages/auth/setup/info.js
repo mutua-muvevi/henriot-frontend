@@ -396,19 +396,19 @@ export const setupfields = {
 			sm: 12,
 			xs: 12
 		},
-		{
-			name: "content",
-			label: "",
-			placeholder: "",
-			type: "file",
-			required: true,
-			inputprops: {},
-			xl: 4,
-			lg: 4,
-			md: 6,
-			sm: 12,
-			xs: 12
-		},
+		// {
+		// 	name: "content",
+		// 	label: "",
+		// 	placeholder: "",
+		// 	type: "file",
+		// 	required: true,
+		// 	inputprops: {},
+		// 	xl: 4,
+		// 	lg: 4,
+		// 	md: 6,
+		// 	sm: 12,
+		// 	xs: 12
+		// },
 	],
 
 	trustedContact: [

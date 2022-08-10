@@ -24,7 +24,7 @@ const StyledSetupOthersGridItem = styled(Grid)(({ theme }) => ({
 
 }))
 
-const SetupOthers = ({ activeStep, handleBack, handleNext, steps, values }) => {
+const SetupOthers = ({ setFieldValue, activeStep, handleBack, handleNext, steps, values }) => {
 	return (
 		<StyledSetupOthers maxWidth="lg">
 			<StyledSetupFormGridContainer container spacing={2}>
@@ -49,7 +49,7 @@ const SetupOthers = ({ activeStep, handleBack, handleNext, steps, values }) => {
 					</Typography>
 				</StyledSetupOthersGridItem>
 				<StyledSetupOthersGridItem item xl={9} lg={9} md={6} sm={12} xs={12}>
-					<AgreementForm values={values}/>
+					<AgreementForm values={values} setFieldValue={setFieldValue}/>
 				</StyledSetupOthersGridItem>
 			</StyledSetupFormGridContainer>
 

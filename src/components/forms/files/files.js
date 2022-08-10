@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { Box, Fab, TextField  } from "@mui/material";
-import { styled } from "@mui/system";
+import { useField, ErrorMessage } from "formik";
 
-import { useField } from "formik";
+import { Box, IconButton, TextField } from '@mui/material';
+import { styled } from "@mui/styles";
 
+import { FaCloudUploadAlt } from "react-icons/fa";
 
+const StyledFileInputWrapper = styled(Box)(({ theme }) => ({
 
-const FilesField = ({icon, name, ...otherProps}) => {
-	
+}))
+
+const FileField = ({ setFieldValue, name}) => {
+
 	const [field, meta] = useField(name)
 
 	const configTextField = {
 		...field,
-		...otherProps,
 		fullWidth: true,
 		variant: "outlined"
 	}
@@ -23,36 +26,21 @@ const FilesField = ({icon, name, ...otherProps}) => {
 		configTextField.helperText = meta.error
 	}
 
-	const handleUploadClick = event => {
-		console.log("I AM CLICKED");
-		const file = event.target.files[0];
-		const reader = new FileReader();
-		const url = reader.readAsDataURL(file);
-	
-		// reader.onloadend = function(e) {
-		//   this.setState({
-		// 	selectedFile: [reader.result]
-		//   });
-		// }.bind(this);
-		// console.log("THE PATH IA",url); // Would see a path?
-	
-		// this.setState({
-		//   mainState: "uploaded",
-		//   selectedFile: event.target.files[0],
-		//   imageUploaded: 1
-		// });
-	  };
+	const handleChange = e => {
+		setFieldValue(name, e.currentTarget.files[0])
+		console.log(e.target.files[0])
+	}
 
-	  
 	return (
-		<Box>
-			{console.log("THE FIELD IS", field)}
-			<TextField
-				{...configTextField}
-				onChange={handleUploadClick}
+		<StyledFileInputWrapper>
+			<input
+				accept=".pdf, .doc, .docx, .txt, .rtf"
+				type="file"
+				id="reusable file upload"
+				onChange={handleChange}
 			/>
-		</Box>
+		</StyledFileInputWrapper>
 	)
 }
 
-export default FilesField
+export default FileField

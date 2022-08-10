@@ -172,6 +172,8 @@ const Setup = () => {
 	
 	const submitHandler = (values) => {
 		alert(JSON.stringify(values))
+		console.log("VALUES ARE", values)
+		alert("Wodked")
 	}
 
 	return (
@@ -193,6 +195,7 @@ const Setup = () => {
 								values = {values}
 								isSubmitting={isSubmitting}
 								errors={errors}
+								setFieldValue={setFieldValue}
 								/>
 						</Form>
 					)

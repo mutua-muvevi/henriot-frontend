@@ -232,11 +232,11 @@ const CompletedStepper = ({children, handleReset, submitHandler, style, values, 
 					{
 						JSON.stringify(values.documents)
 					}
-					<DatagridComponent
+					{/* <DatagridComponent
 						title="Account setup summary for documents"
 						columns={documentTableColumns}
 						rows={documentTableRows}
-					/>
+					/> */}
 				</StyledCompletedSetupUnit>
 
 				<StyledCompletedSetupUnit>
@@ -261,11 +261,11 @@ const CompletedStepper = ({children, handleReset, submitHandler, style, values, 
 					{
 						JSON.stringify(values.agreements)
 					}
-					<DatagridComponent
+					{/* <DatagridComponent
 						title="Account setup summary for agreements"
 						columns={agreementTableColumns}
 						rows={agreementTableRows}
-					/>
+					/> */}
 				</StyledCompletedSetupUnit>
 
 				<StyledButtonSection>
@@ -279,11 +279,12 @@ const CompletedStepper = ({children, handleReset, submitHandler, style, values, 
 							>
 								Back
 						</Button>
-						{console.log("TABLEHEAD", tableHead)}
+
 						<Button
 							startIcon={isSubmitting ? <CircularProgress size="1rem" /> : null}
 							// disabled={errors ? true : false}
-							type="submit" 
+							type="button"
+							onClick={() => console.log("VALUES ARE", values)}
 							aria-label="Account setup submit button"
 						>
 							Confirm

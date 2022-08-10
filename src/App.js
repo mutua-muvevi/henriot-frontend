@@ -14,6 +14,7 @@ import Setup from "./pages/auth/setup/setup";
 import Fallback from "./components/fallback/fallback"
 
 import { connect } from "react-redux";
+import SandboxOne from "./sandbox/sandboxOne";
 
 const App = () => {
 	return (
@@ -22,6 +23,7 @@ const App = () => {
 				<ThemeProvider theme={theme}>
 					<Suspense fallback={<Fallback/>}>
 						<Routes>
+							<Route path="/" element={<SandboxOne/>}/>
 							<Route path="/auth" element={<AuthLayout/>}>
 								<Route path="/auth/register" element={<Register/>}/>
 								<Route path="/auth/setup" element={<Setup/>}/>
