@@ -292,7 +292,7 @@ const CompletedStepper = ({children, handleReset, submitHandler, style, values, 
 						</Button>
 
 						<Button
-							startIcon={isSubmitting ? <CircularProgress size="1rem" /> : null}
+							// startIcon={isSubmitting ? <CircularProgress size="1rem" /> : null}
 							// disabled={errors ? true : false}
 							type="submit"
 							// onClick={() => console.log("VALUES ARE", values)}
