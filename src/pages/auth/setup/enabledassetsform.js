@@ -24,13 +24,15 @@ const EnabledAssetsForm = () => {
 		<StyledEnabledAssetsForm>
 			<StyledEnabledAssetsFormContentGrid container spacing={2}>
 					<StyledEnabledAssetsFormContentGridItem item xl={9} lg={9} md={12} sm={12} xs={12}>
-						<CheckBoxField
-							name={setupfields.enabledAssets.name}
-							label={setupfields.enabledAssets.label}
-							type={setupfields.enabledAssets.type}
-							placeholder={setupfields.enabledAssets.placeholder}
-							size="small"
-						/>
+						{
+							setupfields.enabledAssets &&
+							setupfields.enabledAssets.map((el, i) => (
+								<CheckBoxField
+									size="small"
+								/>
+								
+							))
+						}
 					</StyledEnabledAssetsFormContentGridItem>
 			</StyledEnabledAssetsFormContentGrid>
 		</StyledEnabledAssetsForm>

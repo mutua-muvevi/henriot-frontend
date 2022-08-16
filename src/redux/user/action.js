@@ -18,10 +18,9 @@ export const fetchUserFail = (errMessage) => ({
 
 export const fetchUser = (token) => {
 	return async (dispatch) => {
-		console.log("FETCHING USER...")
 		try {
 			const res = await axios.get(
-				`http://localhost:3000/api/user/me`,
+				`http://localhost:8100/api/user/me`,
 				{
 					headers: {
 						Authorization:`Bearer ${token}`,

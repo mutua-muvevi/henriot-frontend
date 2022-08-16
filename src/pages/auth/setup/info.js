@@ -5,87 +5,89 @@ const iconStyles = {
 	fontSize: "50px"
 }
 
+export const  contactFields = [
+	{
+		name: "email_address",
+		label: "Email address",
+		placeholder: "Email address",
+		type: "email",
+		required: true,
+		inputprops: {},
+		xl: 4,
+		lg: 4,
+		md: 6,
+		sm: 12,
+		xs: 12
+	},
+	{
+		name: "phone_number",
+		label: "Phone Number",
+		placeholder: "Phone Number",
+		type: "text",
+		required: true,
+		inputprops: {},
+		xl: 4,
+		lg: 4,
+		md: 6,
+		sm: 12,
+		xs: 12
+	},
+	{
+		name: "street_address",
+		label: "Street Address",
+		placeholder: "Street Address",
+		type: "text",
+		required: true,
+		inputprops: {},
+		xl: 4,
+		lg: 4,
+		md: 6,
+		sm: 12,
+		xs: 12
+	},
+	{
+		name: "unit",
+		label: "Unit",
+		placeholder: "Unit",
+		type: "text",
+		required: true,
+		inputprops: {},
+		xl: 4,
+		lg: 4,
+		md: 6,
+		sm: 12,
+		xs: 12
+	},
+	{
+		name: "postal_code",
+		label: "Postal Code",
+		placeholder: "Postal Code",
+		type: "text",
+		required: true,
+		inputprops: {},
+		xl: 4,
+		lg: 4,
+		md: 6,
+		sm: 12,
+		xs: 12
+	},
+	{
+		name: "city",
+		label: "Your City",
+		placeholder: "Your City",
+		type: "text",
+		required: true,
+		inputprops: {},
+		xl: 4,
+		lg: 4,
+		md: 6,
+		sm: 12,
+		xs: 12
+	}
+]
+
 export const setupfields = {
-	contactFields : [
-		{
-			name: "contact.email_address",
-			label: "Email address",
-			placeholder: "Email address",
-			type: "email",
-			required: true,
-			inputprops: {},
-			xl: 4,
-			lg: 4,
-			md: 6,
-			sm: 12,
-			xs: 12
-		},
-		{
-			name: "contact.phone_number",
-			label: "Phone Number",
-			placeholder: "Phone Number",
-			type: "text",
-			required: true,
-			inputprops: {},
-			xl: 4,
-			lg: 4,
-			md: 6,
-			sm: 12,
-			xs: 12
-		},
-		{
-			name: "contact.street_address",
-			label: "Street Address",
-			placeholder: "Street Address",
-			type: "text",
-			required: true,
-			inputprops: {},
-			xl: 4,
-			lg: 4,
-			md: 6,
-			sm: 12,
-			xs: 12
-		},
-		{
-			name: "contact.unit",
-			label: "Unit",
-			placeholder: "Unit",
-			type: "text",
-			required: true,
-			inputprops: {},
-			xl: 4,
-			lg: 4,
-			md: 6,
-			sm: 12,
-			xs: 12
-		},
-		{
-			name: "contact.postal_code",
-			label: "Postal Code",
-			placeholder: "Postal Code",
-			type: "text",
-			required: true,
-			inputprops: {},
-			xl: 4,
-			lg: 4,
-			md: 6,
-			sm: 12,
-			xs: 12
-		},
-		{
-			name: "contact.city",
-			label: "Your City",
-			placeholder: "Your City",
-			type: "text",
-			required: true,
-			inputprops: {},
-			xl: 4,
-			lg: 4,
-			md: 6,
-			sm: 12,
-			xs: 12
-		}
-	],
+	
 
 	identityFields : [
 		{
@@ -181,19 +183,35 @@ export const setupfields = {
 		},
 	],
 
-	enabledAssets: {
-		name: "enabled_assets",
-		label: "Enabled assets",
-		placeholder: "Enabled assets",
-		type: "text",
-		required: true,
-		inputprops: {},
-		xl: 4,
-		lg: 4,
-		md: 6,
-		sm: 12,
-		xs: 12
-	},
+	enabledAssets: [
+		{
+			name: "us_equity",
+			label: "US Equity",
+			placeholder: "Enabled assets",
+			type: "text",
+			required: true,
+			inputprops: {},
+			xl: 4,
+			lg: 4,
+			md: 6,
+			sm: 12,
+			xs: 12
+		},
+		{
+			name: "crypto",
+			label: "Cryptocurrency",
+			placeholder: "Enabled assets",
+			type: "text",
+			required: true,
+			inputprops: {},
+			xl: 4,
+			lg: 4,
+			md: 6,
+			sm: 12,
+			xs: 12
+		},
+
+	],
 
 	disclosures: [
 		{

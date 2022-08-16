@@ -3,10 +3,11 @@ import authTypes from './types';
 const initialState = {
 	token: null,
 	data: null,
+	user: null,
 	isLoading: false,
 	isAuthenticated: false,
 	errMessage: null,
-	error: null
+	error: null,
 };
 
 const authReducer = (state = initialState, { type, payload }) => {
@@ -23,13 +24,41 @@ const authReducer = (state = initialState, { type, payload }) => {
 		case authTypes.SUCCESS_REGISTER_USER:
 			return {
 				...state,
-				token: payload,
+				token: payload.data.token,
 				data: null,
+				user: payload.data.user,
 				isLoading: false,
 				isAuthenticated: true,
 				errMessage: null,
 			};
 		case authTypes.FAIL_REGISTER_USER:
+			return {
+				token: null,
+				data: null,
+				isLoading: false,
+				isAuthenticated: false,
+				errMessage: payload,
+			};
+		
+		case authTypes.START_ACCOUNT_SETUP:
+			return { 
+				...state, 
+				data: null,
+				isLoading: true,
+				isAuthenticated: false,
+				errMessage: null,
+			};
+		case authTypes.SUCCESS_ACCOUNT_SETUP:
+			return {
+				...state,
+				token: payload,
+				data: null,
+				user: payload,
+				isLoading: false,
+				isAuthenticated: true,
+				errMessage: null,
+			};
+		case authTypes.FAIL_ACCOUNT_SETUP:
 			return {
 				token: null,
 				data: null,

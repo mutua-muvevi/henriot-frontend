@@ -11,6 +11,9 @@ import TextfieldWrapper from "../../../components/forms/textfield/textfield";
 import StepperComponent from "../../../components/stepper/stepper";
 import { setupfields } from "./info";
 
+import { connect } from "react-redux";
+import { setupUser } from "../../../redux/auth/actions";
+
 const StyledSetup = styled(Box)(({ theme }) => ({
 	minHeight: "100vh",
 	display: "flex",
@@ -27,16 +30,14 @@ const stepperStyles = {
 }
 
 const INITIAL_FORM_STATE = {
-	contact: {
-		email_address: "",
-		phone_number: "",
-		street_address: "",
-		unit: "",
-		postal_code: "",
-		state: "",
-		city: "",
-		country: ""
-	},
+	email_address: "",
+	phone_number: "",
+	street_address: "",
+	unit: "",
+	postal_code: "",
+	state: "",
+	city: "",
+	country: "",
 
 	identity: {
 		given_name: "",
@@ -59,7 +60,7 @@ const INITIAL_FORM_STATE = {
 		address: ""
 	},
 
-	enabled_assets: false,
+	// enabled_assets: false,
 	disclosures: {
 		is_control_person: false,
 		is_affiliated_exchange_or_finra: false,
@@ -96,16 +97,14 @@ const INITIAL_FORM_STATE = {
 }
 
 const FORM_VALIDATION = Yup.object().shape({
-	contact: Yup.object().shape({
-		email_address: Yup.string().min(5, "Too short email").max(80, "Too long email").email("Please add a valid email").required("Please add an email"),
-		phone_number: Yup.string().min(10, "Too short phone number").max(19, "Too long phone number").required("Please add a phone number"),
-		street_address: Yup.string().min(2, "Too short street address").max(63, "Too long street address").required("Please add a street address"),
-		unit: Yup.string().min(2, "Too short unit").max(80, "Too long unit").required("Please add a unit"),
-		postal_code: Yup.string().min(5, "Too short postal code").max(11, "Too long postal code").required("Please add a postal code"),
-		state: Yup.string().min(4, "Too short state name").max(30, "Too long state name").required("Please add a state name"),
-		city: Yup.string().min(2, "Too short city name").max(85, "Too long city name").required("Please add a city name"),
-		country: Yup.string().min(4, "Too short country name").max(56, "Too long country name").required("Please add a country name"),
-	}),
+	email_address: Yup.string().min(5, "Too short email").max(80, "Too long email").email("Please add a valid email").required("Please add an email"),
+	phone_number: Yup.string().min(10, "Too short phone number").max(19, "Too long phone number").required("Please add a phone number"),
+	street_address: Yup.string().min(2, "Too short street address").max(63, "Too long street address").required("Please add a street address"),
+	unit: Yup.string().min(2, "Too short unit").max(80, "Too long unit").required("Please add a unit"),
+	postal_code: Yup.string().min(5, "Too short postal code").max(11, "Too long postal code").required("Please add a postal code"),
+	state: Yup.string().min(3, "Too short state name").max(30, "Too long state name").required("Please add a state name"),
+	city: Yup.string().min(2, "Too short city name").max(85, "Too long city name").required("Please add a city name"),
+	country: Yup.string().min(4, "Too short country name").max(56, "Too long country name").required("Please add a country name"),
 
 	identity: Yup.object().shape({
 		given_name: Yup.string().min(3, "Too short first name").max(50, "Too long first name").required("Please add a first name"),
@@ -128,7 +127,7 @@ const FORM_VALIDATION = Yup.object().shape({
 		address: Yup.string().min(3, "Too short address").max(50, "Too long address"),
 	}),
 	
-	enabled_assets: Yup.boolean(),
+	// enabled_assets: Yup.boolean(),
 	disclosures: Yup.object().shape({
 		is_control_person: Yup.boolean(),
 		is_affiliated_exchange_or_finra: Yup.boolean(),
@@ -164,15 +163,15 @@ const FORM_VALIDATION = Yup.object().shape({
 	// )
 })
 
-const Setup = () => {
+const Setup = ({ user, setupUser, token, id }) => {
 
 	const steps = ['About', 'Identity', 'Others'];
 
 		
 	
 	const submitHandler = (values) => {
-		alert(JSON.stringify(values))
-		console.log("VALUES ARE [SUBMIT ITEMS}", values)
+		setupUser(values, token, id)
+		console.log("VALUES ARE SUBMIT ITEMS", values)
 	}
 
 	return (
@@ -204,4 +203,16 @@ const Setup = () => {
 	)
 }
 
-export default Setup
+const mapStateToProps = ({ auth, user }) => ({
+	token: auth.token,
+	errMessage: auth.errMessage,
+
+	user: user.me,
+	id: user.me._id
+})
+
+const mapDispatchToProps = (dispatch) => ({
+	setupUser: (values, token, id) => dispatch(setupUser(values, token, id))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Setup)

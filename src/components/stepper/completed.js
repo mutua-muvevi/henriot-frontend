@@ -78,7 +78,18 @@ const StyledButtonSection = styled(Box)(({ theme }) => ({
 
 const CompletedStepper = ({children, handleReset, submitHandler, style, values, handleBack, isSubmitting, errors}) => {
 
-	const contacts = Object.entries(values.contact)
+	const contactsObj = {
+		email_address: values.email_address,
+		phone_number: values.phone_number,
+		street_address: values.street_address,
+		unit: values.unit,
+		postal_code: values.postal_code,
+		state: values.state,
+		city: values.city,
+		country: values.country,
+	}
+
+	const contacts = Object.entries(contactsObj)
 	const trustedContacts = Object.entries(values.trusted_contact)
 	const identities = Object.entries(values.identity)
 
@@ -185,9 +196,9 @@ const CompletedStepper = ({children, handleReset, submitHandler, style, values, 
 							))
 						}
 					</StyledCompletedSetupList>
-
+		{/* {console.log(values.trusted_contact, "=================", contacts, "====================")} */}
 					<Typography variant="h6" gutterBottom sx={subHeaderFont}>
-						Trusted contact
+						Trusted contact 
 					</Typography>
 					<StyledCompletedSetupList container spacing={3}>
 						{

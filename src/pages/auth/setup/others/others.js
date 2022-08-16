@@ -57,7 +57,7 @@ const SetupOthers = ({ setFieldValue, activeStep, handleBack, handleNext, steps,
 
 			<StyledSetupFormGridContainer container spacing={2}>
 				<StyledSetupOthersGridItem item xl={9} lg={9} md={6} sm={12} xs={12}>
-					<EnabledAssetsForm/>
+					{/* <EnabledAssetsForm/> */}
 				</StyledSetupOthersGridItem>
 
 

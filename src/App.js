@@ -16,20 +16,19 @@ import Fallback from "./components/fallback/fallback"
 import { connect } from "react-redux";
 // import SandboxOne from "./sandbox/sandboxOne";
 
-import { fetchUser, } from "./redux/user/action";
 import OtpLogin from "./pages/auth/otplogin/otplogin";
+import { fetchUser } from "./redux/user/action";
 
-function App ({token, fetchUser}){
+function App ({token, fetchMe}){
 
 	useEffect(() => {
 		try {
-			fetchUser(token)
+			fetchMe(token)
 
 		} catch (error) {
 			console.log("APP ERROR", error)
-			console.log("THE FETCH USER TYPE IS", typeof(fetchUser))
 		}
-	}, [token, fetchUser])
+	}, [token, fetchMe])
 
 	return (
 		<div className="App">
@@ -56,11 +55,12 @@ function App ({token, fetchUser}){
 
 const mapStateToProps = ({ auth }) => ({
 	token: auth.token,
-	errMessage: auth.errMessage
+	errMessage: auth.errMessage,
+	user: auth.data
 })
 
 const mapDispatchToProps = (dispatch) => ({
-	fetchUser: (token) => dispatch(fetchUser(token)),
+	fetchMe : (token) => dispatch(fetchUser(token))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -2,10 +2,11 @@ import userTypes from './types';
 
 const initialState = {
 	loading: false,
-	user: null,
+	me: null,
+	single: null,
 	users: null,
 	admin: null,
-	errMessage: undefined,
+	error: undefined,
 	authenticated: false
 };
 
@@ -15,24 +16,35 @@ const userReducer = (state = initialState, { type, payload }) => {
 			return { 
 				...state,
 				loading: true,
-				errMessage: undefined,
+				me: null,
+				single: null,
+				users: null,
+				admin: null,
+				error: undefined,
 				authenticated: false
 			};
 		case userTypes.SUCCESS_FETCH_USER:
 			return {
 				...state,
 				loading: false,
-				authenticated: true,
-				errMessage: undefined,
-				user: payload
+				me: payload,
+				single: null,
+				users: null,
+				admin: null,
+				error: undefined,
+				authenticated: false
+				
 			};
 		case userTypes.FAIL_FETCH_USER:
 			return {
 				...state,
 				loading: false,
-				errMessage: payload,
-				authenticated: false,
-				user: null
+				me: null,
+				single: null,
+				users: null,
+				admin: null,
+				error: payload,
+				authenticated: false
 			};
 
 

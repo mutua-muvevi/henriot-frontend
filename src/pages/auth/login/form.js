@@ -134,7 +134,7 @@ const LoginForm = ({ loginUser, errMessage, token }) => {
 }
 
 const mapStateToProps = ({ auth }) => ({
-	errMessage: auth.errMessage,
+	errMessage: auth.errMessage.data.error,
 	token: auth.token
 })
 

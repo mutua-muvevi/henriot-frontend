@@ -105,7 +105,8 @@ export const registerUser = (formData) => {
 				}
 			)
 			startRegisterUser()
-			dispatch(registerUserSuccess(res.data.token))
+			console.log("REG", res)
+			dispatch(registerUserSuccess(res))
 		} catch (error) {
 			dispatch(registerUserFail(error.response.data.error))
 		}
@@ -158,20 +159,22 @@ export const loginUser = (formData) => {
 	}
 }
 
-export const setupUser = (formData, token) => {
+export const setupUser = (values, token, id) => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.put(
-				`http://localhost:8100/api/user/setup`,
-				formData,
+				`http://localhost:8100/api/user/setup/${id}`,
+				values,
 				{
 					headers: {
 						"Content-Type": "application/json",
+						Authorization:`Bearer ${token}`,
 					},
 				}
 			)
 			startSetupUser()
 			dispatch(setupUserSuccess(res.data.data.user))
+			console.log(res)
 		} catch (error) {
 			dispatch(setupUserFail(error.response))
 		}

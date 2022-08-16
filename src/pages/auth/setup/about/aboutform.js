@@ -7,7 +7,7 @@ import TextfieldWrapper from "../../../../components/forms/textfield/textfield";
 import SelectField from "../../../../components/forms/select/select";
 import { countries } from "../../../../content/countries";
 import { USAstates } from "../../../../content/states";
-import { setupfields } from "../info";
+import { contactFields } from "../info";
 
 
 const StyledAboutForm = styled(Box)(({ theme }) => ({
@@ -27,9 +27,8 @@ const AboutForm = () => {
 		<StyledAboutForm>
 			<StyledAboutFormContentGrid container spacing={2}>
 				{
-					setupfields &&
-					setupfields.contactFields &&
-					setupfields.contactFields.map((el, i) => (
+					contactFields &&
+					contactFields.map((el, i) => (
 						<StyledAboutFormContentGridItem item key={i} xl={el.xl} lg={el.lg} md={el.md} sm={el.sm} xs={el.xs}>
 							<TextfieldWrapper
 								name={el.name}
@@ -44,7 +43,7 @@ const AboutForm = () => {
 				<StyledAboutFormContentGridItem item xl={4} lg={4} md={6} sm={12} xs={12}>
 					<SelectField
 						type="text"
-						name="contact.state"
+						name="state"
 						label="states"
 						size="small"
 						options={USAstates}
@@ -54,7 +53,7 @@ const AboutForm = () => {
 				<StyledAboutFormContentGridItem item xl={4} lg={4} md={6} sm={12} xs={12}>
 					<SelectField
 						type="text"
-						name="contact.country"
+						name="country"
 						label="country"
 						size="small"
 						options={countries}
