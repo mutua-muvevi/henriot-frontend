@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 
 import { connect } from "react-redux";
@@ -52,10 +52,22 @@ const FORM_VALIDATION = Yup.object().shape({
 	password: Yup.string().required("Please add a password"),
 })
 
-const LoginForm = ({ loginUser, errMessage, token }) => {
+const LoginForm = ({ loginUser, error, info}) => {
 	
 	const [ alertSuccess, setAlertSuccess ] = useState(false);
-	const navigate = useNavigate()
+	const [ errors, setErrors ] = useState(null);
+	const [ data, setData ] = useState({})
+
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		if(error){
+			setAlertSuccess(false)
+			setErrors(error)
+			return 
+		}
+		setErrors(null)
+	}, [info, error])
 	
 	const submitHandler = (values) => {
 		loginUser(values)
@@ -64,16 +76,13 @@ const LoginForm = ({ loginUser, errMessage, token }) => {
 		// 	setAlertSuccess(false)
 		// }
 		
-		if(token){
+		if(info.status === 200 && info.statusText === "OK" && !error){
+			setData(info)
 			setAlertSuccess(true)
-	
 			setTimeout(() => {
-				navigate("/auth/setup")
+				navigate("/")
 			}, 2000);
-			return 
 		}
-
-		setAlertSuccess(false)
 
 	}
 
@@ -90,11 +99,11 @@ const LoginForm = ({ loginUser, errMessage, token }) => {
 				) : null
 			}
 			{
-				errMessage && alertSuccess === false   ? (
+				errors ? (
 					<Grow  style={{ transformOrigin: '10 20 50' }} sx={{marginBottom: "10px", width: "500px"}} in timeout={1000}>
 						<Alert severity="error" variant="filled">
 							<AlertTitle>Login Error!</AlertTitle>
-							{ errMessage }
+							{ errors.data.error }
 						</Alert>
 					</Grow>
 				) : null
@@ -134,8 +143,10 @@ const LoginForm = ({ loginUser, errMessage, token }) => {
 }
 
 const mapStateToProps = ({ auth }) => ({
-	errMessage: auth.errMessage.data.error,
-	token: auth.token
+	errMessage: auth.errMessage,
+	error: auth.error,
+	token: auth.token,
+	info: auth.data
 })
 
 const mapDispatchToProps = (dispatch) => ({

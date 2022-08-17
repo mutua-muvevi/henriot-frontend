@@ -118,7 +118,7 @@ export const loginUserWithOtp = (formData) => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.post(
-				`http://localhost:8100/api/user/login`,
+				`http://localhost:8100/api/user/otplogin`,
 				formData,
 				{
 					headers: {
@@ -152,9 +152,9 @@ export const loginUser = (formData) => {
 			)
 			startLoginUser()
 			console.log("RESPONSE",res)
-			dispatch(loginUserSuccess(res.data.token))
+			dispatch(loginUserSuccess(res))
 		} catch (error) {
-			dispatch(loginUserFail(error.response.data.error))
+			dispatch(loginUserFail(error.response))
 		}
 	}
 }
@@ -173,8 +173,8 @@ export const setupUser = (values, token, id) => {
 				}
 			)
 			startSetupUser()
-			dispatch(setupUserSuccess(res.data.data.user))
-			console.log(res)
+			console.log("RES IS",res)
+			dispatch(setupUserSuccess(res))
 		} catch (error) {
 			dispatch(setupUserFail(error.response))
 		}

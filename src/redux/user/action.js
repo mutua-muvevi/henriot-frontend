@@ -28,6 +28,7 @@ export const fetchUser = (token) => {
 				}
 			)
 			fetchUserStart()
+			console.log("FETCHING USER ACTION", res.data.data)
 			dispatch(fetchUserSuccess(res.data.data))
 		} catch (error) {
 			dispatch(fetchUserFail(error.response))

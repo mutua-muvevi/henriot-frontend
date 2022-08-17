@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 
 import { Alert, AlertTitle, Box, Button, Grid, Grow } from "@mui/material";
 import { styled } from "@mui/system";
@@ -167,9 +168,11 @@ const Setup = ({ user, setupUser, token, id }) => {
 
 	const steps = ['About', 'Identity', 'Others'];
 
+	const navigate = useNavigate
 		
 	
 	const submitHandler = (values) => {
+		if(!id) return navigate("/auth/login")
 		setupUser(values, token, id)
 		console.log("VALUES ARE SUBMIT ITEMS", values)
 	}

@@ -1,13 +1,13 @@
 import authTypes from './types';
 
 const initialState = {
-	token: null,
-	data: null,
-	user: null,
+	token: "",
+	data: {},
+	user: {},
 	isLoading: false,
 	isAuthenticated: false,
-	errMessage: null,
-	error: null,
+	errMessage: "",
+	error: {},
 };
 
 const authReducer = (state = initialState, { type, payload }) => {
@@ -39,30 +39,24 @@ const authReducer = (state = initialState, { type, payload }) => {
 				isAuthenticated: false,
 				errMessage: payload,
 			};
+
 		
 		case authTypes.START_ACCOUNT_SETUP:
 			return { 
-				...state, 
-				data: null,
+				...state,
 				isLoading: true,
 				isAuthenticated: false,
-				errMessage: null,
 			};
 		case authTypes.SUCCESS_ACCOUNT_SETUP:
 			return {
 				...state,
-				token: payload,
-				data: null,
-				user: payload,
+				user: payload.data.data.user,
 				isLoading: false,
 				isAuthenticated: true,
 				errMessage: null,
 			};
 		case authTypes.FAIL_ACCOUNT_SETUP:
 			return {
-				token: null,
-				data: null,
-				isLoading: false,
 				isAuthenticated: false,
 				errMessage: payload,
 			};
@@ -76,15 +70,17 @@ const authReducer = (state = initialState, { type, payload }) => {
 				isLoading: true,
 				isAuthenticated: false,
 				errMessage: null,
+				error: null,
 			};
 		case authTypes.SUCCESS_LOGIN_USER:
 			return {
 				...state,
-				token: payload,
-				data: null,
+				token:  payload.data.token,
+				data: payload,
 				isLoading: false,
 				isAuthenticated: true,
 				errMessage: null,
+				error: null
 			};
 		case authTypes.FAIL_LOGIN_USER:
 			return {
@@ -93,7 +89,8 @@ const authReducer = (state = initialState, { type, payload }) => {
 				data: null,
 				isLoading: false,
 				isAuthenticated: false,
-				errMessage: payload,
+				errMessage: null,
+				error: payload
 			};
 		
 		
