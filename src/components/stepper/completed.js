@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Box, Button, ButtonGroup,  CircularProgress, Container, Card, Grid, Stepper, Step, StepLabel, Typography } from '@mui/material';
 import { styled } from "@mui/system";
 import DatagridComponent from "../datagrid/datagrid";
+import TableComponent from "../table/table";
 
 
 const StyledCompletedStepper = styled(Box)(({ theme }) => ({
@@ -92,83 +93,7 @@ const CompletedStepper = ({children, handleReset, submitHandler, style, values, 
 	const contacts = Object.entries(contactsObj)
 	const trustedContacts = Object.entries(values.trusted_contact)
 	const identities = Object.entries(values.identity)
-
-	const tableHead = Object.keys(values.agreements[0])
-
-	const documentTableRows = values.documents
-	const documentTableColumns = [
-		{
-			field: "id",
-			hide: "true"
-		},
-		{
-			field: "document_type",
-			align: "left",
-			headerAlign: "left",
-			headerName: "Document Type",
-			width: 150,
-		},
-		{
-			field: "document_sub_type",
-			align: "left",
-			headerAlign: "left",
-			headerName: "Document Subtype",
-			width: 150,
-		},
-		{
-			field: "content",
-			align: "left",
-			headerAlign: "left",
-			headerName: "Content",
-			width: 150,
-		},
-		{
-			field: "mime_type",
-			align: "left",
-			headerAlign: "left",
-			headerName: "Extension",
-			width: 150,
-		},
-	]
-
-	const agreementTableRows = values.agreements
-	const agreementTableColumns = [
-		{
-			field: "id",
-			hide: "true"
-		},
-		{
-			field: "signed_at",
-			align: "left",
-			headerAlign: "left",
-			headerName: "Signed At",
-			width: 150,
-		},
-		{
-			field: "ip_address",
-			align: "left",
-			headerAlign: "left",
-			headerName: "IP Adress",
-			width: 150,
-			
-		},
-		{
-			field: "revision",
-			align: "left",
-			headerAlign: "left",
-			headerName: "Revision",
-			width: 150,
-			
-		},
-		{
-			field: "agreement",
-			align: "left",
-			headerAlign: "left",
-			headerName: "Document Type",
-			width: 150,
-
-		},
-	]
+	const disclosures = Object.entries(values.disclosures).slice(0, 4)
 
 	return (
 		<StyledCompletedStepper style={style}>
@@ -196,7 +121,7 @@ const CompletedStepper = ({children, handleReset, submitHandler, style, values, 
 							))
 						}
 					</StyledCompletedSetupList>
-		{/* {console.log(values.trusted_contact, "=================", contacts, "====================")} */}
+					
 					<Typography variant="h6" gutterBottom sx={subHeaderFont}>
 						Trusted contact 
 					</Typography>
@@ -236,47 +161,41 @@ const CompletedStepper = ({children, handleReset, submitHandler, style, values, 
 							))
 						}
 					</StyledCompletedSetupList>
-
-					<Typography variant="h6" gutterBottom sx={subHeaderFont}>
-						Documents
-					</Typography>
-					{
-						JSON.stringify(values.documents)
-					}
-					{/* <DatagridComponent
-						title="Account setup summary for documents"
-						columns={documentTableColumns}
-						rows={documentTableRows}
-					/> */}
 				</StyledCompletedSetupUnit>
 
 				<StyledCompletedSetupUnit>
 					<Typography variant="h6" gutterBottom sx={subHeaderFont}>
-						Other fiels summary
+						Disclosures
 					</Typography>
 					{
-						JSON.stringify(values.disclosures)
-					}
+							disclosures &&
+							disclosures.map((el, i) => (
+								<StyledCompletedSetupListItems key={i} item xl={4} lg={4} md={4} sm={12} xs={12}>
+									<Typography variant="body1" gutterBottom sx={listKeyFont}>
+										{`${el[0]} : `}
+									</Typography>
+									<Typography variant="body1" gutterBottom sx={listValueFont}>
+										{el[1] ? "Yes" : "No"}
+									</Typography>
+									{console.log("value", el[1] ? "Yes" : "No")}
+								</StyledCompletedSetupListItems>
+							))
+						}
 					<Typography variant="h6" gutterBottom sx={subHeaderFont}>
 						Disclosure context
 					</Typography>
-					{
-						JSON.stringify(values.disclosures)
-					}
+
+					<TableComponent
+						data={values.disclosures.context} 
+						aria="Setup form confirmation table for disclosures context" />
+
 					<Typography variant="h6" gutterBottom sx={subHeaderFont}>
 						Agreements
 					</Typography>
-					{
-						// JSON.stringify(tableHead)
-					}
-					{
-						JSON.stringify(values.agreements)
-					}
-					{/* <DatagridComponent
-						title="Account setup summary for agreements"
-						columns={agreementTableColumns}
-						rows={agreementTableRows}
-					/> */}
+					<TableComponent
+						data={values.agreements} 
+						aria="Setup form confirmation table for agreements" />
+
 				</StyledCompletedSetupUnit>
 
 				<StyledButtonSection>

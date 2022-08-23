@@ -99,11 +99,16 @@ const LoginForm = ({ loginUser, error, info}) => {
 				) : null
 			}
 			{
-				errors ? (
+				error ? (
 					<Grow  style={{ transformOrigin: '10 20 50' }} sx={{marginBottom: "10px", width: "500px"}} in timeout={1000}>
 						<Alert severity="error" variant="filled">
+							{console.log("ERROR", errors)}
 							<AlertTitle>Login Error!</AlertTitle>
-							{ errors.data.error }
+							{ 
+								errors ? 
+									errors.data ? errors.data.error : ""
+								: "" 
+							}
 						</Alert>
 					</Grow>
 				) : null

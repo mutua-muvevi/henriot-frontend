@@ -24,9 +24,9 @@ function App ({token, fetchMe}){
 	useEffect(() => {
 		try {
 			fetchMe(token)
-
 		} catch (error) {
 			console.log("APP ERROR", error)
+			// log error to db
 		}
 	}, [token, fetchMe])
 
