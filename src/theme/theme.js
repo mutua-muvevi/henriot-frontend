@@ -53,7 +53,7 @@ export const theme = createTheme({
 	typography: {
 		fontFamily: "'Fira Sans', sans-serif",
 		h1: {
-			fontFamily: "'Ibarra Real Nova', serif;",
+			fontFamily: "'Fira Sans', sans-serif",
 			fontWeight: 700,
 			fontSize: "32px",
 			lineHeight: "37px"
@@ -71,7 +71,7 @@ export const theme = createTheme({
 			lineHeight: "29px"
 		},
 		h4: {
-			fontFamily: "''Ibarra Real Nova', serif;",
+			fontFamily: "''Fira Sans', sans-serif",
 
 		},
 		h5: {

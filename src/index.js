@@ -3,13 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './redux/store';
-
-// import { ThemeProvider } from "@mui/material/styles";
-// import { theme } from "./theme/theme";
 import ErrorBoundary from "./error/errorboundary";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -17,15 +13,13 @@ root.render(
 	<React.StrictMode>
 		<Provider store={store}>
 			<PersistGate persistor={persistor}>
-				{/* <ThemeProvider theme={theme}> */}
 					<ErrorBoundary>
 						<App />
 					</ErrorBoundary>
-					
-				{/* </ThemeProvider> */}
 			</PersistGate>
 		</Provider>
 	</React.StrictMode>
+
 );
 
 // If you want to start measuring performance in your app, pass a function
