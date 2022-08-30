@@ -18,6 +18,18 @@ import { connect } from "react-redux";
 
 import OtpLogin from "./pages/auth/otplogin/otplogin";
 import { fetchUser } from "./redux/user/action";
+import Layout from "./layout/app/layout";
+import Overview from "./pages/app/overview/overview";
+import Account from "./pages/app/account/account";
+import Approach from "./pages/app/approach/approach";
+import Banking from "./pages/app/banking/banking";
+import CryptoTransfers from "./pages/app/cryptotransfers/cryptotransfers";
+import Documentation from "./pages/app/documentation/documentation";
+import HGVault from "./pages/app/HGvault/hgvault";
+import Order from "./pages/app/order/order";
+import Position from "./pages/app/positions/positions";
+import ResearchCenter from "./pages/app/researchcenter/researchcenter";
+import About from "./pages/app/about/about";
 
 function App ({token, fetchMe}){
 
@@ -44,6 +56,20 @@ function App ({token, fetchMe}){
 								<Route path="/auth/login/otp" element={<OtpLogin/>}/>
 								<Route path="/auth/forgotpassword" element={<ForgotPassword/>}/>
 								<Route path="/auth/resetpassword/:resetToken" element={<ResetPassword/>}/>
+							</Route>
+
+							<Route path="/admin" element={<Layout/>}>
+								<Route path="/admin/dashboard" element={<Overview/>}/>
+								<Route path="/admin/about" element={<About/>}/>
+								<Route path="/admin/account" element={<Account/>}/>
+								<Route path="/admin/approach" element={<Approach/>}/>
+								<Route path="/admin/banking" element={<Banking/>}/>
+								<Route path="/admin/crypto-transfers" element={<CryptoTransfers/>}/>
+								<Route path="/admin/documentation" element={<Documentation/>}/>
+								<Route path="/admin/hg-vault" element={<HGVault/>}/>
+								<Route path="/admin/order" element={<Order/>}/>
+								<Route path="/admin/positions" element={<Position/>}/>
+								<Route path="/admin/research-center" element={<ResearchCenter/>}/>
 							</Route>
 						</Routes>
 					</Suspense>
