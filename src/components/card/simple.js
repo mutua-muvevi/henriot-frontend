@@ -5,12 +5,13 @@ import { styled } from "@mui/system";
 
 const StyledSimpleCard = styled(Card)(({ theme }) => ({
 	padding: "0",
-	overflow: "hidden"
+	overflow: "hidden",
+	backgroundColor: "#fff"
 }))
 
 const SimpleCard = ({children}) => {
 	return (
-		<StyledSimpleCard raised>
+		<StyledSimpleCard>
 			{children}
 		</StyledSimpleCard>
 	)
