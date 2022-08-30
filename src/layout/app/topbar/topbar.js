@@ -1,20 +1,13 @@
 import * as React from 'react';
 
+import { Badge, Box, Button, IconButton, InputBase, Menu, MenuItem, AppBar, Toolbar, ButtonGroup } from "@mui/material";
 import { styled, alpha } from '@mui/material/styles';
-import MuiAppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import InputBase from '@mui/material/InputBase';
-import Badge from '@mui/material/Badge';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
 
 import { FaBell, FaEllipsisH, FaEnvelope, FaBars, FaSearch } from 'react-icons/fa';
 
 const drawerWidth = 270;
 
-const AppBarWrapper = styled(MuiAppBar, {
+const AppBarWrapper = styled(AppBar, {
 		shouldForwardProp: (prop) => prop !== 'open',
 	})(({ theme, open }) => ({
 	backgroundColor: "grey",
@@ -39,9 +32,9 @@ const AppBarWrapper = styled(MuiAppBar, {
 const Search = styled('div')(({ theme }) => ({
 	position: 'relative',
 	borderRadius: theme.shape.default,
-	backgroundColor: alpha("rgba(133, 133, 133, 1)", 0.15),
+	backgroundColor: alpha(theme.palette.background.dark, 0.15),
 	'&:hover': {
-		backgroundColor: alpha("rgba(133, 133, 133, 1)", 0.25),
+		backgroundColor: alpha(theme.palette.background.dark, 0.25),
 	},
 	marginRight: theme.spacing(2),
 	marginLeft: 0,
@@ -50,7 +43,6 @@ const Search = styled('div')(({ theme }) => ({
 		marginLeft: theme.spacing(3),
 		width: 'auto',
 	},
-	color: "grey"
 }));
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
@@ -61,11 +53,10 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 	display: 'flex',
 	alignItems: 'center',
 	justifyContent: 'center',
-	color: "grey"
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-	color: "grey",
+	color: theme.palette.background.dark,
 	'& .MuiInputBase-input': {
 		padding: theme.spacing(1.5, 1.5, 1.5, 0),
 		// vertical padding + font size from searchIcon
@@ -78,7 +69,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 	},
 }));
 
-export default function PrimarySearchAppBar({ handleDrawerOpen, open }) {
+const fontStyle ={
+	fontSize: "20px",
+	lineHeight: "0",
+	color: "rgba(1,0,1,255)"
+}
+
+const PrimarySearchAppBar = ({ handleDrawerOpen, open }) => {
 
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -99,28 +96,6 @@ export default function PrimarySearchAppBar({ handleDrawerOpen, open }) {
 		setMobileMoreAnchorEl(event.currentTarget);
 	};
 
-	const menuId = 'primary-search-account-menu';
-	const renderMenu = (
-		<Menu
-			anchorEl={anchorEl}
-			anchorOrigin={{
-				vertical: 'top',
-				horizontal: 'right',
-			}}
-			id={menuId}
-			keepMounted
-			transformOrigin={{
-				vertical: 'top',
-				horizontal: 'right',
-			}}
-			open={isMenuOpen}
-			onClose={handleMenuClose}
-		>
-			<MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-			<MenuItem onClick={handleMenuClose}>My account</MenuItem>
-		</Menu>
-	);
-
 	const mobileMenuId = 'primary-search-account-menu-mobile';
 	const renderMobileMenu = (
 		<Menu
@@ -137,26 +112,17 @@ export default function PrimarySearchAppBar({ handleDrawerOpen, open }) {
 			}}
 			open={isMobileMenuOpen}
 			onClose={handleMobileMenuClose}
+			sx={{color: "rgba(1,0,1,255)"}}
 		>
 			<MenuItem>
-				<IconButton size="large" aria-label="show 4 new mails" color="inherit">
-					<Badge badgeContent={4} color="error">
-						<FaEnvelope />
-					</Badge>
-				</IconButton>
-				<p>Messages</p>
+				<Button variant="contained" color="primary" sx={{width: "100%"}}>
+					Deposit
+				</Button>
 			</MenuItem>
 			<MenuItem>
-				<IconButton
-					size="large"
-					aria-label="show 17 new notifications"
-					color="inherit"
-				>
-					<Badge badgeContent={17} color="error">
-						<FaBell />
-					</Badge>
-				</IconButton>
-				<p>Notifications</p>
+				<Button variant="contained" color="primary" sx={{width: "100%"}}>
+					Kennedy Muturi Njagi
+				</Button>
 			</MenuItem>
 		</Menu>
 	);
@@ -173,11 +139,11 @@ export default function PrimarySearchAppBar({ handleDrawerOpen, open }) {
 						sx={{ mr: 2 }}
 						onClick={handleDrawerOpen}
 					>
-						<FaBars/>
+						<FaBars style={fontStyle} />
 					</IconButton>
 					<Search>
 						<SearchIconWrapper>
-							<FaSearch />
+							<FaSearch style={fontStyle} />
 						</SearchIconWrapper>
 						<StyledInputBase
 							placeholder="Search…"
@@ -186,20 +152,15 @@ export default function PrimarySearchAppBar({ handleDrawerOpen, open }) {
 					</Search>
 					<Box sx={{ flexGrow: 1 }} />
 					<Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-						<IconButton size="large" aria-label="show 4 new mails" color="inherit">
-							<Badge badgeContent={4} color="error">
-								<FaEnvelope />
-							</Badge>
-						</IconButton>
-						<IconButton
-							size="large"
-							aria-label="show 17 new notifications"
-							color="inherit"
-						>
-							<Badge badgeContent={17} color="error">
-								<FaBell />
-							</Badge>
-						</IconButton>
+						<ButtonGroup variant="contained">
+							<Button sx={{minWidth:"120px"}}>
+								DEPOSIT
+							</Button>
+
+							<Button sx={{minWidth:"120px", backgroundColor: "rgba(1,0,1,255)", color: "rgba(0,254,254,255)"}}>
+								Kennedy Muturi Njagi
+							</Button>
+						</ButtonGroup>
 					</Box>
 					<Box sx={{ display: { xs: 'flex', md: 'none' } }}>
 						<IconButton
@@ -210,13 +171,14 @@ export default function PrimarySearchAppBar({ handleDrawerOpen, open }) {
 							onClick={handleMobileMenuOpen}
 							color="inherit"
 						>
-							<FaEllipsisH />
+							<FaEllipsisH style={fontStyle} />
 						</IconButton>
 					</Box>
 				</Toolbar>
 			</AppBarWrapper>
 			{renderMobileMenu}
-			{renderMenu}
 		</Box>
 	);
 }
+
+export default PrimarySearchAppBar
