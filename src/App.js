@@ -18,6 +18,7 @@ import { connect } from "react-redux";
 
 import OtpLogin from "./pages/auth/otplogin/otplogin";
 import { fetchUser } from "./redux/user/action";
+import Layout from "./layout/app/layout";
 
 function App ({token, fetchMe}){
 
@@ -44,6 +45,10 @@ function App ({token, fetchMe}){
 								<Route path="/auth/login/otp" element={<OtpLogin/>}/>
 								<Route path="/auth/forgotpassword" element={<ForgotPassword/>}/>
 								<Route path="/auth/resetpassword/:resetToken" element={<ResetPassword/>}/>
+							</Route>
+
+							<Route path="/admin" element={<Layout/>}>
+								
 							</Route>
 						</Routes>
 					</Suspense>
