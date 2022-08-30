@@ -6,9 +6,9 @@ export const theme = createTheme({
 	},
 	palette: {
 		primary: {
-			main: "rgba(100,207,186,255)",
-			dark: "rgba(131, 216, 199, 1))",
-			light: "rgba(115, 211, 192, 1)",
+			main: "rgba(0,254,254,255)",
+			dark: "rgba(0, 217, 217, 1)",
+			light: "rgba(0, 255, 255, 1)",
 		},
 		secondary: {
 			main: "rgba(27, 139, 198, 1)",
