@@ -2,7 +2,7 @@ import { Box} from '@mui/material';
 import { styled } from "@mui/system";
 
 const StyledBuySellSection = styled(Box)(({ theme }) => ({
-	height: 350
+	height: 650
 }))
 
 const StyledCardHeader = styled(Box)(({ theme }) => ({
