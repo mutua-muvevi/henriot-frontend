@@ -70,7 +70,7 @@ const navlinkStyle = {
 
 const activeNavlink={
 	textDecoration: "none",
-	color: "#1976d2",
+	color: "rgba(0,255,252,255)",
 	borderTopLeftRadius: "20px",
 	borderBottomLeftRadius: "20px",
 	background: "white !important"
@@ -163,7 +163,7 @@ const DrawerComponent = ({open, handleDrawerOpen, handleDrawerClose, theme}) => 
 			variant="permanent"
 			PaperProps={{
 				sx: {
-					backgroundColor: "#1c1c1c",
+					backgroundColor: "rgba(1,0,1,255)",
 					color: "white",
 				  }
 			}}
@@ -171,7 +171,7 @@ const DrawerComponent = ({open, handleDrawerOpen, handleDrawerClose, theme}) => 
 			
 			<DrawerHeader>
 				<IconButton onClick={handleDrawerClose}>
-					{theme.direction === 'rtl' ? <BsChevronDoubleRight sx = {{color : "#fff"}}/> : <BsChevronDoubleLeft sx = {{color : "#fff"}}/>}
+					{theme.direction === 'rtl' ? <BsChevronDoubleRight style = {{color : "rgba(0,255,252,255)"}}/> : <BsChevronDoubleLeft style = {{color : "rgba(0,255,252,255)"}}/>}
 				</IconButton>
 			</DrawerHeader>
 
@@ -180,7 +180,7 @@ const DrawerComponent = ({open, handleDrawerOpen, handleDrawerClose, theme}) => 
 					<LogoItem src={Logo} alt="Rhino John Prime Metal Logo"/>
 				</ListItem>
 			
-				<Divider style={{ backgroundColor: "grey" }}/>
+				<Divider style={{ backgroundColor: "rgba(0,255,252,255)" }}/>
 
 				{
 					aboutLayer.map((el, index) => (
@@ -207,16 +207,14 @@ const DrawerComponent = ({open, handleDrawerOpen, handleDrawerClose, theme}) => 
 						</NavLink>
 					))
 				}
-				<Divider style={{ backgroundColor: "grey" }}/>
+				<Divider style={{ backgroundColor: "rgba(0,255,252,255)" }}/>
 
 				{
 					overviewLayer.map((el, index) => (
 						<NavLink 
-						style={({isActive}) => 
-						isActive ? activeNavlink : navlinkStyle
-					} 
-					to={el.path} 
-					key={index}>
+							style={({isActive}) => isActive ? activeNavlink : navlinkStyle} 
+							to={el.path} 
+							key={index}>
 							<ListItemButton
 								sx={{
 									minHeight: 48,
@@ -231,7 +229,7 @@ const DrawerComponent = ({open, handleDrawerOpen, handleDrawerClose, theme}) => 
 						</NavLink>
 					))
 				}
-				<Divider style={{ backgroundColor: "grey" }}/>
+				<Divider style={{ backgroundColor: "rgba(0,255,252,255)" }}/>
 
 				{
 					documentationLayer.map((el, index) => (
@@ -255,7 +253,7 @@ const DrawerComponent = ({open, handleDrawerOpen, handleDrawerClose, theme}) => 
 						</NavLink>
 					))
 				}
-				<Divider style={{ backgroundColor: "grey" }}/>
+				<Divider style={{ backgroundColor: "rgba(0,255,252,255)" }}/>
 
 
 				<Link  
