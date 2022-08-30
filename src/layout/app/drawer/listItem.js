@@ -1,4 +1,4 @@
-import { FaHome, FaFolder, FaRegMoneyBillAlt, FaMoneyCheckAlt, FaBook, } from 'react-icons/fa';
+import { FaFolder, FaRegMoneyBillAlt, FaMoneyCheckAlt, FaBook, } from 'react-icons/fa';
 import { BsFillInfoCircleFill, BsShieldLockFill, BsFillBarChartLineFill, BsHouseFill, BsBank2, BsCurrencyBitcoin, BsBookmarksFill } from 'react-icons/bs';
 
 
@@ -16,7 +16,7 @@ export const logoLayer = [
 export const aboutLayer = [
 	{
 		label: "About",
-		path: "/dashboard/shipment",
+		path: "/admin/about",
 		icon: <BsFillInfoCircleFill style={sx}/>,
 		nested: [
 			{}
@@ -24,7 +24,7 @@ export const aboutLayer = [
 	},
 	{
 		label: "HG Vault",
-		path: "/dashboard/storage",
+		path: "/admin/hg-vault",
 		icon: <BsShieldLockFill style={sx}/>,
 		nested: [
 			{}
@@ -32,7 +32,7 @@ export const aboutLayer = [
 	},
 	{
 		label: "Research Center",
-		path: "/dashboard/quotation",
+		path: "/admin/research-center",
 		icon:  <BsFillBarChartLineFill style={sx}/>,
 		nested: [
 			{}
@@ -42,7 +42,7 @@ export const aboutLayer = [
 export const overviewLayer = [
 	{
 		label: "Overview",
-		path: "/dashboard/resources",
+		path: "/admin/dashboard",
 		icon:  <BsHouseFill style={sx}/>,
 		nested: [
 			{}
@@ -50,7 +50,7 @@ export const overviewLayer = [
 	},
 	{
 		label: "Positions",
-		path: "/dashboard/users",
+		path: "/admin/positions",
 		icon:  <FaFolder style={sx}/>,
 		nested: [
 			{}
@@ -58,7 +58,7 @@ export const overviewLayer = [
 	},
 	{
 		label: "Order",
-		path: "/dashboard/users",
+		path: "/admin/order",
 		icon:  <FaMoneyCheckAlt style={sx}/>,
 		nested: [
 			{}
@@ -66,7 +66,7 @@ export const overviewLayer = [
 	},
 	{
 		label: "Account",
-		path: "/dashboard/users",
+		path: "/admin/account",
 		icon:  <FaRegMoneyBillAlt style={sx}/>,
 		nested: [
 			{}
@@ -74,7 +74,7 @@ export const overviewLayer = [
 	},
 	{
 		label: "Banking",
-		path: "/dashboard/users",
+		path: "/admin/banking",
 		icon:  <BsBank2 style={sx}/>,
 		nested: [
 			{}
@@ -82,7 +82,7 @@ export const overviewLayer = [
 	},
 	{
 		label: "Crypto Transfers",
-		path: "/dashboard/users",
+		path: "/admin/crypto-transfers",
 		icon:  <BsCurrencyBitcoin style={sx}/>,
 		nested: [
 			{}
@@ -92,7 +92,7 @@ export const overviewLayer = [
 export const documentationLayer = [
 	{
 		label: "Documentation",
-		path: "/dashboard/users",
+		path: "/admin/documentation",
 		icon:  <FaBook style={sx}/>,
 		nested: [
 			{}
@@ -100,7 +100,7 @@ export const documentationLayer = [
 	},
 	{
 		label: "Approach",
-		path: "/dashboard/users",
+		path: "/admin/approach",
 		icon:  <BsBookmarksFill style={sx}/>,
 		nested: [
 			{}
