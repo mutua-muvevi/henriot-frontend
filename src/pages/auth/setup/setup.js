@@ -11,6 +11,7 @@ import TextfieldWrapper from "../../../components/forms/textfield/textfield";
 
 import StepperComponent from "../../../components/stepper/stepper";
 import { setupfields } from "./info";
+import Page from '../../../components/Page';
 
 import { connect } from "react-redux";
 import { setupUser } from "../../../redux/auth/actions";
@@ -178,31 +179,33 @@ const Setup = ({ user, setupUser, token, id }) => {
 	}
 
 	return (
-		<StyledSetup>
-			<Formik
-				initialValues={{
-					...INITIAL_FORM_STATE
-				}}
-				validationSchema={ FORM_VALIDATION }
-				onSubmit = { submitHandler }
+		<Page title="Account setup">
+			<StyledSetup>
+				<Formik
+					initialValues={{
+						...INITIAL_FORM_STATE
+					}}
+					validationSchema={ FORM_VALIDATION }
+					onSubmit = { submitHandler }
 			>
-				{
-					({ values , setFieldValue, isSubmitting, errors }) => (
-						<Form autoComplete="off" autoCorrect="off" >
-							<StepperComponent 
-								steps={steps}
-								styles={stepperStyles}
-								submitHandler={submitHandler}
-								values = {values}
-								isSubmitting={isSubmitting}
-								errors={errors}
-								setFieldValue={setFieldValue}
-								/>
-						</Form>
-					)
-				}
-			</Formik>
-		</StyledSetup>
+					{
+						({ values , setFieldValue, isSubmitting, errors }) => (
+							<Form autoComplete="off" autoCorrect="off" >
+								<StepperComponent 
+									steps={steps}
+									styles={stepperStyles}
+									submitHandler={submitHandler}
+									values = {values}
+									isSubmitting={isSubmitting}
+									errors={errors}
+									setFieldValue={setFieldValue}
+									/>
+							</Form>
+						)
+					}
+				</Formik>
+			</StyledSetup>
+		</Page>
 	)
 }
 

@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Page from '../../../components/Page';
 
 const HGVault = () => {
 	return (
-		<div>HGVault</div>
+		<Page title="Vault">
+
+			<div>HGVault</div>
+		</Page>
 	)
 }
 

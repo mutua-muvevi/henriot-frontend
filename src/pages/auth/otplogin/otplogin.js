@@ -4,6 +4,7 @@ import {  Box, Container, Grow } from "@mui/material";
 import { styled } from "@mui/system";
 
 import OtpLoginForm from "./form";
+import Page from '../../../components/Page';
 import Logo from "../../../assets/logo/transparentblacklogo.png";
 
 
@@ -43,18 +44,20 @@ const StyledLoginFormWrapper = styled(Container)(({ theme }) => ({
 
 const OtpLogin = () => {
 	return (
-		<StyledLogin>
-			<StyledLogoSection>
-				<img
-					src={Logo}
-					alt="Henriot logo"
-					style={styledLogoImage}
-				/>
-			</StyledLogoSection>
-			<StyledLoginFormWrapper maxWidth="md">
-				<OtpLoginForm/>
-			</StyledLoginFormWrapper>
-		</StyledLogin>
+		<Page title="OTP LOGIN">
+			<StyledLogin>
+				<StyledLogoSection>
+					<img
+						src={Logo}
+						alt="Henriot logo"
+						style={styledLogoImage}
+					/>
+				</StyledLogoSection>
+				<StyledLoginFormWrapper maxWidth="md">
+					<OtpLoginForm/>
+				</StyledLoginFormWrapper>
+			</StyledLogin>
+		</Page>
 	)
 }
 

@@ -31,11 +31,11 @@ const StyledTextWrapper = styled(Box)(({ theme }) => ({
 }))
 
 const headerFont = {
-	fontSize: "30px"
+	//fontSize: "30px"
 }
 
 const bodyFont = {
-	fontSize: 20
+	//fontSize: 20
 }
 
 const IconWrapper = styled(Box)(({ theme }) => ({

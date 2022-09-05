@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Divider, IconButton, List, ListItem, Link, ListItemButton, ListItemText} from "@mui/material";
+import { Divider, IconButton, List, ListItem, Link, ListItemButton, ListItemText, Typography} from "@mui/material";
 import MuiDrawer from '@mui/material/Drawer';
 import { styled } from "@mui/system";
 
@@ -10,6 +10,7 @@ import { FaPowerOff } from 'react-icons/fa';
 import { aboutLayer, overviewLayer, documentationLayer } from "./listItem";
 import { NavLink } from "react-router-dom";
 import Logo from "../../../assets/logo/transparentwhitelogo.png";
+import Scrollbar from "../../../components/Scrollbar";
 
 
 const drawerWidth = 270;
@@ -175,23 +176,60 @@ const DrawerComponent = ({open, handleDrawerOpen, handleDrawerClose, theme}) => 
 				</IconButton>
 			</DrawerHeader>
 
-			<List >
-				<ListItem>
-					<LogoItem src={Logo} alt="Rhino John Prime Metal Logo"/>
-				</ListItem>
-			
-				<Divider style={{ backgroundColor: "rgba(0,255,252,255)" }}/>
+			<Scrollbar
+				sx={{
+					height: 1,
+					'& .simplebar-content': { height: 1, display: 'flex', flexDirection: 'column' },
+				}}
+			>
 
-				{
-					aboutLayer.map((el, index) => (
-						<NavLink 
-							style={({isActive}) => 
-								isActive ? activeNavlink : navlinkStyle
-							} 
-							to={el.path} 
-							key={index}>
-							<StyledListItem>
-								<StyledListItemButton
+				<List >
+					<ListItem>
+						<LogoItem src={Logo} alt="Rhino John Prime Metal Logo"/>
+					</ListItem>
+				
+					<Divider style={{ backgroundColor: "rgba(0,255,252,255)" }}/>
+
+				{/* ABOUT VAULT & RESEARCH CENTER */}
+					{
+						aboutLayer.map((el, index) => (
+							<NavLink 
+								style={({isActive}) => 
+									isActive ? activeNavlink : navlinkStyle
+								} 
+								to={el.path} 
+								key={index}>
+								<StyledListItem>
+									<StyledListItemButton
+										sx={{
+											minHeight: 48,
+											justifyContent: open ? 'initial' : 'center',
+											px: 2.5,
+										}}
+									>
+										{el.icon}
+										{/*<StyledListItemText primary={el.label} sx={{ opacity: open ? 1 : 0 , marginLeft: "15px"}} />*/}
+										<Typography variant="body2" sx={{ opacity: open ? 1 : 0 , marginLeft: "15px"}}>
+											{el.label}
+										</Typography>
+
+									</StyledListItemButton>
+									
+								</StyledListItem>
+							</NavLink>
+						))
+					}
+					<Divider style={{ backgroundColor: "rgba(0,255,252,255)" }}/>
+
+				{/* OVER VIEW - CRYPTO TRANSFERS */}
+
+					{
+						overviewLayer.map((el, index) => (
+							<NavLink 
+								style={({isActive}) => isActive ? activeNavlink : navlinkStyle} 
+								to={el.path} 
+								key={index}>
+								<ListItemButton
 									sx={{
 										minHeight: 48,
 										justifyContent: open ? 'initial' : 'center',
@@ -199,84 +237,45 @@ const DrawerComponent = ({open, handleDrawerOpen, handleDrawerClose, theme}) => 
 									}}
 								>
 									{el.icon}
-									<StyledListItemText primary={el.label} sx={{ opacity: open ? 1 : 0 , marginLeft: "15px"}} />
+									<Typography variant="body2" sx={{ opacity: open ? 1 : 0 , marginLeft: "15px"}}>
+										{el.label}
+									</Typography>
 
-								</StyledListItemButton>
-								
-							</StyledListItem>
-						</NavLink>
-					))
-				}
-				<Divider style={{ backgroundColor: "rgba(0,255,252,255)" }}/>
+								</ListItemButton>
+							</NavLink>
+						))
+					}
+					<Divider style={{ backgroundColor: "rgba(0,255,252,255)" }}/>
 
-				{
-					overviewLayer.map((el, index) => (
-						<NavLink 
-							style={({isActive}) => isActive ? activeNavlink : navlinkStyle} 
-							to={el.path} 
-							key={index}>
-							<ListItemButton
-								sx={{
-									minHeight: 48,
-									justifyContent: open ? 'initial' : 'center',
-									px: 2.5,
-								}}
-							>
-								{el.icon}
-								<ListItemText primary={el.label} sx={{ opacity: open ? 1 : 0 , marginLeft: "15px"}} />
+					{
+						documentationLayer.map((el, index) => (
+							<NavLink 
+								style={({isActive}) => 
+								isActive ? activeNavlink : navlinkStyle
+								} 
+								to={el.path} 
+								key={index}>
+									<ListItemButton
+										sx={{
+											minHeight: 48,
+											justifyContent: open ? 'initial' : 'center',
+											px: 2.5,
+										}}
+									>
+										{el.icon}
+										<Typography variant="body2" sx={{ opacity: open ? 1 : 0 , marginLeft: "15px"}}>
+											{el.label}
+										</Typography>
 
-							</ListItemButton>
-						</NavLink>
-					))
-				}
-				<Divider style={{ backgroundColor: "rgba(0,255,252,255)" }}/>
-
-				{
-					documentationLayer.map((el, index) => (
-						<NavLink 
-						style={({isActive}) => 
-						isActive ? activeNavlink : navlinkStyle
-					} 
-					to={el.path} 
-					key={index}>
-							<ListItemButton
-								sx={{
-									minHeight: 48,
-									justifyContent: open ? 'initial' : 'center',
-									px: 2.5,
-								}}
-							>
-								{el.icon}
-								<ListItemText primary={el.label} sx={{ opacity: open ? 1 : 0 , marginLeft: "15px"}} />
-
-							</ListItemButton>
-						</NavLink>
-					))
-				}
-				<Divider style={{ backgroundColor: "rgba(0,255,252,255)" }}/>
+									</ListItemButton>
+							</NavLink>
+						))
+					}
 
 
-				<Link  
-					href="/auth/login" 
-					onClick={logOut}
-					style={{textDecoration: "none", color: "white"}}
-				>
-					<ListItemButton
-						sx={{
-							minHeight: 48,
-							justifyContent: open ? 'initial' : 'center',
-							px: 2.5,
-						}}
-					>
-						<FaPowerOff sx={sx}/>
-						<ListItemText primary="Sign out" sx={{ opacity: open ? 1 : 0 , marginLeft: "15px"}} />
+				</List>
+			</Scrollbar>
 
-					</ListItemButton>
-				</Link>
-
-
-
-			</List>
 
 		</Drawer>
 	)

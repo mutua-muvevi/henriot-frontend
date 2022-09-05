@@ -32,9 +32,9 @@ const AppBarWrapper = styled(AppBar, {
 const Search = styled('div')(({ theme }) => ({
 	position: 'relative',
 	borderRadius: theme.shape.default,
-	backgroundColor: alpha(theme.palette.background.dark, 0.15),
+	backgroundColor: alpha(theme.palette.background.default, 0.15),
 	'&:hover': {
-		backgroundColor: alpha(theme.palette.background.dark, 0.25),
+		backgroundColor: alpha(theme.palette.background.default, 0.25),
 	},
 	marginRight: theme.spacing(2),
 	marginLeft: 0,
@@ -70,7 +70,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const fontStyle ={
-	fontSize: "20px",
+	//fontSize: "20px",
 	lineHeight: "0",
 	color: "rgba(1,0,1,255)"
 }

@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Page from '../../../components/Page';
 
 const Position = () => {
 	return (
-		<div>Position</div>
+		<Page title="Position">
+
+			<div>Position</div>
+		</Page>
 	)
 }
 

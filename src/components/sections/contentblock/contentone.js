@@ -10,13 +10,13 @@ const StyledContentBlockOne = styled(Box)(({ theme }) => ({
 
 const styledMainHeaders = {
 	fontWeight: "700",
-	fontSize: "40px",
+	//fontSize: "40px",
 	marginBottom: "20px",
 }
 
 const styledSubHeaders = {
 	fontWeight: "700",
-	fontSize: "20px",
+	//fontSize: "20px",
 }
 
 const StyledList = styled(List)(({ theme }) => ({

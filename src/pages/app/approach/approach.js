@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Page from '../../../components/Page';
 
 const Approach = () => {
 	return (
-		<div>Approach</div>
+		<Page title="Approach">
+
+			<div>Approach</div>
+		</Page>
 	)
 }
 

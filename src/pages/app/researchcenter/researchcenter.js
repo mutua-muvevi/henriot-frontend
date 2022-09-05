@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Page from '../../../components/Page';
 
 const ResearchCenter = () => {
 	return (
-		<div>ResearchCenter</div>
+		<Page title="Research Center">
+
+			<div>ResearchCenter</div>
+		</Page>
 	)
 }
 

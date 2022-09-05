@@ -6,6 +6,7 @@ import UpperContent from "./uppercontent";
 import TabsArea from "./tabsarea";
 import LowerContent from "./lowercontent";
 import RegisterForm from "./form";
+import Page from '../../../components/Page';
 
 const StyledRegistration = styled(Box)(({ theme }) => ({
 
@@ -49,25 +50,27 @@ const StyledRegistrationFormContent = styled(Box)(({ theme }) => ({
 
 const Register = () => {
 	return (
-		<StyledRegistration>
-			<StyledRegistrationWrapper container columnSpacing={3}>
+		<Page title="Register">
+			<StyledRegistration>
+				<StyledRegistrationWrapper container columnSpacing={3}>
 
-				<StyledRegistrationExpl item xl={6} lg={6} md={12} sm={12} xs={12}>
-					<StyledRegistrationExplContent>
-						<UpperContent/>
-						<TabsArea/>
-						<LowerContent/>
-					</StyledRegistrationExplContent>
-				</StyledRegistrationExpl>
+					<StyledRegistrationExpl item xl={6} lg={6} md={12} sm={12} xs={12}>
+						<StyledRegistrationExplContent>
+							<UpperContent/>
+							<TabsArea/>
+							<LowerContent/>
+						</StyledRegistrationExplContent>
+					</StyledRegistrationExpl>
 
-				<StyledRegistrationForm item xl={6} lg={6} md={12} sm={12} xs={12}>
-					<StyledRegistrationFormContent>
-						<RegisterForm/>
-					</StyledRegistrationFormContent>
-				</StyledRegistrationForm>
+					<StyledRegistrationForm item xl={6} lg={6} md={12} sm={12} xs={12}>
+						<StyledRegistrationFormContent>
+							<RegisterForm/>
+						</StyledRegistrationFormContent>
+					</StyledRegistrationForm>
 
-			</StyledRegistrationWrapper>
-		</StyledRegistration>
+				</StyledRegistrationWrapper>
+			</StyledRegistration>
+		</Page>
 	)
 }
 
