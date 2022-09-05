@@ -8,6 +8,7 @@ export default function Button(theme) {
           '&:hover': {
             boxShadow: 'none',
           },
+          borderRadius: theme.shape.default
         },
         sizeLarge: {
           height: 48,
