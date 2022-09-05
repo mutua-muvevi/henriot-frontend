@@ -5,7 +5,7 @@ import { styled } from "@mui/system";
 
 import ResetPasswordForm from "./form";
 import Page from '../../../components/Page';
-import Logo from "../../../assets/logo/transparentblacklogo.png";
+import Logo from "../../../assets/logo/Black on Transparent.png";
 import { resetPasswordInputs } from "./info";
 
 

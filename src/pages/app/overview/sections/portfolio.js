@@ -50,9 +50,9 @@ const PortfolioSection = () => {
 			<StyledCardHeader>
 				Portfolio
 			</StyledCardHeader>
-			<TableComponent
+			{/*<TableComponent
 				data={mockData}
-			/>
+			/>*/}
 		</StyledPortfolioSection>
 	)
 }

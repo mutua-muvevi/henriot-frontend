@@ -13,7 +13,7 @@ import * as Yup from "yup";
 import TextfieldWrapper from "../../../components/forms/textfield/textfield";
 import SelectField from "../../../components/forms/select/select";
 
-import Logo from "../../../assets/logo/transparentblacklogo.png";
+import Logo from "../../../assets/logo/Black on Transparent.png";
 import { countries } from "../../../content/countries";
 import { registerUser } from "../../../redux/auth/actions";
 import ReusableModal from "../../../components/modal/modal";

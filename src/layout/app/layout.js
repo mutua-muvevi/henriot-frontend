@@ -1,73 +1,51 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
-
-import { Box, CssBaseline, Fade} from "@mui/material";
-import { useTheme } from '@mui/material/styles';
-import { styled } from "@mui/system";
+import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
+// material
+import { styled } from '@mui/material/styles';
+//
 
+//import DashboardSidebar from './DashboardSidebar';
 import DrawerComponent from "./drawer/drawer";
-import PrimarySearchAppBar from "./topbar/topbar";
+import DashboardNavbar from "./topbar/topbar";
 
-import { connect } from "react-redux";
+// ----------------------------------------------------------------------
 
-const Main = styled(Box)(({theme}) => ({
-	backgroundColor: theme.palette.background.default
-}))
+const APP_BAR_MOBILE = 64;
+const APP_BAR_DESKTOP = 92;
 
-
-const DrawerHeader = styled('div')(({ theme }) => ({
+const RootStyle = styled('div')({
 	display: 'flex',
-	alignItems: 'center',
-	justifyContent: 'flex-end',
-	padding: theme.spacing(0, 1),
-	...theme.mixins.toolbar,
-	marginBottom: "20px"
+	minHeight: '100%',
+	overflow: 'hidden'
+});
+
+const MainStyle = styled('div')(({ theme }) => ({
+	flexGrow: 1,
+	overflow: 'auto',
+	minHeight: '100%',
+	paddingTop: APP_BAR_MOBILE + 24,
+	paddingBottom: theme.spacing(10),
+	[theme.breakpoints.up('lg')]: {
+		paddingTop: APP_BAR_DESKTOP + 24,
+		paddingLeft: theme.spacing(2),
+		paddingRight: theme.spacing(2)
+	}
 }));
 
+// ----------------------------------------------------------------------
 
-const Layout = ({ token, user }) => {
-	const theme = useTheme();
-	const [open, setOpen] = useState(true);
-	
-	const handleDrawerOpen = () => {
-		setOpen(true);
-	};
-	
-	const handleDrawerClose = () => {
-		setOpen(false);
-	};
-
-	const navigate = useNavigate()
-
-	//useEffect(() => {
-	//	if (!user){
-	//		return navigate("/auth/login")
-	//	};
-	//}, [ user ])
-
+const Layout = () => {
+	const [open, setOpen] = useState(false);
 
 	return (
-		<Fade  in timeout={1000}>
-			<Box sx={{ display: 'flex' }}>
-				<CssBaseline />
-				<DrawerComponent handleDrawerOpen={handleDrawerOpen} open={open} theme={theme} handleDrawerClose={handleDrawerClose}/>
-
-				<PrimarySearchAppBar handleDrawerOpen={handleDrawerOpen} open={open}/>
-
-				<Main component="main" sx={{ flexGrow: 1, p: 3 , width: "100%"}}>
-					<DrawerHeader/>
-					<Outlet/>
-				</Main>
-			</Box>
-		</Fade>
-	)
+		<RootStyle>
+			<DashboardNavbar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
+			<DrawerComponent onOpenSidebar={() => setOpen(true)} />
+			<MainStyle>
+				<Outlet />
+			</MainStyle>
+		</RootStyle>
+	);
 }
 
-const mapStatetoProps = ({ auth, user }) => ({
-	token: auth.token,
-
-	user: user.user
-})
-
-export default connect(mapStatetoProps)(Layout)
+export default Layout

@@ -1,181 +1,58 @@
-import React from 'react';
+import PropTypes from 'prop-types';
+import { useEffect } from 'react';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
+// material
+import { styled } from '@mui/material/styles';
+import { Box, Link, Button, Drawer, Typography, Avatar, Stack } from '@mui/material';
 
-import { Divider, IconButton, List, ListItem, Link, ListItemButton, ListItemText, Typography} from "@mui/material";
-import MuiDrawer from '@mui/material/Drawer';
-import { styled } from "@mui/system";
+// hooks
+import useResponsive from '../../../hooks/useResponsive';
+// components
+import Logo from '../../../assets/logo/Black on Transparent.png';
+import Scrollbar from '../../../components/Scrollbar';
+import NavSection from '../../../components/NavSection';
+//
+import navConfig from './NavConfig';
 
-import { BsChevronDoubleLeft, BsChevronDoubleRight } from 'react-icons/bs';
-import { FaPowerOff } from 'react-icons/fa';
+// ----------------------------------------------------------------------
 
-import { aboutLayer, overviewLayer, documentationLayer } from "./listItem";
-import { NavLink } from "react-router-dom";
-import Logo from "../../../assets/logo/transparentwhitelogo.png";
-import Scrollbar from "../../../components/Scrollbar";
+const DRAWER_WIDTH = 260;
 
-
-const drawerWidth = 270;
-
-const sx= {
-	minWidth: 0,
-	justifyContent: 'center',
-	fontSize: "inherit"
-}
-
-// open drawer mixin
-const openedMixin = (theme) => ({
-	width: drawerWidth,
-	transition: theme.transitions.create('width', {
-		easing: theme.transitions.easing.sharp,
-		duration: theme.transitions.duration.enteringScreen,
-	}),
-	overflowX: 'hidden',
-});
-
-const LogoItem = styled("img")(({theme}) => ({
-	width: "95%",
-	marginLeft: "auto",
-	marginRight: "auto",
-	marginBottom: "20px",
-	margin: "20px auto"
-}))
-
-// close drawer mixing
-const closedMixin = (theme) => ({
-	transition: theme.transitions.create('width', {
-		easing: theme.transitions.easing.sharp,
-		duration: theme.transitions.duration.leavingScreen,
-	}),
-	overflowX: 'hidden',
-	width: `calc(${theme.spacing(7)} + 1px)`,
-	[theme.breakpoints.up('sm')]: {
-		width: `calc(${theme.spacing(8)} + 1px)`,
+const RootStyle = styled('div')(({ theme }) => ({
+	[theme.breakpoints.up('lg')]: {
+		flexShrink: 0,
+		width: DRAWER_WIDTH,
 	},
-});
-
-
-const DrawerHeader = styled('div')(({ theme }) => ({
-	display: 'flex',
-	alignItems: 'center',
-	justifyContent: 'flex-end',
-	padding: theme.spacing(0, 1),
-	paddingBottom: "10px",
-
-	// necessary for content to be below app bar
-	...theme.mixins.toolbar,
 }));
 
-const navlinkStyle = {
-	textDecoration: "none",
-	color: "white"
-}
+const AccountStyle = styled('div')(({ theme }) => ({
+	display: 'flex',
+	alignItems: 'center',
+	padding: theme.spacing(2, 2.5),
+	borderRadius: Number(theme.shape.borderRadius) * 1.5,
+}));
 
-const activeNavlink={
-	textDecoration: "none",
-	color: "rgba(0,255,252,255)",
-	borderTopLeftRadius: "20px",
-	borderBottomLeftRadius: "20px",
-	background: "white !important"
-}
+// ----------------------------------------------------------------------
 
+DrawerComponent.propTypes = {
+	isOpenSidebar: PropTypes.bool,
+	onCloseSidebar: PropTypes.func,
+};
 
-const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
-	({ theme, open }) => ({
-		color: theme.palette.common.white,
-		width: drawerWidth,
-		flexShrink: 0,
-		whiteSpace: 'nowrap',
-		boxSizing: 'border-box',
-		backgroundColor: theme.palette.background.dark,
-		...(open && {
-			...openedMixin(theme),
-			'& .MuiDrawer-paper': openedMixin(theme),
-		}),
-		...(!open && {
-			...closedMixin(theme),
-			'& .MuiDrawer-paper': closedMixin(theme),
-		}),
-		}),
-);
+export default function DrawerComponent({ isOpenSidebar, onCloseSidebar }) {
+	const { pathname } = useLocation();
 
-const StyledListItem = styled(ListItem)(({ theme }) => ({
-	margin: 0,
-	padding: 0,
-	"&:active": {
-		backgroundColor: theme.palette.secondary.dark,
-		color: "white",
-		"& .MuiListItemIcon-root": {
-			color: "white"
+	const isDesktop = useResponsive('up', 'lg');
+
+	useEffect(() => {
+		if (isOpenSidebar) {
+			onCloseSidebar();
 		}
-	},
-	"&.Mui-active": {
-		backgroundColor: "red",
-		color: "white",
-		"& .MuiListItemIcon-root": {
-			color: "white"
-		}
-	},
-	"&.Mui-selected": {
-		backgroundColor: "red",
-		color: "white",
-		"& .MuiListItemIcon-root": {
-			color: "white"
-		}
-	},
-}))
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [pathname]);
 
-const StyledListItemButton = styled(ListItemButton)(({ theme }) => ({
-	"&:hover": {
-		backgroundColor: theme.palette.secondary.dark,
-		color: "white",
-		"& .MuiListItemIcon-root": {
-			color: "white"
-		}
-	},
-	"&.Mui-active": {
-		backgroundColor: "red",
-		color: "white",
-		"& .MuiListItemIcon-root": {
-			color: "white"
-		}
-	},
-}))
-
-const StyledListItemText = styled(ListItemText)(({ theme }) => ({
-
-	"&$selected:hover": {
-		backgroundColor: "purple",
-		color: "white",
-		"& .MuiListItemIcon-root": {
-			color: "white"
-		}
-	}
-}))
-
-const DrawerComponent = ({open, handleDrawerOpen, handleDrawerClose, theme}) => {
-
-	const logOut = () => {
-		window.localStorage.clear()
-	}
-
-	return (
-		<Drawer
-			anchor="left"
-			open={open}
-			variant="permanent"
-			PaperProps={{
-				sx: {
-					backgroundColor: "rgba(1,0,1,255)",
-					color: "white",
-				  }
-			}}
-		>
-			
-			<DrawerHeader>
-				<IconButton onClick={handleDrawerClose}>
-					{theme.direction === 'rtl' ? <BsChevronDoubleRight style = {{color : "rgba(0,255,252,255)"}}/> : <BsChevronDoubleLeft style = {{color : "rgba(0,255,252,255)"}}/>}
-				</IconButton>
-			</DrawerHeader>
-
+	const renderContent = (
+		<>
 			<Scrollbar
 				sx={{
 					height: 1,
@@ -183,102 +60,57 @@ const DrawerComponent = ({open, handleDrawerOpen, handleDrawerClose, theme}) => 
 				}}
 			>
 
-				<List >
-					<ListItem>
-						<LogoItem src={Logo} alt="Rhino John Prime Metal Logo"/>
-					</ListItem>
-				
-					<Divider style={{ backgroundColor: "rgba(0,255,252,255)" }}/>
+				<Box sx={{ mb: 5, mx: 2.5, mt:5 }}>
+					<Link underline="none" component={RouterLink} to="#">
+						<AccountStyle>
+							{/*<Avatar src={account.photoURL} alt="photoURL" />*/}
+							<Box sx={{ ml: 2 }}>
+								<img 
+									src={Logo}
+									alt="Henriot Logo"
+									style={{  }}
+								/>
+							</Box>
+						</AccountStyle>
+					</Link>
+				</Box>
 
-				{/* ABOUT VAULT & RESEARCH CENTER */}
-					{
-						aboutLayer.map((el, index) => (
-							<NavLink 
-								style={({isActive}) => 
-									isActive ? activeNavlink : navlinkStyle
-								} 
-								to={el.path} 
-								key={index}>
-								<StyledListItem>
-									<StyledListItemButton
-										sx={{
-											minHeight: 48,
-											justifyContent: open ? 'initial' : 'center',
-											px: 2.5,
-										}}
-									>
-										{el.icon}
-										{/*<StyledListItemText primary={el.label} sx={{ opacity: open ? 1 : 0 , marginLeft: "15px"}} />*/}
-										<Typography variant="body2" sx={{ opacity: open ? 1 : 0 , marginLeft: "15px"}}>
-											{el.label}
-										</Typography>
+				<NavSection navConfig={navConfig} />
 
-									</StyledListItemButton>
-									
-								</StyledListItem>
-							</NavLink>
-						))
-					}
-					<Divider style={{ backgroundColor: "rgba(0,255,252,255)" }}/>
-
-				{/* OVER VIEW - CRYPTO TRANSFERS */}
-
-					{
-						overviewLayer.map((el, index) => (
-							<NavLink 
-								style={({isActive}) => isActive ? activeNavlink : navlinkStyle} 
-								to={el.path} 
-								key={index}>
-								<ListItemButton
-									sx={{
-										minHeight: 48,
-										justifyContent: open ? 'initial' : 'center',
-										px: 2.5,
-									}}
-								>
-									{el.icon}
-									<Typography variant="body2" sx={{ opacity: open ? 1 : 0 , marginLeft: "15px"}}>
-										{el.label}
-									</Typography>
-
-								</ListItemButton>
-							</NavLink>
-						))
-					}
-					<Divider style={{ backgroundColor: "rgba(0,255,252,255)" }}/>
-
-					{
-						documentationLayer.map((el, index) => (
-							<NavLink 
-								style={({isActive}) => 
-								isActive ? activeNavlink : navlinkStyle
-								} 
-								to={el.path} 
-								key={index}>
-									<ListItemButton
-										sx={{
-											minHeight: 48,
-											justifyContent: open ? 'initial' : 'center',
-											px: 2.5,
-										}}
-									>
-										{el.icon}
-										<Typography variant="body2" sx={{ opacity: open ? 1 : 0 , marginLeft: "15px"}}>
-											{el.label}
-										</Typography>
-
-									</ListItemButton>
-							</NavLink>
-						))
-					}
-
-
-				</List>
+				<Box sx={{ flexGrow: 1 }} />
 			</Scrollbar>
+		</>
+	);
 
+	return (
+		<RootStyle>
+			{!isDesktop && (
+				<Drawer
+					open={isOpenSidebar}
+					onClose={onCloseSidebar}
+					PaperProps={{
+						sx: { width: DRAWER_WIDTH, backgroundColor: "red", },
+					}}
+				>
+					{renderContent}
+				</Drawer>
+			)}
 
-		</Drawer>
-	)
+			{isDesktop && (
+				<Drawer
+					open
+					variant="persistent"
+					PaperProps={{
+						sx: {
+							width: DRAWER_WIDTH,
+							bgcolor: 'background.default',
+							borderRightStyle: 'dashed',
+						},
+					}}
+				>
+					{renderContent}
+				</Drawer>
+			)}
+		</RootStyle>
+	);
 }
-
-export default DrawerComponent
