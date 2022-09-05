@@ -82,6 +82,13 @@ const ERROR = {
   contrastText: '#fff',
 };
 
+const BACKGROUND = {
+  paper: '#fff', 
+  default: GREY[100], 
+  neutral: GREY[200],
+  dark:"rgba(1, 0, 1, 1)"
+}
+
 const GRADIENTS = {
   primary: createGradient(PRIMARY.light, PRIMARY.main),
   info: createGradient(INFO.light, INFO.main),
@@ -111,7 +118,7 @@ const palette = {
   chart: CHART_COLORS,
   divider: GREY[500_24],
   text: { primary: GREY[800], secondary: GREY[600], disabled: GREY[500] },
-  background: { paper: '#fff', default: GREY[100], neutral: GREY[200] },
+  background: { ...BACKGROUND },
   action: {
     active: GREY[600],
     hover: GREY[500_8],

@@ -3,7 +3,7 @@ import React from 'react';
 import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
-import Logo from "../../../assets/logo/transparentblacklogo.png";
+import Logo from "../../../assets/logo/Black on Transparent.png";
 
 const StyledRegisterationSuccessModalContent = styled(Box)(({ theme }) => ({
 	display: "flex",
