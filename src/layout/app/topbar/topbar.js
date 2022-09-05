@@ -70,7 +70,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const fontStyle ={
-	fontSize: "20px",
+	//fontSize: "20px",
 	lineHeight: "0",
 	color: "rgba(1,0,1,255)"
 }

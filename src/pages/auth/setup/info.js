@@ -2,7 +2,7 @@ import { FaUser } from "react-icons/fa";
 import { BsFillPhoneFill } from "react-icons/bs";
 
 const iconStyles = {
-	fontSize: "50px"
+	fontSize: "inherit"
 }
 
 export const  contactFields = [

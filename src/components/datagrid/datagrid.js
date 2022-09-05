@@ -26,7 +26,7 @@ const StyledDataGrid = styled(DataGrid)(({theme}) =>({
 	"& .MuiDataGrid-columnHeaders": {
 		backgroundColor: "#333333",
 		color: theme.palette.secondary.main,
-		fontSize: 18,
+		fontSize: 13,
 		paddingTop: 2,
 		paddingBottom: 2,
 	},

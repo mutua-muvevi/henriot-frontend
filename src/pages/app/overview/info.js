@@ -1,7 +1,7 @@
 import { FaHandHoldingUsd, FaExchangeAlt, FaBalanceScale } from "react-icons/fa";
 
 const iconStyle={
-	fontSize: "80px",
+	fontSize: "inherit",
 	lineHeight: "0",
 	opacity: 0.2
 }
