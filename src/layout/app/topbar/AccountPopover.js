@@ -12,6 +12,8 @@ import {
 } from "@mui/material";
 // components
 import MenuPopover from "../../../components/MenuPopover";
+//icons
+import { FaChevronDown } from "react-icons/fa";
 
 // ----------------------------------------------------------------------
 
@@ -50,27 +52,26 @@ export default function AccountPopover() {
 
 	return (
 		<>
-			<IconButton
-				ref={anchorRef}
+			<Box
 				onClick={handleOpen}
+				ref={anchorRef}
 				sx={{
-					p: 0,
-					...(open && {
-						"&:before": {
-							zIndex: 1,
-							content: "''",
-							width: "100%",
-							height: "100%",
-							borderRadius: "50%",
-							position: "absolute",
-							bgcolor: (theme) =>
-								alpha(theme.palette.grey[900], 0.8),
-						},
-					}),
-				}}>
-				{/*<Avatar src={account.photoURL} alt="photoURL" />*/}
-				Kennedy
-			</IconButton>
+					display: "flex",
+					cursor: "pointer"
+				}}
+			>
+
+				<Typography
+					variant="body2"
+					color="MenuText"
+					sx={{
+						marginRight: "10px"
+					}}
+				>
+					Kennedy Muturi Njagi
+				</Typography>
+				<FaChevronDown style={{fontSize:"inherit", color: "black"}}/>
+			</Box>
 
 			<MenuPopover
 				open={Boolean(open)}

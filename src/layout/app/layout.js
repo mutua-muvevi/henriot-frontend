@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 // material
 import { styled } from '@mui/material/styles';
-//
 
 //import DashboardSidebar from './DashboardSidebar';
 import DrawerComponent from "./drawer/drawer";
 import DashboardNavbar from "./topbar/topbar";
+import { Container } from "@mui/material";
 
 // ----------------------------------------------------------------------
 
@@ -39,10 +39,12 @@ const Layout = () => {
 
 	return (
 		<RootStyle>
-			<DashboardNavbar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
-			<DrawerComponent onOpenSidebar={() => setOpen(true)} />
+			<DashboardNavbar isSidebarOpen={open} openSidebar={() => setOpen(true)} onCloseSidebar={() => setOpen(false)} />
+			<DrawerComponent isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
 			<MainStyle>
-				<Outlet />
+				<Container maxWidth="xl">
+					<Outlet />
+				</Container>
 			</MainStyle>
 		</RootStyle>
 	);

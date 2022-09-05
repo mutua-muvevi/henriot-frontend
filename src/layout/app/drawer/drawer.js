@@ -89,7 +89,7 @@ export default function DrawerComponent({ isOpenSidebar, onCloseSidebar }) {
 					open={isOpenSidebar}
 					onClose={onCloseSidebar}
 					PaperProps={{
-						sx: { width: DRAWER_WIDTH, backgroundColor: "red", },
+						sx: { width: DRAWER_WIDTH,  },
 					}}
 				>
 					{renderContent}
