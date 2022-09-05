@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Page from '../../../components/Page';
 
 const Order = () => {
 	return (
-		<div>Order</div>
+		<Page title="Order">
+
+			<div>Order</div>
+		</Page>
 	)
 }
 

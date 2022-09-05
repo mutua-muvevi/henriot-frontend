@@ -4,6 +4,7 @@ import {  Box, Container, Grow } from "@mui/material";
 import { styled } from "@mui/system";
 
 import ForgotPasswordForm from "./form";
+import Page from '../../../components/Page';
 import Logo from "../../../assets/logo/transparentblacklogo.png";
 
 
@@ -43,18 +44,20 @@ const StyledForgotPasswordFormWrapper = styled(Container)(({ theme }) => ({
 
 const ForgotPassword = () => {
 	return (
-		<StyledForgotPassword>
-			<StyledLogoSection>
-				<img
-					src={Logo}
-					alt="Henriot logo"
-					style={styledLogoImage}
-				/>
-			</StyledLogoSection>
-			<StyledForgotPasswordFormWrapper maxWidth="md">
-				<ForgotPasswordForm/>
-			</StyledForgotPasswordFormWrapper>
-		</StyledForgotPassword>
+		<Page title="Password reset request">
+			<StyledForgotPassword>
+				<StyledLogoSection>
+					<img
+						src={Logo}
+						alt="Henriot logo"
+						style={styledLogoImage}
+					/>
+				</StyledLogoSection>
+				<StyledForgotPasswordFormWrapper maxWidth="md">
+					<ForgotPasswordForm/>
+				</StyledForgotPasswordFormWrapper>
+			</StyledForgotPassword>
+		</Page>
 	)
 }
 
