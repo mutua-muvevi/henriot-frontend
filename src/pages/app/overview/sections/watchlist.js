@@ -1,24 +1,9 @@
-import { Box} from '@mui/material';
-import { styled } from "@mui/system";
-
-const StyledWatchlistSection= styled(Box)(({ theme }) => ({
-	height: 350
-}))
-
-const StyledCardHeader = styled(Box)(({ theme }) => ({
-	padding: "10px",
-	borderBottom: "1px solid grey"
-}))
+import React from 'react'
 
 const WatchlistSection = () => {
-	return (
-		<StyledWatchlistSection>
-			<StyledCardHeader>
-				Watchlist
-			</StyledCardHeader>
-			Content
-		</StyledWatchlistSection>
-	)
+  return (
+	<div>WatchlistSection</div>
+  )
 }
 
 export default WatchlistSection
