@@ -18,7 +18,7 @@ function responsiveFontSizes({ sm, md, lg }) {
   };
 }
 
-const FONT_PRIMARY = 'Public Sans, sans-serif';
+const FONT_PRIMARY = 'IBM Plex, sans-serif';
 
 const typography = {
   fontFamily: FONT_PRIMARY,

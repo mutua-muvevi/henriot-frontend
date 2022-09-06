@@ -18,8 +18,7 @@ const StyledOverviewGridItem = styled(Grid)(({ theme }) => ({
 
 const Overview = () => {
 	return (
-		<Page title="Home">
-
+		<Page title="Home" id="dashboard homepage">
 			<StyledOverviewWrapper>
 				<StyledOverviewGrid container spacing={2}>
 					<StyledOverviewGridItem item xs={12} sm={12} md={12} lg={12} xl={12}>

@@ -1,10 +1,6 @@
 import { Box, Card, Grid, Typography, Grow } from "@mui/material";
 import { styled } from "@mui/system";
 
-import SimpleCard from "../../../../components/card/simple";
-
-import { topCardsInfo } from "../info";
-
 const TopSectionWrapper = styled(Box)(({ theme }) => ({
 	
 }))
@@ -13,62 +9,81 @@ const StyledGridContainer = styled(Grid)(({ theme }) => ({
 	
 }))
 
-const StyledGridItem = styled(Grid)(({ theme }) => ({
-
-}))
-
-const StyledCardWrapper= styled(Grid)(({ theme }) => ({
-	height: 130,
-	padding:"10px",
+const StyledGridItemLeft = styled(Grid)(({ theme }) => ({
+	textAlign: "left",
 	display: "flex",
-	justifyContent: "space-between",
+	flexDirection: "column",
+	justifyContent: "space-between"
+}));
+
+const StyledGridContent = styled(Grid)(({ theme }) => ({
+	display: "flex",
+	justifyContent: "left",
+	textAlign: "left",
 	alignItems: "center"
 }))
 
-const StyledTextWrapper = styled(Box)(({ theme }) => ({
-	position: "relative",
-	zIndex: 1
+const StyledGridItemRight = styled(Grid)(({ theme }) => ({
+	textAlign: "right"
 }))
 
-const headerFont = {
-	//fontSize: "30px"
+const titleStyle = {
+	fontSize: "33px !important",
+	lineHeight: "39px !important",
+	color: "rgba(0, 0, 0, 0.85)"
 }
 
-const bodyFont = {
-	//fontSize: 20
+const subTitleStyle = {
+	fontSize: "26px !important",
+	lineHeight: "31px !important",
+	color: "rgba(0, 0, 0, 0.85)",
+	marginLeft: "5px"
 }
 
-const IconWrapper = styled(Box)(({ theme }) => ({
-	position: "relative",
-	zIndex: 0
-}))
+const titleStyleTwo = {
+	fontSize: "26px !important",
+	lineHeight: "31px !important",
+	color: "rgba(0, 0, 0, 0.85)",
+}
+
+const subTitleStyleTwo = {
+	fontSize: "21px !important",
+	lineHeight: "25px !important",
+	color: "rgba(0, 0, 0, 0.85)",
+	marginLeft: "5px"
+}
 
 const TopSection = () => {
 	return (
 		<TopSectionWrapper>
 			<StyledGridContainer container spacing={2}>
-				{
-					topCardsInfo &&
-					topCardsInfo.map((el ,i) => (
-						<StyledGridItem item key={i} xs={12} sm={12} md={4} lg={4} xl={4}>
-							<SimpleCard>
-								<StyledCardWrapper>
-									<StyledTextWrapper>
-										<Typography variant="h4" style={headerFont}>
-											{el.numbers}
-										</Typography>
-										<Typography variant="body" sx={bodyFont}>
-											{el.text}
-										</Typography>
-									</StyledTextWrapper>
-									<IconWrapper>
-										{el.icon}
-									</IconWrapper>
-								</StyledCardWrapper>
-							</SimpleCard>
-						</StyledGridItem>
-					))
-				}
+				<StyledGridItemLeft item xs={12} sm={12} md={8} lg={8} xl={8}>
+					<StyledGridContent>
+						<Typography variant="h4" gutterBottom sx={titleStyle}>
+							$94,522.00
+						</Typography>
+						<Typography variant="h5" gutterBottom sx={subTitleStyle}>
+							Equity
+						</Typography>
+
+					</StyledGridContent>
+					<StyledGridContent>
+						<Typography variant="h5" gutterBottom sx={titleStyleTwo}>
+							$94,522.00
+						</Typography>
+						<Typography variant="h6" gutterBottom sx={subTitleStyleTwo}>
+							Buying power
+						</Typography>
+					</StyledGridContent>
+				</StyledGridItemLeft>
+				<StyledGridItemRight item xs={12} sm={12} md={4} lg={4} xl={4}>
+					<Typography variant="h4" gutterBottom color="error">
+						0.93%
+					</Typography>
+					<Typography variant="body2" gutterBottom>
+						Today Profit/Loss
+					</Typography>
+				</StyledGridItemRight>
 			</StyledGridContainer>
 		</TopSectionWrapper>
 	)
