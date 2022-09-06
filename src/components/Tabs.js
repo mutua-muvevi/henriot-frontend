@@ -7,11 +7,6 @@ import { styled } from "@mui/system";
 import { BsFillGridFill, BsPlusLg } from "react-icons/bs";
 import { FaList } from "react-icons/fa";
 
-const tabsIconStyles = {
-	fontSize: "inherit",
-	color: "inherit"
-}
-
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
 
@@ -24,7 +19,7 @@ function TabPanel(props) {
 			{...other}
 		>
 			{value === index && (
-				<Box sx={{ p: 3 }}>
+				<Box sx={{ pt: 3 }}>
 					{children}
 				</Box>
 			)}
@@ -37,7 +32,7 @@ TabPanel.propTypes = {
 	index: PropTypes.number.isRequired,
 	value: PropTypes.number.isRequired,
 	button: PropTypes.func,
-	buttonText: PropTypes.string.isRequired
+	buttonText: PropTypes.string
 };
 
 function a11yProps(index) {
@@ -45,11 +40,6 @@ function a11yProps(index) {
 		id: `simple-tab-${index}`,
 		'aria-controls': `simple-tabpanel-${index}`,
 	};
-}
-
-const tabsActionButton = { 
-	minWidth: 180,
-	height: 60
 }
 
 
@@ -63,7 +53,7 @@ export default function TabComponent({ tabsInfo, button, buttonText }) {
 	return (
 		<Box sx={{ width: '100%', marginTop: "10px" }}>
 			<Box sx={{ borderBottom: 1, borderColor: 'divider',  display: "flex", justifyContent: "space-between" }}>
-				<Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+				<Tabs value={value} onChange={handleChange} aria-label="basic tabs example" variant="fullWidth" sx={{width: "100%"}}>
 					{
 						tabsInfo &&
 						tabsInfo.labels &&
@@ -83,7 +73,7 @@ export default function TabComponent({ tabsInfo, button, buttonText }) {
 				tabsInfo &&
 				tabsInfo.pannel &&
 				tabsInfo.pannel.map((el, i) => (
-					<TabPanel key={i} index={i} value={value} sx={{marginLeft: 0}}>
+					<TabPanel key={i} index={i} value={value} sx={{margin: 0, padding:0}}>
 						{el.children}
 					</TabPanel>
 				))
