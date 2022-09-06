@@ -2,7 +2,7 @@ import { Box, Card, Grid, Grow, Typography } from "@mui/material";
 import { styled } from "@mui/system"
 
 import SimpleCard from "../../../../components/card/simple";
-import ChartSection from "./chart";
+import ChartSection from "./chart/chart";
 import NotificationSection from "./notification";
 import OrderHistorySection from "./orderhistory";
 import PortfolioSection from "./portfolio";
@@ -24,7 +24,6 @@ const StyledOverviewGridItem = styled(Grid)(({ theme }) => ({
 const StyledCommponentSection = styled(Box)(({ theme }) => ({
 	marginBottom: 15,
 	width: "100%",
-	backgroundColor: "red"
 }))
 
 const leftSections = [

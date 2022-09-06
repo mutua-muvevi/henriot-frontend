@@ -5,7 +5,6 @@ import Router from './routes';
 import ThemeProvider from './theme';
 // components
 import ScrollToTop from './components/ScrollToTop';
-import { BaseOptionChartStyle } from './components/chart/BaseOptionChart';
 
 import { connect } from "react-redux";
 import { fetchUser } from "./redux/user/action";
@@ -26,7 +25,6 @@ function App ({token, fetchMe}){
 		<ThemeProvider>
 			<Suspense fallback={<Fallback/>}>
 				<ScrollToTop />
-				<BaseOptionChartStyle />
 				<Router />
 			</Suspense>
 		</ThemeProvider>
