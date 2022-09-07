@@ -13,15 +13,19 @@ const StyledNotificationItems = styled(Grid)(({ theme }) => ({
 const notifications = [
 	{
 		level: "warning",
-		text: "Please update your password"
+		text: "This is an warning notification"
 	},
 	{
 		level: "info",
-		text: "Please update your password"
+		text: "This is an info notification"
 	},
 	{
 		level: "success",
-		text: "Please update your password"
+		text: "This is an success notification"
+	},
+	{
+		level: "error",
+		text: "This is an error notification"
 	},
 ]
 

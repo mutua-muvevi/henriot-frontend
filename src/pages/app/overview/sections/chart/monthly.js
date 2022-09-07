@@ -5,14 +5,14 @@ import { Box } from "@mui/material";
 import { styled } from "@mui/system";
 
 const StyledMonthlyChartHome = styled(Box)(({ theme }) => ({
-	
+	height: 320
 }))
 
 const data = {
 	labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July' ],
 	datasets: [
 		{
-			label: 'My First dataset',
+			//label: 'My First dataset',
 			fill: false,
 			lineTension: 0.1,
 			backgroundColor: '#ed0f51',
@@ -38,7 +38,7 @@ const data = {
 const MonthlyChartHome = () => {
 	return (
 		<StyledMonthlyChartHome>
-    		<Chart type='line' data={data} />
+    		<Chart type='line' data={data} height="100%"/>
 		</StyledMonthlyChartHome>
 	)
 }

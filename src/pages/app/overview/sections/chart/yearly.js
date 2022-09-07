@@ -4,14 +4,14 @@ import 'chart.js/auto';
 import { Chart } from 'react-chartjs-2';
 
 const StyledYearlyChartHome = styled(Box)(({ theme }) => ({
-	
+	height: 320
 }))
 
 const data = {
 	labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', "August", "September", "October", "November", "December" ],
 	datasets: [
 		{
-			label: 'My First dataset',
+			//label: 'My First dataset',
 			fill: false,
 			lineTension: 0.1,
 			backgroundColor: '#ed0f51',
@@ -31,13 +31,21 @@ const data = {
 			pointHitRadius: 10,
 			data: [675, 590, 801, 381, 956, 255, 470, 234, 783, 902, 637, 890]
 		}
-	]
-	};
+	], 
+};
+
+const chartOptions = {
+	options: {
+		legend: {
+		   display: false
+		}
+	 }
+}
 
 const YearlyChartHome = () => {
 	return (
 		<StyledYearlyChartHome>
-    		<Chart type='line' data={data} />
+    		<Chart type='line' data={data} options={chartOptions} height="100%"/>
 		</StyledYearlyChartHome>
 	)
 }
