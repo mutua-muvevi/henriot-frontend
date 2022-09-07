@@ -32,7 +32,8 @@ TabPanel.propTypes = {
 	index: PropTypes.number.isRequired,
 	value: PropTypes.number.isRequired,
 	button: PropTypes.func,
-	buttonText: PropTypes.string
+	buttonText: PropTypes.string,
+	title: PropTypes.string
 };
 
 function a11yProps(index) {
@@ -43,7 +44,7 @@ function a11yProps(index) {
 }
 
 
-export default function TabComponent({ tabsInfo, button, buttonText }) {
+export default function TabComponent({ tabsInfo, button, buttonText, title }) {
 	const [value, setValue] = useState(0);
 
 	const handleChange = (event, newValue) => {
@@ -52,7 +53,16 @@ export default function TabComponent({ tabsInfo, button, buttonText }) {
 
 	return (
 		<Box sx={{ width: '100%', marginTop: "10px" }}>
-			<Box sx={{ borderBottom: 1, borderColor: 'divider',  display: "flex", justifyContent: "space-between" }}>
+			<Box sx={{ borderBottom: 1, borderColor: 'divider',  display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+				{
+					title ? (
+						<Box sx={{ minWidth: 20, pl:1, pr:5 }}>
+							<Typography variant="h4">
+								{ title }
+							</Typography>
+						</Box>
+					) : ""
+				}
 				<Tabs value={value} onChange={handleChange} aria-label="basic tabs example" variant="fullWidth" sx={{width: "100%"}}>
 					{
 						tabsInfo &&

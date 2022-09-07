@@ -5,7 +5,7 @@ import SimpleCard from "../../../../components/card/simple";
 import ChartSection from "./chart/chart";
 import NotificationSection from "./notification";
 import OrderHistorySection from "./orderhistory";
-import PortfolioSection from "./portfolio";
+import PortfolioSection from "./portfolio/portfolio";
 import TradeSection from "./trade";
 import WatchlistSection from "./watchlist";
 
