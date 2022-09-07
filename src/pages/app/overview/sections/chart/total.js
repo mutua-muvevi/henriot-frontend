@@ -12,7 +12,7 @@ const data = {
 	labels: ['2016', '2017', '2018', '2019', '2020', '2021', '2022' ],
 	datasets: [
 		{
-			label: 'My First dataset',
+			//label: 'My First dataset',
 			fill: false,
 			lineTension: 0.1,
 			backgroundColor: '#ed0f51',
@@ -38,7 +38,7 @@ const data = {
 const TotalChartHome = () => {
 	return (
 		<StyledTotalChartHome>
-    		<Chart type='line' data={data} />
+    		<Chart type='line' data={data} height="100%"/>
 		</StyledTotalChartHome>
 	)
 }
