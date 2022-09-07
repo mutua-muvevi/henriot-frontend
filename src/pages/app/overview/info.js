@@ -1,8 +1,10 @@
-import { Button } from "@mui/material";
 import MonthlyChartHome from "./sections/chart/monthly";
 import TodayChartHome from "./sections/chart/today";
 import TotalChartHome from "./sections/chart/total";
 import YearlyChartHome from "./sections/chart/yearly";
+import PortfolioAllTableOverview from "./sections/portfolio/all";
+import PortfolioCryptoTableOverview from "./sections/portfolio/crypto";
+import PortfolioStockTableOverview from "./sections/portfolio/stock";
 
 export const tabsInfo = {
 	labels: [
@@ -39,4 +41,17 @@ export const todaysChartData = {
 	options: {
 		responsive: true
 	}
+}
+
+export const portfolioTabs =  {
+	labels: [
+		{ label: "All", },
+		{ label: "Stocks", },
+		{ label: "Crypto", },
+	],
+	pannel: [
+		{ children : <PortfolioAllTableOverview/> },
+		{ children : <PortfolioStockTableOverview/> },
+		{ children : <PortfolioCryptoTableOverview/> }
+	]
 }
