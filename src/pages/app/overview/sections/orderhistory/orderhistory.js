@@ -1,24 +1,27 @@
 import { Box, Card, Divider, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
-import { portfolioTabs } from "../../info";
-import TabComponent from "src/components/Tabs";
 
 const ContainerWrapper = styled(Card)(({ theme }) => ({
 	borderRadius: theme.shape.borderRadius,
 	minHeight: 300
 }));
 
+const StyledTitle = styled(Box)(({ theme }) => ({
+	padding: "10px",
+	borderBottom: "1px solid grey"
+}))
 
-const PortfolioSection = () => {
+const OrderHistorySection = () => {
 	return (
 		<ContainerWrapper>
-			<TabComponent
-				tabsInfo={portfolioTabs}
-				title="Portfolio"
-			/>
+			<StyledTitle>
+				<Typography variant="h4">
+					Order history
+				</Typography>
+			</StyledTitle>
 		</ContainerWrapper>
 	)
 }
 
-export default PortfolioSection
+export default OrderHistorySection

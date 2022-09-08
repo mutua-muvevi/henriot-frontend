@@ -3,7 +3,7 @@ import { TextField, MenuItem } from '@mui/material';
 
 import { useField, useFormikContext } from 'formik';
 
-const SelectField = ({ name, options, ...otherProps }) => {
+const SelectField = ({ name, options, variant, ...otherProps }) => {
 	
 	const { setFieldValue } = useFormikContext();
 	const [field, meta] = useField(name);
@@ -17,8 +17,8 @@ const SelectField = ({ name, options, ...otherProps }) => {
 		...field,
 		...otherProps,
 		select: true,
-		variant: 'outlined',
 		fullWidth: true,
+		variant: variant ? variant : "outlined",
 		onChange: handleChange,
 		InputLabelProps:{
 			shrink: true

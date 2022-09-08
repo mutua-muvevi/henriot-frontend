@@ -5,6 +5,8 @@ import YearlyChartHome from "./sections/chart/yearly";
 import PortfolioAllTableOverview from "./sections/portfolio/all";
 import PortfolioCryptoTableOverview from "./sections/portfolio/crypto";
 import PortfolioStockTableOverview from "./sections/portfolio/stock";
+import TradeBuyOverview from "./sections/trade/buy";
+import TradeSellOverview from "./sections/trade/sell";
 
 export const tabsInfo = {
 	labels: [
@@ -55,3 +57,54 @@ export const portfolioTabs =  {
 		{ children : <PortfolioCryptoTableOverview/> }
 	]
 }
+
+export const tradeTabs =  {
+	labels: [
+		{ label: "Buy", },
+		{ label: "Sell", },
+	],
+	pannel: [
+		{ children : <TradeBuyOverview/> },
+		{ children : <TradeSellOverview/> }
+	]
+}
+
+export const buyInputs = [
+	{
+		name: "symbol",
+		label: "Symbol",
+		type: "text",
+		required: true,
+		inputprops: {}
+	},
+	{
+		name: "quantity",
+		label: "Quantity",
+		type: "number",
+		required: true,
+		inputprops: {}
+	},
+]
+
+export const buySelectOptionsOrderType = [{Name: "market"}]
+export const buySelectOptionsTimeInForce = [{Name: "GTC - Goods Till Cancelled"}]
+
+export const sellInputs = [
+	{
+		name: "symbol",
+		label: "Symbol",
+		type: "text",
+		required: true,
+		inputprops: {}
+	},
+	{
+		name: "quantity",
+		label: "Quantity",
+		type: "number",
+		required: true,
+		inputprops: {}
+	},
+]
+
+export const sellSelectOptionsOrderType = [{Name: "market"}]
+export const sellSelectOptionsTimeInForce = [{Name: "GTC - Goods Till Cancelled"}]

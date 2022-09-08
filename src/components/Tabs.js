@@ -19,7 +19,7 @@ function TabPanel(props) {
 			{...other}
 		>
 			{value === index && (
-				<Box sx={{ pt: 3 }}>
+				<Box >
 					{children}
 				</Box>
 			)}
@@ -83,7 +83,7 @@ export default function TabComponent({ tabsInfo, button, buttonText, title }) {
 				tabsInfo &&
 				tabsInfo.pannel &&
 				tabsInfo.pannel.map((el, i) => (
-					<TabPanel key={i} index={i} value={value} sx={{margin: 0, padding:0}}>
+					<TabPanel key={i} index={i} value={value}>
 						{el.children}
 					</TabPanel>
 				))
