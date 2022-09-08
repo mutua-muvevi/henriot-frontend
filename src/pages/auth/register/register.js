@@ -3,7 +3,7 @@ import React from 'react';
 import { Box, Grid, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 import UpperContent from "./uppercontent";
-import TabsArea from "./tabsarea";
+//import TabsArea from "./tabsarea";
 import LowerContent from "./lowercontent";
 import RegisterForm from "./form";
 import Page from '../../../components/Page';
@@ -57,7 +57,7 @@ const Register = () => {
 					<StyledRegistrationExpl item xl={6} lg={6} md={12} sm={12} xs={12}>
 						<StyledRegistrationExplContent>
 							<UpperContent/>
-							<TabsArea/>
+							{/*<TabsArea/>*/}
 							<LowerContent/>
 						</StyledRegistrationExplContent>
 					</StyledRegistrationExpl>

@@ -66,7 +66,7 @@ export const lowercontent = {
 }
 
 export const tabareainfo = {
-	title : [
+	labels : [
 		{
 			value: "1",
 			label: "individuals"

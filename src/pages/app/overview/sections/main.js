@@ -6,7 +6,7 @@ import ChartSection from "./chart/chart";
 import NotificationSection from "./notification";
 import OrderHistorySection from "./orderhistory";
 import PortfolioSection from "./portfolio/portfolio";
-import TradeSection from "./trade";
+import TradeSection from "./trade/trade";
 import WatchlistSection from "./watchlist";
 
 const StyledOverviewMain = styled(Box)(({ theme }) => ({
