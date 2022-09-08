@@ -4,7 +4,7 @@ import { styled } from "@mui/system"
 import SimpleCard from "../../../../components/card/simple";
 import ChartSection from "./chart/chart";
 import NotificationSection from "./notification";
-import OrderHistorySection from "./orderhistory";
+import OrderHistorySection from "./orderhistory/orderhistory";
 import PortfolioSection from "./portfolio/portfolio";
 import TradeSection from "./trade/trade";
 import WatchlistSection from "./watchlist";
