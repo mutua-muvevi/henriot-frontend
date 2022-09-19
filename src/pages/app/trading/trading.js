@@ -2,12 +2,12 @@ import React from 'react';
 import { Outlet } from "react-router-dom";
 import Page from '../../../components/Page';
 
-const Banking = () => {
+const Trading = () => {
 	return (
-		<Page title="Banking">
+		<Page title="Trading">
 			<Outlet/>
 		</Page>
 	)
 }
 
-export default Banking
+export default Trading

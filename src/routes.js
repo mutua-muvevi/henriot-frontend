@@ -22,7 +22,7 @@ import Position from "./pages/app/positions/positions";
 import ResearchCenter from "./pages/app/researchcenter/researchcenter";
 import About from "./pages/app/about/about";
 import SingleItem from "./pages/app/singleItem/singleitem";
-import BankingDashboard from "./pages/app/banking/overview/overview";
+import BankingDashboard from "./pages/app/banking/overview/dashboard";
 import BankingCurrentAccount from "./pages/app/banking/account/account";
 import BankingTeamDeposit from "./pages/app/banking/deposit/deposit";
 import BankingCryptoAccount from "./pages/app/banking/crypto/crypto";
@@ -36,6 +36,10 @@ import WealthResearch from "./pages/app/wealth/research/research";
 import FeeGuide from "./pages/app/guide/fee/fee";
 import UserGuide from "./pages/app/guide/user/user";
 import ContactUs from "./pages/app/guide/contact/contact";
+import BankingHome from "./pages/app/banking/home/home";
+import Trading from "./pages/app/trading/trading";
+import WealthManagement from "./pages/app/wealth/wealth";
+import Guide from "./pages/app/guide/guide";
 
 
 export default function Router() {
@@ -65,11 +69,12 @@ export default function Router() {
 					{ path: 'team-deposit', element: <BankingTeamDeposit /> },
 					{ path: 'crypto-account', element: <BankingCryptoAccount /> },
 					{ path: 'debit-card', element: <BankingDebitCard /> },
+					{ path: 'home', element: <BankingHome /> },
 				]
 			},
 			{
 				path: 'trading',
-				element: <BankingDashboard />,
+				element: <Trading />,
 				children: [
 					{ path: 'trading-platform', element: <TradingPlatformPage /> },
 					{ path: 'investment-platform', element: <TradingInvestmentPlatform /> },
@@ -78,7 +83,7 @@ export default function Router() {
 			},
 			{
 				path: 'wealth-management',
-				element: <SingleItem />,
+				element: <WealthManagement />,
 				children: [
 					{ path: 'fund', element: <WealthFund /> },
 					{ path: 'portfolio', element: <WealthPortfolio /> },
@@ -87,7 +92,7 @@ export default function Router() {
 			},
 			{
 				path: 'guide',
-				element: <Position />,
+				element: <Guide />,
 				children: [
 					{ path: 'general-fee', element: <FeeGuide /> },
 					{ path: 'user-guide', element: <UserGuide /> },
