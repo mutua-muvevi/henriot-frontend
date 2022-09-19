@@ -94,7 +94,7 @@ export default function AccountPopover() {
 						variant="body2"
 						sx={{ color: "text.secondary" }}
 						noWrap>
-						Kebneddy@mail.com
+						Kennedy@mail.com
 					</Typography>
 				</Box>
 
