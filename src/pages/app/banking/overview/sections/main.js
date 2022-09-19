@@ -1,7 +1,7 @@
 import { Box, Card, Grid, Grow, Typography } from "@mui/material";
 import { styled } from "@mui/system"
 
-import SimpleCard from "../../../../components/card/simple";
+//import SimpleCard from "../../../../components/card/simple";
 import ChartSection from "./chart/chart";
 import NotificationSection from "./notification";
 import OrderHistorySection from "./orderhistory/orderhistory";

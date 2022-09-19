@@ -162,6 +162,7 @@ export const loginUser = (formData) => {
 export const setupUser = (values, token, id) => {
 	return async (dispatch) => {
 		try {
+			debugger
 			const res = await axios.put(
 				`http://localhost:8100/api/user/setup/${id}`,
 				values,
