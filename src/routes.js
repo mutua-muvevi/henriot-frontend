@@ -1,4 +1,4 @@
-import { Navigate, useRoutes } from 'react-router-dom';
+import { useRoutes } from 'react-router-dom';
 
 //authentication pages
 import AuthLayout from "./layout/auth/authlayout";
@@ -11,17 +11,7 @@ import Setup from "./pages/auth/setup/setup"
 //admin pages
 import OtpLogin from "./pages/auth/otplogin/otplogin";
 import Layout from "./layout/app/layout";
-import Account from "./pages/app/account/account";
-import Approach from "./pages/app/approach/approach";
 import Banking from "./pages/app/banking/banking";
-import CryptoTransfers from "./pages/app/cryptotransfers/cryptotransfers";
-import Documentation from "./pages/app/documentation/documentation";
-import HGVault from "./pages/app/HGvault/hgvault";
-import Order from "./pages/app/order/order";
-import Position from "./pages/app/positions/positions";
-import ResearchCenter from "./pages/app/researchcenter/researchcenter";
-import About from "./pages/app/about/about";
-import SingleItem from "./pages/app/singleItem/singleitem";
 import BankingDashboard from "./pages/app/banking/overview/dashboard";
 import BankingCurrentAccount from "./pages/app/banking/account/account";
 import BankingTeamDeposit from "./pages/app/banking/deposit/deposit";
@@ -98,30 +88,8 @@ export default function Router() {
 					{ path: 'user-guide', element: <UserGuide /> },
 					{ path: 'contact-us', element: <ContactUs /> },
 				]
-			},
-			{ path: 'singleitem', element: <SingleItem /> },
-			{ path: 'about', element: <About /> },
-			{ path: 'account', element: <Account /> },
-			{ path: 'approach', element: <Approach /> },
-			{ path: 'crypto-transfers', element: <CryptoTransfers /> },
-			{ path: 'documentation', element: <Documentation /> },
-			{ path: 'hg-vault', element: <HGVault /> },
-			{ path: 'order', element: <Order /> },
-			{ path: 'research-center', element: <ResearchCenter /> },
+			}
 		],
 	},
-	//{
-	//  path: '/',
-	//  element: <LogoOnlyLayout />,
-	//  children: [
-	//	{ path: '/', element: <Navigate to="/dashboard/app" /> },
-	//	{ path: '404', element: <NotFound /> },
-	//	{ path: '*', element: <Navigate to="/404" /> },
-	//  ],
-	//},
-	//{
-	//  path: '*',
-	//  element: <Navigate to="/404" replace />,
-	//},
   ]);
 }

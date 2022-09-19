@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 // material
-import { styled } from '@mui/material/styles';
+import {  alpha, styled } from '@mui/material/styles';
 import { Box, Link, Button, Drawer, Typography, Avatar, Stack } from '@mui/material';
 
 // hooks
@@ -23,12 +23,13 @@ const RootStyle = styled('div')(({ theme }) => ({
 		flexShrink: 0,
 		width: DRAWER_WIDTH,
 	},
+	margin: 0
 }));
 
 const AccountStyle = styled('div')(({ theme }) => ({
 	display: 'flex',
 	alignItems: 'center',
-	padding: theme.spacing(2, 2.5),
+	padding: theme.spacing(1.8, 2),
 	borderRadius: Number(theme.shape.borderRadius) * 1.5,
 }));
 
@@ -94,7 +95,10 @@ export default function DrawerComponent({ isOpenSidebar, onCloseSidebar }) {
 					open={isOpenSidebar}
 					onClose={onCloseSidebar}
 					PaperProps={{
-						sx: { width: DRAWER_WIDTH,  },
+						sx: {
+							width: DRAWER_WIDTH,
+							bgcolor: "rgba(100, 206, 187)",
+						},
 					}}
 				>
 					{renderContent}
@@ -108,8 +112,7 @@ export default function DrawerComponent({ isOpenSidebar, onCloseSidebar }) {
 					PaperProps={{
 						sx: {
 							width: DRAWER_WIDTH,
-							bgcolor: 'background.default',
-							borderRightStyle: 'dashed',
+							bgcolor: "rgba(100, 206, 187, 0.32)",
 						},
 					}}
 				>

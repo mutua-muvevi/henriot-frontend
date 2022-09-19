@@ -18,9 +18,9 @@ const RootStyle = styled(AppBar)(({ theme }) => ({
 	boxShadow: 'none',
 	backdropFilter: 'blur(6px)',
 	WebkitBackdropFilter: 'blur(6px)', // Fix on Mobile
-	backgroundColor: alpha(theme.palette.background.default, 0.7),
+	backgroundColor: alpha(theme.palette.primary.light, 0.7),
 	[theme.breakpoints.up('lg')]: {
-		width: `calc(100% - ${DRAWER_WIDTH + 1}px)`,
+		width: `calc(100% - ${DRAWER_WIDTH}px)`,
 	},
 }));
 
@@ -50,7 +50,7 @@ export default function DashboardNavbar({ openSidebar }) {
 				<Box sx={{ flexGrow: 1 }} />
 
 				<Stack direction="row" alignItems="center" spacing={{ xs: 0.5, sm: 1.5 }}>
-					<Button variant="contained" sx={{backgroundColor: "background.dark"}} >
+					<Button variant="contained" >
 						deposit
 					</Button>
 					<AccountPopover />
