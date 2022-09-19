@@ -139,15 +139,25 @@ NavSection.propTypes = {
 	navConfig: PropTypes.array,
 };
 
-export default function NavSection({ navConfig, ...other }) {
+export default function NavSection({ navConfig, bankingSection, TradingSection,  wealthManagementSection, guideSection, ...other }) {
 	const { pathname } = useLocation();
 
 	const match = (path) => (path ? !!matchPath({ path, end: false }, pathname) : false);
 
 	return (
 		<Box {...other}>
-			<List disablePadding sx={{ p: 1 }}>
-				{navConfig.map((item) => (
+			<List disablePadding sx={{ p: 1, borderBottom: "1px solid grey" }}>
+				{bankingSection.map((item) => (
+					<NavItem key={item.title} item={item} active={match} />
+				))}
+			</List>
+			<List disablePadding sx={{ p: 1, borderBottom: "1px solid grey" }}>
+				{TradingSection.map((item) => (
+					<NavItem key={item.title} item={item} active={match} />
+				))}
+			</List>
+			<List disablePadding sx={{ p: 1, borderBottom: "1px solid grey" }}>
+				{wealthManagementSection.map((item) => (
 					<NavItem key={item.title} item={item} active={match} />
 				))}
 			</List>

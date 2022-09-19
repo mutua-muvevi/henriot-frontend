@@ -13,6 +13,7 @@ import Scrollbar from '../../../components/Scrollbar';
 import NavSection from '../../../components/NavSection';
 //
 import navConfig from './NavConfig';
+import { bankingSection, TradingSection, wealthManagementSection, guideSection } from './NavConfig';
 
 // ----------------------------------------------------------------------
 
@@ -75,7 +76,13 @@ export default function DrawerComponent({ isOpenSidebar, onCloseSidebar }) {
 					</Link>
 				</Box>
 
-				<NavSection navConfig={navConfig} />
+				<NavSection
+					navConfig={navConfig}
+					bankingSection={bankingSection}
+					TradingSection={TradingSection}
+					wealthManagementSection={wealthManagementSection}
+					guideSection={guideSection}
+				/>
 
 				<Box sx={{ flexGrow: 1 }} />
 			</Scrollbar>

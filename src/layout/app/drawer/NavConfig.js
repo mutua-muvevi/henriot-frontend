@@ -101,3 +101,131 @@ const navConfig = [
 	},
 ]
 export default navConfig;
+
+export const bankingSection = [
+	{
+		title: "Dashboard",
+		path: "/admin/banking/dashboard",
+		icon: <BsShieldLockFill style={sx}/>,
+		//children: [
+		//	{}
+		//],
+	},
+	{
+		title: "Current Account",
+		path: "/admin/banking/current-account",
+		icon: <BsShieldLockFill style={sx}/>,
+		//children: [
+		//	{}
+		//],
+	},
+	{
+		title: "Team Deposit",
+		path: "/admin/banking/team-deposit",
+		icon: <BsShieldLockFill style={sx}/>,
+		//children: [
+		//	{}
+		//],
+	},
+	{
+		title: "Crypto Account",
+		path: "/admin/banking/crypto-account",
+		icon: <BsShieldLockFill style={sx}/>,
+		//children: [
+		//	{}
+		//],
+	},
+	{
+		title: "Debit Card",
+		path: "/admin/banking/debit-card",
+		icon: <BsShieldLockFill style={sx}/>,
+		//children: [
+		//	{}
+		//],
+	},
+]
+
+
+export const TradingSection = [
+	{
+		title: "Trading Platform",
+		path: "/admin/trading/trading-platform",
+		icon: <BsShieldLockFill style={sx}/>,
+		//children: [
+		//	{}
+		//],
+	},
+	{
+		title: "Investment Platform",
+		path: "/admin/trading/investment-platform",
+		icon: <BsShieldLockFill style={sx}/>,
+		//children: [
+		//	{}
+		//],
+	},
+	{
+		title: "Quick Buy/Sell",
+		path: "/admin/trading/quick-buy-sell",
+		icon: <BsShieldLockFill style={sx}/>,
+		//children: [
+		//	{}
+		//],
+	},
+]
+
+
+export const wealthManagementSection = [
+	{
+		title: "Funds",
+		path: "/admin/wealth-management/fund",
+		icon: <BsShieldLockFill style={sx}/>,
+		//children: [
+		//	{}
+		//],
+	},
+	{
+		title: "Portfolio",
+		path: "/admin/wealth-management/portfolio",
+		icon: <BsShieldLockFill style={sx}/>,
+		//children: [
+		//	{}
+		//],
+	},
+	{
+		title: "Research",
+		path: "/admin/wealth-management/research",
+		icon: <BsShieldLockFill style={sx}/>,
+		//children: [
+		//	{}
+		//],
+	},
+]
+
+
+export const guideSection = [
+	{
+		title: "Funds",
+		path: "/admin/guide/general-fee",
+		icon: <BsShieldLockFill style={sx}/>,
+		//children: [
+		//	{}
+		//],
+	},
+	{
+		title: "User Guide",
+		path: "/admin/guide/user-guide",
+		icon: <BsShieldLockFill style={sx}/>,
+		//children: [
+		//	{}
+		//],
+	},
+	{
+		title: "Contact Us",
+		path: "/admin/guide/contact-us",
+		icon: <BsShieldLockFill style={sx}/>,
+		//children: [
+		//	{}
+		//],
+	},
+]
+
