@@ -136,10 +136,13 @@ function NavItem({ item, active }) {
 }
 
 NavSection.propTypes = {
-	navConfig: PropTypes.array,
+	bankingSection: PropTypes.array,
+	TradingSection: PropTypes.array,
+	wealthManagementSection: PropTypes.array,
+	guideSection: PropTypes.array,
 };
 
-export default function NavSection({ navConfig, bankingSection, TradingSection,  wealthManagementSection, guideSection, ...other }) {
+export default function NavSection({ bankingSection, TradingSection,  wealthManagementSection, guideSection, ...other }) {
 	const { pathname } = useLocation();
 
 	const match = (path) => (path ? !!matchPath({ path, end: false }, pathname) : false);
