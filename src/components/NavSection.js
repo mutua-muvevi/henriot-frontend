@@ -11,7 +11,7 @@ import { Box, List, Collapse, ListItemText, ListItemIcon, ListItemButton, Typogr
 
 const ListItemStyle = styled((props) => <ListItemButton disableGutters {...props} />)(({ theme }) => ({
 	...theme.typography.body2,
-	height: 48,
+	//height: 48,
 	position: 'relative',
 	textTransform: 'capitalize',
 	color: theme.palette.text.secondary,
@@ -159,10 +159,10 @@ export default function NavSection({ bankingSection, tradingSection,  wealthMana
 			{
 				navSection.map((el, i) => (
 					<Box key={i}>
-						<Typography variant="h6" sx={{ ml:3.7, p:0 }}>
+						<Typography variant="h6" sx={{ ml:3.7, paddingTop: "5px" }}>
 							{el.title}
 						</Typography>
-						<List disablePadding sx={{ p: 1, borderBottom: "1px solid grey" }}>
+						<List disablePadding sx={{ borderBottom: "1px solid grey" }} dense>
 							{
 								el.list.map((item) => (
 									<NavItem key={item.title} item={item} active={match} />
