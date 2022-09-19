@@ -18,7 +18,7 @@ function responsiveFontSizes({ sm, md, lg }) {
   };
 }
 
-const FONT_PRIMARY = 'IBM Plex, sans-serif';
+const FONT_PRIMARY = 'Roboto, sans-serif';
 
 const typography = {
   fontFamily: FONT_PRIMARY,
@@ -73,27 +73,27 @@ const typography = {
   },
   body1: {
     lineHeight: 1.5,
-    fontSize: pxToRem(16),
+    fontSize: pxToRem(14),
   },
   body2: {
     lineHeight: 22 / 14,
-    fontSize: pxToRem(14),
+    fontSize: pxToRem(12),
   },
   caption: {
     lineHeight: 1.5,
-    fontSize: pxToRem(12),
+    fontSize: pxToRem(11),
   },
   overline: {
     fontWeight: 700,
     lineHeight: 1.5,
-    fontSize: pxToRem(12),
+    fontSize: pxToRem(11),
     letterSpacing: 1.1,
     textTransform: 'uppercase',
   },
   button: {
     fontWeight: 700,
     lineHeight: 24 / 14,
-    fontSize: pxToRem(14),
+    fontSize: pxToRem(12),
     textTransform: 'capitalize',
   },
 };

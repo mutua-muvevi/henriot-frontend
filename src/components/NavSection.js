@@ -10,11 +10,10 @@ import { Box, List, Collapse, ListItemText, ListItemIcon, ListItemButton, Typogr
 // ----------------------------------------------------------------------
 
 const ListItemStyle = styled((props) => <ListItemButton disableGutters {...props} />)(({ theme }) => ({
-	...theme.typography.body2,
-	//height: 48,
+	...theme.typography.body1,
 	position: 'relative',
 	textTransform: 'capitalize',
-	color: theme.palette.text.secondary,
+	color: theme.palette.text.primary,
 	borderRadius: theme.shape.borderRadius,
 }));
 
@@ -48,9 +47,9 @@ function NavItem({ item, active }) {
 	};
 
 	const activeRootStyle = {
-		color: 'primary.main',
+		color: 'primary.dark',
 		fontWeight: 'fontWeightMedium',
-		bgcolor: alpha(theme.palette.primary.main, theme.palette.action.selectedOpacity),
+		bgcolor: alpha(theme.palette.primary.dark, theme.palette.action.selectedOpacity),
 	};
 
 	const activeSubStyle = {
@@ -159,7 +158,7 @@ export default function NavSection({ bankingSection, tradingSection,  wealthMana
 			{
 				navSection.map((el, i) => (
 					<Box key={i}>
-						<Typography variant="h6" sx={{ ml:3.7, paddingTop: "5px" }}>
+						<Typography variant="h6" sx={{ ml:2.6, paddingTop: "5px" }}>
 							{el.title}
 						</Typography>
 						<List disablePadding sx={{ borderBottom: "1px solid grey" }} dense>
