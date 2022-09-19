@@ -11,7 +11,6 @@ import Setup from "./pages/auth/setup/setup"
 //admin pages
 import OtpLogin from "./pages/auth/otplogin/otplogin";
 import Layout from "./layout/app/layout";
-import Overview from "./pages/app/overview/overview";
 import Account from "./pages/app/account/account";
 import Approach from "./pages/app/approach/approach";
 import Banking from "./pages/app/banking/banking";
@@ -22,6 +21,21 @@ import Order from "./pages/app/order/order";
 import Position from "./pages/app/positions/positions";
 import ResearchCenter from "./pages/app/researchcenter/researchcenter";
 import About from "./pages/app/about/about";
+import SingleItem from "./pages/app/singleItem/singleitem";
+import BankingDashboard from "./pages/app/banking/overview/overview";
+import BankingCurrentAccount from "./pages/app/banking/account/account";
+import BankingTeamDeposit from "./pages/app/banking/deposit/deposit";
+import BankingCryptoAccount from "./pages/app/banking/crypto/crypto";
+import BankingDebitCard from "./pages/app/banking/card/card";
+import TradingPlatformPage from "./pages/app/trading/trading/trading";
+import TradingInvestmentPlatform from "./pages/app/trading/investment/investment";
+import TradingBuySell from "./pages/app/trading/buysell/buysell";
+import WealthFund from "./pages/app/wealth/fund/fund";
+import WealthPortfolio from "./pages/app/wealth/portfolio/portfolio";
+import WealthResearch from "./pages/app/wealth/research/research";
+import FeeGuide from "./pages/app/guide/fee/fee";
+import UserGuide from "./pages/app/guide/user/user";
+import ContactUs from "./pages/app/guide/contact/contact";
 
 
 export default function Router() {
@@ -42,16 +56,52 @@ export default function Router() {
 		path: '/admin',
 		element: <Layout />,
 		children: [
-			{ path: 'dashboard', element: <Overview /> },
+			{
+				path: 'banking',
+				element: <Banking />,
+				children: [
+					{ path: 'dashboard', element: <BankingDashboard /> },
+					{ path: 'current-account', element: <BankingCurrentAccount /> },
+					{ path: 'team-deposit', element: <BankingTeamDeposit /> },
+					{ path: 'crypto-account', element: <BankingCryptoAccount /> },
+					{ path: 'debit-card', element: <BankingDebitCard /> },
+				]
+			},
+			{
+				path: 'trading',
+				element: <BankingDashboard />,
+				children: [
+					{ path: 'trading-platform', element: <TradingPlatformPage /> },
+					{ path: 'investment-platform', element: <TradingInvestmentPlatform /> },
+					{ path: 'quick-buy-sell', element: <TradingBuySell /> },
+				]
+			},
+			{
+				path: 'wealth-management',
+				element: <SingleItem />,
+				children: [
+					{ path: 'fund', element: <WealthFund /> },
+					{ path: 'portfolio', element: <WealthPortfolio /> },
+					{ path: 'research', element: <WealthResearch /> },
+				]
+			},
+			{
+				path: 'guide',
+				element: <Position />,
+				children: [
+					{ path: 'general-fee', element: <FeeGuide /> },
+					{ path: 'user-guide', element: <UserGuide /> },
+					{ path: 'contact-us', element: <ContactUs /> },
+				]
+			},
+			{ path: 'singleitem', element: <SingleItem /> },
 			{ path: 'about', element: <About /> },
 			{ path: 'account', element: <Account /> },
 			{ path: 'approach', element: <Approach /> },
-			{ path: 'banking', element: <Banking /> },
 			{ path: 'crypto-transfers', element: <CryptoTransfers /> },
 			{ path: 'documentation', element: <Documentation /> },
 			{ path: 'hg-vault', element: <HGVault /> },
 			{ path: 'order', element: <Order /> },
-			{ path: 'positions', element: <Position /> },
 			{ path: 'research-center', element: <ResearchCenter /> },
 		],
 	},

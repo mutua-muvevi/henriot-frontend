@@ -31,8 +31,7 @@ TabPanel.propTypes = {
 	children: PropTypes.node,
 	index: PropTypes.number.isRequired,
 	value: PropTypes.number.isRequired,
-	button: PropTypes.func,
-	buttonText: PropTypes.string,
+	button: PropTypes.object,
 	title: PropTypes.string
 };
 
@@ -44,7 +43,7 @@ function a11yProps(index) {
 }
 
 
-export default function TabComponent({ tabsInfo, button, buttonText, title }) {
+export default function TabComponent({ tabsInfo, button, title }) {
 	const [value, setValue] = useState(0);
 
 	const handleChange = (event, newValue) => {
@@ -78,6 +77,13 @@ export default function TabComponent({ tabsInfo, button, buttonText, title }) {
 						))
 					}
 				</Tabs>
+				{
+					button ? (
+						<Button variant="text" onClick={button.handleClick}>
+							{ button.text }
+						</Button>
+					) : ""
+				}
 			</Box>
 			{
 				tabsInfo &&

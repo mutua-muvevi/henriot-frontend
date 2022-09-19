@@ -28,7 +28,7 @@ const styledErrorHeader = {
 	fontWeight: "800",
 }
 
-const StyledErrorSubHeader = {
+const styledErrorSubHeader = {
 	fontWeight: "700"
 
 }
@@ -40,7 +40,7 @@ const CatchErrors = ({ error, errorInfo }) => {
 				<Typography variant="h1" sx={styledErrorHeader}>
 					Error
 				</Typography>
-				<Typography variant="h3" sx={StyledErrorSubHeader}>
+				<Typography variant="h3" sx={styledErrorSubHeader}>
 				</Typography>
 					{JSON.stringify(error)}
 			</StyledErrorContainer>

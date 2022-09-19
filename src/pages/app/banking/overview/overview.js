@@ -2,7 +2,7 @@ import { Box, Grid, Grow } from "@mui/material";
 import { styled } from "@mui/system";
 import Main from "./sections/main";
 import TopSection from "./sections/top";
-import Page from '../../../components/Page';
+import Page from '../../../../components/Page';
 
 const StyledOverviewWrapper = styled(Box)(({ theme }) => ({
 	paddingTop: 10
@@ -16,7 +16,7 @@ const StyledOverviewGridItem = styled(Grid)(({ theme }) => ({
 
 }))
 
-const Overview = () => {
+const BankingDashboard = () => {
 	return (
 		<Page title="Home" id="dashboard homepage">
 			<StyledOverviewWrapper>
@@ -34,4 +34,4 @@ const Overview = () => {
 	)
 }
 
-export default Overview
+export default BankingDashboard
