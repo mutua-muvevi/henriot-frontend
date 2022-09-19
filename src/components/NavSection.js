@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { NavLink as RouterLink, matchPath, useLocation } from 'react-router-dom';
 // material
 import { alpha, useTheme, styled } from '@mui/material/styles';
-import { Box, List, Collapse, ListItemText, ListItemIcon, ListItemButton } from '@mui/material';
+import { Box, List, Collapse, ListItemText, ListItemIcon, ListItemButton, Typography } from '@mui/material';
 //
 
 
@@ -136,34 +136,42 @@ function NavItem({ item, active }) {
 }
 
 NavSection.propTypes = {
-	bankingSection: PropTypes.array,
-	TradingSection: PropTypes.array,
-	wealthManagementSection: PropTypes.array,
-	guideSection: PropTypes.array,
+	bankingSection: PropTypes.object,
+	tradingSection: PropTypes.object,
+	wealthManagementSection: PropTypes.object,
+	guideSection: PropTypes.object,
 };
 
-export default function NavSection({ bankingSection, TradingSection,  wealthManagementSection, guideSection, ...other }) {
+export default function NavSection({ bankingSection, tradingSection,  wealthManagementSection, guideSection, ...other }) {
 	const { pathname } = useLocation();
 
 	const match = (path) => (path ? !!matchPath({ path, end: false }, pathname) : false);
 
+	const navSection = [
+		bankingSection,
+		tradingSection,
+		wealthManagementSection,
+		guideSection
+	]
+
 	return (
 		<Box {...other}>
-			<List disablePadding sx={{ p: 1, borderBottom: "1px solid grey" }}>
-				{bankingSection.map((item) => (
-					<NavItem key={item.title} item={item} active={match} />
-				))}
-			</List>
-			<List disablePadding sx={{ p: 1, borderBottom: "1px solid grey" }}>
-				{TradingSection.map((item) => (
-					<NavItem key={item.title} item={item} active={match} />
-				))}
-			</List>
-			<List disablePadding sx={{ p: 1, borderBottom: "1px solid grey" }}>
-				{wealthManagementSection.map((item) => (
-					<NavItem key={item.title} item={item} active={match} />
-				))}
-			</List>
+			{
+				navSection.map((el, i) => (
+					<Box key={i}>
+						<Typography variant="h6" sx={{ ml:3.7, p:0 }}>
+							{el.title}
+						</Typography>
+						<List disablePadding sx={{ p: 1, borderBottom: "1px solid grey" }}>
+							{
+								el.list.map((item) => (
+									<NavItem key={item.title} item={item} active={match} />
+									))
+								}
+						</List>
+					</Box>
+				))
+			}
 		</Box>
 	);
 }
