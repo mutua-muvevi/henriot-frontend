@@ -7,6 +7,7 @@ import NotificationSection from "./notification";
 import OrderHistorySection from "./orderhistory/orderhistory";
 import PortfolioSection from "./portfolio/portfolio";
 import TradeSection from "./trade/trade";
+import Twitterfeed from "./twitterfeed";
 import WatchlistSection from "./watchlist/watchlist";
 
 const StyledOverviewMain = styled(Box)(({ theme }) => ({
@@ -33,7 +34,7 @@ const leftSections = [
 ]
 
 const rightSections = [
-	{component: <NotificationSection/>},
+	{component: <Twitterfeed/>},
 	{component: <TradeSection/>},
 	{component: <WatchlistSection/>},
 ]

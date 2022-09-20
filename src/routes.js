@@ -30,6 +30,9 @@ import BankingHome from "./pages/app/banking/home/home";
 import Trading from "./pages/app/trading/trading";
 import WealthManagement from "./pages/app/wealth/wealth";
 import Guide from "./pages/app/guide/guide";
+import FundsReport from "./pages/app/wealth/fund/reports/reports";
+import FundsDetails from "./pages/app/wealth/fund/details/details";
+import FundsHome from "./pages/app/wealth/fund/home/home";
 
 
 export default function Router() {
@@ -75,7 +78,15 @@ export default function Router() {
 				path: 'wealth-management',
 				element: <WealthManagement />,
 				children: [
-					{ path: 'fund', element: <WealthFund /> },
+					{
+						path: 'fund',
+						element: <WealthFund />,
+						children: [
+							{ path: 'overview', element: <FundsHome /> },
+							{ path: 'details', element: <FundsDetails /> },
+							{ path: 'reports', element: <FundsReport /> },
+						]
+					},
 					{ path: 'portfolio', element: <WealthPortfolio /> },
 					{ path: 'research', element: <WealthResearch /> },
 				]

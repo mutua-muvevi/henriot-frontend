@@ -108,9 +108,11 @@ export const wealthManagementSection = {
 			title: "Funds",
 			path: "/admin/wealth-management/fund",
 			icon: <FaCoins style={sx} />,
-			//children: [
-			//	{}
-			//],
+			children: [
+				{ title: "Overview", path: "/admin/wealth-management/fund/overview", icon: <FaCoins style={sx} /> },
+				{ title: "Details", path: "/admin/wealth-management/fund/details", icon: <FaCoins style={sx} /> },
+				{ title: "Reports", path: "/admin/wealth-management/fund/reports", icon: <FaCoins style={sx} /> },
+			],
 		},
 		{
 			title: "Portfolio",

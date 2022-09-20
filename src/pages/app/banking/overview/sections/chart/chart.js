@@ -5,7 +5,7 @@ import { styled } from "@mui/system";
 import TabComponent from "src/components/Tabs";
 
 const StyledChartSection = styled(Card)(({ theme }) => ({
-
+	height: 350
 }))
 
 const ChartSection = () => {
