@@ -5,7 +5,9 @@ import { styled } from "@mui/system";
 
 const StyledFundDetailsCard = styled(Card)(({ theme }) => ({
 	height: 100,
-	padding: "5px"
+	padding: "5px",
+	display: "flex",
+	alignItems: "center"
 }))
 
 const FundDetailsCard = ({ component, config }) => {
