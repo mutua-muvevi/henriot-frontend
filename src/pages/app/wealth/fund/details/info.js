@@ -1,3 +1,6 @@
+import { Box } from "@mui/material";
+import { styled } from "@mui/system";
+
 import { FaFilter, FaEye, FaShareAlt, FaPrint } from "react-icons/fa";
 import { BsFillCartPlusFill } from "react-icons/bs";
 
@@ -27,3 +30,17 @@ export const topLeftIcons = [
 		label: "print"
 	},
 ]
+
+const StyledRiskComponent = styled(Box)(({ theme }) => {
+
+});
+
+const RiskComponent = () => {
+	return (
+		<StyledRiskComponent>
+			<Box>
+				
+			</Box>
+		</StyledRiskComponent>
+	)
+}

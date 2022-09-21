@@ -1,6 +1,7 @@
 import { Box, Button, ButtonGroup, Divider, Grid, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 import { sentenceCase, capitalCase } from "change-case";
+import FundDetailsCards from "./cards";
 import FundDetailsHeader from "./header";
 
 import { topLeftIcons } from "./info"
@@ -54,7 +55,9 @@ const FundsDetails = () => {
 				</StyledIconSection>
 			</StyledIconTitleSection>
 			<FundDetailsHeader/>
-			<Typography variant="h1" color="initial">Cards</Typography>
+
+			<FundDetailsCards/>
+
 			<Typography variant="h1" color="initial">Main</Typography>
 		</StyledFundsDetails>
 	)
