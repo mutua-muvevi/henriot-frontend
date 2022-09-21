@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { sentenceCase } from "change-case";
 import { Box, Button, ButtonGroup, Card, Grid, Divider, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/system";
@@ -202,10 +203,27 @@ const FundingHomeCard = () => {
 
 		<StyledCardBottomGrid container>
 			<StyledCardBottomGridItems item xs={6}>
-				<Button variant="outlined" sx={{width: "100%", height: "100%"}}>
-					<Typography variant="body1" color="primary">
-						{sentenceCase("funds details")}
-					</Typography>
+				<Button
+					variant="outlined"
+					type="button"
+					sx={{
+						width: "100%",
+						height: "100%"
+					}}
+				>
+					<Link 
+						to="/admin/wealth-management/fund/details" 
+						style={{
+							textDecoration: "none",
+							color: "inherit",
+							margin: "0px"
+						}}
+					>
+						<Typography variant="body1" color="primary">
+							{sentenceCase("funds details")}
+						</Typography>
+					</Link>
+					
 				</Button>
 			</StyledCardBottomGridItems>
 			
