@@ -5,10 +5,10 @@ import { FaFilter, FaEye, FaShareAlt, FaPrint } from "react-icons/fa";
 import { BsFillCartPlusFill } from "react-icons/bs";
 
 const iconStyles = {
-	fontSize: "20px",
+	fontSize: "15px",
 }
 
-export const topLeftIcons = [
+export const topRightIcons = [
 	{
 		icon: <FaFilter style={iconStyles}/>,
 		label: "filter"
