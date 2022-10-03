@@ -4,7 +4,7 @@ import { BsPersonCircle } from "react-icons/bs";
 import PerfomanceLinegraph from "./linegraph";
 
 const StyledFundDetailsUpperSection = styled(Grid)(({ theme }) => ({
-
+	marginBottom: "20px"
 }));
 
 const StyledFundDetailsUpperSectionItem = styled(Grid)(({ theme }) => ({
@@ -12,7 +12,7 @@ const StyledFundDetailsUpperSectionItem = styled(Grid)(({ theme }) => ({
 }));
 
 const StyledLeftCardsDetailsItem = styled(Card)(({ theme }) => ({
-	minHeight: 250,
+	minHeight: 200,
 	padding: "10px",
 }));
 
@@ -74,7 +74,7 @@ const FundDetailsUpperSection = () => {
 					
 					<StyledLeftCardsDetailsItem>
 						<Typography variant="h5" color="primary" gutterBottom>
-							Fund managers
+							Investment Objective
 						</Typography>
 						{
 							[1,2].map((el, i) => (
