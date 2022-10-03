@@ -1,10 +1,17 @@
-import { Box } from "@mui/material";
+import { Box, Card, Typography } from "@mui/material";
 import { styled } from "@mui/system";
-import LineChartComponent from "src/components/chart/line";
 
-const StyledPerfomanceLinegraph = styled(Box)(({ theme }) => ({
+import { sentenceCase } from "change-case";
+import BarChartComponent from "src/components/chart/bar";
 
-}))
+const StyledCard = styled(Card)(({ theme }) => ({
+	padding: "10px",
+	minHeight: 200,
+}));
+
+const StyledChartArea = styled(Box)(({ theme }) => ({
+
+}));
 
 const chartData = {
 	labels: ["Jan","Feb","Mar","April", "May", "June", "July", "Aug", "Sep"],
@@ -30,9 +37,7 @@ const chartData = {
 			hoverBackgroundColor:"#32a08b"
 		},
 	],
-	options:{
-		responsive: true
-	}
+	options:{}
 }
 
 const chartConfig = {
@@ -40,12 +45,18 @@ const chartConfig = {
 	data:chartData
 }
 
-const PerfomanceLinegraph = () => {
+const HistoricalReturns = () => {
 	return (
-		<StyledPerfomanceLinegraph>
-			<LineChartComponent chartConfig={chartConfig}/>
-		</StyledPerfomanceLinegraph>
+		<StyledCard>
+			<Typography variant="h5" color="primary" gutterBottom>
+				{sentenceCase("historical returns")}
+			</Typography>
+			<StyledChartArea>
+				<BarChartComponent chartConfig={chartConfig}/>
+			</StyledChartArea>
+			Recent divident declaration
+		</StyledCard>
 	)
 }
 
-export default PerfomanceLinegraph
+export default HistoricalReturns
