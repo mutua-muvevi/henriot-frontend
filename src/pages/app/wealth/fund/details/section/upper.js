@@ -1,6 +1,7 @@
 import { Box, Card, Stack, Grid, Typography, Container } from "@mui/material";
 import { styled } from "@mui/system";
 import { BsPersonCircle } from "react-icons/bs";
+import PerfomanceLinegraph from "./linegraph";
 
 const StyledFundDetailsUpperSection = styled(Grid)(({ theme }) => ({
 
@@ -112,9 +113,7 @@ const FundDetailsUpperSection = () => {
 							))
 						}
 					</Stack>
-					<Typography variant="body2" color="text.primary">
-						NAV perfomance
-					</Typography>
+					<PerfomanceLinegraph/>
 				</StyledRightCardsDetailsItem>
 			</StyledFundDetailsUpperSectionItem>
 		</StyledFundDetailsUpperSection>
