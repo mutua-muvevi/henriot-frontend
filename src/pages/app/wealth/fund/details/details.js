@@ -5,7 +5,7 @@ import FundDetailsCards from "./section/cards";
 import FundDetailsHeader from "./section/header";
 
 import { topRightIcons } from "./info";
-import FundDetailsMain from "./section/main";
+import FundDetailsMain from "./section/main/main";
 
 const StyledFundsDetails = styled(Box)(({ theme }) => ({}));
 
