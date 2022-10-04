@@ -4,9 +4,6 @@ import PropTypes from 'prop-types';
 import { Box, Button, Skeleton, Tab, Tabs, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
-import { BsFillGridFill, BsPlusLg } from "react-icons/bs";
-import { FaList } from "react-icons/fa";
-
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
 
@@ -72,7 +69,7 @@ const TabComponent = ({ tabsInfo, button, title, tabsWidth, tabsBorder }) => {
 					value={value}
 					onChange={handleChange}
 					aria-label="basic tabs example"
-					variant="fullWidth"
+					variant="scrollable"
 					sx={{width: tabsWidth ? tabsWidth : "100%"}}>
 					{
 						tabsInfo &&
