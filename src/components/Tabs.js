@@ -43,7 +43,7 @@ function a11yProps(index) {
 }
 
 
-export default function TabComponent({ tabsInfo, button, title }) {
+const TabComponent = ({ tabsInfo, button, title, tabsWidth, tabsBorder }) => {
 	const [value, setValue] = useState(0);
 
 	const handleChange = (event, newValue) => {
@@ -52,7 +52,13 @@ export default function TabComponent({ tabsInfo, button, title }) {
 
 	return (
 		<Box sx={{ width: '100%', marginTop: "10px" }}>
-			<Box sx={{ borderBottom: 1, borderColor: 'divider',  display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+			<Box sx={{ 
+				borderBottom: tabsBorder ? tabsBorder : 1,
+				borderColor: 'divider',
+				display: "flex",
+				justifyContent: "space-between",
+				alignItems: "center"
+			}}>
 				{
 					title ? (
 						<Box sx={{ minWidth: 20, pl:1, pr:5 }}>
@@ -62,7 +68,12 @@ export default function TabComponent({ tabsInfo, button, title }) {
 						</Box>
 					) : ""
 				}
-				<Tabs value={value} onChange={handleChange} aria-label="basic tabs example" variant="fullWidth" sx={{width: "100%"}}>
+				<Tabs
+					value={value}
+					onChange={handleChange}
+					aria-label="basic tabs example"
+					variant="fullWidth"
+					sx={{width: tabsWidth ? tabsWidth : "100%"}}>
 					{
 						tabsInfo &&
 						tabsInfo.labels &&
@@ -97,3 +108,5 @@ export default function TabComponent({ tabsInfo, button, title }) {
 		</Box>
 	);
 }
+
+export default TabComponent

@@ -10,10 +10,10 @@ import TradeSellOverview from "./sections/trade/sell";
 
 export const tabsInfo = {
 	labels: [
-		{ label: "Today", },
-		{ label: "Month", },
-		{ label: "Year", },
-		{ label: "Total", },
+		{ label: "Today" },
+		{ label: "Month" },
+		{ label: "Year" },
+		{ label: "Total" },
 	],
 	pannel: [
 		{ children : <TodayChartHome/> },
