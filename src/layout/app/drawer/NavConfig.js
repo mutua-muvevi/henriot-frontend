@@ -56,9 +56,20 @@ export const bankingSection = {
 			title: "Crypto Account",
 			path: "/admin/banking/crypto-account",
 			icon: <BsCurrencyBitcoin style={sx} />,
-			//children: [
-			//	{}
-			//],
+			children: [
+				{
+					title: "history",
+					path:"/admin/banking/crypto-account/history"
+				},
+				{
+					title: "transfers",
+					path:"/admin/banking/crypto-account/transfers"
+				},
+				{
+					title: "portfolio",
+					path:"/admin/banking/crypto-account/portfolio"
+				},
+			],
 		},
 		{
 			title: "Debit Card",
