@@ -1,7 +1,7 @@
 import { Box, Card, CardContent, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
-import { columns, rows } from "./info";
+import { columns, rows } from "../beneficiaries/info";
 import DatagridComponent from "src/components/datagrid/datagrid";
 
 const StyledBankingWithdrawHistory = styled(Box)(({ theme }) => ({
