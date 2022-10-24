@@ -1,13 +1,14 @@
 import { Box, Card, Grid, Typography, Grow } from "@mui/material";
 import { styled } from "@mui/system";
-import MarqueeComponent from "src/components/Marquee";
+
+import BankingMarquee from "./marquee";
 
 const TopSectionWrapper = styled(Box)(({ theme }) => ({
 	
 }))
 
 const StyledGridContainer = styled(Grid)(({ theme }) => ({
-	
+	marginTop: "20px"
 }))
 
 const StyledGridItemLeft = styled(Grid)(({ theme }) => ({
@@ -57,7 +58,7 @@ const subTitleStyleTwo = {
 const TopSection = () => {
 	return (
 		<TopSectionWrapper>
-			<MarqueeComponent/>
+			<BankingMarquee/>
 			<StyledGridContainer container spacing={2}>
 				<StyledGridItemLeft item xs={12} sm={12} md={8} lg={8} xl={8}>
 					<StyledGridContent>

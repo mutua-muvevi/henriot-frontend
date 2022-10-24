@@ -1,9 +1,9 @@
 import React from 'react'
 
 const BankingHome = () => {
-  return (
-	<div>BankingHome</div>
-  )
+	return (
+		<div>BankingHome</div>
+	)
 }
 
 export default BankingHome
