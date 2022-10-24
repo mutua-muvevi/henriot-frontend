@@ -1,3 +1,5 @@
+import { useRef, useState } from "react";
+
 import { Box, Button, Card, CardContent, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
@@ -5,6 +7,7 @@ import { columns, rows } from "./info";
 import { BsXLg } from "react-icons/bs";
 import { FaChevronDown } from "react-icons/fa";
 import DatagridComponent from "src/components/datagrid/datagrid";
+import MenuPopover from "src/components/MenuPopover";
 
 const StyledAccountDetailsMainCard = styled(Card)(({ theme }) => ({
 	minHeight: 600,
@@ -37,10 +40,23 @@ const StyledAdvancedFilterArea = styled(Box)(({ theme }) => ({
 }))
 
 const styledChevronIcon = {
-
+	display: "flex",
+	cursor: "pointer"
 }
 
 const AccountDetailsMain = () => {
+	const anchorRef = useRef(null);
+
+	const [open, setOpen] = useState(null);
+
+	const handleOpen = (event) => {
+		setOpen(event.currentTarget);
+	};
+
+	const handleClose = () => {
+		setOpen(null);
+	};
+
 	return (
 		<StyledAccountDetailsMainCard>
 			<StyledAccountDetailsMainCardContent>
@@ -56,7 +72,28 @@ const AccountDetailsMain = () => {
 						<Typography variant="body1" color="text.primary">
 							Advanced Filter
 						</Typography>
-						<FaChevronDown style={styledChevronIcon}/>
+
+						<FaChevronDown
+							style={styledChevronIcon}
+							onClick={handleOpen}
+							ref={anchorRef}
+						/>
+
+						<MenuPopover
+							open={Boolean(open)}
+							anchorEl={open}
+							onClose={handleClose}
+							sx={{
+								p: "10px",
+								mt: 1.5,
+								ml: 0.75,
+								"& .MuiMenuItem-root": {
+									typography: "body2",
+									borderRadius: 1,
+								},
+							}}>
+								Some options here
+						</MenuPopover>
 					</StyledAdvancedFilterArea>
 				</StyledTopMain>
 				<DatagridComponent
