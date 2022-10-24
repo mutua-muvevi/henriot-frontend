@@ -4,7 +4,7 @@ import { styled } from "@mui/system";
 import DatagridComponent from "src/components/datagrid/datagrid";
 import { columns, rows } from "../info";
 
-const StyledTradingToCrypto = styled(Box)(({ theme }) => ({
+const StyledCryptoDeposit = styled(Box)(({ theme }) => ({
 
 }));
 
@@ -17,20 +17,20 @@ const StyledCardContent = styled(CardContent)(({ theme }) => ({
 
 }));
 
-const TradingToCrypto = () => {
+const CryptoDeposit = () => {
 	return (
-		<StyledTradingToCrypto>
+		<StyledCryptoDeposit>
 			<StyledCard>
 				<StyledCardContent>
 					<DatagridComponent
-						title="Trading to crypto account transfers"
+						title="Crypto to trading account transfers"
 						rows={rows}
 						columns={columns}
 					/>
 				</StyledCardContent>
 			</StyledCard>
-		</StyledTradingToCrypto>
+		</StyledCryptoDeposit>
 	)
 }
 
-export default TradingToCrypto
+export default CryptoDeposit

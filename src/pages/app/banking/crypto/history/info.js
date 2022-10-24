@@ -1,3 +1,17 @@
+import CryptoDeposit from "./deposit/deposit";
+import CryptoWithdraw from "./withdraw/withdraw";
+
+export const tabsInfo = {
+	labels: [
+		{ label: "Deposits" },
+		{ label: "Withdrawals" },
+	],
+	pannel: [
+		{ children : <CryptoDeposit/> },
+		{ children : <CryptoWithdraw/> },
+	]
+}
+
 const columnWidth = 220
 
 export const columns = [
