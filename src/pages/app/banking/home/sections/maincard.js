@@ -1,7 +1,8 @@
-import { Box, Card, CardContent, Typography } from "@mui/material";
+import { Box, Card, CardContent, Typography, Button } from "@mui/material";
 import { styled } from "@mui/system";
 
 import { sentenceCase } from "change-case";
+import { Link } from "react-router-dom";
 
 const StyledCard = styled(Card)(({ theme }) => ({
 
@@ -30,6 +31,11 @@ const MultipleColumnBoxItem = styled(Box)(({ theme }) => ({
 	alignItems: "center",
 	marginRight: "5px"
 }));
+
+const linkStyles = {
+	textDecoration: "none",
+	color: "initial"
+}
 
 const BankingMainCard = ({ data }) => {
   return (
@@ -65,6 +71,11 @@ const BankingMainCard = ({ data }) => {
 					)) : ""
 				}
 			</SingleColumnBox>
+			<Link to="/admin/banking/current-account/details" style={linkStyles}>
+				<Button variant="text" color="primary">
+					{sentenceCase("Details")}
+				</Button>
+			</Link>
 		</StyledCardContent>
 	</StyledCard>
   )
