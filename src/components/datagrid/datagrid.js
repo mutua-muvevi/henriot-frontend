@@ -1,31 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { Box, Card, CardHeader } from "@mui/material";
 import { styled } from "@mui/system";
 
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, GridToolbar  } from "@mui/x-data-grid";
 
-const StyledDataGridContainer = styled(Card)(({theme}) => ({
-	backgroundColor: "inherit",
-	margin: "10px",
-	borderRadius: theme.shape.default
-}))
-
-const StyledDataGridHeader = styled(CardHeader)(({theme}) => ({
-	backgroundColor: "#131313",
-	color: theme.palette.secondary.main,
-	fontFamily: "'Rubik', sans-serif",
-	
-}))
 
 const StyledDataGrid = styled(DataGrid)(({theme}) =>({
 	border: "none",
 	backgroundColor: theme.palette.background.default,
 	width: "100%",
 	borderRadius: theme.shape.default,
+	marginTop: 20,
 	"& .MuiDataGrid-columnHeaders": {
-		backgroundColor: "#333333",
-		color: theme.palette.secondary.main,
+		backgroundColor: theme.palette.primary.main,
+		color: "#fff",
 		fontSize: 13,
 		paddingTop: 2,
 		paddingBottom: 2,
@@ -38,17 +26,23 @@ const StyledDataGrid = styled(DataGrid)(({theme}) =>({
 }))
 
 const DatagridComponent = ({ columns, rows, title }) => {
+	const [pageSize, setPageSize] = useState(20);
+	
 	return (
-		<StyledDataGridContainer>
-			<StyledDataGridHeader style={{fontWeight: 500}} title="All Quotation" />
+		<React.Fragment id={title}>
 			<StyledDataGrid
-				rows={columns}
+				rows={rows}
 				columns={columns}
-				autoPageSize
 				autoHeight
-				pageSize={100}
+				pageSize={pageSize}
+				onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
+				rowsPerPageOptions={[5, 10, 20]}
+				pagination
+				components={{
+					Toolbar: GridToolbar
+				}}
 			/>
-		</StyledDataGridContainer>
+		</React.Fragment>
 	)
 }
 

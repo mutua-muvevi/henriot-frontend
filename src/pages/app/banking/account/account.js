@@ -1,8 +1,11 @@
-import React from 'react'
+import { Outlet } from "react-router-dom";
+import Page from "../../../../components/Page"
 
 const BankingCurrentAccount = () => {
 	return (
-		<div>BankingCurrentAccount</div>
+		<Page title="Current account details">
+			<Outlet/>
+		</Page>
 	)
 }
 
