@@ -12,7 +12,7 @@ import Setup from "./pages/auth/setup/setup"
 import OtpLogin from "./pages/auth/otplogin/otplogin";
 import Layout from "./layout/app/layout";
 import Banking from "./pages/app/banking/banking";
-import BankingDashboard from "./pages/app/banking/overview/dashboard";
+import BankingDashboard from "./pages/app/banking/home/home";
 import BankingCurrentAccount from "./pages/app/banking/account/account";
 import BankingTeamDeposit from "./pages/app/banking/deposit/deposit";
 import BankingCryptoAccount from "./pages/app/banking/crypto/crypto";

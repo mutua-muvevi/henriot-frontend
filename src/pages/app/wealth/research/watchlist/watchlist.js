@@ -3,7 +3,7 @@ import { styled } from "@mui/system";
 
 const StyledResearchWatchlist = styled(Box)(({ theme }) => ({
 
-}))
+}));
 
 const ResearchWatchlist = () => {
 	return (

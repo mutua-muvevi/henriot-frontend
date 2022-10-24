@@ -1,8 +1,11 @@
 import React from 'react'
+import TradingDashboard from "./overview/dashboard"
 
 const TradingPlatformPage = () => {
 	return (
-		<div>TradingPlatformPage</div>
+		<>
+		 	<TradingDashboard/>
+		</>
 	)
 }
 
