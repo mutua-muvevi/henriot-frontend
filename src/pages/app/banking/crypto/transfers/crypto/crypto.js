@@ -5,11 +5,11 @@ import DatagridComponent from "src/components/datagrid/datagrid";
 import { columns, rows } from "../info";
 
 const StyledCryptoToTrading = styled(Box)(({ theme }) => ({
-	marginTop: 30
+	
 }));
 
 const StyledCard = styled(Card)(({ theme }) => ({
-	marginTop: 30,
+	marginTop: "30px",
 	minHeight: 200
 }));
 

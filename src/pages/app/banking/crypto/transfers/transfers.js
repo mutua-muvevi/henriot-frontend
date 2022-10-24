@@ -9,7 +9,8 @@ const StyledCryptoTransfers = styled(Box)(({ theme }) => ({
 }));
 
 const headerStyles = {
-	textTransform: "capitalize"
+	textTransform: "capitalize",
+	marginBottom: "30px"
 }
 
 const CryptoTransfers = () => {
