@@ -33,6 +33,11 @@ import Guide from "./pages/app/guide/guide";
 import FundsReport from "./pages/app/wealth/fund/reports/reports";
 import FundsDetails from "./pages/app/wealth/fund/details/details";
 import FundsHome from "./pages/app/wealth/fund/home/home";
+import BankingBeneficiaries from "./pages/app/banking/account/beneficiaries/beneficiaries";
+import BankingInternalTransfer from "./pages/app/banking/account/internal/transfer";
+import BankingSwiftTransfer from "./pages/app/banking/account/swift/transfer";
+import BankingWithdrawHistory from "./pages/app/banking/account/withdraw/history";
+import BankingCurrentAccountDetails from "./pages/app/banking/account/details/details";
 
 
 export default function Router() {
@@ -58,7 +63,17 @@ export default function Router() {
 				element: <Banking />,
 				children: [
 					{ path: 'dashboard', element: <BankingDashboard /> },
-					{ path: 'current-account', element: <BankingCurrentAccount /> },
+					{
+						path: 'current-account',
+						element: <BankingCurrentAccount />,
+						children: [
+							{ path: 'beneficiaries', element: <BankingBeneficiaries /> },
+							{ path: 'details', element: <BankingCurrentAccountDetails /> },
+							{ path: 'internal-transfer', element: <BankingInternalTransfer /> },
+							{ path: 'swift-transfer', element: <BankingSwiftTransfer /> },
+							{ path: 'withdraw-history', element: <BankingWithdrawHistory /> },
+						]
+					},
 					{ path: 'team-deposit', element: <BankingTeamDeposit /> },
 					{ path: 'crypto-account', element: <BankingCryptoAccount /> },
 					{ path: 'debit-card', element: <BankingDebitCard /> },
