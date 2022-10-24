@@ -75,9 +75,16 @@ export const bankingSection = {
 			title: "Debit Card",
 			path: "/admin/banking/debit-card",
 			icon: <BsFillCreditCard2FrontFill style={sx} />,
-			//children: [
-			//	{}
-			//],
+			children: [
+				{
+					title: "details",
+					path:"/admin/banking/debit-card/details"
+				},
+				{
+					title: "history",
+					path:"/admin/banking/debit-card/history"
+				},
+			],
 		},
 	]
 }

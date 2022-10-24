@@ -16,7 +16,7 @@ import BankingDashboard from "./pages/app/banking/home/home";
 import BankingCurrentAccount from "./pages/app/banking/account/account";
 import BankingTeamDeposit from "./pages/app/banking/deposit/deposit";
 import BankingCryptoAccount from "./pages/app/banking/crypto/crypto";
-import BankingDebitCard from "./pages/app/banking/card/card";
+import BankingDebitCard from "./pages/app/banking/debit/debit";
 import TradingPlatformPage from "./pages/app/trading/trading/trading";
 import TradingInvestmentPlatform from "./pages/app/trading/investment/investment";
 import TradingBuySell from "./pages/app/trading/buysell/buysell";
@@ -41,6 +41,8 @@ import BankingCurrentAccountDetails from "./pages/app/banking/account/details/de
 import CryptoTransfers from "./pages/app/banking/crypto/transfers/transfers";
 import CryptoPortfolio from "./pages/app/banking/crypto/portfolio/portfolio";
 import CryptoHistory from "./pages/app/banking/crypto/history/history";
+import DebitDetails from "./pages/app/banking/debit/details/details";
+import DebitHistory from "./pages/app/banking/debit/history/history";
 
 
 export default function Router() {
@@ -87,7 +89,14 @@ export default function Router() {
 							{ path: 'transfers', element: <CryptoTransfers /> },
 						]
 					},
-					{ path: 'debit-card', element: <BankingDebitCard /> },
+					{
+						path: 'debit-card',
+						element: <BankingDebitCard />,
+						children: [
+							{ path: 'details', element: <DebitDetails /> },
+							{ path: 'history', element: <DebitHistory /> },
+						]
+					},
 					{ path: 'home', element: <BankingHome /> },
 				]
 			},
