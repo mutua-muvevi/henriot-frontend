@@ -38,6 +38,9 @@ import BankingInternalTransfer from "./pages/app/banking/account/internal/transf
 import BankingSwiftTransfer from "./pages/app/banking/account/swift/transfer";
 import BankingWithdrawHistory from "./pages/app/banking/account/withdraw/history";
 import BankingCurrentAccountDetails from "./pages/app/banking/account/details/details";
+import CryptoTransfers from "./pages/app/banking/crypto/transfers/transfers";
+import CryptoPortfolio from "./pages/app/banking/crypto/portfolio/portfolio";
+import CryptoHistory from "./pages/app/banking/crypto/history/history";
 
 
 export default function Router() {
@@ -75,7 +78,15 @@ export default function Router() {
 						]
 					},
 					{ path: 'team-deposit', element: <BankingTeamDeposit /> },
-					{ path: 'crypto-account', element: <BankingCryptoAccount /> },
+					{
+						path: 'crypto-account',
+						element: <BankingCryptoAccount />,
+						children: [
+							{ path: 'history', element: <CryptoHistory /> },
+							{ path: 'portfolio', element: <CryptoPortfolio /> },
+							{ path: 'transfers', element: <CryptoTransfers /> },
+						]
+					},
 					{ path: 'debit-card', element: <BankingDebitCard /> },
 					{ path: 'home', element: <BankingHome /> },
 				]
