@@ -1,7 +1,8 @@
 import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/system";
-import TabComponent from "src/components/Tabs";
+
 import { tabsInfo } from "./info";
+import TabComponent from "src/components/Tabs";
 
 const StyledCryptoPortfolio = styled(Box)(({ theme }) => ({
 

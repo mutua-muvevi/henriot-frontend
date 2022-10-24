@@ -1,3 +1,17 @@
+import CryptoToTrading from "./crypto/crypto";
+import TradingToCrypto from "./trading/trading";
+
+export const tabsInfo = {
+	labels: [
+		{ label: "Crypto Account to Trading Wallet" },
+		{ label: "Trading Wallet to Crypto Account" },
+	],
+	pannel: [
+		{ children : <CryptoToTrading/> },
+		{ children : <TradingToCrypto/> },
+	]
+}
+
 const columnWidth = 220
 
 export const columns = [

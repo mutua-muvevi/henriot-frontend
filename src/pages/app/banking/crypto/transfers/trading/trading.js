@@ -1,16 +1,36 @@
-import { Box } from "@mui/material";
+import { Box, Card, CardContent } from "@mui/material";
 import { styled } from "@mui/system";
 
-const StyledTradingTransfers = styled(Box)(({ theme }) => ({
+import DatagridComponent from "src/components/datagrid/datagrid";
+import { columns, rows } from "../info";
+
+const StyledTradingToCrypto = styled(Box)(({ theme }) => ({
+	marginTop: 30
+}));
+
+const StyledCard = styled(Card)(({ theme }) => ({
+	marginTop: 30,
+	minHeight: 200
+}));
+
+const StyledCardContent = styled(CardContent)(({ theme }) => ({
 
 }));
 
-const TradingTransfers = () => {
+const TradingToCrypto = () => {
 	return (
-		<StyledTradingTransfers>
-			<div>TradingTransfers</div>
-		</StyledTradingTransfers>
+		<StyledTradingToCrypto>
+			<StyledCard>
+				<StyledCardContent>
+					<DatagridComponent
+						title="Trading to crypto account transfers"
+						rows={rows}
+						columns={columns}
+					/>
+				</StyledCardContent>
+			</StyledCard>
+		</StyledTradingToCrypto>
 	)
 }
 
-export default TradingTransfers
+export default TradingToCrypto
