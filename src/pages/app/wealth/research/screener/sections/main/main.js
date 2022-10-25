@@ -9,12 +9,12 @@ import { columns, rows } from "./info";
 import DatagridComponent from "src/components/datagrid/datagrid";
 import MenuPopover from "src/components/MenuPopover";
 
-const StyledResearchWatchlistMainCard = styled(Card)(({ theme }) => ({
+const StyledResearchScreenerMainCard = styled(Card)(({ theme }) => ({
 	minHeight: 600,
 	marginTop: -30
 }));
 
-const StyledResearchWatchlistMainCardContent = styled(CardContent)(({ theme }) => ({
+const StyledResearchScreenerMainCardContent = styled(CardContent)(({ theme }) => ({
 	marginTop: 30
 }));
 
@@ -73,7 +73,7 @@ const StyledAddTickerButton = styled(Button)(({ theme }) => ({
 
 const buttons = ["create", "save", "rename", "remove", "clear"];
 
-const ResearchWatchlistMain = () => {
+const ResearchScreenerMain = () => {
 	const anchorRef = useRef(null);
 
 	const [open, setOpen] = useState(null);
@@ -88,8 +88,8 @@ const ResearchWatchlistMain = () => {
 
 
 	return (
-		<StyledResearchWatchlistMainCard>
-			<StyledResearchWatchlistMainCardContent>
+		<StyledResearchScreenerMainCard>
+			<StyledResearchScreenerMainCardContent>
 				<StyledTopMain>
 					<StyledButtonGroup variant="contained">
 						{
@@ -102,7 +102,7 @@ const ResearchWatchlistMain = () => {
 					</StyledButtonGroup>
 					<StyledAdvancedFilterArea>
 						<Typography variant="body1" color="text.primary">
-							Select your watchlist
+							Select your screener
 						</Typography>
 
 						<FaChevronDown
@@ -189,9 +189,9 @@ const ResearchWatchlistMain = () => {
 					rows={rows}
 					columns={columns}
 				/>
-			</StyledResearchWatchlistMainCardContent>
-		</StyledResearchWatchlistMainCard>
+			</StyledResearchScreenerMainCardContent>
+		</StyledResearchScreenerMainCard>
 	)
 }
 
-export default ResearchWatchlistMain
+export default ResearchScreenerMain
