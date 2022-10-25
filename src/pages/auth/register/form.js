@@ -189,7 +189,8 @@ const RegisterForm = ({ registerUser, errMessage, token }) => {
 						{
 							registrationInputs.map((el, i) => (
 								<StyledAuthInputs key={i} >
-									<TextfieldWrapper sx={styledAuthTextField} 
+									<TextfieldWrapper
+										sx={styledAuthTextField} 
 										type={el.type} 
 										name={el.name} 
 										label={el.label}

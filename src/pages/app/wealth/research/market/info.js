@@ -130,3 +130,61 @@ export const upcomingEvents = [
 		title: "Lorem Ipsum text here"
 	},
 ]
+
+export const tweets = [
+	{
+		top: {
+			time:"07:30",
+			logo: {
+				src:Kenya,
+				alt:"Kenya flag"
+			},
+			title: "username"
+		},
+		body: "This is the tweet text fetched. It will be displayed here. The characters will be limited though to make the card look cleaner."
+	},
+	{
+		top: {
+			time:"07:30",
+			logo: {
+				src:Kenya,
+				alt:"Kenya flag"
+			},
+			title: "username"
+		},
+		body: "This is the tweet text fetched. It will be displayed here. The characters will be limited though to make the card look cleaner."
+	},
+	{
+		top: {
+			time:"07:30",
+			logo: {
+				src:Kenya,
+				alt:"Kenya flag"
+			},
+			title: "username"
+		},
+		body: "This is the tweet text fetched. It will be displayed here. The characters will be limited though to make the card look cleaner."
+	},
+	{
+		top: {
+			time:"07:30",
+			logo: {
+				src:Kenya,
+				alt:"Kenya flag"
+			},
+			title: "username"
+		},
+		body: "This is the tweet text fetched. It will be displayed here. The characters will be limited though to make the card look cleaner."
+	},
+	{
+		top: {
+			time:"07:30",
+			logo: {
+				src:Kenya,
+				alt:"Kenya flag"
+			},
+			title: "username"
+		},
+		body: "This is the tweet text fetched. It will be displayed here. The characters will be limited though to make the card look cleaner."
+	},
+]

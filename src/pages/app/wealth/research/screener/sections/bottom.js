@@ -18,7 +18,7 @@ const spanStyle = {
 	borderRadius: "3px"
 }
 
-const ResearchWatchlistBottom = () => {
+const ResearchScreenerBottom = () => {
 	return (
 		<StyledCard>
 			<StyledCardContent>
@@ -36,4 +36,4 @@ const ResearchWatchlistBottom = () => {
 	)
 }
 
-export default ResearchWatchlistBottom
+export default ResearchScreenerBottom

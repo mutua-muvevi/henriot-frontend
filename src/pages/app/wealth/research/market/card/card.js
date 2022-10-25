@@ -3,12 +3,11 @@ import { styled } from "@mui/system";
 
 import { sentenceCase } from "change-case";
 import LineChartComponent from "src/components/chart/line";
-import { listItems, chartData, upcomingEvents } from "../info";
+import { listItems, chartData, upcomingEvents, tweets } from "../info";
 
 
 const StyledResearchMarketCard = styled(Card)(({ theme }) => ({
-	padding: "10px",
-	miHeight: 500,
+	padding: "15px",
 }));
 
 const StyledStack = styled(Stack)(({ theme }) => ({
@@ -32,9 +31,10 @@ const StyledListItemStack = styled(Stack)(({ theme }) => ({
 }));
 
 const logoStyles = {
-	width: "28px",
-	height: "28px",
-	borderRadius: "5px",
+	width: "23px",
+	height: "23px",
+	borderRadius: "50%",
+	marginRight: "5px"
 }
 
 const StackButtons = styled(Stack)(({ theme }) => ({
@@ -52,6 +52,24 @@ const StyledEvents = styled(Stack)(({ theme }) => ({
 	marginBottom: "5px"
 }));
 
+const StyledTweetSection = styled(Box)(({ theme }) => ({
+	marginTop: "20px",
+}));
+
+const StyledTweetContainer = styled(Box)(({ theme }) => ({
+	marginTop: "10px",
+	height: "240px",
+	overflowY:"scroll"
+}));
+
+const StyledTweetsItem = styled(Box)(({ theme }) => ({
+	marginTop: "10px",
+	marginRight: "10px"
+}));
+
+const StyledTweetsTop = styled(Stack)(({ theme }) => ({
+	marginBottom: "5px"
+}));
 const ResearchMarketCard = () => {
 	
 	const chartConfig = {
@@ -60,8 +78,8 @@ const ResearchMarketCard = () => {
 	}
 
 	return (
-		<StyledResearchMarketCard>
-			<Typography variant="body1" color="text.primary" sx={{textTransform: "uppercase"}}>
+		<StyledResearchMarketCard raised>
+			<Typography variant="body2" color="text.primary" sx={{textTransform: "uppercase"}}>
 				indices
 			</Typography>
 			<StyledStack
@@ -89,30 +107,30 @@ const ResearchMarketCard = () => {
 								justifyContent="space-between"
 								alignItems="center"
 							>
-								<Box sx={{width: "10%"}}>
+								<Box>
 									<img
 										src={el.logo.src}
 										alt={el.logo.alt}
 										style={logoStyles}
 									/>
 								</Box>
-								<Box sx={{width: "10%"}}>
-									<Typography variant="body2" color="text.secondary">
+								<Box sx={{flex:1}}>
+									<Typography variant="caption" color="text.primary">
 										{el.code}
 									</Typography>
 								</Box>
-								<Box sx={{width: "50%"}}>
-									<Typography variant="body2" color="text.secondary">
+								<Box sx={{flex:5}}>
+									<Typography variant="caption" color="text.primary">
 										{el.title}
 									</Typography>
 								</Box>
-								<Box sx={{width: "10%"}}>
-									<Typography variant="body2" color="text.secondary">
+								<Box sx={{flex:1}}>
+									<Typography variant="caption" color="text.primary">
 										{el.number}
 									</Typography>
 								</Box>
-								<Box sx={{width: "10%"}}>
-									<Typography variant="body2" color={el.color}>
+								<Box sx={{flex:1}}>
+									<Typography variant="caption" color={el.color}>
 										{el.percentage}
 									</Typography>
 								</Box>
@@ -129,8 +147,10 @@ const ResearchMarketCard = () => {
 			>
 				{
 					["1M", "3M", "6M", "1Y", "3Y", "5Y", "10Y", "ALL"].map((el, i) => (
-						<Box sx={{flex:1}} key={i}>
-							{el}
+						<Box sx={{flex:1,cursor:"pointer"}} key={i}>
+							<Typography variant="body2">
+								{el}
+							</Typography>
 						</Box>
 					))
 				}
@@ -139,7 +159,14 @@ const ResearchMarketCard = () => {
 				<LineChartComponent  chartConfig={chartConfig}/>
 			</Box>
 			<StyledEventsSection>
-				<Typography variant="body1" color="text.primary" gutterBottom>
+				<Typography
+					variant="body2"
+					color="text.primary"
+					gutterBottom
+					sx={{
+						fontWeight: "bold"
+					}}
+				>
 					{sentenceCase("upcoming events")}
 				</Typography>
 				{
@@ -151,25 +178,25 @@ const ResearchMarketCard = () => {
 							alignItems="center"
 							key={i}
 						>
-							<Box sx={{width: "10%"}}>
+							<Box >
 								<img
 									src={el.logo.src}
 									alt={el.logo.alt}
 									style={logoStyles}
 								/>
 							</Box>
-							<Box sx={{width: "15%"}}>
-								<Typography variant="body2" color="text.secondary">
+							<Box sx={{flex:1}}>
+								<Typography variant="caption" color="text.primary">
 									{el.date}
 								</Typography>
 							</Box>
-							<Box sx={{width: "15%"}}>
-								<Typography variant="body2" color="text.secondary">
+							<Box sx={{flex:1}}>
+								<Typography variant="caption" color="text.primary">
 									{el.time}
 								</Typography>
 							</Box>
-							<Box sx={{width: "60%"}}>
-								<Typography variant="body2" color="text.secondary">
+							<Box sx={{flex:4}}>
+								<Typography variant="caption" color="text.primary">
 									{el.title}
 								</Typography>
 							</Box>
@@ -177,6 +204,67 @@ const ResearchMarketCard = () => {
 					)) : "Loading"
 				}
 			</StyledEventsSection>
+
+			<StyledTweetSection>
+				<Typography
+					variant="body2"
+					color="text.primary"
+					sx={{
+						marginBottom: "10px",
+						fontWeight: "bold"
+					}}
+				>
+					{sentenceCase("latest tweets")}
+				</Typography>
+
+				<StyledTweetContainer>
+					{
+						tweets ?
+						tweets.map((el, i) => (
+							<StyledTweetsItem key={i}>
+								<StyledTweetsTop
+									direction= "row"
+									justifyContent="space-between"
+									alignItems="center"
+								>
+									<Box>
+										<img
+											src={el.top.logo.src}
+											alt={el.top.logo.alt}
+											style={logoStyles}
+										/>
+									</Box>
+									<Typography
+										variant="body2"
+										color="text.primary"
+										sx={{
+											flex:4,
+											fontWeight: "bold"
+										}}
+									>
+										{sentenceCase(el.top.title)}
+									</Typography>
+									<Typography
+										variant="body2"
+										color="text.primary"
+										sx={{flex:2,textAlign:"right"}}
+									>
+										{el.top.time}
+									</Typography>
+								</StyledTweetsTop>
+								<Typography
+									variant="body2"
+									color="text.secondary"
+									gutterBottom
+								>
+									{el.body}
+								</Typography>
+							</StyledTweetsItem>
+						))
+						: "Loading"
+					}
+				</StyledTweetContainer>
+			</StyledTweetSection>
 		</StyledResearchMarketCard>
 	)
 }

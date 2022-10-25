@@ -1,8 +1,11 @@
+import { Link } from "react-router-dom";
+
 import { Box, Button, Card, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
 import { FaInfoCircle, FaExclamationCircle } from "react-icons/fa";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
+
 import TooltipComponent from "src/components/Tooltip";
 
 
@@ -48,6 +51,11 @@ const StyledBalanceCard = styled(Card)(({ theme }) => ({
 	height: 100,
 }));
 
+const linkStyles = {
+	textDecoration: "none",
+	color: "inherit"
+}
+
 const AccountDetailsTop = () => {
 
 	return (
@@ -65,13 +73,16 @@ const AccountDetailsTop = () => {
 						>
 						Deposit Funds
 					</StyledButton>
-					<StyledButton
-						variant="contained"
-						color="primary"
-						startIcon={<BsFillArrowRightCircleFill style={iconStyles}/>}
-					>
-						Transfer Funds
-					</StyledButton>
+
+					<Link to="/admin/banking/current-account/internal-transfer" style={linkStyles}>
+						<StyledButton
+							variant="contained"
+							color="primary"
+							startIcon={<BsFillArrowRightCircleFill style={iconStyles}/>}
+						>
+							Transfer Funds
+						</StyledButton>
+					</Link>
 				</Stack>
 			</StyledAccountDetailsTop>
 
