@@ -64,6 +64,7 @@ const StyledTweetContainer = styled(Box)(({ theme }) => ({
 
 const StyledTweetsItem = styled(Box)(({ theme }) => ({
 	marginTop: "10px",
+	marginRight: "10px"
 }));
 
 const StyledTweetsTop = styled(Stack)(({ theme }) => ({
@@ -246,7 +247,7 @@ const ResearchMarketCard = () => {
 									<Typography
 										variant="body2"
 										color="text.primary"
-										sx={{flex:2}}
+										sx={{flex:2,textAlign:"right"}}
 									>
 										{el.top.time}
 									</Typography>
