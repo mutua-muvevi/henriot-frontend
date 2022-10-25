@@ -6,6 +6,8 @@ const RadioField = ({
 	name,
 	label,
 	legend,
+	radioItems,
+	defaultValue,
 	...otherProps
 }) => {
 	const [field, meta] = useField(name);
@@ -24,17 +26,15 @@ const RadioField = ({
 
 	return (
 		<FormControl>
-			<FormLabel component="legend">{legend}</FormLabel>
-			<RadioGroup name={name} {...configCheckbox} row defaultValue="client">
-				    <FormControlLabel 
-						value="admin" 
-						control={<Radio/>} 
-						label="Admin" />
-						
-    				<FormControlLabel 
-						value="client" 
-						control={<Radio/>} 
-						label="Client" />
+			<FormLabel component="legend">{label}</FormLabel>
+			<RadioGroup name={name} {...configCheckbox} row defaultValue={defaultValue}>
+				{
+					radioItems.map((el, i) => (
+						<React.Fragment key={i}>
+							{el}
+						</React.Fragment>
+					))
+				}
 			</RadioGroup>
 		</FormControl>
 	);

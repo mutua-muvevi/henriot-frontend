@@ -1,3 +1,4 @@
+import { FormControlLabel, Radio } from "@mui/material"
 import { countries } from "src/content/countries"
 
 
@@ -10,21 +11,21 @@ const beneficiaries = [
 
 export const beneficiaryForm = [
 	{
-		name: "name",
-		label:"Name",
+		name: "beneficiary_name",
+		label:"Beneficiary name",
 		placeholder:"John Smith",
 		inputType:"textfield",
 		required:true
 	},
 	{
-		name: "address",
+		name: "beneficiary_address",
 		label:"Address",
 		placeholder:"Steet Address",
 		inputType:"textfield",
 		required:true
 	},
 	{
-		name: "country",
+		name: "beneficiary_country",
 		label:"Country",
 		placeholder:"Choose country",
 		inputType:"select",
@@ -32,42 +33,42 @@ export const beneficiaryForm = [
 		required:true
 	},
 	{
-		name: "account_number",
+		name: "beneficiary_account_number",
 		label:"Account Number",
 		placeholder:"0K234D0PWF45Z",
 		inputType:"textfield",
 		required:true
 	},
 	{
-		name: "iban",
+		name: "beneficiary_iban",
 		label:"IBAN",
 		placeholder:"De 89 234243(optinal",
 		inputType:"textfield",
 		required:false
 	},
 	{
-		name: "swift_code",
+		name: "beneficiary_swift_code",
 		label:"Swift Code",
 		placeholder:"SHAWUXXGL",
 		inputType:"textfield",
 		required:true
 	},
 	{
-		name: "bank_name",
+		name: "beneficiary_bank_name",
 		label:"Bank name",
 		placeholder:"JPMORGAN CHASE BANK",
 		inputType:"textfield",
 		required:true
 	},
 	{
-		name: "bank_country",
+		name: "beneficiary_bank_country",
 		label:"Bank Country",
 		inputType:"select",
 		options:countries,
 		required:true
 	},
 	{
-		name: "bank_address",
+		name: "beneficiary_bank_address",
 		label:"Bank Address",
 		placeholder:"Your bank address",
 		inputType:"textfield",
@@ -83,7 +84,6 @@ export const bottomForm = [
 		inputType:"select",
 		required:true,
 		dummyText: {
-			is: true,
 			text: "Available balance _.__"
 		}
 	},
@@ -98,7 +98,7 @@ export const bottomForm = [
 	{
 		name: "urgent",
 		label:"Urgent",
-		placeholder:"(if checked, an additional fee of $100.00 will be applied)",
+		legend:"(if checked, an additional fee of $100.00 will be applied)",
 		inputType:"checkbox",
 		required:true,
 	},
@@ -108,6 +108,24 @@ export const bottomForm = [
 		placeholder:"",
 		inputType:"radio",
 		required:true,
+		//defaultValue:"shared",
+		radioItems: [
+			<FormControlLabel
+				value="shared"
+				control={<Radio/>}
+				label="Shared $80.00"
+			/>,
+			<FormControlLabel
+				value="beneficiary"
+				control={<Radio/>}
+				label="Beneficiary $50.00"
+			/>,
+			<FormControlLabel
+				value="ours"
+				control={<Radio/>}
+				label="Ours $150.00"
+			/>,
+		]
 	},
 	{
 		name: "message",
@@ -116,7 +134,6 @@ export const bottomForm = [
 		inputType:"textfield",
 		required:true,
 		multitext: {
-			is: true,
 			rows: 4
 		}
 	},
