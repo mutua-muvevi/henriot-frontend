@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/henriot-frontend/static/css/main.25895456.css",
+    "main.js": "/henriot-frontend/static/js/main.0ac760b1.js",
+    "static/media/Black on Transparent.png": "/henriot-frontend/static/media/Black on Transparent.fa60d73390e6cd74e44d.png",
+    "index.html": "/henriot-frontend/index.html",
+    "main.25895456.css.map": "/henriot-frontend/static/css/main.25895456.css.map",
+    "main.0ac760b1.js.map": "/henriot-frontend/static/js/main.0ac760b1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.25895456.css",
+    "static/js/main.0ac760b1.js"
+  ]
+}
