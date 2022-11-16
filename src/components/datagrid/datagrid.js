@@ -25,7 +25,7 @@ const StyledDataGrid = styled(DataGrid)(({theme}) =>({
 	}
 }))
 
-const DatagridComponent = ({ columns, rows, title }) => {
+const DatagridComponent = ({ columns, rows, title, actions }) => {
 	const [pageSize, setPageSize] = useState(20);
 	
 	return (
@@ -39,7 +39,7 @@ const DatagridComponent = ({ columns, rows, title }) => {
 				rowsPerPageOptions={[5, 10, 20]}
 				pagination
 				components={{
-					Toolbar: GridToolbar
+					Toolbar: actions === false ? null : GridToolbar
 				}}
 			/>
 		</React.Fragment>

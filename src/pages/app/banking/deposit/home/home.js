@@ -1,14 +1,20 @@
-import { Box } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import { styled } from "@mui/system";
 
-const StyledDepositTermHome = styled(Box)(({ theme }) => ({
+import DepositTermHomeTopCards from "./sections/cards";
+import DepositTermHomeTopChart from "./sections/chart";
+import DepositTermHomeTopTable from "./sections/table";
 
+const StyledDepositTermHome = styled(Box)(({ theme }) => ({
+	width: "100%"
 }));
 
 const DepositTermHome = () => {
 	return (
-		<StyledDepositTermHome>
-			deposit overview
+		<StyledDepositTermHome >
+			<DepositTermHomeTopCards/>
+			<DepositTermHomeTopTable/>
+			<DepositTermHomeTopChart/>
 		</StyledDepositTermHome>
 	)
 }
