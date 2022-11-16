@@ -40,17 +40,43 @@ export const bankingSection = {
 			title: "Current Account",
 			path: "/admin/banking/current-account",
 			icon: <BsBank2 style={sx} />,
-			//children: [
-			//	{}
-			//],
+			children: [
+				{
+					title: "details",
+					path:"/admin/banking/current-account/details"
+				},
+				{
+					title: "beneficiaries",
+					path:"/admin/banking/current-account/beneficiaries"
+				},
+				{
+					title: "internal transfer",
+					path:"/admin/banking/current-account/internal-transfer"
+				},
+				{
+					title: "swift-transfer",
+					path:"/admin/banking/current-account/swift-transfer"
+				},
+				{
+					title: "withdraw history",
+					path:"/admin/banking/current-account/withdraw-history"
+				},
+			],
 		},
 		{
 			title: "Team Deposit",
 			path: "/admin/banking/team-deposit",
 			icon: <FaRegMoneyBillAlt style={sx} />,
-			//children: [
-			//	{}
-			//],
+			children: [
+				{
+					title: "overview",
+					path:"/admin/banking/team-deposit/overview"
+				},
+				{
+					title: "main",
+					path:"/admin/banking/team-deposit/main"
+				},
+			],
 		},
 		{
 			title: "Crypto Account",
