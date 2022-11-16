@@ -2,6 +2,33 @@ import { Button } from "@mui/material";
 import { BsFileBarGraph, BsSpeedometer } from "react-icons/bs";
 import { FaMoneyBill, FaDatabase } from "react-icons/fa";
 
+export const buttonGroupItems = [
+	{
+		label:"summary",
+		action:"",
+		link:"/admin/banking/team-deposit/main/summary"
+	},
+	{
+		label:"lend",
+		action:"",
+		link:"/admin/banking/team-deposit/main/lend"
+	},
+	{
+		label:"borrow",
+		action:"",
+		link:"/admin/banking/team-deposit/main/borrow"
+	},
+	{
+		label:"transactions",
+		action:"",
+		link:"/admin/banking/team-deposit/main/transaction"
+	},
+	{
+		label:"user manual",
+		action:"",
+		link:"/admin/banking/team-deposit/main/manual"
+	},
+]
 
 const iconStyles = {
 	fontSize: "25px",
@@ -147,21 +174,3 @@ export const chartData = {
 		}
 	]
 };
-
-export const chartTopSorting = [
-	{
-		label:"3 months",
-		action:"",
-		color: "#65cfbb"
-	},
-	{
-		label:"6 months",
-		action:"",
-		color: "#54D62C"
-	},
-	{
-		label:"12 months",
-		action:"",
-		color: "#131313"
-	}
-]

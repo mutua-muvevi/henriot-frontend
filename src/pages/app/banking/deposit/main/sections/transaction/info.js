@@ -150,18 +150,25 @@ export const chartData = {
 
 export const chartTopSorting = [
 	{
-		label:"3 months",
+		label:"colateral",
 		action:"",
 		color: "#65cfbb"
 	},
 	{
-		label:"6 months",
+		label:"interest",
 		action:"",
 		color: "#54D62C"
 	},
 	{
-		label:"12 months",
+		label:"liv",
 		action:"",
 		color: "#131313"
 	}
 ]
+
+export const lowerInfo = {
+	status: {
+		
+	},
+	initial: {},
+}

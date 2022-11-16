@@ -4,9 +4,9 @@ import { Chart } from 'react-chartjs-2';
 import { Box, Button, ButtonGroup, Card, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
-import { chartData, chartTopSorting } from "./info";
+import { chartData, chartTopSorting } from "../info";
 
-const StyledDepositTermHomeTopChart = styled(Box)(({ theme }) => ({
+const StyledTermDepositTransactionChart = styled(Box)(({ theme }) => ({
 }));
 
 const StyledStack = styled(Stack)(({ theme }) => ({
@@ -33,9 +33,9 @@ const StyledPoint = styled(Box)(({ theme }) => ({
 	marginRight: "10px"
 }));
 
-const DepositTermHomeTopChart = () => {
+const TermDepositTransactionChart = () => {
 	return (
-		<StyledDepositTermHomeTopChart>
+		<StyledTermDepositTransactionChart>
 			<StyledStack direction="row" spacing={3}>
 				{chartTopSorting.map((el, i) => (
 					<StyledChartfilters>
@@ -50,8 +50,8 @@ const DepositTermHomeTopChart = () => {
 			<StyledChartWrapper>
 				<Chart type="line" data={chartData} height="100%"/>
 			</StyledChartWrapper>
-		</StyledDepositTermHomeTopChart>
+		</StyledTermDepositTransactionChart>
 	)
 }
 
-export default DepositTermHomeTopChart
+export default TermDepositTransactionChart

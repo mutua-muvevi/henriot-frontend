@@ -45,6 +45,11 @@ import DebitDetails from "./pages/app/banking/debit/details/details";
 import DebitHistory from "./pages/app/banking/debit/history/history";
 import DepositTermHome from './pages/app/banking/deposit/home/home';
 import DepositTermMain from './pages/app/banking/deposit/main/main';
+import TermDepositSummary from './pages/app/banking/deposit/main/sections/summary/summary';
+import TermDepositLend from './pages/app/banking/deposit/main/sections/lend/lend';
+import TermDepositBorrow from './pages/app/banking/deposit/main/sections/borrow/borrow';
+import TermDepositManual from './pages/app/banking/deposit/main/sections/manual/manual';
+import TermDepositTransaction from './pages/app/banking/deposit/main/sections/transaction/transaction';
 
 
 export default function Router() {
@@ -86,7 +91,17 @@ export default function Router() {
 						element: <BankingTeamDeposit />,
 						children: [
 							{ path: 'overview', element: <DepositTermHome /> },
-							{ path: 'main', element: <DepositTermMain /> },
+							{
+								path: 'main',
+								element: <DepositTermMain />,
+								children: [
+									{ path: 'summary', element: <TermDepositSummary /> },
+									{ path: 'lend', element: <TermDepositLend /> },
+									{ path: 'borrow', element: <TermDepositBorrow /> },
+									{ path: 'transaction', element: <TermDepositTransaction /> },
+									{ path: 'manual', element: <TermDepositManual /> },
+								]
+							},
 						]
 					},
 					{
