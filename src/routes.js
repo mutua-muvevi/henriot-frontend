@@ -50,6 +50,8 @@ import TermDepositLend from './pages/app/banking/deposit/main/sections/lend/lend
 import TermDepositBorrow from './pages/app/banking/deposit/main/sections/borrow/borrow';
 import TermDepositManual from './pages/app/banking/deposit/main/sections/manual/manual';
 import TermDepositTransaction from './pages/app/banking/deposit/main/sections/transaction/transaction';
+import Settings from './pages/app/settings/settings';
+import Profile from './pages/app/profile/profile';
 
 
 export default function Router() {
@@ -158,7 +160,15 @@ export default function Router() {
 					{ path: 'user-guide', element: <UserGuide /> },
 					{ path: 'contact-us', element: <ContactUs /> },
 				]
-			}
+			},
+			{
+				path: "settings",
+				element: <Settings/>
+			},
+			{
+				path: "profile",
+				element: <Profile/>
+			},
 		],
 	},
   ]);
