@@ -12,7 +12,7 @@ const StyledGridItem = styled(Grid)(({ theme }) => ({
 
 const Profile = () => {
 	return (
-		<StyledWrapper container spacing={2}>
+		<StyledWrapper container spacing={3}>
 			<StyledGridItem item xs={12} sm={12} md={12} lg={4} xl={4}>
 				<ProfileLeft/>
 			</StyledGridItem>
