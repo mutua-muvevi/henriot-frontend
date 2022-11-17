@@ -1,14 +1,37 @@
-import { Box } from "@mui/material";
+import { Stack, Button, ButtonGroup } from "@mui/material";
 import { styled } from "@mui/system";
 
-const StyledTermDepositLend = styled(Box)(({ theme }) => ({
+import TermDepositLendBottom from "./sections/bottom";
+
+const StyledTermDepositLend = styled(Stack)(({ theme }) => ({
 
 }));
 
+const StyledButtonGroup = styled(ButtonGroup)(({ theme }) => ({
+
+}));
+
+const StyledButton = styled(Button)(({ theme }) => ({
+	color: "black"
+}));
+
+const buttonItems = ["All Types", "Unsecured FLAT", "Unsecured Crypto", "USC Secured vs 100% Collateral"]
+
 const TermDepositLend = () => {
 	return (
-		<StyledTermDepositLend>
-			TermDepositLend
+		<StyledTermDepositLend
+			direction="column"
+			spacing={3}
+		>
+			<StyledButtonGroup variant="outlined">
+				{buttonItems.map((el, i) => (
+					<StyledButton key="i">
+						{el}
+					</StyledButton>
+				))}
+			</StyledButtonGroup>
+
+			<TermDepositLendBottom/>
 		</StyledTermDepositLend>
 	)
 }
