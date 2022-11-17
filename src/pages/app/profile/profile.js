@@ -1,5 +1,7 @@
 import { Box, Grid } from "@mui/material";
-import { styled } from "@mui/system";import ProfileLeft from "./sections/left";
+import { styled } from "@mui/system";
+
+import ProfileLeft from "./sections/left";
 import ProfileRight from "./sections/right";
 
 const StyledWrapper = styled(Grid)(({ theme }) => ({

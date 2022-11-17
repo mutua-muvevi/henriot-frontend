@@ -1,14 +1,15 @@
-import { Box } from "@mui/material";
-import { styled } from "@mui/system";;
+import { Stack } from "@mui/material";
+import { styled } from "@mui/system";import ProfileForm from "./form";
+;
 
-const StyledWrapper = styled(Box)(({ theme }) => ({
+const StyledWrapper = styled(Stack)(({ theme }) => ({
 
-}))
+}));
 
 const SettingsRight = () => {
 	return (
-		<StyledWrapper>
-			setytings right
+		<StyledWrapper direction="column" spacing={4}>
+			<ProfileForm/>
 		</StyledWrapper>
 	)
 }
