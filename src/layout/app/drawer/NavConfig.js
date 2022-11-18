@@ -74,7 +74,7 @@ export const bankingSection = {
 				},
 				{
 					title: "main",
-					path:"/admin/banking/team-deposit/main"
+					path:"/admin/banking/team-deposit/main/summary"
 				},
 			],
 		},

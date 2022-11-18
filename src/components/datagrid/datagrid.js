@@ -5,27 +5,27 @@ import { styled } from "@mui/system";
 import { DataGrid, GridToolbar  } from "@mui/x-data-grid";
 
 
-const StyledDataGrid = styled(DataGrid)(({theme}) =>({
-	border: "none",
-	backgroundColor: theme.palette.background.default,
-	width: "100%",
-	borderRadius: theme.shape.default,
-	marginTop: 20,
-	"& .MuiDataGrid-columnHeaders": {
-		backgroundColor: theme.palette.primary.main,
-		color: "#fff",
-		fontSize: 13,
-		paddingTop: 2,
-		paddingBottom: 2,
-	},
-	"& .MuiDataGrid-virtualScrollerRenderZone": {
-		"& .MuiDataGrid-row": {
-			"&:nth-of-type(2n)": { backgroundColor: theme.palette.background.paper }
+const DatagridComponent = ({ columns, rows, title, actions, mt }) => {
+	
+	const StyledDataGrid = styled(DataGrid)(({theme}) =>({
+		border: "none",
+		backgroundColor: theme.palette.background.default,
+		width: "100%",
+		borderRadius: theme.shape.default,
+		marginTop: mt ? mt : 20,
+		"& .MuiDataGrid-columnHeaders": {
+			backgroundColor: theme.palette.primary.main,
+			color: "#fff",
+			fontSize: 13,
+			paddingTop: 2,
+			paddingBottom: 2,
+		},
+		"& .MuiDataGrid-virtualScrollerRenderZone": {
+			"& .MuiDataGrid-row": {
+				"&:nth-of-type(2n)": { backgroundColor: theme.palette.background.paper }
+			}
 		}
-	}
-}))
-
-const DatagridComponent = ({ columns, rows, title, actions }) => {
+	}))
 	const [pageSize, setPageSize] = useState(20);
 	
 	return (
@@ -39,7 +39,7 @@ const DatagridComponent = ({ columns, rows, title, actions }) => {
 				rowsPerPageOptions={[5, 10, 20]}
 				pagination
 				components={{
-					Toolbar: actions === false ? null : GridToolbar
+					Toolbar: actions === true ? GridToolbar : null
 				}}
 			/>
 		</React.Fragment>

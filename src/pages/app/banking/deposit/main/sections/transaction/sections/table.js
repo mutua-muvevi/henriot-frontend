@@ -18,6 +18,7 @@ const TermDepositTransactionTable = () => {
 				rows={rows}
 				columns={columns}
 				actions={false}
+				marginTop=""
 			/>
 		</StyledTermDepositTransactionTable>
 	)
