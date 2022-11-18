@@ -5,9 +5,9 @@ import TooltipComponent from "src/components/Tooltip";
 import { rightSideContent } from "../info";
 
 
-const StyledTermDepositBorrowUnSecuredBodyRight = styled(Grid)(({ theme }) => ({
+const StyledTermDepositBorrowSecuredBodyRight = styled(Grid)(({ theme }) => ({
 	backgroundColor: theme.palette.grey[300],
-	minHeight: "300px",
+	minHeight: "380px",
 	paddingBottom: "20px",
 	borderRadius: theme.shape.borderRadius
 }));
@@ -16,9 +16,9 @@ const StyledGridItem = styled(Grid)(({ theme }) => ({
 
 }));
 
-const TermDepositBorrowUnSecuredBodyRight = () => {
+const TermDepositBorrowSecuredBodyRight = () => {
 	return (
-		<StyledTermDepositBorrowUnSecuredBodyRight container spacing={2}>
+		<StyledTermDepositBorrowSecuredBodyRight container spacing={2}>
 			{
 				rightSideContent.map((el, i) => (
 					<StyledGridItem key={i} item xs={6} sm={6} md={6} lg={6} xl={4}>
@@ -54,8 +54,8 @@ const TermDepositBorrowUnSecuredBodyRight = () => {
 					Borrow Now
 				</Button>
 			</Grid>
-		</StyledTermDepositBorrowUnSecuredBodyRight>
+		</StyledTermDepositBorrowSecuredBodyRight>
 	)
 }
 
-export default TermDepositBorrowUnSecuredBodyRight
+export default TermDepositBorrowSecuredBodyRight

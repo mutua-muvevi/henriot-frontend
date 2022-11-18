@@ -94,12 +94,11 @@ export default function Router() {
 						path: 'team-deposit',
 						element: <BankingTeamDeposit />,
 						children: [
-							{ path: 'overview', element: <DepositTermHome /> },
 							{
 								path: 'main',
 								element: <DepositTermMain />,
 								children: [
-									{ path: 'summary', element: <TermDepositSummary /> },
+									{ path: 'overview', element: <DepositTermHome /> },
 									{ path: 'lend', element: <TermDepositLend /> },
 									{ path: 'transaction', element: <TermDepositTransaction /> },
 									{ path: 'manual', element: <TermDepositManual /> },

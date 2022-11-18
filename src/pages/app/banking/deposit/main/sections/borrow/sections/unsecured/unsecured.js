@@ -4,7 +4,7 @@ import { styled } from "@mui/system";
 import TermDepositBorrowDotted from "../../doted";
 import TermDepositBorrowUnSecuredBody from "./sections/body";
 
-const StyledTermDepositBorrowUnSecured = styled(Box, Stack)(({ theme }) => ({
+const StyledTermDepositBorrowUnSecured = styled(Stack)(({ theme }) => ({
 
 }));
 
