@@ -8,7 +8,7 @@ import TimelineDot from '@mui/lab/TimelineDot';
 
 import PropTypes from "prop-types";
 
-const TimelineComponent = ({id, children}) => {
+const TimelineComponent = ({id, children, connector}) => {
 	return (
 		<Timeline
 			sx={{
@@ -23,8 +23,13 @@ const TimelineComponent = ({id, children}) => {
 				children.map((element, i) => (
 					<TimelineItem key={i}>
 						<TimelineSeparator>
-							<TimelineDot color="primary"/>
-							<TimelineConnector color="secondary"/>
+							<TimelineDot color="primary" />
+								<TimelineConnector
+									color="secondary"
+									sx={{
+										height: "10px !important"
+									}}
+								/>
 						</TimelineSeparator>
 						<TimelineContent>
 							{element}
@@ -32,14 +37,14 @@ const TimelineComponent = ({id, children}) => {
 					</TimelineItem>
 				))
 			}
-			{console.log(children)}
 		</Timeline>
   );
 }
 
 TimelineComponent.propTypes = {
 	id: PropTypes.string,
-	children: PropTypes.array.isRequired
+	children: PropTypes.array.isRequired,
+	connector: PropTypes.bool
 }
 
 export default TimelineComponent
