@@ -52,6 +52,8 @@ import TermDepositManual from './pages/app/banking/deposit/main/sections/manual/
 import TermDepositTransaction from './pages/app/banking/deposit/main/sections/transaction/transaction';
 import Settings from './pages/app/settings/settings';
 import Profile from './pages/app/profile/profile';
+import TermDepositBorrowUnSecured from './pages/app/banking/deposit/main/sections/borrow/sections/unsecured/unsecured';
+import TermDepositBorrowSecured from './pages/app/banking/deposit/main/sections/borrow/sections/secured/secured';
 
 
 export default function Router() {
@@ -92,16 +94,22 @@ export default function Router() {
 						path: 'team-deposit',
 						element: <BankingTeamDeposit />,
 						children: [
-							{ path: 'overview', element: <DepositTermHome /> },
 							{
 								path: 'main',
 								element: <DepositTermMain />,
 								children: [
-									{ path: 'summary', element: <TermDepositSummary /> },
+									{ path: 'overview', element: <DepositTermHome /> },
 									{ path: 'lend', element: <TermDepositLend /> },
-									{ path: 'borrow', element: <TermDepositBorrow /> },
 									{ path: 'transaction', element: <TermDepositTransaction /> },
 									{ path: 'manual', element: <TermDepositManual /> },
+									{
+										path: 'borrow',
+										element: <TermDepositBorrow />,
+										children: [
+											{ path: 'unsecured', element: <TermDepositBorrowUnSecured /> },
+											{ path: 'secured', element: <TermDepositBorrowSecured /> },
+										]
+									},
 								]
 							},
 						]

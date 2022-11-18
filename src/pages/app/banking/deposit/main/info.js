@@ -6,7 +6,7 @@ export const buttonGroupItems = [
 	{
 		label:"summary",
 		action:"",
-		link:"/admin/banking/team-deposit/main/summary"
+		link:"/admin/banking/team-deposit/main/overview"
 	},
 	{
 		label:"lend",
@@ -16,7 +16,7 @@ export const buttonGroupItems = [
 	{
 		label:"borrow",
 		action:"",
-		link:"/admin/banking/team-deposit/main/borrow"
+		link:"/admin/banking/team-deposit/main/borrow/unsecured"
 	},
 	{
 		label:"transactions",
