@@ -64,9 +64,19 @@ export const bankingSection = {
 			],
 		},
 		{
-			title: "Term Deposit",
-			path: "/admin/banking/team-deposit/main/overview",
+			title: "Team Deposit",
+			path: "/admin/banking/team-deposit",
 			icon: <FaRegMoneyBillAlt style={sx} />,
+			children: [
+				{
+					title: "overview",
+					path:"/admin/banking/team-deposit/overview"
+				},
+				{
+					title: "main",
+					path:"/admin/banking/team-deposit/main"
+				},
+			],
 		},
 		{
 			title: "Crypto Account",

@@ -6,7 +6,7 @@ export const buttonGroupItems = [
 	{
 		label:"summary",
 		action:"",
-		link:"/admin/banking/team-deposit/main/overview"
+		link:"/admin/banking/team-deposit/main/summary"
 	},
 	{
 		label:"lend",
