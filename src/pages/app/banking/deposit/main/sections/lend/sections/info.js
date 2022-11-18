@@ -128,9 +128,10 @@ export const cardData = [
 				title: {
 					tooltip: tooltipText,
 					text: "Est. APR",
+					icon:<FaInfoCircle style={tooltipIconStyles}/>,
 					value: 2.47
 				},
-				text: "*Some important userful text here",
+				text: "*Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas accumsan tortor turpis, id placerat urna ullamcorper id. Nulla turpis dui, pretium in dapibus id, dapibus a orci. Quisque vel eleifend lorem. Suspendisse et consequat dolor.",
 				checkbox: "I have read and agreed to Henriot Term Deposit"
 			}
 		}
@@ -247,9 +248,10 @@ export const cardData = [
 				title: {
 					tooltip: tooltipText,
 					text: "Est. APR",
+					icon:<FaInfoCircle style={tooltipIconStyles}/>,
 					value: 2.47
 				},
-				text: "*Some important userful text here",
+				text: "*Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas accumsan tortor turpis, id placerat urna ullamcorper id. Nulla turpis dui, pretium in dapibus id, dapibus a orci. Quisque vel eleifend lorem. Suspendisse et consequat dolor.",
 				checkbox: "I have read and agreed to Henriot Term Deposit"
 			}
 		}
@@ -366,9 +368,10 @@ export const cardData = [
 				title: {
 					tooltip: tooltipText,
 					text: "Est. APR",
+					icon:<FaInfoCircle style={tooltipIconStyles}/>,
 					value: 2.47
 				},
-				text: "*Some important userful text here",
+				text: "*Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas accumsan tortor turpis, id placerat urna ullamcorper id. Nulla turpis dui, pretium in dapibus id, dapibus a orci. Quisque vel eleifend lorem. Suspendisse et consequat dolor.",
 				checkbox: "I have read and agreed to Henriot Term Deposit"
 			}
 		}
@@ -485,9 +488,10 @@ export const cardData = [
 				title: {
 					tooltip: tooltipText,
 					text: "Est. APR",
+					icon:<FaInfoCircle style={tooltipIconStyles}/>,
 					value: 2.47
 				},
-				text: "*Some important userful text here",
+				text: "*Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas accumsan tortor turpis, id placerat urna ullamcorper id. Nulla turpis dui, pretium in dapibus id, dapibus a orci. Quisque vel eleifend lorem. Suspendisse et consequat dolor.",
 				checkbox: "I have read and agreed to Henriot Term Deposit"
 			}
 		}

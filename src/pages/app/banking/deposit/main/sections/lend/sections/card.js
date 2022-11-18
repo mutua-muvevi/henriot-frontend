@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import { Box, Button, ButtonGroup, Card, FormControl, Grid, InputLabel, MenuItem, Select, Stack, Typography } from "@mui/material";
+import { Box, Button, ButtonGroup, Card, Checkbox, FormControl, FormControlLabel, FormGroup, Grid, InputLabel, MenuItem, Select, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
 import { FaShareAltSquare } from "react-icons/fa"
@@ -8,6 +8,7 @@ import { FaShareAltSquare } from "react-icons/fa"
 import { chartData } from "./info";
 import TooltipComponent from "src/components/Tooltip";
 import LineChartComponent from "src/components/chart/line";
+import TimelineComponent from "src/components/Timeline";
 
 const StyledTermDepositLendCard = styled(Card)(({ theme }) => ({
 	padding: "10px",
@@ -67,19 +68,58 @@ const StyledGraphBottomSectionGridItem = styled(Box)(({ theme }) => ({
 	width: "100% !important"
 }));
 
-// const StyledTitleSection = styled(Box)(({ theme }) => ({
+const StyledTimelineSection = styled(Stack)(({ theme }) => ({
+	borderBottom: "1px solid grey",
+	height: "250px",
+	overflowY: "scroll"
+}));
 
-// }));
+const StyledTimelineSectionTopic = styled(Stack)(({ theme }) => ({
+	position: "absolute",
+	backgroundColor: theme.palette.background.paper,
+	zIndex:2,
+	width: "85%"
+}));
 
-// const StyledTitleSection = styled(Box)(({ theme }) => ({
+const StyledSummarySection = styled(Stack)(({ theme }) => ({
 
-// }));
+}));
+
+const StyledCheckboxSection = styled(Stack)(({ theme }) => ({
+
+}));
+
+const StyledConfirmButton = styled(Button)(({ theme }) => ({
+	color:"white"
+}));
+
+const childrenArray = [1,2,4,5].map((el, i) => (
+	<Stack
+		direction="row"
+		justifyContent="space-between"
+		alignItems="center"
+		key={i}
+	>
+		<Typography variant="body2" color="text.secondary">
+			Some value here
+		</Typography>
+		<Typography variant="body2" color="text.secondary">
+			Another value here
+		</Typography>
+	</Stack>
+))
+
 
 const TermDepositLendCard = ({ data }) => {
 
 	const chartConfig = {
 		datasetIdKey:"sdfsdfsdf",
 		data:chartData
+	}
+
+	const timelineComponentItem = {
+		id: "Term deposit lend timeline",
+		children: childrenArray
 	}
 
 	return (
@@ -227,12 +267,77 @@ const TermDepositLendCard = ({ data }) => {
 					}
 				</StyledGraphBottomSection>
 
-			<h1>green text section</h1>
-			<h1>graph section</h1>
-			<h1>some content section</h1>
-			<h1>timeline section</h1>
-			<h1>some content section</h1>
-			<h1>button section</h1>
+				<StyledTimelineSection
+					direction="column"
+					spacing={2}
+				>
+					<StyledTimelineSectionTopic
+						direction="row"
+						justifyContent="space-between"
+						alignItems="center"
+					>
+						<Typography variant="body2" color="text.secondary">
+							Summary
+						</Typography>
+						<Typography variant="body2" color="text.secondary">
+							Show less
+						</Typography>
+					</StyledTimelineSectionTopic>
+					<TimelineComponent
+						id={timelineComponentItem.id}
+						children={timelineComponentItem.children}
+						connector={false}
+					/>
+				</StyledTimelineSection>
+
+				<StyledSummarySection
+					direction="row"
+					justifyContent="space-between"
+					alignItems="center"
+				>
+					<Stack
+						direction="row"
+						alignItems="center"
+					>
+						<Typography variant="body2" color="text.secondary">
+							{data.summary.bottom.title.text}
+						</Typography>
+						<TooltipComponent
+							icon={data.summary.bottom.title.icon}
+							title={data.summary.bottom.title.tooltip}
+						/>
+					</Stack>
+					<Typography  variant="body2" color="text.primary">
+						{data.summary.bottom.title.value}
+					</Typography>
+				</StyledSummarySection>
+
+				<Typography variaant="body2" color="text.secondary">
+					{data.summary.bottom.text}
+				</Typography>
+			
+				<StyledCheckboxSection
+					direction="row"
+					justifyContent="left"
+					alignItems="'start"
+				>
+					<FormGroup>
+						<FormControlLabel
+							control={
+								<Checkbox
+									size="small"
+									defaultChecked />} 
+							label={data.summary.bottom.checkbox}
+						/>
+					</FormGroup>
+				</StyledCheckboxSection>
+
+				<StyledConfirmButton
+					variant="contained"
+					color="primary"
+				>
+					Confirm
+				</StyledConfirmButton>
 			</StyledTermDepositLendCardStack>
 		</StyledTermDepositLendCard>
 	)
