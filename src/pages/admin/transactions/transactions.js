@@ -30,9 +30,6 @@ const StyledCardContent = styled(CardContent)(({ theme }) => ({
 	textAlign: "center"
 }))
 
-const styledButtonText = {
-	fontWeight: "800"
-}
 
 const AdminTransaction = () => {
 	return (
