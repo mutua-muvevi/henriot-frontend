@@ -205,3 +205,26 @@ export const guideSection = {
 		},
 	]
 }
+
+
+export const navAdmin = {
+	title: "",
+	list: [
+		{
+			title: "home",
+			path: "/super-admin/home",
+			icon: <FaMoneyCheckAlt style={sx} />,
+			//children: [
+			//	{}
+			//],
+		},
+		{
+			title: "Transfers",
+			path: "/super-admin/transactions",
+			icon: <FaBookMedical style={sx} />,
+			//children: [
+			//	{}
+			//],
+		},
+	]
+}

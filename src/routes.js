@@ -54,6 +54,9 @@ import Settings from './pages/app/settings/settings';
 import Profile from './pages/app/profile/profile';
 import TermDepositBorrowUnSecured from './pages/app/banking/deposit/main/sections/borrow/sections/unsecured/unsecured';
 import TermDepositBorrowSecured from './pages/app/banking/deposit/main/sections/borrow/sections/secured/secured';
+import AdminLayout from './layout/app/admin';
+import AdminHome from './pages/admin/home/home';
+import AdminTransaction from './pages/admin/transactions/transactions';
 
 
 export default function Router() {
@@ -180,5 +183,13 @@ export default function Router() {
 			},
 		],
 	},
+	{
+		path: '/super-admin',
+		element: <AdminLayout />,
+		children: [
+			{ path: 'home', element: <AdminHome /> },
+			{ path: 'transactions', element: <AdminTransaction /> },
+		]
+	}
   ]);
 }

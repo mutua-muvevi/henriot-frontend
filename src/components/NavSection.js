@@ -141,7 +141,7 @@ NavSection.propTypes = {
 	guideSection: PropTypes.object,
 };
 
-export default function NavSection({ bankingSection, tradingSection,  wealthManagementSection, guideSection, ...other }) {
+export default function NavSection({ bankingSection, tradingSection,  wealthManagementSection, guideSection, navAdmin, type, ...other }) {
 	const { pathname } = useLocation();
 
 	const match = (path) => (path ? !!matchPath({ path, end: false }, pathname) : false);
@@ -153,23 +153,39 @@ export default function NavSection({ bankingSection, tradingSection,  wealthMana
 		guideSection
 	]
 
+	const adminNavSection = [
+		navAdmin
+	]
+
 	return (
 		<Box {...other}>
 			{
-				navSection.map((el, i) => (
-					<Box key={i}>
-						<Typography variant="h6" sx={{ ml:2.6, paddingTop: "5px" }}>
-							{el.title}
-						</Typography>
-						<List disablePadding sx={{ borderBottom: "1px solid grey" }} dense>
-							{
-								el.list.map((item) => (
-									<NavItem key={item.title} item={item} active={match} />
-									))
-								}
-						</List>
-					</Box>
-				))
+				type === "user" ? 
+					navSection.map((el, i) => (
+						<Box key={i}>
+							<Typography variant="h6" sx={{ ml:2.6, paddingTop: "5px" }}>
+								{el.title}
+							</Typography>
+							<List disablePadding sx={{ borderBottom: "1px solid grey" }} dense>
+								{
+									el.list.map((item) => (
+										<NavItem key={item.title} item={item} active={match} />
+										))
+									}
+							</List>
+						</Box>
+					))
+				: adminNavSection.map((el, i) => (
+						<Box key={i}>
+							<List disablePadding sx={{ borderBottom: "1px solid grey" }} dense>
+								{
+									el.list.map((item) => (
+										<NavItem key={item.title} item={item} active={match} />
+										))
+									}
+							</List>
+						</Box>
+					))
 			}
 		</Box>
 	);

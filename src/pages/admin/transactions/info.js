@@ -1,59 +1,74 @@
-const columnWidth = 110
+export const transactionCards = [
+	{
+		title: "Total Withdrawals",
+		number: "1500",
+		chip: "success",
+		previous: "1200",
+		color: "#54D62C"
+	},
+	{
+		title: "Total Deposits",
+		number: "1500",
+		chip: "success",
+		previous: "1200",
+		color: "#54D62C"
+	},
+	{
+		title: "Total Transfers",
+		number: "1500",
+		chip: "success",
+		previous: "1200",
+		color: "#54D62C"
+	},
+]
+
 
 export const columns = [
 	{
 		field: "date",
 		headerName: 'Column 1',
-		// width: columnWidth,
 		type: "date",
 		flex:1
 	},
 	{
 		field: 'account',
 		headerName: "Account",
-		// width: columnWidth*2,
 		type: "string",
 		flex:2
 	},
 	{
 		field: "cashin",
 		headerName: "Money in",
-		// width: columnWidth,
 		type: "string",
 		flex:1
 	},
 	{
 		field: "cashout",
 		headerName: "Money out",
-		// width: columnWidth,
 		type: "string",
 		flex:1
 	},
 	{
 		field: "balance",
 		headerName: "Closing balance",
-		// width: columnWidth,
 		type: "string",
 		flex:1
 	},
 	{
 		field: "description",
 		headerName: "Description",
-		// width: columnWidth*3,
 		type: "string",
 		flex:3
 	},
 	{
 		field: "state",
 		headerName: "State",
-		// width: columnWidth,
 		type: "string",
 		flex:1
 	},
 	{
 		field: "option",
 		headerName: "Option",
-		// width: columnWidth,
 		type: "string",
 		flex:1
 	},

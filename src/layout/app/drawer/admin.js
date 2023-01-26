@@ -12,7 +12,7 @@ import Logo from '../../../assets/logo/Black on Transparent.png';
 import Scrollbar from '../../../components/Scrollbar';
 import NavSection from '../../../components/NavSection';
 //
-import { bankingSection, tradingSection, wealthManagementSection, guideSection } from './NavConfig';
+import {  navAdmin } from './NavConfig';
 
 // ----------------------------------------------------------------------
 
@@ -77,11 +77,8 @@ export default function DrawerComponent({ isOpenSidebar, onCloseSidebar }) {
 				</Box>
 
 				<NavSection
-					bankingSection={bankingSection}
-					tradingSection={tradingSection}
-					wealthManagementSection={wealthManagementSection}
-					guideSection={guideSection}
-					type="user"
+					navAdmin={navAdmin}
+					type="admin"
 				/>
 
 				<Box sx={{ flexGrow: 1 }} />

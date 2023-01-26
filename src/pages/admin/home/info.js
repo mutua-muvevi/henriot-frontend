@@ -1,59 +1,81 @@
-const columnWidth = 110
+export const cardItems = [
+	{
+		title: "Total users",
+		number: "1500",
+		chip: "success",
+		previous: "1200",
+		color: "#54D62C"
+	},
+	{
+		title: "Sessions",
+		number: "29.4%",
+		chip: "success",
+		previous: "25.3",
+		color: "#54D62C"
+	},
+	{
+		title: "Page views",
+		number: "79300",
+		chip: "success",
+		previous: "1200",
+		color: "#54D62C"
+	},
+	{
+		title: "Click rate",
+		number: "63.6%",
+		chip: "error",
+		previous: "69.8%",
+		color: "#FF4842"
+	},
+]
+
 
 export const columns = [
 	{
 		field: "date",
 		headerName: 'Column 1',
-		// width: columnWidth,
 		type: "date",
 		flex:1
 	},
 	{
 		field: 'account',
 		headerName: "Account",
-		// width: columnWidth*2,
 		type: "string",
 		flex:2
 	},
 	{
 		field: "cashin",
 		headerName: "Money in",
-		// width: columnWidth,
 		type: "string",
 		flex:1
 	},
 	{
 		field: "cashout",
 		headerName: "Money out",
-		// width: columnWidth,
 		type: "string",
 		flex:1
 	},
 	{
 		field: "balance",
 		headerName: "Closing balance",
-		// width: columnWidth,
 		type: "string",
 		flex:1
 	},
 	{
 		field: "description",
 		headerName: "Description",
-		// width: columnWidth*3,
 		type: "string",
 		flex:3
 	},
 	{
 		field: "state",
 		headerName: "State",
-		// width: columnWidth,
 		type: "string",
 		flex:1
 	},
 	{
 		field: "option",
 		headerName: "Option",
-		// width: columnWidth,
 		type: "string",
 		flex:1
 	},
