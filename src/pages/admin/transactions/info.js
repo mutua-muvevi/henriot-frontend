@@ -1,3 +1,27 @@
+export const transactionCards = [
+	{
+		title: "Total Withdrawals",
+		number: "1500",
+		chip: "success",
+		previous: "1200",
+		color: "#54D62C"
+	},
+	{
+		title: "Total Deposits",
+		number: "1500",
+		chip: "success",
+		previous: "1200",
+		color: "#54D62C"
+	},
+	{
+		title: "Total Transfers",
+		number: "1500",
+		chip: "success",
+		previous: "1200",
+		color: "#54D62C"
+	},
+]
+
 const columnWidth = 110
 
 export const columns = [
