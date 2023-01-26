@@ -6,27 +6,27 @@ export const buttonGroupItems = [
 	{
 		label:"summary",
 		action:"",
-		link:"/admin/banking/team-deposit/main/summary"
+		link:"/admin/banking/term-deposit/main/summary"
 	},
 	{
 		label:"lend",
 		action:"",
-		link:"/admin/banking/team-deposit/main/lend"
+		link:"/admin/banking/term-deposit/main/lend"
 	},
 	{
 		label:"borrow",
 		action:"",
-		link:"/admin/banking/team-deposit/main/borrow/unsecured"
+		link:"/admin/banking/term-deposit/main/borrow/unsecured"
 	},
 	{
 		label:"transactions",
 		action:"",
-		link:"/admin/banking/team-deposit/main/transaction"
+		link:"/admin/banking/term-deposit/main/transaction"
 	},
 	{
 		label:"user manual",
 		action:"",
-		link:"/admin/banking/team-deposit/main/manual"
+		link:"/admin/banking/term-deposit/main/manual"
 	},
 ]
 
