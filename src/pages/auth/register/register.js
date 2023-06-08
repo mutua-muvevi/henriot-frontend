@@ -13,24 +13,26 @@ import validationSchema from "./model/validation";
 import serviceModel from "./model/model";
 import formInitialValues from "./model/initialvalues";
 
-import PrimaryProjectFormDetails from "./forms/primary";
-import ReviewProject from "./review/review";
-import RegisterSuccess from "./success/success";
+import PrimaryDetails from "./forms/primary";
 
 import { connect } from "react-redux";
+import SecondaryInfo from "./forms/secondary";
+import ConsentInfo from "./forms/consent";
+import IdentityDetails from "./forms/identity";
+import ReviewRegistration from "./review/review";
+import FormSuccess from "src/components/formsuccess";
 
 const StyledParentContainer = styled(Box)(({ theme }) => ({
-	display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100vh',
-	backgroundColor: theme.palette.background.neutral
-}))
+	display: "flex",
+	justifyContent: "center",
+	alignItems: "center",
+	height: "100vh",
+	backgroundColor: theme.palette.background.neutral,
+}));
 
 const StyledRegisterModal = styled(Paper)(({ theme }) => ({
 	borderRadius: theme.shape.borderRadius,
-	width: "80vw"
-
+	width: "80vw",
 }));
 
 const StyledStepper = styled(Stepper)(({ theme }) => ({
@@ -45,6 +47,7 @@ const StyledStepper = styled(Stepper)(({ theme }) => ({
 const StyledStepperItems = styled(Box)(({ theme }) => ({
 	padding: "20px",
 	maxHeight: "60vh",
+	overflowY: "scroll"
 }));
 
 const StyledStepConnector = styled(StepConnector)(({ theme }) => ({
@@ -96,7 +99,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
 }));
 
 const Register = ({ open, close, token, user }) => {
-	const steps = ["Primary details", "Review Project"];
+	const steps = ["Primary details", "Secondary Details", "Consent", "Identity", "Review Registration"];
 	const { formId, formField } = serviceModel;
 
 	const [activeStep, setActiveStep] = useState(0);
@@ -104,7 +107,7 @@ const Register = ({ open, close, token, user }) => {
 	const isLastStep = activeStep === steps.length - 1;
 
 	function submitForm(values, actions) {
-		values.createdBy = user._id;
+		// values.createdBy = user._id;
 
 		actions.setSubmitting(false);
 		console.log("Values", values);
@@ -149,7 +152,10 @@ const Register = ({ open, close, token, user }) => {
 						}}
 					>
 						{activeStep === steps.length ? (
-							<RegisterSuccess />
+							<FormSuccess 
+								title="SUCCESS!!"
+								text="You have registered Successfully"
+							/>
 						) : (
 							<Formik
 								initialValues={formInitialValues}
@@ -159,13 +165,31 @@ const Register = ({ open, close, token, user }) => {
 								{({ isSubmitting, setFieldValue, values }) => (
 									<Form id={formId}>
 										{activeStep === 0 ? (
-											<PrimaryProjectFormDetails
+											<PrimaryDetails
 												formField={formField}
 												setFieldValue={setFieldValue}
 												values={values}
 											/>
 										) : activeStep === 1 ? (
-											<ReviewProject values={values} />
+											<SecondaryInfo
+												values={values}
+												formField={formField}
+												setFieldValue={setFieldValue}
+											/>
+										) : activeStep === 2 ? (
+											<ConsentInfo
+												values={values}
+												formField={formField}
+												setFieldValue={setFieldValue}
+											/>
+										) : activeStep === 3 ? (
+											<IdentityDetails
+												values={values}
+												formField={formField}
+												setFieldValue={setFieldValue}
+											/>
+										) : activeStep === 4 ? (
+											<ReviewRegistration values={values} />
 										) : (
 											<div>notfound</div>
 										)}

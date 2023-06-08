@@ -19,48 +19,61 @@ import { useField } from "formik";
 
 const StyledFormContainer = styled(Box)(({ theme }) => ({}));
 
-const PrimaryPersonalInfo = (props) => {
+const IdentityDetails = (props) => {
 	const {
 		formField: { 
-			investorType,
-			email,
-			firstname,
-			lastname,
-			country,
-			phoneNumber,
-			introducerCode, },
+			issuingCountry,
+			identificationType,
+			phoneVerification,
+			emailVerification
+		},
 	} = props;
 
 	// Get field properties and meta for 'type' field
-	const [field, meta] = useField(investorType.name);
+	const [field, meta] = useField(identificationType.name);
 
 	return (
 		<StyledFormContainer>
 			<Typography variant="h6" color="primary" sx={{ mb: "20px" }}>
-				Personal information
+				Identity verification
 			</Typography>
 
 			<Grid container spacing={3}>
 
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+					<SelectField
+						name={issuingCountry.name}
+						label={issuingCountry.label}
+						options={countries}
+						fullWidth
+						size="small"
+					/>
+				</Grid>
+
+				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
 					<FormControl>
 						<FormLabel id="demo-radio-buttons-group-label">
-							Project type
+							Choose your document type
 						</FormLabel>
 						<RadioGroup
-							name={investorType.name}
+							name={identificationType.name}
 							row
 							{...field}
 						>
 							<FormControlLabel
-								value="private investor"
+								value="id card"
 								control={<Radio />}
-								label="Private qualified Investor"
+								label="ID Card"
 							/>
 							<FormControlLabel
-								value="legal entity"
+								value="passport"
 								control={<Radio />}
-								label="Legal entity autorized signatory"
+								label="Passport"
+							/>
+							<FormControlLabel
+								value="driver licence"
+								control={<Radio />}
+								label="Driver's Licence"
 							/>
 						</RadioGroup>
 						
@@ -74,60 +87,25 @@ const PrimaryPersonalInfo = (props) => {
 
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
 					<TextfieldWrapper
-						name={email.name}
-						label={email.label}
-						fullWidth
-						size="small"
-						email
-					/>
-				</Grid>
-
-				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<TextfieldWrapper
-						name={firstname.name}
-						label={firstname.label}
-						fullWidth
-						size="small"
-					/>
-				</Grid>
-				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<TextfieldWrapper
-						name={lastname.name}
-						label={lastname.label}
-						fullWidth
-						size="small"
-					/>
-				</Grid>
-				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<SelectField
-						name={country.name}
-						label={country.label}
-						options={countries}
-						fullWidth
-						size="small"
-					/>
-				</Grid>
-				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<TextfieldWrapper
-						name={phoneNumber.name}
-						label={phoneNumber.label}
-						fullWidth
-						size="small"
-					/>
-				</Grid>
-				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<TextfieldWrapper
-						name={introducerCode.name}
-						label={introducerCode.label}
+						name={phoneVerification.name}
+						label={phoneVerification.label}
 						fullWidth
 						size="small"
 					/>
 				</Grid>
 
-				
+				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+					<TextfieldWrapper
+						name={emailVerification.name}
+						label={emailVerification.label}
+						fullWidth
+						size="small"
+					/>
+				</Grid>
+
 			</Grid>
 		</StyledFormContainer>
 	);
 };
 
-export default PrimaryPersonalInfo;
+export default IdentityDetails;
