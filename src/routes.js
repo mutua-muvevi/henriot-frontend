@@ -62,10 +62,13 @@ import AdminTransaction from './pages/admin/transactions/transactions';
 export default function Router() {
   return useRoutes([
 	{
+		path: "/register",
+		element: <Register/>
+	},
+	{
 		path: '/auth',
 		element: <AuthLayout />,
 		children: [
-			{ path: 'register', element: <Register /> },
 			{ path: 'setup', element: <Setup /> },
 			{ path: 'login', element: <Login /> },
 			{ path: 'login/otp', element: <OtpLogin /> },

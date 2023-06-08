@@ -85,7 +85,7 @@ const ERROR = {
 const BACKGROUND = {
   paper: '#fff', 
   default: GREY[100], 
-  neutral: GREY[200],
+  neutral: GREY[300],
   dark:"rgba(1, 0, 1, 1)"
 }
 
