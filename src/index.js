@@ -19,13 +19,13 @@ root.render(
 	<React.StrictMode>
 		<Provider store={store}>
 			<PersistGate persistor={persistor}>
-					<ErrorBoundary>
+					{/* <ErrorBoundary> */}
 						<HelmetProvider>
 							<BrowserRouter>
 								<App />
 							</BrowserRouter>
 						</HelmetProvider>
-					</ErrorBoundary>
+					{/* </ErrorBoundary> */}
 			</PersistGate>
 		</Provider>
 	</React.StrictMode>
