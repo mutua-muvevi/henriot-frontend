@@ -36,7 +36,6 @@ const SelectField = ({ name, options, variant, ...otherProps }) => {
 				return (
 				<MenuItem key={pos} value={item.Name}>
 					{item.Name}
-					{console.log(options)}
 				</MenuItem>
 				)
 			})}

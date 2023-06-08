@@ -1,29 +1,33 @@
 import React from 'react';
 import { useFormikContext } from 'formik';
 
-import { Box, Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 import { styled } from "@mui/system";
 
-import ServicePrimaryReview from "./primary";
+import PrimaryReview from "./primary";
+import SecondaryReview from "./secondary";
+import IdentityReview from "./identity";
 
-const StyledReviewServiceItems = styled(Box)(({ theme }) => ({
+const StyledReviewRegistrationItems = styled(Stack)(({ theme }) => ({
 
 }));
 
 
-const ReviewService = (props) => {
+const ReviewRegistration = (props) => {
 	const { values: formValues } = useFormikContext();
 	
 	return (
-		<React.Fragment>
+		<Stack direction="column" spacing={3}>
 			<Typography variant="h6" color="primary" gutterBottom>
-				Project summary
+				Registration Summary
 			</Typography>
-			<StyledReviewServiceItems>
-				<ServicePrimaryReview formValues={formValues}/>
-			</StyledReviewServiceItems>
-		</React.Fragment>
+			<StyledReviewRegistrationItems direction="column" spacing={3}>
+				<PrimaryReview formValues={formValues}/>
+				<SecondaryReview formValues={formValues}/>
+				<IdentityReview formValues={formValues}/>
+			</StyledReviewRegistrationItems>
+		</Stack>
 	);
 }
 
-export default ReviewService
+export default ReviewRegistration

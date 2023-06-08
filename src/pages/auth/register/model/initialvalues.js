@@ -2,20 +2,58 @@ import model from "./model"
 
 const {
 	formField: {
-		type,
-		title,
-		description,
-		releaseDate,
-		privacy
+		investorType,
+		email,
+		firstname,
+		lastname,
+		country,
+		phoneNumber,
+		introducerCode,
+
+		street,
+		city,
+		state,
+		postcode,
+		dateOfBirth,
+		passportNumber,
+		occupation,
+		annualIncome,
+		valueOfAsset,
+
+		consent,
+
+		issuingCountry,
+		identificationType,
+		phoneVerification,
+		emailVerification
 	}
 } = model
 
 const initialValues = {
-	[type.name]: "",
-	[title.name]: "",
-	[description.name]: "",
-	[releaseDate.name]: "",
-	[privacy.name]: "",
+	[investorType.name]: "",
+	[email.name]: "",
+	[firstname.name]: "",
+	[lastname.name]: "",
+	[country.name]: "",
+	[phoneNumber.name]: "",
+	[introducerCode.name]: "",
+
+	[street.name]: "",
+	[city.name]: "",
+	[state.name]: "",
+	[postcode.name]: "",
+	[dateOfBirth.name]: "",
+	[passportNumber.name]: "",
+	[occupation.name]: "",
+	[annualIncome.name]: "",
+	[valueOfAsset.name]: "",
+	
+	[consent.name]: "",
+	
+	[issuingCountry.name]: "",
+	[identificationType.name]: "",
+	[phoneVerification.name]: "",
+	[emailVerification.name]: "",
 }
 
 export default initialValues

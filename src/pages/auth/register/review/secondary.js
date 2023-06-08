@@ -1,7 +1,7 @@
 import { Card, Grid, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
-const StyledPrimaryReview = styled(Card)(({ theme }) => ({
+const StyledSecondaryReview = styled(Card)(({ theme }) => ({
 	padding: "20px",
 	backgroundColor: theme.palette.background.neutral
 }));
@@ -24,15 +24,26 @@ const keyStyles = {
 	marginRight: "10px",
 };
 
-const PrimaryReview = ({ formValues }) => {
-	const { investorType, email, firstname, lastname, country, phoneNumber, introducerCode } = formValues;
+const SecondaryReview = ({ formValues }) => {
+	const { street, city, state, postcode, dateOfBirth, passportNumber, occupation, annualIncome, valueOfAsset } =
+		formValues;
 
-	const previewArray = { investorType, email, firstname, lastname, country, phoneNumber, introducerCode };
+	const previewArray = {
+		street,
+		city,
+		state,
+		postcode,
+		dateOfBirth,
+		passportNumber,
+		occupation,
+		annualIncome,
+		valueOfAsset,
+	};
 
 	const entries = Object.entries(previewArray);
 
 	return (
-		<StyledPrimaryReview>
+		<StyledSecondaryReview>
 			{entries
 				? entries.map((entry, i) => (
 						<StyledEntriesGrid container key={i}>
@@ -48,8 +59,8 @@ const PrimaryReview = ({ formValues }) => {
 						</StyledEntriesGrid>
 				  ))
 				: "Loading"}
-		</StyledPrimaryReview>
+		</StyledSecondaryReview>
 	);
 };
 
-export default PrimaryReview;
+export default SecondaryReview;

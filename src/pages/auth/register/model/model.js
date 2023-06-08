@@ -1,71 +1,275 @@
 const projectModel = {
 	formId: "create-project-form",
 	formField: {
-		type: {
-			name: "type",
-			label:"Type*",
-			requiredErrorMsg:"Project type is required",
-				minLength: {
-				length: 4,
-				message: "Minimum characters required for service type is 4"
-			},
-			maxLength: {
-				length: 50,
-				message: "Maximum characters required for service type is 50"
-			},
-		},
-		title: {
-			name: "title",
-			label:"Title*",
-			requiredErrorMsg:"Project title is required",
-				minLength: {
+		investorType: {
+			name: "investorType",
+			label: "Type*",
+			requiredErrorMsg: "Investor type is required",
+			minLength: {
 				length: 5,
-				message: "Minimum characters required for service title is 5"
+				message: "Minimum characters required for investor type is 4",
 			},
 			maxLength: {
-				length: 50,
-				message: "Maximum characters required for service title is 50"
+				length: 100,
+				message: "Maximum characters required for investor type is 100",
 			},
 		},
-		description: {
-			name: "description",
-			label:"description*",
+		email: {
+			name: "email",
+			label: "Email*",
+			requiredErrorMsg: "Your email is required",
 			minLength: {
-				length: 20,
-				message: "Minimum characters required for service description is 20"
+				length: 5,
+				message: "Minimum characters required for email is 5",
 			},
 			maxLength: {
-				length: 1000,
-				message: "Maximum characters required for service description is 500"
+				length: 100,
+				message: "Maximum characters required for email is 100",
 			},
-			requiredErrorMsg:"description is required",
 		},
-		releaseDate: {
-			name: "releaseDate",
-			label:"Release date*",
-			requiredErrorMsg:"Release date is required",
+		firstname: {
+			name: "firstname",
+			label: "Firstname*",
+			requiredErrorMsg: "Your firstname is required",
 			minLength: {
-				length: 6,
-				message: "Minimum characters required for the price is 0"
+				length: 5,
+				message: "Minimum characters required for firstname is 5",
 			},
 			maxLength: {
-				length: 24,
-				message: "Maxmimum amount required is up to 100 billion"
+				length: 100,
+				message: "Maximum characters required for firstname is 100",
 			},
 		},
-		privacy: {
-			name: "privacy",
-			label:"Privacy",
+		lastname: {
+			name: "lastname",
+			label: "Lastname*",
+			requiredErrorMsg: "Your lastname is required",
 			minLength: {
-				length: 4,
-				message: "Minimum characters required for the privacy is 4"
+				length: 5,
+				message: "Minimum characters required for lastname is 5",
 			},
 			maxLength: {
-				length: 50,
-				message: "Maxmimum characters required for the privacy is 50"
+				length: 100,
+				message: "Maximum characters required for lastname is 100",
 			},
 		},
-	}
-}
+		country: {
+			name: "country",
+			label: "Country*",
+			requiredErrorMsg: "Your country is required",
+			minLength: {
+				length: 5,
+				message: "Minimum characters required for country is 5",
+			},
+			maxLength: {
+				length: 100,
+				message: "Maximum characters required for country is 100",
+			},
+		},
+		phoneNumber: {
+			name: "phoneNumber",
+			label: "Phone Number*",
+			requiredErrorMsg: "Your phoneNumber is required",
+			minLength: {
+				length: 5,
+				message: "Minimum characters required for phoneNumber is 5",
+			},
+			maxLength: {
+				length: 100,
+				message: "Maximum characters required for phoneNumber is 100",
+			},
+		},
+		introducerCode: {
+			name: "introducerCode",
+			label: "Introducer Code",
+			requiredErrorMsg: "Your introducerCode is required",
+			minLength: {
+				length: 5,
+				message: "Minimum characters required for introducerCode is 5",
+			},
+			maxLength: {
+				length: 100,
+				message: "Maximum characters required for introducerCode is 100",
+			},
+		},
 
-export default projectModel
+		street: {
+			name: "street",
+			label: "Street*",
+			requiredErrorMsg: "Your street is required",
+			minLength: {
+				length: 5,
+				message: "Minimum characters required for street is 5",
+			},
+			maxLength: {
+				length: 100,
+				message: "Maximum characters required for street is 100",
+			},
+		},
+		city: {
+			name: "city",
+			label: "City*",
+			requiredErrorMsg: "Your city is required",
+			minLength: {
+				length: 5,
+				message: "Minimum characters required for city is 5",
+			},
+			maxLength: {
+				length: 100,
+				message: "Maximum characters required for city is 100",
+			},
+		},
+		state: {
+			name: "state",
+			label: "State*",
+			requiredErrorMsg: "Your state is required",
+			minLength: {
+				length: 5,
+				message: "Minimum characters required for state is 5",
+			},
+			maxLength: {
+				length: 100,
+				message: "Maximum characters required for state is 100",
+			},
+		},
+		postcode: {
+			name: "postcode",
+			label: "Post Code*",
+			requiredErrorMsg: "Your postcode is required",
+			minLength: {
+				length: 5,
+				message: "Minimum characters required for postcode is 5",
+			},
+			maxLength: {
+				length: 100,
+				message: "Maximum characters required for postcode is 100",
+			},
+		},
+		dateOfBirth: {
+			name: "dateOfBirth",
+			label: "Date of Birth*",
+			requiredErrorMsg: "Your dateOfBirth is required",
+			minLength: {
+				length: 5,
+				message: "Minimum characters required for dateOfBirth is 5",
+			},
+			maxLength: {
+				length: 100,
+				message: "Maximum characters required for dateOfBirth is 100",
+			},
+		},
+		passportNumber: {
+			name: "passportNumber",
+			label: "Passport Number*",
+			requiredErrorMsg: "Your passportNumber is required",
+			minLength: {
+				length: 5,
+				message: "Minimum characters required for passportNumber is 5",
+			},
+			maxLength: {
+				length: 100,
+				message: "Maximum characters required for passportNumber is 100",
+			},
+		},
+		occupation: {
+			name: "occupation",
+			label: "Occupation*",
+			requiredErrorMsg: "Your occupation is required",
+			minLength: {
+				length: 5,
+				message: "Minimum characters required for occupation is 5",
+			},
+			maxLength: {
+				length: 100,
+				message: "Maximum characters required for occupation is 100",
+			},
+		},
+		annualIncome: {
+			name: "annualIncome",
+			label: "Annual Income*",
+			requiredErrorMsg: "Your annualIncome is required",
+			minLength: {
+				length: 5,
+				message: "Minimum characters required for annualIncome is 5",
+			},
+			maxLength: {
+				length: 100,
+				message: "Maximum characters required for annualIncome is 100",
+			},
+		},
+		valueOfAsset: {
+			name: "valueOfAsset",
+			label: "Value of Asset*",
+			requiredErrorMsg: "Your valueOfAsset is required",
+			minLength: {
+				length: 5,
+				message: "Minimum characters required for valueOfAsset is 5",
+			},
+			maxLength: {
+				length: 100,
+				message: "Maximum characters required for valueOfAsset is 100",
+			},
+		},
+
+		consent: {
+			name: "consent",
+			label: "Consent*",
+			requiredErrorMsg: "Your consent is required",
+		},
+
+		issuingCountry: {
+			name: "issuingCountry",
+			label: "Isssuing Country*",
+			requiredErrorMsg: "Your issuingCountry is required",
+			minLength: {
+				length: 5,
+				message: "Minimum characters required for issuingCountry is 5",
+			},
+			maxLength: {
+				length: 100,
+				message: "Maximum characters required for issuingCountry is 100",
+			},
+		},
+		identificationType: {
+			name: "identificationType",
+			label: "Identification Type*",
+			requiredErrorMsg: "Your identification Type is required",
+			minLength: {
+				length: 5,
+				message: "Minimum characters required for identification Type is 5",
+			},
+			maxLength: {
+				length: 100,
+				message: "Maximum characters required for identification Type is 100",
+			},
+		},
+		phoneVerification: {
+			name: "phoneVerification",
+			label: "Phone Verification*",
+			requiredErrorMsg: "Your phone verification is required",
+			minLength: {
+				length: 5,
+				message: "Minimum characters required for phone verification is 5",
+			},
+			maxLength: {
+				length: 100,
+				message: "Maximum characters required for phone verification is 100",
+			},
+		},
+		emailVerification: {
+			name: "emailVerification",
+			label: "Email Verification*",
+			requiredErrorMsg: "Your email verification is required",
+			minLength: {
+				length: 5,
+				message: "Minimum characters required for email verification is 5",
+			},
+			maxLength: {
+				length: 100,
+				message: "Maximum characters required for email verification is 100",
+			},
+		},
+	},
+};
+
+export default projectModel;
