@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {  Box, Container, Grow } from "@mui/material";
+import {  Box, Container, Grow, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
 import LoginForm from "./form";
@@ -54,7 +54,12 @@ const Login = () => {
 					/>
 				</StyledLogoSection>
 				<StyledLoginFormWrapper maxWidth="md">
-					<LoginForm/>
+					<Stack direction="column" spacing={3}>
+						<Typography variant="h4" color="text.primary">
+							Login
+						</Typography>
+						<LoginForm/>
+					</Stack>
 				</StyledLoginFormWrapper>
 			</StyledLogin>
 		</Page>

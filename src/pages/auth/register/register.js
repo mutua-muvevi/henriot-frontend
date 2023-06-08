@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropType from "prop-types";
 
-import { Box, Button, CircularProgress, Stepper, Step, StepLabel, ButtonGroup, Paper } from "@mui/material";
+import { Box, Button, CircularProgress, Stepper, Step, StepLabel, ButtonGroup, Paper, Typography, Stack } from "@mui/material";
 import StepConnector, { stepConnectorClasses } from "@mui/material/StepConnector";
 import { styled } from "@mui/system";
 
@@ -131,95 +131,107 @@ const Register = ({ open, close, token, user }) => {
 
 	return (
 		<StyledParentContainer>
-			<StyledRegisterModal>
-				<StyledStepper activeStep={activeStep} connector={<StyledStepConnector />}>
-					{steps.map((label) => (
-						<StyledSteps key={label}>
-							<StyledStepLabel>{label}</StyledStepLabel>
-						</StyledSteps>
-					))}
-				</StyledStepper>
 
-				<StyledStepperItems>
-					<Scrollbar
-						sx={{
-							height: 1,
-							"& .simplebar-content": {
+			<Stack direction="column" spacing={5}>
+				<Stack direction="column" spacing={1.5}>
+					<Typography variant="h2" color="text.primary">
+						Register
+					</Typography>
+					<Typography variant="h6" color="text.primary">
+						Please fill the form below to register
+					</Typography>
+				</Stack>
+				<StyledRegisterModal>
+					<StyledStepper activeStep={activeStep} connector={<StyledStepConnector />}>
+						{steps.map((label) => (
+							<StyledSteps key={label}>
+								<StyledStepLabel>{label}</StyledStepLabel>
+							</StyledSteps>
+						))}
+					</StyledStepper>
+
+					<StyledStepperItems>
+						<Scrollbar
+							sx={{
 								height: 1,
-								display: "flex",
-								flexDirection: "column",
-							},
-						}}
-					>
-						{activeStep === steps.length ? (
-							<FormSuccess 
-								title="SUCCESS!!"
-								text="You have registered Successfully"
-							/>
-						) : (
-							<Formik
-								initialValues={formInitialValues}
-								validationSchema={currentValidationSchema}
-								onSubmit={handleSubmit}
-							>
-								{({ isSubmitting, setFieldValue, values }) => (
-									<Form id={formId}>
-										{activeStep === 0 ? (
-											<PrimaryDetails
-												formField={formField}
-												setFieldValue={setFieldValue}
-												values={values}
-											/>
-										) : activeStep === 1 ? (
-											<SecondaryInfo
-												values={values}
-												formField={formField}
-												setFieldValue={setFieldValue}
-											/>
-										) : activeStep === 2 ? (
-											<ConsentInfo
-												values={values}
-												formField={formField}
-												setFieldValue={setFieldValue}
-											/>
-										) : activeStep === 3 ? (
-											<IdentityDetails
-												values={values}
-												formField={formField}
-												setFieldValue={setFieldValue}
-											/>
-										) : activeStep === 4 ? (
-											<ReviewRegistration values={values} />
-										) : (
-											<div>notfound</div>
-										)}
-
-										<ButtonGroup sx={{ mt: "20px" }}>
-											{activeStep !== 0 && (
-												<StyledButton onClick={handleBack} variant="contained" color="error">
-													Back
-												</StyledButton>
+								"& .simplebar-content": {
+									height: 1,
+									display: "flex",
+									flexDirection: "column",
+								},
+							}}
+						>
+							{activeStep === steps.length ? (
+								<FormSuccess 
+									title="SUCCESS!!"
+									text="You have registered Successfully"
+								/>
+							) : (
+								<Formik
+									initialValues={formInitialValues}
+									validationSchema={currentValidationSchema}
+									onSubmit={handleSubmit}
+								>
+									{({ isSubmitting, setFieldValue, values }) => (
+										<Form id={formId}>
+											{activeStep === 0 ? (
+												<PrimaryDetails
+													formField={formField}
+													setFieldValue={setFieldValue}
+													values={values}
+												/>
+											) : activeStep === 1 ? (
+												<SecondaryInfo
+													values={values}
+													formField={formField}
+													setFieldValue={setFieldValue}
+												/>
+											) : activeStep === 2 ? (
+												<ConsentInfo
+													values={values}
+													formField={formField}
+													setFieldValue={setFieldValue}
+												/>
+											) : activeStep === 3 ? (
+												<IdentityDetails
+													values={values}
+													formField={formField}
+													setFieldValue={setFieldValue}
+												/>
+											) : activeStep === 4 ? (
+												<ReviewRegistration values={values} />
+											) : (
+												<div>notfound</div>
 											)}
-											<StyledButtonGroup>
-												<StyledButton
-													disabled={isSubmitting}
-													type="submit"
-													variant="contained"
-													color="primary"
-												>
-													{isLastStep ? "Confirm" : "Next"}
-												</StyledButton>
 
-												{isSubmitting && <CircularProgress size={24} />}
-											</StyledButtonGroup>
-										</ButtonGroup>
-									</Form>
-								)}
-							</Formik>
-						)}
-					</Scrollbar>
-				</StyledStepperItems>
-			</StyledRegisterModal>
+											<ButtonGroup sx={{ mt: "20px" }}>
+												{activeStep !== 0 && (
+													<StyledButton onClick={handleBack} variant="contained" color="error">
+														Back
+													</StyledButton>
+												)}
+												<StyledButtonGroup>
+													<StyledButton
+														disabled={isSubmitting}
+														type="submit"
+														variant="contained"
+														color="primary"
+													>
+														{isLastStep ? "Confirm" : "Next"}
+													</StyledButton>
+
+													{isSubmitting && <CircularProgress size={24} />}
+												</StyledButtonGroup>
+											</ButtonGroup>
+										</Form>
+									)}
+								</Formik>
+							)}
+						</Scrollbar>
+					</StyledStepperItems>
+				</StyledRegisterModal>
+			</Stack>
+
 		</StyledParentContainer>
 	);
 };

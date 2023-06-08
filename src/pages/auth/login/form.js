@@ -70,12 +70,12 @@ const LoginForm = ({ loginUser, error, info}) => {
 	}, [info, error])
 	
 	const submitHandler = (values) => {
-		loginUser(values)
+		// loginUser(values)
 
 		// if(errMessage ) {
 		// 	setAlertSuccess(false)
 		// }
-		
+		alert(JSON.stringify(values))
 		if(info.status === 200 && info.statusText === "OK" && !error){
 			setData(info)
 			setAlertSuccess(true)
