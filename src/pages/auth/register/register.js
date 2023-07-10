@@ -1,7 +1,18 @@
 import React, { useState } from "react";
 import PropType from "prop-types";
 
-import { Box, Button, CircularProgress, Stepper, Step, StepLabel, ButtonGroup, Paper, Typography, Stack } from "@mui/material";
+import {
+	Box,
+	Button,
+	CircularProgress,
+	Stepper,
+	Step,
+	StepLabel,
+	ButtonGroup,
+	Paper,
+	Typography,
+	Stack,
+} from "@mui/material";
 import StepConnector, { stepConnectorClasses } from "@mui/material/StepConnector";
 import { styled } from "@mui/system";
 
@@ -21,6 +32,8 @@ import ConsentInfo from "./forms/consent";
 import IdentityDetails from "./forms/identity";
 import ReviewRegistration from "./review/review";
 import FormSuccess from "src/components/formsuccess";
+import { registerUser } from "src/redux/auth/actions";
+import PasswordInfo from "./forms/password";
 
 const StyledParentContainer = styled(Box)(({ theme }) => ({
 	display: "flex",
@@ -47,7 +60,7 @@ const StyledStepper = styled(Stepper)(({ theme }) => ({
 const StyledStepperItems = styled(Box)(({ theme }) => ({
 	padding: "20px",
 	maxHeight: "60vh",
-	overflowY: "scroll"
+	overflowY: "scroll",
 }));
 
 const StyledStepConnector = styled(StepConnector)(({ theme }) => ({
@@ -98,8 +111,8 @@ const StyledButton = styled(Button)(({ theme }) => ({
 	width: "150px",
 }));
 
-const Register = ({ open, close, token, user }) => {
-	const steps = ["Primary details", "Secondary Details", "Consent", "Identity", "Review Registration"];
+const Register = ({ open, close, user, register }) => {
+	const steps = ["Primary details", "Secondary Details", "Consent", "Identity", "Password", "Review Registration"];
 	const { formId, formField } = serviceModel;
 
 	const [activeStep, setActiveStep] = useState(0);
@@ -107,10 +120,9 @@ const Register = ({ open, close, token, user }) => {
 	const isLastStep = activeStep === steps.length - 1;
 
 	function submitForm(values, actions) {
-		// values.createdBy = user._id;
-
 		actions.setSubmitting(false);
 		console.log("Values", values);
+		register(values);
 
 		setActiveStep(activeStep + 1);
 	}
@@ -131,7 +143,6 @@ const Register = ({ open, close, token, user }) => {
 
 	return (
 		<StyledParentContainer>
-
 			<Stack direction="column" spacing={5}>
 				<Stack direction="column" spacing={1.5}>
 					<Typography variant="h2" color="text.primary">
@@ -162,10 +173,7 @@ const Register = ({ open, close, token, user }) => {
 							}}
 						>
 							{activeStep === steps.length ? (
-								<FormSuccess 
-									title="SUCCESS!!"
-									text="You have registered Successfully"
-								/>
+								<FormSuccess title="SUCCESS!!" text="You have registered Successfully" />
 							) : (
 								<Formik
 									initialValues={formInitialValues}
@@ -199,6 +207,12 @@ const Register = ({ open, close, token, user }) => {
 													setFieldValue={setFieldValue}
 												/>
 											) : activeStep === 4 ? (
+												<PasswordInfo
+													values={values}
+													formField={formField}
+													setFieldValue={setFieldValue}
+												/>
+											) : activeStep === 5 ? (
 												<ReviewRegistration values={values} />
 											) : (
 												<div>notfound</div>
@@ -206,7 +220,11 @@ const Register = ({ open, close, token, user }) => {
 
 											<ButtonGroup sx={{ mt: "20px" }}>
 												{activeStep !== 0 && (
-													<StyledButton onClick={handleBack} variant="contained" color="error">
+													<StyledButton
+														onClick={handleBack}
+														variant="contained"
+														color="error"
+													>
 														Back
 													</StyledButton>
 												)}
@@ -231,7 +249,6 @@ const Register = ({ open, close, token, user }) => {
 					</StyledStepperItems>
 				</StyledRegisterModal>
 			</Stack>
-
 		</StyledParentContainer>
 	);
 };
@@ -243,6 +260,8 @@ Register.proptype = {
 
 const mapStateToProps = ({ auth, user }) => ({});
 
-const mapDispatchToProps = (dispatch) => ({});
+const mapDispatchToProps = (dispatch) => ({
+	register: (values) => dispatch(registerUser(values)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Register);

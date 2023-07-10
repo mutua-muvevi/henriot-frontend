@@ -25,7 +25,10 @@ const {
 		issuingCountry,
 		identificationType,
 		phoneVerification,
-		emailVerification
+		emailVerification,
+
+		password,
+		confirmpassword,
 	}
 } = model
 
@@ -54,6 +57,9 @@ const initialValues = {
 	[identificationType.name]: "",
 	[phoneVerification.name]: "",
 	[emailVerification.name]: "",
+
+	[password.name]: "",
+	[confirmpassword.name]: "",
 }
 
 export default initialValues

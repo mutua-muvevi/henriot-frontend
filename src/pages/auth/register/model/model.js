@@ -269,6 +269,33 @@ const projectModel = {
 				message: "Maximum characters required for email verification is 100",
 			},
 		},
+		password: {
+			name: "password",
+			label:"Password*",
+			requiredErrorMsg:"Password is required",
+			minLength: {
+				length: 8,
+				message: "Password is too short - should be 8 chars minimum."
+			},
+			maxLength: {
+				length: 500,
+				message: "Maximum characters required for password is 500"
+			},
+		},
+		confirmpassword: {
+			name: "confirmpassword",
+			label:"Confirm your password*",
+			requiredErrorMsg:"Please retype password ",
+			passwordError: "Passwords do not match",
+			minLength: {
+				length: 8,
+				message: "Password is too short - should be 8 chars minimum."
+			},
+			maxLength: {
+				length: 500,
+				message: "Maximum characters required for password is 500"
+			},
+		},
 	},
 };
 
