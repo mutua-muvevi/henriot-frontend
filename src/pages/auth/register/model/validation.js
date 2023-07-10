@@ -27,7 +27,10 @@ const {
 		issuingCountry,
 		identificationType,
 		phoneVerification,
-		emailVerification
+		emailVerification,
+
+		password,
+		confirmpassword,
 	}
 } = model
 
@@ -145,6 +148,21 @@ const validation = [
 			.min(emailVerification.minLength.length, `${emailVerification.minLength.message}`)
 			.max(emailVerification.maxLength.length, `${emailVerification.maxLength.message}`)
 			.required(`${emailVerification.requiredErrorMsg}`),
+	}),
+
+	Yup.object().shape({
+		[password.name]: Yup
+			.string()
+			.min(password.minLength.length, `${password.minLength.message}`)
+			.max(password.maxLength.length, `${password.maxLength.message}`)
+			.required(`${password.requiredErrorMsg}`),
+		[confirmpassword.name]: Yup
+			.string()
+			.oneOf(
+				[Yup.ref("password"), null],
+				confirmpassword.passwordError
+			)
+			.required(`${confirmpassword.requiredErrorMsg}`),
 	}),
 ]
 

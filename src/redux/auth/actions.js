@@ -92,12 +92,12 @@ export const postResetPasswordFail = (errMessage) => ({
 })
 
 
-export const registerUser = (formData) => {
+export const registerUser = (values) => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.post(
 				`http://localhost:8100/api/user/register`,
-				formData,
+				values,
 				{
 					headers: {
 						"Content-Type": "application/json",
@@ -105,21 +105,20 @@ export const registerUser = (formData) => {
 				}
 			)
 			startRegisterUser()
-			console.log("REG", res)
 			dispatch(registerUserSuccess(res))
 		} catch (error) {
-			dispatch(registerUserFail(error.response.data.error))
+			dispatch(registerUserFail(error.response))
 		}
 	}
 }
 
 
-export const loginUserWithOtp = (formData) => {
+export const loginUserWithOtp = (values) => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.post(
 				`http://localhost:8100/api/user/otplogin`,
-				formData,
+				values,
 				{
 					headers: {
 						"Content-Type": "application/json",
@@ -137,12 +136,12 @@ export const loginUserWithOtp = (formData) => {
 }
 
 
-export const loginUser = (formData) => {
+export const loginUser = (values) => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.post(
 				`http://localhost:8100/api/user/login`,
-				formData,
+				values,
 				{
 					headers: {
 						"Content-Type": "application/json",
@@ -184,12 +183,12 @@ export const setupUser = (values, token, id) => {
 
 
 
-export const forgotPassword = (formData) => {
+export const forgotPassword = (values) => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.post(
 				`http://localhost:8100/api/user/forgotpassword`,
-				formData,
+				values,
 				{
 					headers: {
 					"Content-Type": "application/json",
