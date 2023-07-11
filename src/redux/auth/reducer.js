@@ -1,13 +1,13 @@
 import authTypes from './types';
 
 const initialState = {
-	token: "",
-	data: {},
-	user: {},
 	isLoading: false,
-	isAuthenticated: false,
-	errMessage: "",
-	error: {},
+	token: "",
+	// data: {},
+	// user: {},
+	// isAuthenticated: false,
+	// errMessage: "",
+	// error: {},
 };
 
 const authReducer = (state = initialState, { type, payload }) => {
@@ -189,6 +189,18 @@ const authReducer = (state = initialState, { type, payload }) => {
 				isAuthenticated: false,
 				errMessage: payload,
 				
+			}
+
+		case authTypes.LOGOUT_USER: 
+			return {
+				...state,
+				token: null,
+				data: null,
+				isLoading: false,
+				errMessage: undefined,
+				loginError: undefined,
+				resetError: undefined,
+				forgotError: undefined
 			}
 
 		default:
