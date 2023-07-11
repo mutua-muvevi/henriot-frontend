@@ -91,6 +91,10 @@ export const postResetPasswordFail = (errMessage) => ({
 	payload: errMessage,
 })
 
+export const signOutUser = () => ({
+	type: authTypes.LOGOUT_USER
+})
+
 
 export const registerUser = (values) => {
 	return async (dispatch) => {
@@ -138,7 +142,7 @@ export const loginUserWithOtp = (values) => {
 
 export const loginUser = (values) => {
 	return async (dispatch) => {
-		try {
+		try {console.log("CALUEES ACTON", values)
 			const res = await axios.post(
 				`http://localhost:8100/api/user/login`,
 				values,
@@ -219,6 +223,17 @@ export const resetPassword = (values, params) => {
 			postResetPasswordSuccess(res.data.data)
 		} catch (error) {
 			dispatch(postResetPasswordFail(error.response.data.error))
+		}
+	}
+}
+
+export const logoutUser = () => {
+	return (dispatch) => {
+		try {
+			const storage = window.localStorage
+			storage.clear()
+		} catch (error) {
+			console.log(error)
 		}
 	}
 }

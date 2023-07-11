@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Navigate } from 'react-router-dom';
 // material
 import { styled } from '@mui/material/styles';
 
@@ -7,6 +7,8 @@ import { styled } from '@mui/material/styles';
 import DrawerComponent from "./drawer/drawer";
 import DashboardNavbar from "./topbar/topbar";
 import { Container } from "@mui/material";
+import { fetchMe } from 'src/redux/user/action';
+import { connect } from 'react-redux';
 
 // ----------------------------------------------------------------------
 
@@ -34,8 +36,11 @@ const MainStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-const Layout = () => {
+const Layout = ({ token, getMe }) => {
 	const [open, setOpen] = useState(false);
+
+	getMe(token)
+	if(!token) return <Navigate to="/login"/>
 
 	return (
 		<RootStyle>
@@ -50,4 +55,12 @@ const Layout = () => {
 	);
 }
 
-export default Layout
+const mapStateToProps = ({ auth }) => ({
+	token: auth.token ? auth.token : null
+})
+
+const mapDispatchToProps = (dispatch) => ({
+	getMe: (token) => dispatch(fetchMe(token)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Layout)

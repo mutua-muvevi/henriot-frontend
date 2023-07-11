@@ -1,9 +1,9 @@
 export const loginForm = [
 	{
-		name: "username",
-		label: "Username",
-		placeholder: "Username",
-		type: "text",
+		name: "email",
+		label: "Email",
+		placeholder: "Email",
+		type: "email",
 		required: true,
 		inputprops: {}
 	},

@@ -43,12 +43,12 @@ const StyledButton = styled(Button)(({theme}) => ({
 
 
 const INITIAL_FORM_STATE = {
-	username: "",
+	email: "",
 	password: "",
 }
 
 const FORM_VALIDATION = Yup.object().shape({
-	username: Yup.string().min(5, "Too short username").max(80, "Too long username").required("Please add a username"),
+	email: Yup.string().min(5, "Too short email").email("please use a valid email").max(80, "Too long email").required("Please add a username"),
 	password: Yup.string().required("Please add a password"),
 })
 
@@ -70,17 +70,16 @@ const LoginForm = ({ loginUser, error, info}) => {
 	}, [info, error])
 	
 	const submitHandler = (values) => {
-		// loginUser(values)
+		loginUser(values)
 
 		// if(errMessage ) {
 		// 	setAlertSuccess(false)
 		// }
-		alert(JSON.stringify(values))
 		if(info.status === 200 && info.statusText === "OK" && !error){
 			setData(info)
 			setAlertSuccess(true)
 			setTimeout(() => {
-				navigate("/")
+				navigate("/admin/banking/dashboard")
 			}, 2000);
 		}
 

@@ -14,6 +14,8 @@ import {
 import MenuPopover from "../../../components/MenuPopover";
 //icons
 import { FaChevronDown } from "react-icons/fa";
+import { connect } from "react-redux";
+import { logoutUser } from "src/redux/auth/actions";
 
 // ----------------------------------------------------------------------
 
@@ -37,7 +39,7 @@ const MENU_OPTIONS = [
 
 // ----------------------------------------------------------------------
 
-const AccountPopover = () => {
+const AccountPopover = ({logout}) => {
 	const anchorRef = useRef(null);
 
 	const [open, setOpen] = useState(null);
@@ -48,6 +50,10 @@ const AccountPopover = () => {
 
 	const handleClose = () => {
 		setOpen(null);
+	};
+
+	const handleLogout = () => {
+		logout();
 	};
 
 	return (
@@ -114,7 +120,7 @@ const AccountPopover = () => {
 
 				<Divider sx={{ borderStyle: "dashed" }} />
 
-				<MenuItem onClick={handleClose} sx={{ m: 1 }}>
+				<MenuItem onClick={handleLogout} sx={{ m: 1 }}>
 					Logout
 				</MenuItem>
 			</MenuPopover>
@@ -122,4 +128,10 @@ const AccountPopover = () => {
 	);
 }
 
-export default AccountPopover
+const mapStateToProps = ({}) => ({});
+
+const mapDispatchToProps = (dispatch) => ({
+	logout: () => dispatch(logoutUser())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(AccountPopover)
