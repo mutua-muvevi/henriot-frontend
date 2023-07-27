@@ -52,37 +52,39 @@ const FORM_VALIDATION = Yup.object().shape({
 	password: Yup.string().required("Please add a password"),
 })
 
-const LoginForm = ({ loginUser, error, info}) => {
+const LoginForm = ({ loginUser, error, info, token}) => {
 	
 	const [ alertSuccess, setAlertSuccess ] = useState(false);
+	const [ showSuccess, setShowSuccess ] = useState(false);
 	const [ errors, setErrors ] = useState(null);
+	const [ showError, setShowError ] = useState(false);
 	const [ data, setData ] = useState({})
 
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		if(error){
-			setAlertSuccess(false)
-			setErrors(error)
-			return 
+		if(token){
+			return navigate("/admin/banking/dashboard")
+		} else {
+			return navigate("/login")
 		}
-		setErrors(null)
-	}, [info, error])
+	}, [token])
+
 	
 	const submitHandler = (values) => {
 		loginUser(values)
 
-		// if(errMessage ) {
-		// 	setAlertSuccess(false)
-		// }
-		if(info.status === 200 && info.statusText === "OK" && !error){
-			setData(info)
-			setAlertSuccess(true)
-			setTimeout(() => {
-				navigate("/admin/banking/dashboard")
-			}, 2000);
+		if(token === null){
+			setShowError(true)
 		}
 
+		if( token && token.success === true){
+			setShowSuccess(true)
+			
+		}
+		setTimeout(() => {
+			navigate("/admin/banking/dashboard")
+		}, 1500);
 	}
 
 	return (
@@ -103,10 +105,13 @@ const LoginForm = ({ loginUser, error, info}) => {
 						<Alert severity="error" variant="filled">
 							{console.log("ERROR", errors)}
 							<AlertTitle>Login Error!</AlertTitle>
-							{ 
+							{/* { 
 								errors ? 
 									errors.data ? errors.data.error : ""
 								: "" 
+							} */}
+							{
+								error && error.data && error.data.error ? error.data.error : ""
 							}
 						</Alert>
 					</Grow>
@@ -150,7 +155,7 @@ const mapStateToProps = ({ auth }) => ({
 	errMessage: auth.errMessage,
 	error: auth.error,
 	token: auth.token,
-	info: auth.data
+	info: auth.data,
 })
 
 const mapDispatchToProps = (dispatch) => ({
