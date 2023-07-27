@@ -11,7 +11,7 @@ import TextfieldWrapper from "../../../components/forms/textfield/textfield";
 
 import StepperComponent from "../../../components/stepper/stepper";
 import { setupfields } from "./info";
-import Page from '../../../components/Page';
+import Page from '../../../components/UI/Page';
 
 import { connect } from "react-redux";
 import { setupUser } from "../../../redux/auth/actions";

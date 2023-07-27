@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Page from "../../../../components/Page"
+import Page from "../../../../components/UI/Page"
 
 const BankingCurrentAccount = () => {
 	return (

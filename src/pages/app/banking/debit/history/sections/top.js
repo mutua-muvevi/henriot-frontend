@@ -3,7 +3,7 @@ import { styled } from "@mui/system";
 
 import { FaExclamationCircle } from "react-icons/fa";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
-import TooltipComponent from "src/components/Tooltip";
+import TooltipComponent from "src/components/UI/Tooltip";
 
 
 const StyledDebitHistoryTop = styled(Box)(({ theme }) => ({

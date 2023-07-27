@@ -1,6 +1,6 @@
 import { Box, Grow, Grid } from "@mui/material";
 import { styled } from "@mui/system";
-import NotificationComponent from "src/components/Notification";
+import NotificationComponent from "src/components/UI/Notification";
 
 
 const StyledNotificationSection = styled(Grid)(({ theme }) => ({

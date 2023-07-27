@@ -2,7 +2,7 @@ import { Box, Card, CardContent, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
 import { sentenceCase } from "change-case";
-import TimelineComponent from "src/components/Timeline";
+import TimelineComponent from "src/components/UI/Timeline";
 
 import { BsNewspaper } from "react-icons/bs";
 

@@ -1,6 +1,6 @@
 import { Box, Button, Grid, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/system";
-import TooltipComponent from "src/components/Tooltip";
+import TooltipComponent from "src/components/UI/Tooltip";
 
 import { rightSideContent } from "../info";
 

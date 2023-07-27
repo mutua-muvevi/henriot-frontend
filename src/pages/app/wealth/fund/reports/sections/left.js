@@ -3,7 +3,7 @@ import { styled } from "@mui/system";
 
 import { FaQuestion } from "react-icons/fa"
 import DatagridComponent from "src/components/datagrid/datagrid";
-import TooltipComponent from "src/components/Tooltip";
+import TooltipComponent from "src/components/UI/Tooltip";
 import { columns, rows } from "./info";
 
 const StyledFundsReportLeft = styled(Card)(({ theme }) => ({

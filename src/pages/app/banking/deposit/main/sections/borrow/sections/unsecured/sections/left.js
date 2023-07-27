@@ -1,7 +1,7 @@
 import { Box, Button, FormControl, InputLabel, MenuItem, Select, Stack, TextField, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 import { FaInfoCircle } from "react-icons/fa";
-import TooltipComponent from "src/components/Tooltip";
+import TooltipComponent from "src/components/UI/Tooltip";
 
 const StyledTermDepositBorrowUnSecuredBodyLeft = styled(Stack)(({ theme }) => ({
 

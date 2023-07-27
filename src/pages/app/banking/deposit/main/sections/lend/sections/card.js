@@ -6,9 +6,9 @@ import { styled } from "@mui/system";
 import { FaShareAltSquare } from "react-icons/fa"
 
 import { chartData } from "./info";
-import TooltipComponent from "src/components/Tooltip";
+import TooltipComponent from "src/components/UI/Tooltip";
 import LineChartComponent from "src/components/chart/line";
-import TimelineComponent from "src/components/Timeline";
+import TimelineComponent from "src/components/UI/Timeline";
 
 const StyledTermDepositLendCard = styled(Card)(({ theme }) => ({
 	padding: "10px",

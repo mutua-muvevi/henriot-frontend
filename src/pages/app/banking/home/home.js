@@ -1,7 +1,7 @@
 import { Box, Grid, Grow } from "@mui/material";
 import { styled } from "@mui/system";
 
-import Page from '../../../../components/Page';
+import Page from '../../../../components/UI/Page';
 import { topCards, mainCards } from "./info";
 import BankingMainCard from "./sections/maincard";
 import BankingNewsSection from "./sections/news";

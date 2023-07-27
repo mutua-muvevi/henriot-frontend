@@ -9,8 +9,8 @@ import { Box, Link, Button, Drawer, Typography, Avatar, Stack } from '@mui/mater
 import useResponsive from '../../../hooks/useResponsive';
 // components
 import Logo from '../../../assets/logo/Black on Transparent.png';
-import Scrollbar from '../../../components/Scrollbar';
-import NavSection from '../../../components/NavSection';
+import Scrollbar from '../../../components/UI/Scrollbar';
+import NavSection from '../../../components/UI/NavSection';
 //
 import { bankingSection, tradingSection, wealthManagementSection, guideSection } from './NavConfig';
 

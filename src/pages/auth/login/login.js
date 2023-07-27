@@ -4,7 +4,7 @@ import {  Box, Container, Grow, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
 import LoginForm from "./form";
-import Page from '../../../components/Page';
+import Page from '../../../components/UI/Page';
 import Logo from "../../../assets/logo/Black on Transparent.png";
 
 

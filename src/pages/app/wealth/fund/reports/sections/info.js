@@ -1,7 +1,7 @@
 import { IconButton, Stack } from "@mui/material";
 import { BsFillFileEarmarkExcelFill, BsFillFileEarmarkTextFill, BsFillFileEarmarkPdfFill } from "react-icons/bs";
 import { FaInfoCircle } from "react-icons/fa";
-import TooltipComponent from "src/components/Tooltip";
+import TooltipComponent from "src/components/UI/Tooltip";
 
 const columnWidth = 100
 

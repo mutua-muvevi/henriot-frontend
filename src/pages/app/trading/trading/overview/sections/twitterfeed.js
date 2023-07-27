@@ -1,6 +1,6 @@
 import { Card } from "@mui/material";
 import { styled } from "@mui/system";
-import TwitterFeedComponent from "src/components/TwitterFeed";
+import TwitterFeedComponent from "src/components/UI/TwitterFeed";
 
 const StyledTwitterfeed = styled(Card)(({ theme }) => ({
 	height: 350

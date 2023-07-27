@@ -18,7 +18,7 @@ import { styled } from "@mui/system";
 
 import { Formik, Form } from "formik";
 
-import Scrollbar from "../../../components/Scrollbar";
+import Scrollbar from "../../../components/UI/Scrollbar";
 
 import validationSchema from "./model/validation";
 import serviceModel from "./model/model";
@@ -31,7 +31,7 @@ import SecondaryInfo from "./forms/secondary";
 import ConsentInfo from "./forms/consent";
 import IdentityDetails from "./forms/identity";
 import ReviewRegistration from "./review/review";
-import FormSuccess from "src/components/formsuccess";
+import FormSuccess from "src/components/UI/formsuccess";
 import { registerUser } from "src/redux/auth/actions";
 import PasswordInfo from "./forms/password";
 

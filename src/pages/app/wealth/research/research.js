@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import { styled } from "@mui/system";
 
-import TabComponent from "src/components/Tabs";
+import TabComponent from "src/components/UI/Tabs";
 import { tabsInfo } from "./info";
 
 const StyledWealthResearch = styled(Box)(({ theme }) => ({

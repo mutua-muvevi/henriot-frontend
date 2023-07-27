@@ -11,7 +11,7 @@ import {
 	IconButton,
 } from "@mui/material";
 // components
-import MenuPopover from "../../../components/MenuPopover";
+import MenuPopover from "../../../components/UI/MenuPopover";
 //icons
 import { FaChevronDown } from "react-icons/fa";
 import { connect } from "react-redux";
