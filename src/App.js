@@ -1,44 +1,70 @@
 import React, { Suspense, useEffect } from "react";
+import { BrowserRouter } from "react-router-dom";
 // routes
 import Router from './routes';
+
 // theme
 import ThemeProvider from './theme';
-// components
-import ScrollToTop from './components/UI/ScrollToTop';
 
-import { connect } from "react-redux";
-import { fetchUser } from "./redux/user/action";
-import Fallback from "./components/fallback/fallback";
+// locales
+import ThemeLocalization from './locales';
 
-function App ({token, fetchMe}){
+//@mui
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 
-	useEffect(() => {
-		try {
-			fetchMe(token)
-		} catch (error) {
-			console.log("APP ERROR", error)
-			// log error to db
-		}
-	}, [token, fetchMe])
+//components
+import ScrollToTop from "./components/UI/ScrollToTop";
+import { BaseOptionChartStyle } from "./components/chart/BaseOptionChart";
+import SnackbarProvider from "./components/snackbar";
+import { MotionLazyContainer } from "./components/animate";
+import { ThemeSettings, SettingsProvider } from "./components/settings";
+import ErrorBoundary from "./error/errorboundary";
+
+//auth provider
+import { AuthProvider } from "./auth/JwtContext";
+import { HelmetProvider } from "react-helmet-async";
+
+import { Provider as ReduxProvider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { store, persistor } from "./redux/store";
+
+
+const App = () => {
 
 	return (
-		<ThemeProvider>
-			<Suspense fallback={<Fallback/>}>
-				<ScrollToTop />
-				<Router />
-			</Suspense>
-		</ThemeProvider>
+		<React.StrictMode>
+			<AuthProvider>
+				<HelmetProvider>
+					<ReduxProvider store={store}>
+						<PersistGate persistor={persistor}>
+							<LocalizationProvider dateAdapter={AdapterDateFns}>
+								<SettingsProvider>
+									<BrowserRouter>
+										<ScrollToTop />
+										<MotionLazyContainer>
+											<ErrorBoundary>
+												<ThemeProvider>
+													<ThemeSettings>
+														<ThemeLocalization>
+															<SnackbarProvider>
+																<BaseOptionChartStyle />
+																<Router />
+															</SnackbarProvider>
+														</ThemeLocalization>
+													</ThemeSettings>
+												</ThemeProvider>
+											</ErrorBoundary>
+										</MotionLazyContainer>
+									</BrowserRouter>
+								</SettingsProvider>
+							</LocalizationProvider>
+						</PersistGate>
+					</ReduxProvider>
+				</HelmetProvider>
+			</AuthProvider>
+		</React.StrictMode>
 	);
 }
 
-const mapStateToProps = ({ auth }) => ({
-	token: auth.token,
-	errMessage: auth.errMessage,
-	user: auth.data
-})
-
-const mapDispatchToProps = (dispatch) => ({
-	fetchMe : (token) => dispatch(fetchUser(token))
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
