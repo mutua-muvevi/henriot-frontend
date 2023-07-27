@@ -2,7 +2,7 @@ import { Box, Card, Divider, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
 import { tradeTabs } from "../../info";
-import TabComponent from "src/components/Tabs";
+import TabComponent from "src/components/UI/Tabs";
 
 const ContainerWrapper = styled(Card)(({ theme }) => ({
 	borderRadius: theme.shape.borderRadius,

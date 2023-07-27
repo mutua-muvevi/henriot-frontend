@@ -3,7 +3,7 @@ import { styled } from "@mui/system";
 
 import { FaInfoCircle } from "react-icons/fa";
 
-import TooltipComponent from "src/components/Tooltip";
+import TooltipComponent from "src/components/UI/Tooltip";
 
 const StyledTermDepositBorrowSecuredBodyLeft = styled(Stack)(({ theme }) => ({
 

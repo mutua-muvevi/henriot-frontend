@@ -5,7 +5,7 @@ import { styled } from "@mui/system";
 
 import { FaEye, FaTachometerAlt, FaInfoCircle } from "react-icons/fa";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
-import TooltipComponent from "src/components/Tooltip";
+import TooltipComponent from "src/components/UI/Tooltip";
 
 import { buttonGroupCardItems } from "./info";
 

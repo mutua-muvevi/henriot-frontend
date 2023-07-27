@@ -10,7 +10,7 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 
 import SelectField from "src/components/forms/select/select";
-import TooltipComponent from "src/components/Tooltip";
+import TooltipComponent from "src/components/UI/Tooltip";
 
 const StyledFundDetailsHeader = styled(Box)(({ theme }) => ({
 	borderBottom: "1px solid grey"

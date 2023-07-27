@@ -4,7 +4,7 @@ import { styled } from "@mui/system";
 import { sentenceCase, capitalCase } from "change-case";
 
 import FundDetailsCard from "./card";
-import TooltipComponent from "src/components/Tooltip";
+import TooltipComponent from "src/components/UI/Tooltip";
 import { FaInfoCircle } from "react-icons/fa";
 
 const StyledGridCardsSection = styled(Grid)(({ theme }) => ({

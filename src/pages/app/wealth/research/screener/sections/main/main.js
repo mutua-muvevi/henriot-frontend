@@ -7,7 +7,7 @@ import { FaChevronDown,FaPlus } from "react-icons/fa";
 
 import { columns, rows } from "./info";
 import DatagridComponent from "src/components/datagrid/datagrid";
-import MenuPopover from "src/components/MenuPopover";
+import MenuPopover from "src/components/UI/MenuPopover";
 
 const StyledResearchScreenerMainCard = styled(Card)(({ theme }) => ({
 	minHeight: 600,

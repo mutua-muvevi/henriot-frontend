@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
 import { tabsInfo } from "./info";
-import TabComponent from "src/components/Tabs";
+import TabComponent from "src/components/UI/Tabs";
 
 const StyledCryptoHistory = styled(Box)(({ theme }) => ({
 
