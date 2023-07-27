@@ -78,7 +78,7 @@ const ForgotPasswordForm = ({ forgotPassword, errMessage }) => {
 					</Grow>
 				) : null
 			}
-			{
+			{/* {
 				errMessage && alertSuccess === false   ? (
 					<Grow  style={{ transformOrigin: '10 20 50' }} sx={{marginBottom: "10px", width: "500px"}} in timeout={1000}>
 						<Alert severity="error" variant="filled">
@@ -87,7 +87,7 @@ const ForgotPasswordForm = ({ forgotPassword, errMessage }) => {
 						</Alert>
 					</Grow>
 				) : null
-			}
+			} */}
 
 			<Formik
 				initialValues={{

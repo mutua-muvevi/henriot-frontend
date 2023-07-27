@@ -134,7 +134,6 @@ export const loginUserWithOtp = (values) => {
 			dispatch(otpLoginUserSuccess(res))
 		} catch (error) {
 			dispatch(otpLoginUserFail(error.response))
-			console.log(error.response)
 		}
 	}
 }
@@ -154,7 +153,6 @@ export const loginUser = (values) => {
 				
 			)
 			startLoginUser()
-			console.log("RESPONSE",res)
 			dispatch(loginUserSuccess(res))
 		} catch (error) {
 			dispatch(loginUserFail(error.response))
