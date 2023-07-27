@@ -43,23 +43,28 @@ export const bankingSection = {
 			children: [
 				{
 					title: "details",
-					path:"/admin/banking/current-account/details"
+					path:"/admin/banking/current-account/details",
+					icon: "fa:bank"
 				},
 				{
 					title: "beneficiaries",
-					path:"/admin/banking/current-account/beneficiaries"
+					path:"/admin/banking/current-account/beneficiaries",
+					icon: "game-icons:cash"
 				},
 				{
 					title: "internal transfer",
-					path:"/admin/banking/current-account/internal-transfer"
+					path:"/admin/banking/current-account/internal-transfer",
+					icon: "game-icons:cash"
 				},
 				{
 					title: "swift-transfer",
-					path:"/admin/banking/current-account/swift-transfer"
+					path:"/admin/banking/current-account/swift-transfer",
+					icon: "game-icons:cash"
 				},
 				{
 					title: "withdraw history",
-					path:"/admin/banking/current-account/withdraw-history"
+					path:"/admin/banking/current-account/withdraw-history",
+					icon: "game-icons:cash"
 				},
 			],
 		},
@@ -70,11 +75,13 @@ export const bankingSection = {
 			children: [
 				{
 					title: "overview",
-					path:"/admin/banking/term-deposit/overview"
+					path:"/admin/banking/term-deposit/overview",
+					icon: "game-icons:cash"
 				},
 				{
 					title: "main",
-					path:"/admin/banking/term-deposit/main/summary"
+					path:"/admin/banking/term-deposit/main/summary",
+					icon: "game-icons:cash"
 				},
 			],
 		},
@@ -85,15 +92,18 @@ export const bankingSection = {
 			children: [
 				{
 					title: "history",
-					path:"/admin/banking/crypto-account/history"
+					path:"/admin/banking/crypto-account/history",
+					icon: "game-icons:cash"
 				},
 				{
 					title: "transfers",
-					path:"/admin/banking/crypto-account/transfers"
+					path:"/admin/banking/crypto-account/transfers",
+					icon: "game-icons:cash"
 				},
 				{
 					title: "portfolio",
-					path:"/admin/banking/crypto-account/portfolio"
+					path:"/admin/banking/crypto-account/portfolio",
+					icon: "game-icons:cash"
 				},
 			],
 		},
@@ -104,11 +114,13 @@ export const bankingSection = {
 			children: [
 				{
 					title: "details",
-					path:"/admin/banking/debit-card/details"
+					path:"/admin/banking/debit-card/details",
+					icon: "game-icons:cash"
 				},
 				{
 					title: "history",
-					path:"/admin/banking/debit-card/history"
+					path:"/admin/banking/debit-card/history",
+					icon: "game-icons:cash"
 				},
 			],
 		},
