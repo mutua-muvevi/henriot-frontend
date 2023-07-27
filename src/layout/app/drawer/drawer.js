@@ -63,10 +63,9 @@ export default function DrawerComponent({ isOpenSidebar, onCloseSidebar }) {
 					"& .simplebar-content": { height: 1, display: "flex", flexDirection: "column" },
 				}}
 			>
-				<Box sx={{ mb: 5, mx: 2.5, mt: 5 }}>
+				<Box sx={{ mb: 5, mx: 2.5, mt: 5, backgroundColor: theme.palette.background.default }}>
 					<Link underline="none" component={RouterLink} to="#">
 						<AccountStyle>
-							{/*<Avatar src={account.photoURL} alt="photoURL" />*/}
 							<Box sx={{ ml: 2 }}>
 								<img
 									src={theme.palette.mode === "dark" ? LogoWhite : LogoBlack}
@@ -100,7 +99,9 @@ export default function DrawerComponent({ isOpenSidebar, onCloseSidebar }) {
 					PaperProps={{
 						sx: {
 							width: DRAWER_WIDTH,
-							bgcolor: "rgba(100, 206, 187)",
+							bgcolor: theme.palette.mode === "light"
+								? theme.palette.primary.lighter
+								: theme.palette.background.paper,
 						},
 					}}
 				>
@@ -115,14 +116,12 @@ export default function DrawerComponent({ isOpenSidebar, onCloseSidebar }) {
 					PaperProps={{
 						sx: {
 							width: DRAWER_WIDTH,
-							bgcolor:
-								theme.palette.mode === "light"
+							bgcolor: theme.palette.mode === "light"
 									? theme.palette.primary.lighter
 									: theme.palette.background.paper,
 						},
 					}}
 				>
-					{console.log("Theme is", theme)}
 					{renderContent}
 				</Drawer>
 			)}
