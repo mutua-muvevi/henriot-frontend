@@ -29,11 +29,11 @@ const GREY = {
 };
 
 const PRIMARY = {
-	lighter: "#b0e6dc",
-	light: "#92ddcf",
+	lighter: "#b2e7dd",
+	light: "#84d9c9",
 	main: "#65cfbb",
-	dark: "#37af98",
-	darker: "#32a08b",
+	dark: "#5bbaa8",
+	darker: "#51a696",
 	contrastText: "#000000",
 };
 
@@ -80,13 +80,6 @@ const ERROR = {
 	dark: "#B72136",
 	darker: "#7A0C2E",
 	contrastText: "#fff",
-};
-
-const BACKGROUND = {
-	paper: "#fff",
-	default: GREY[100],
-	neutral: GREY[300],
-	dark: "rgba(1, 0, 1, 1)",
 };
 
 const GRADIENTS = {
@@ -140,7 +133,7 @@ const palette = (themeMode) => {
 		},
 		background: {
 			paper: "#fff",
-			default: GREY[100],
+			default: "#f0faf8",
 			neutral: GREY[200],
 		},
 		action: {
@@ -158,8 +151,8 @@ const palette = (themeMode) => {
 			disabled: GREY[600],
 		},
 		background: {
-			paper: "#1b1e36",
-			default: "#020a19",
+			paper: "rgba(30, 35, 36, 1)",
+			default: "#121414",
 			neutral: alpha(GREY[500], 0.16),
 		},
 		action: {

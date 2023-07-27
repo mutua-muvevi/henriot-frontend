@@ -29,7 +29,7 @@ const DatagridComponent = ({ columns, rows, title, actions, mt }) => {
 	const [pageSize, setPageSize] = useState(20);
 	
 	return (
-		<React.Fragment id={title}>
+		<div id={title}>
 			<StyledDataGrid
 				rows={rows}
 				columns={columns}
@@ -42,7 +42,7 @@ const DatagridComponent = ({ columns, rows, title, actions, mt }) => {
 					Toolbar: actions === true ? GridToolbar : null
 				}}
 			/>
-		</React.Fragment>
+		</div>
 	)
 }
 

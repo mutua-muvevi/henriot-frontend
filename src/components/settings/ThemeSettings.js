@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import ThemeRtlLayout from "./ThemeRtlLayout";
 import ThemeColorPresets from "./ThemeColorPresets";
 import SettingsDrawer from "./drawer";
 
@@ -12,10 +11,8 @@ ThemeSettings.propTypes = {
 export default function ThemeSettings({ children }) {
 	return (
 		<ThemeColorPresets>
-			<ThemeRtlLayout>
-				{children}
-				<SettingsDrawer />
-			</ThemeRtlLayout>
+			{children}
+			<SettingsDrawer />
 		</ThemeColorPresets>
 	);
 }
