@@ -66,8 +66,8 @@ export const fetchUser = (token) => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.get(
-				`http://localhost:8100/api/user/fetch/me`,
-				// `https://red-cockatoo-cap.cyclic.app/api/user/fetch/me`,
+				// `http://localhost:8100/api/user/fetch/me`,
+				`https://henriotgroup.onrender.com/api/user/fetch/me`,
 				{
 					headers: {
 						Authorization:`${token}`,
@@ -86,8 +86,8 @@ export const fetchAllUsers = (token) => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.get(
-				`http://localhost:8100/api/user/fetch/all`,
-				// `https://red-cockatoo-cap.cyclic.app/api/user/fetch/all`,
+				// `http://localhost:8100/api/user/fetch/all`,
+				`https://henriotgroup.onrender.com/api/user/fetch/all`,
 				{
 					headers: {
 						Authorization:`${token}`,
@@ -106,8 +106,8 @@ export const fetchMe = (token) => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.get(
-				`http://localhost:8100/api/user/fetch/me`,
-				// `https://red-cockatoo-cap.cyclic.app/api/user/fetch/me`,
+				// `http://localhost:8100/api/user/fetch/me`,
+				`https://henriotgroup.onrender.com/api/user/fetch/me`,
 				{
 					headers: {
 						Authorization:`${token}`,
@@ -133,8 +133,8 @@ export const setupUser = (values, token) => {
 			formData.append("image", values.image, values.image.name)
 
 			const res = await axios.put(
-				`http://localhost:8100/api/user/setup`,
-				// `https://red-cockatoo-cap.cyclic.app/api/user/setup`,
+				// `http://localhost:8100/api/user/setup`,
+				`https://henriotgroup.onrender.com/api/user/setup`,
 				formData,
 				{
 					headers: {
