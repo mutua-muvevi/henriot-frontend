@@ -5,8 +5,10 @@ import { styled } from "@mui/system";
 
 import LoginForm from "./form";
 import Page from '../../../components/UI/Page';
-import Logo from "../../../assets/logo/Black on Transparent.png";
+import { useTheme } from '@emotion/react';
 
+import LogoBlack from "../../../assets/logo/Black on Transparent.png";
+import LogoWhite from "../../../assets/logo/White on Transparent.png";
 
 const StyledLogin = styled(Box)(({ theme }) => ({
 	minHeight: "100vh",
@@ -43,12 +45,13 @@ const StyledLoginFormWrapper = styled(Container)(({ theme }) => ({
 }))
 
 const Login = () => {
+	const theme = useTheme()
 	return (
 		<Page title="Login">
 			<StyledLogin>
 				<StyledLogoSection>
 					<img
-						src={Logo}
+						src={theme.palette.mode === "dark" ? LogoWhite : LogoBlack}
 						alt="Henriot logo"
 						style={styledLogoImage}
 					/>

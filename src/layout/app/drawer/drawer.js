@@ -1,34 +1,36 @@
-import PropTypes from 'prop-types';
-import { useEffect } from 'react';
-import { Link as RouterLink, useLocation } from 'react-router-dom';
+import PropTypes from "prop-types";
+import { useEffect } from "react";
+import { Link as RouterLink, useLocation } from "react-router-dom";
 // material
-import {  alpha, styled } from '@mui/material/styles';
-import { Box, Link, Button, Drawer, Typography, Avatar, Stack } from '@mui/material';
+import { alpha, styled } from "@mui/material/styles";
+import { Box, Link, Button, Drawer, Typography, Avatar, Stack } from "@mui/material";
 
 // hooks
-import useResponsive from '../../../hooks/useResponsive';
+import useResponsive from "../../../hooks/useResponsive";
 // components
-import Logo from '../../../assets/logo/Black on Transparent.png';
-import Scrollbar from '../../../components/UI/Scrollbar';
-import NavSection from '../../../components/UI/NavSection';
+import LogoBlack from "../../../assets/logo/Black on Transparent.png";
+import LogoWhite from "../../../assets/logo/White on Transparent.png";
+import Scrollbar from "../../../components/UI/Scrollbar";
+import NavSection from "../../../components/UI/NavSection";
 //
-import { bankingSection, tradingSection, wealthManagementSection, guideSection } from './NavConfig';
+import { bankingSection, tradingSection, wealthManagementSection, guideSection } from "./NavConfig";
+import { useTheme } from "@emotion/react";
 
 // ----------------------------------------------------------------------
 
 const DRAWER_WIDTH = 260;
 
-const RootStyle = styled('div')(({ theme }) => ({
-	[theme.breakpoints.up('lg')]: {
+const RootStyle = styled("div")(({ theme }) => ({
+	[theme.breakpoints.up("lg")]: {
 		flexShrink: 0,
 		width: DRAWER_WIDTH,
 	},
-	margin: 0
+	margin: 0,
 }));
 
-const AccountStyle = styled('div')(({ theme }) => ({
-	display: 'flex',
-	alignItems: 'center',
+const AccountStyle = styled("div")(({ theme }) => ({
+	display: "flex",
+	alignItems: "center",
 	padding: theme.spacing(1.8, 2),
 	borderRadius: Number(theme.shape.borderRadius) * 1.5,
 }));
@@ -42,8 +44,9 @@ DrawerComponent.propTypes = {
 
 export default function DrawerComponent({ isOpenSidebar, onCloseSidebar }) {
 	const { pathname } = useLocation();
+	const theme = useTheme();
 
-	const isDesktop = useResponsive('up', 'lg');
+	const isDesktop = useResponsive("up", "lg");
 
 	useEffect(() => {
 		if (isOpenSidebar) {
@@ -57,19 +60,18 @@ export default function DrawerComponent({ isOpenSidebar, onCloseSidebar }) {
 			<Scrollbar
 				sx={{
 					height: 1,
-					'& .simplebar-content': { height: 1, display: 'flex', flexDirection: 'column' },
+					"& .simplebar-content": { height: 1, display: "flex", flexDirection: "column" },
 				}}
 			>
-
-				<Box sx={{ mb: 5, mx: 2.5, mt:5 }}>
+				<Box sx={{ mb: 5, mx: 2.5, mt: 5 }}>
 					<Link underline="none" component={RouterLink} to="#">
 						<AccountStyle>
 							{/*<Avatar src={account.photoURL} alt="photoURL" />*/}
 							<Box sx={{ ml: 2 }}>
-								<img 
-									src={Logo}
+								<img
+									src={theme.palette.mode === "dark" ? LogoWhite : LogoBlack}
 									alt="Henriot Logo"
-									style={{  }}
+									style={{}}
 								/>
 							</Box>
 						</AccountStyle>
@@ -113,10 +115,14 @@ export default function DrawerComponent({ isOpenSidebar, onCloseSidebar }) {
 					PaperProps={{
 						sx: {
 							width: DRAWER_WIDTH,
-							bgcolor: "rgba(100, 206, 187, 0.32)",
+							bgcolor:
+								theme.palette.mode === "light"
+									? theme.palette.primary.lighter
+									: theme.palette.background.paper,
 						},
 					}}
 				>
+					{console.log("Theme is", theme)}
 					{renderContent}
 				</Drawer>
 			)}
