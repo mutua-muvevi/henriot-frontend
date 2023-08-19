@@ -25,20 +25,9 @@ const keyStyles = {
 };
 
 const SecondaryReview = ({ formValues }) => {
-	const { street, city, state, postcode, dateOfBirth, passportNumber, occupation, annualIncome, valueOfAsset } =
-		formValues;
+	const { given_name, middle_name, family_name, date_of_birth, tax_id, tax_id_type, country_of_citizenship, country_of_birth, country_of_tax_residence, funding_source } = formValues;
 
-	const previewArray = {
-		street,
-		city,
-		state,
-		postcode,
-		dateOfBirth,
-		passportNumber,
-		occupation,
-		annualIncome,
-		valueOfAsset,
-	};
+	const previewArray = { given_name, middle_name, family_name, date_of_birth, tax_id, tax_id_type, country_of_citizenship, country_of_birth, country_of_tax_residence, funding_source };
 
 	const entries = Object.entries(previewArray);
 

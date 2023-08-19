@@ -66,20 +66,6 @@ const validationSchemas = [
 		trusted_email_address: Yup.string().email("Please use a valid email"),
 		// documents: Yup.string(),
 	}),
-	// }),
-
-	// // Step 3: Consent
-	// Yup.object().shape({
-	// 	consent: Yup.boolean().oneOf([true], "You must consent to continue"),
-	// }),
-
-	// // Step 4: Identity
-	// Yup.object().shape({
-	// 	issuingCountry: Yup.string().required("Issuing country is required"),
-	// 	identificationType: Yup.string().required("Identification type is required"),
-	// 	phoneVerification: Yup.string().required("Phone verification is required"),
-	// 	emailVerification: Yup.string().required("Email verification is required"),
-	// }),
 
 	// Step 5: Password
 	Yup.object().shape({
