@@ -1,169 +1,93 @@
-import * as Yup from 'yup';
-//import moment from 'moment';
-import model from "./model"
+import * as Yup from "yup";
 
-const {
-	formField: {
-		investorType,
-		email,
-		firstname,
-		lastname,
-		country,
-		phoneNumber,
-		introducerCode,
-
-		street,
-		city,
-		state,
-		postcode,
-		dateOfBirth,
-		passportNumber,
-		occupation,
-		annualIncome,
-		valueOfAsset,
-
-		consent,
-
-		issuingCountry,
-		identificationType,
-		phoneVerification,
-		emailVerification,
-
-		password,
-		confirmpassword,
-	}
-} = model
-
-const validation = [
+// Define validation schemas for each part of the form based on the initial values structure
+const validationSchemas = [
+	// Step 1: Primary Details
+	// Yup.object().shape({
 	Yup.object().shape({
-		[investorType.name]: Yup
-			.string()
-			.min(investorType.minLength.length, `${investorType.minLength.message}`)
-			.max(investorType.maxLength.length, `${investorType.maxLength.message}`)
-			.required(`${investorType.requiredErrorMsg}`),
-		[email.name]: Yup
-			.string()
-			.email("Please use a valid email")
-			.min(email.minLength.length, `${email.minLength.message}`)
-			.max(email.maxLength.length, `${email.maxLength.message}`)
-			.required(`${email.requiredErrorMsg}`),
-		[firstname.name]: Yup
-			.string()
-			.min(firstname.minLength.length, `${firstname.minLength.message}`)
-			.max(firstname.maxLength.length, `${firstname.maxLength.message}`)
-			.required(`${firstname.requiredErrorMsg}`),
-		[lastname.name]: Yup
-			.string()
-			.min(lastname.minLength.length, `${lastname.minLength.message}`)
-			.max(lastname.maxLength.length, `${lastname.maxLength.message}`)
-			.required(`${lastname.requiredErrorMsg}`),
-		[country.name]: Yup
-			.string()
-			.min(country.minLength.length, `${country.minLength.message}`)
-			.max(country.maxLength.length, `${country.maxLength.message}`)
-			.required(`${country.requiredErrorMsg}`),
-		[phoneNumber.name]: Yup
-			.string()
-			.min(phoneNumber.minLength.length, `${phoneNumber.minLength.message}`)
-			.max(phoneNumber.maxLength.length, `${phoneNumber.maxLength.message}`)
-			.required(`${phoneNumber.requiredErrorMsg}`),
-		[introducerCode.name]: Yup
-			.string()
-			.min(introducerCode.minLength.length, `${introducerCode.minLength.message}`)
-			.max(introducerCode.maxLength.length, `${introducerCode.maxLength.message}`)
+		email_address: Yup.string().email("Please use a valid email").required("Email is required"),
+		phone_number: Yup.string().required("Phone number is required"),
+		street_address: Yup.string().required("Street address is required"),
+		unit: Yup.string(),
+		city: Yup.string().required("City is required"),
+		state: Yup.string().required("State is required"),
+		postal_code: Yup.string().required("Postal code is required"),
+		country: Yup.string().required("Country is required"),
+	}),
+	// Add validation for other fields within the Primary Details section if needed
+	// }),
+
+	// Step 2: Secondary Details
+	Yup.object().shape({
+		given_name: Yup.string().required("Given name is required"),
+		middle_name: Yup.string(),
+		family_name: Yup.string().required("Family name is required"),
+		date_of_birth: Yup.string().required("Date of birth is required"),
+		tax_id: Yup.string().required("Tax ID is required"),
+		tax_id_type: Yup.string().required("Tax ID type is required"),
+		country_of_citizenship: Yup.string().required("Country of citizenship is required"),
+		country_of_birth: Yup.string().required("Country of birth is required"),
+		country_of_tax_residence: Yup.string().required("Country of tax residence is required"),
+		funding_source: Yup.string().required("Funding source is required"),
 	}),
 
 	Yup.object().shape({
-		[street.name]: Yup
-			.string()
-			.min(street.minLength.length, `${street.minLength.message}`)
-			.max(street.maxLength.length, `${street.maxLength.message}`)
-			.required(`${street.requiredErrorMsg}`),
-		[city.name]: Yup
-			.string()
-			.min(city.minLength.length, `${city.minLength.message}`)
-			.max(city.maxLength.length, `${city.maxLength.message}`)
-			.required(`${city.requiredErrorMsg}`),
-		[state.name]: Yup
-			.string()
-			.min(state.minLength.length, `${state.minLength.message}`)
-			.max(state.maxLength.length, `${state.maxLength.message}`)
-			.required(`${state.requiredErrorMsg}`),
-		[postcode.name]: Yup
-			.string()
-			.min(postcode.minLength.length, `${postcode.minLength.message}`)
-			.max(postcode.maxLength.length, `${postcode.maxLength.message}`)
-			.required(`${postcode.requiredErrorMsg}`),
-		[dateOfBirth.name]: Yup
-			.string()
-			.min(dateOfBirth.minLength.length, `${dateOfBirth.minLength.message}`)
-			.max(dateOfBirth.maxLength.length, `${dateOfBirth.maxLength.message}`)
-			.required(`${dateOfBirth.requiredErrorMsg}`),
-		[passportNumber.name]: Yup
-			.string()
-			.min(passportNumber.minLength.length, `${passportNumber.minLength.message}`)
-			.max(passportNumber.maxLength.length, `${passportNumber.maxLength.message}`)
-			.required(`${passportNumber.requiredErrorMsg}`),
-		[occupation.name]: Yup
-			.string()
-			.min(occupation.minLength.length, `${occupation.minLength.message}`)
-			.max(occupation.maxLength.length, `${occupation.maxLength.message}`)
-			.required(`${occupation.requiredErrorMsg}`),
-		[annualIncome.name]: Yup
-			.string()
-			.min(annualIncome.minLength.length, `${annualIncome.minLength.message}`)
-			.max(annualIncome.maxLength.length, `${annualIncome.maxLength.message}`)
-			.required(`${annualIncome.requiredErrorMsg}`),
-		[valueOfAsset.name]: Yup
-			.string()
-			.min(valueOfAsset.minLength.length, `${valueOfAsset.minLength.message}`)
-			.max(valueOfAsset.maxLength.length, `${valueOfAsset.maxLength.message}`)
-			.required(`${valueOfAsset.requiredErrorMsg}`),
+		consent: Yup.boolean(),
+		enabled_assets: Yup.string(),
+		
+		is_control_person: Yup.boolean(),
+		is_affiliated_exchange_or_finra: Yup.boolean(),
+		is_politically_exposed: Yup.boolean(),
+		immediate_family_exposed: Yup.boolean(),
+		context: Yup.array().of(
+			Yup.object().shape({
+				context_type: Yup.string(),
+				company_name: Yup.string(),
+				company_street_address: Yup.string(),
+				company_city: Yup.string(),
+				company_state: Yup.string(),
+				company_country: Yup.string(),
+				company_compliance_email: Yup.string().email("Please use a valid email"),
+			})
+		),
 	}),
 
 	Yup.object().shape({
-		[consent.name]: Yup
-			.boolean()
-			.required(`${consent.requiredErrorMsg}`),
+		agreements: Yup.array().of(
+			Yup.object().shape({
+				agreement: Yup.string().required("Agreement is required"),
+				signed_at: Yup.string().required("Signed date is required"),
+				ip_address: Yup.string().required("IP address is required"),
+				revision: Yup.string().required("Revision is required"),
+			}),
+		),
+		trusted_given_name: Yup.string(),
+		trusted_family_name: Yup.string(),
+		trusted_email_address: Yup.string().email("Please use a valid email"),
+		// documents: Yup.string(),
 	}),
+	// }),
 
+	// // Step 3: Consent
+	// Yup.object().shape({
+	// 	consent: Yup.boolean().oneOf([true], "You must consent to continue"),
+	// }),
+
+	// // Step 4: Identity
+	// Yup.object().shape({
+	// 	issuingCountry: Yup.string().required("Issuing country is required"),
+	// 	identificationType: Yup.string().required("Identification type is required"),
+	// 	phoneVerification: Yup.string().required("Phone verification is required"),
+	// 	emailVerification: Yup.string().required("Email verification is required"),
+	// }),
+
+	// Step 5: Password
 	Yup.object().shape({
-		[issuingCountry.name]: Yup
-			.string()
-			.min(issuingCountry.minLength.length, `${issuingCountry.minLength.message}`)
-			.max(issuingCountry.maxLength.length, `${issuingCountry.maxLength.message}`)
-			.required(`${issuingCountry.requiredErrorMsg}`),
-		[identificationType.name]: Yup
-			.string()
-			.min(identificationType.minLength.length, `${identificationType.minLength.message}`)
-			.max(identificationType.maxLength.length, `${identificationType.maxLength.message}`)
-			.required(`${identificationType.requiredErrorMsg}`),
-		[phoneVerification.name]: Yup
-			.string()
-			.min(phoneVerification.minLength.length, `${phoneVerification.minLength.message}`)
-			.max(phoneVerification.maxLength.length, `${phoneVerification.maxLength.message}`)
-			.required(`${phoneVerification.requiredErrorMsg}`),
-		[emailVerification.name]: Yup
-			.string()
-			.min(emailVerification.minLength.length, `${emailVerification.minLength.message}`)
-			.max(emailVerification.maxLength.length, `${emailVerification.maxLength.message}`)
-			.required(`${emailVerification.requiredErrorMsg}`),
+		password: Yup.string().required("Password is required"),
+		confirmpassword: Yup.string()
+			.oneOf([Yup.ref("password"), null], "Passwords must match")
+			.required("Confirm password is required"),
 	}),
+];
 
-	Yup.object().shape({
-		[password.name]: Yup
-			.string()
-			.min(password.minLength.length, `${password.minLength.message}`)
-			.max(password.maxLength.length, `${password.maxLength.message}`)
-			.required(`${password.requiredErrorMsg}`),
-		[confirmpassword.name]: Yup
-			.string()
-			.oneOf(
-				[Yup.ref("password"), null],
-				confirmpassword.passwordError
-			)
-			.required(`${confirmpassword.requiredErrorMsg}`),
-	}),
-]
-
-export default validation
+export default validationSchemas;

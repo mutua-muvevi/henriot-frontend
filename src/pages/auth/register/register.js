@@ -29,11 +29,12 @@ import PrimaryDetails from "./forms/primary";
 import { connect } from "react-redux";
 import SecondaryInfo from "./forms/secondary";
 import ConsentInfo from "./forms/consent";
-import IdentityDetails from "./forms/identity";
+import AgreementsDetails from "./forms/agreements";
 import ReviewRegistration from "./review/review";
 import FormSuccess from "src/components/UI/formsuccess";
 import { registerUser } from "src/redux/auth/actions";
 import PasswordInfo from "./forms/password";
+import OtherDetails from "./forms/others";
 
 const StyledParentContainer = styled(Box)(({ theme }) => ({
 	display: "flex",
@@ -112,7 +113,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
 }));
 
 const Register = ({ open, close, user, register }) => {
-	const steps = ["Primary details", "Secondary Details", "Consent", "Identity", "Password", "Review Registration"];
+	const steps = ["Contact Information", "Identity Information", "Other Information", "Identity", "Password", "Review Registration"];
 	const { formId, formField } = serviceModel;
 
 	const [activeStep, setActiveStep] = useState(0);
@@ -122,7 +123,7 @@ const Register = ({ open, close, user, register }) => {
 	function submitForm(values, actions) {
 		actions.setSubmitting(false);
 		console.log("Values", values);
-		register(values);
+		// register(values);
 
 		setActiveStep(activeStep + 1);
 	}
@@ -195,13 +196,13 @@ const Register = ({ open, close, user, register }) => {
 													setFieldValue={setFieldValue}
 												/>
 											) : activeStep === 2 ? (
-												<ConsentInfo
+												<OtherDetails
 													values={values}
 													formField={formField}
 													setFieldValue={setFieldValue}
 												/>
 											) : activeStep === 3 ? (
-												<IdentityDetails
+												<AgreementsDetails
 													values={values}
 													formField={formField}
 													setFieldValue={setFieldValue}

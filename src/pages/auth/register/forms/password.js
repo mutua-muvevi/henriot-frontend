@@ -23,9 +23,9 @@ const PasswordInfo = (props) => {
 			<Grid container spacing={3}>
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
 					<TextfieldWrapper
-						name={password.name}
+						name="password"
 						type={showPassword ? "text" : "password"}
-						label={password.label}
+						label="Password"
 						fullWidth
 						size="small"
 						InputProps={{
@@ -41,9 +41,9 @@ const PasswordInfo = (props) => {
 				</Grid>
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
 					<TextfieldWrapper
-						name={confirmpassword.name}
+						name="confirmpassword"
 						type={showPassword ? "text" : "password"}
-						label={confirmpassword.label}
+						label="Confirm Password"
 						fullWidth
 						size="small"
 						InputProps={{

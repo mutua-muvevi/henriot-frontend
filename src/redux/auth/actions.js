@@ -100,8 +100,8 @@ export const registerUser = (values) => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.post(
-				// `http://localhost:8100/api/user/register`,
-				`https://henriotgroup.onrender.com/api/user/register`,
+				`http://localhost:8100/api/user/register`,
+				// `https://henriotgroup.onrender.com/api/user/register`,
 				values,
 				{
 					headers: {
@@ -122,8 +122,8 @@ export const loginUserWithOtp = (values) => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.post(
-				// `http://localhost:8100/api/user/otplogin`,
-				`https://henriotgroup.onrender.com/api/user/otplogin`,
+				`http://localhost:8100/api/user/otplogin`,
+				// `https://henriotgroup.onrender.com/api/user/otplogin`,
 				values,
 				{
 					headers: {
@@ -145,8 +145,8 @@ export const loginUser = (values) => {
 	return async (dispatch) => {
 		try {console.log("CALUEES ACTON", values)
 			const res = await axios.post(
-				// `http://localhost:8100/api/user/login`,
-				`https://henriotgroup.onrender.com/api/user/login`,
+				`http://localhost:8100/api/user/login`,
+				// `https://henriotgroup.onrender.com/api/user/login`,
 				values,
 				{
 					headers: {
@@ -168,8 +168,8 @@ export const setupUser = (values, token, id) => {
 		try {
 			debugger
 			const res = await axios.put(
-				// `http://localhost:8100/api/user/setup/${id}`,
-				`https://henriotgroup.onrender.com/api/user/setup/${id}`,
+				`http://localhost:8100/api/user/setup/${id}`,
+				// `https://henriotgroup.onrender.com/api/user/setup/${id}`,
 				values,
 				{
 					headers: {
@@ -193,8 +193,8 @@ export const forgotPassword = (values) => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.post(
-				// `http://localhost:8100/api/user/forgotpassword`,
-				`https://henriotgroup.onrender.com/api/user/forgotpassword`,
+				`http://localhost:8100/api/user/forgotpassword`,
+				// `https://henriotgroup.onrender.com/api/user/forgotpassword`,
 				values,
 				{
 					headers: {
@@ -214,8 +214,8 @@ export const resetPassword = (values, params) => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.post(
-				// `http://localhost:8100/api/user/resetpasword/${params}`,
-				`https://henriotgroup.onrender.com/api/user/resetpasword/${params}`,
+				`http://localhost:8100/api/user/resetpasword/${params}`,
+				// `https://henriotgroup.onrender.com/api/user/resetpasword/${params}`,
 				values,
 				{
 					headers: {
