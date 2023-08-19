@@ -9,37 +9,24 @@ import { styled } from "@mui/system";
 import SelectField from "../../../../components/forms/select/select";
 
 import TextfieldWrapper from "../../../../components/forms/textfield/textfield";
-import DateTimePicker from "src/components/forms/datepicker/datepicker";
+import { countries } from "src/content/countries";
 
 const StyledFormContainer = styled(Box)(({ theme }) => ({}));
 
 const SecondaryInfo = (props) => {
-	const {
-		formField: { 
-			street,
-			city,
-			state,
-			postcode,
-			dateOfBirth,
-			passportNumber,
-			occupation,
-			annualIncome,
-			valueOfAsset,
-		},
-	} = props;
 
 	return (
 		<StyledFormContainer>
 			<Typography variant="h6" color="primary" sx={{ mb: "20px" }}>
-				Secondary information
+				Identity information
 			</Typography>
 
 			<Grid container spacing={3}>
 
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
 					<TextfieldWrapper
-						name={street.name}
-						label={street.label}
+						name="given_name"
+						label="Given Name"
 						fullWidth
 						size="small"
 					/>
@@ -47,70 +34,80 @@ const SecondaryInfo = (props) => {
 
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
 					<TextfieldWrapper
-						name={city.name}
-						label={city.label}
+						name="middle_name"
+						label="Middle Name"
 						fullWidth
 						size="small"
 					/>
 				</Grid>
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
 					<TextfieldWrapper
-						name={state.name}
-						label={state.label}
+						name="family_name"
+						label="Family Name"
 						fullWidth
 						size="small"
 					/>
 				</Grid>
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
 					<TextfieldWrapper
-						name={postcode.name}
-						label={postcode.label}
-						fullWidth
-						size="small"
-					/>
-				</Grid>
-				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<DateTimePicker
-						name={dateOfBirth.name}
-						label={dateOfBirth.label}
+						name="date_of_birth"
+						label="Date of Birth"
 						fullWidth
 						size="small"
 					/>
 				</Grid>
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
 					<TextfieldWrapper
-						name={passportNumber.name}
-						label={passportNumber.label}
+						name="tax_id"
+						label="Tax ID"
 						fullWidth
 						size="small"
 					/>
 				</Grid>
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
 					<TextfieldWrapper
-						name={occupation.name}
-						label={occupation.label}
+						name="tax_id_type"
+						label="Tax ID type"
 						fullWidth
 						size="small"
 					/>
 				</Grid>
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
 					<TextfieldWrapper
-						name={annualIncome.name}
-						label={annualIncome.label}
-						fullWidth
-						size="small"
-					/>
-				</Grid>
-				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<TextfieldWrapper
-						name={valueOfAsset.name}
-						label={valueOfAsset.label}
+						name="funding_source"
+						label="Funding Source"
 						fullWidth
 						size="small"
 					/>
 				</Grid>
 
-				
+				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+					<SelectField
+						name="country_of_citizenship"
+						label="Country of citizenship" 
+						options={countries} 
+						fullWidth 
+						size="small" 
+					/>
+				</Grid>
+				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+					<SelectField
+						name="country_of_birth"
+						label="Country of birth" 
+						options={countries} 
+						fullWidth 
+						size="small" 
+					/>
+				</Grid>
+				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+					<SelectField
+						name="country_of_tax_residence"
+						label="Country of tax residence" 
+						options={countries}
+						fullWidth 
+						size="small" 
+					/>
+				</Grid>
 			</Grid>
 		</StyledFormContainer>
 	);

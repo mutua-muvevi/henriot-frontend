@@ -28,19 +28,15 @@ import PrimaryDetails from "./forms/primary";
 
 import { connect } from "react-redux";
 import SecondaryInfo from "./forms/secondary";
-import ConsentInfo from "./forms/consent";
-import IdentityDetails from "./forms/identity";
+import AgreementsDetails from "./forms/agreements";
 import ReviewRegistration from "./review/review";
 import FormSuccess from "src/components/UI/formsuccess";
 import { registerUser } from "src/redux/auth/actions";
 import PasswordInfo from "./forms/password";
+import OtherDetails from "./forms/others";
 
-const StyledParentContainer = styled(Box)(({ theme }) => ({
-	display: "flex",
-	justifyContent: "center",
-	alignItems: "center",
-	height: "100vh",
-	backgroundColor: theme.palette.background.neutral,
+const StyledParentContainer = styled(Stack)(({ theme }) => ({
+	height:"100%"
 }));
 
 const StyledRegisterModal = styled(Paper)(({ theme }) => ({
@@ -59,8 +55,7 @@ const StyledStepper = styled(Stepper)(({ theme }) => ({
 
 const StyledStepperItems = styled(Box)(({ theme }) => ({
 	padding: "20px",
-	maxHeight: "60vh",
-	overflowY: "scroll",
+	height: "60vh",
 }));
 
 const StyledStepConnector = styled(StepConnector)(({ theme }) => ({
@@ -112,7 +107,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
 }));
 
 const Register = ({ open, close, user, register }) => {
-	const steps = ["Primary details", "Secondary Details", "Consent", "Identity", "Password", "Review Registration"];
+	const steps = ["Contact", "User Identity", "Other", "Trust & Agreements", "Password", "Review Registration"];
 	const { formId, formField } = serviceModel;
 
 	const [activeStep, setActiveStep] = useState(0);
@@ -121,7 +116,7 @@ const Register = ({ open, close, user, register }) => {
 
 	function submitForm(values, actions) {
 		actions.setSubmitting(false);
-		console.log("Values", values);
+		
 		register(values);
 
 		setActiveStep(activeStep + 1);
@@ -142,7 +137,7 @@ const Register = ({ open, close, user, register }) => {
 	}
 
 	return (
-		<StyledParentContainer>
+		<StyledParentContainer justifyContent="center" alignItems="center">
 			<Stack direction="column" spacing={5}>
 				<Stack direction="column" spacing={1.5}>
 					<Typography variant="h2" color="text.primary">
@@ -161,17 +156,8 @@ const Register = ({ open, close, user, register }) => {
 						))}
 					</StyledStepper>
 
-					<StyledStepperItems>
-						<Scrollbar
-							sx={{
-								height: 1,
-								"& .simplebar-content": {
-									height: 1,
-									display: "flex",
-									flexDirection: "column",
-								},
-							}}
-						>
+					<Scrollbar sx={{height:"63vh"}}>
+						<StyledStepperItems>
 							{activeStep === steps.length ? (
 								<FormSuccess title="SUCCESS!!" text="You have registered Successfully" />
 							) : (
@@ -195,13 +181,13 @@ const Register = ({ open, close, user, register }) => {
 													setFieldValue={setFieldValue}
 												/>
 											) : activeStep === 2 ? (
-												<ConsentInfo
+												<OtherDetails
 													values={values}
 													formField={formField}
 													setFieldValue={setFieldValue}
 												/>
 											) : activeStep === 3 ? (
-												<IdentityDetails
+												<AgreementsDetails
 													values={values}
 													formField={formField}
 													setFieldValue={setFieldValue}
@@ -220,11 +206,7 @@ const Register = ({ open, close, user, register }) => {
 
 											<ButtonGroup sx={{ mt: "20px" }}>
 												{activeStep !== 0 && (
-													<StyledButton
-														onClick={handleBack}
-														variant="contained"
-														color="error"
-													>
+													<StyledButton onClick={handleBack} variant="contained" color="error">
 														Back
 													</StyledButton>
 												)}
@@ -245,8 +227,8 @@ const Register = ({ open, close, user, register }) => {
 									)}
 								</Formik>
 							)}
-						</Scrollbar>
-					</StyledStepperItems>
+						</StyledStepperItems>
+					</Scrollbar>
 				</StyledRegisterModal>
 			</Stack>
 		</StyledParentContainer>

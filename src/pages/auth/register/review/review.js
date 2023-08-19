@@ -6,7 +6,7 @@ import { styled } from "@mui/system";
 
 import PrimaryReview from "./primary";
 import SecondaryReview from "./secondary";
-import IdentityReview from "./identity";
+import Agreements from "./agreements";
 
 const StyledReviewRegistrationItems = styled(Stack)(({ theme }) => ({
 
@@ -24,7 +24,7 @@ const ReviewRegistration = (props) => {
 			<StyledReviewRegistrationItems direction="column" spacing={3}>
 				<PrimaryReview formValues={formValues}/>
 				<SecondaryReview formValues={formValues}/>
-				<IdentityReview formValues={formValues}/>
+				<Agreements formValues={formValues}/>
 			</StyledReviewRegistrationItems>
 		</Stack>
 	);

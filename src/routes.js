@@ -77,7 +77,7 @@ export default function Router() {
 			],
 		},
 		{
-			path: "/admin",
+			path: "admin",
 			element: <Layout />,
 			children: [
 				{

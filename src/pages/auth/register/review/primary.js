@@ -25,9 +25,9 @@ const keyStyles = {
 };
 
 const PrimaryReview = ({ formValues }) => {
-	const { investorType, email, firstname, lastname, country, phoneNumber, introducerCode } = formValues;
+	const { email_address, phone_number, street_address, unit, city, state, postal_code, country } = formValues;
 
-	const previewArray = { investorType, email, firstname, lastname, country, phoneNumber, introducerCode };
+	const previewArray = { email_address,  phone_number, street_address, unit, city, state, postal_code, country  };
 
 	const entries = Object.entries(previewArray);
 

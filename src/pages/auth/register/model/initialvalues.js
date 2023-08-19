@@ -1,65 +1,58 @@
-import model from "./model"
-
-const {
-	formField: {
-		investorType,
-		email,
-		firstname,
-		lastname,
-		country,
-		phoneNumber,
-		introducerCode,
-
-		street,
-		city,
-		state,
-		postcode,
-		dateOfBirth,
-		passportNumber,
-		occupation,
-		annualIncome,
-		valueOfAsset,
-
-		consent,
-
-		issuingCountry,
-		identificationType,
-		phoneVerification,
-		emailVerification,
-
-		password,
-		confirmpassword,
-	}
-} = model
-
 const initialValues = {
-	[investorType.name]: "",
-	[email.name]: "",
-	[firstname.name]: "",
-	[lastname.name]: "",
-	[country.name]: "",
-	[phoneNumber.name]: "",
-	[introducerCode.name]: "",
+	email_address: "",
+	phone_number: "",
+	street_address: "",
+	unit: "",
+	city: "",
+	state: "",
+	postal_code: "",
+	country: "",
 
-	[street.name]: "",
-	[city.name]: "",
-	[state.name]: "",
-	[postcode.name]: "",
-	[dateOfBirth.name]: "",
-	[passportNumber.name]: "",
-	[occupation.name]: "",
-	[annualIncome.name]: "",
-	[valueOfAsset.name]: "",
-	
-	[consent.name]: "",
-	
-	[issuingCountry.name]: "",
-	[identificationType.name]: "",
-	[phoneVerification.name]: "",
-	[emailVerification.name]: "",
+	given_name: "",
+	middle_name: "",
+	family_name: "",
+	date_of_birth: "",
+	tax_id: "",
+	tax_id_type: "",
+	country_of_citizenship: "",
+	country_of_birth: "",
+	country_of_tax_residence: "",
+	funding_source: "",
 
-	[password.name]: "",
-	[confirmpassword.name]: "",
-}
+	consent: false,
+	enabled_assets: "",
+	is_control_person: false,
+	is_affiliated_exchange_or_finra: false,
+	is_politically_exposed: false,
+	immediate_family_exposed: false,
+	context: [
+		{
+			context_type: "",
+			company_name: "",
+			company_street_address: "",
+			company_city: "",
+			company_state: "",
+			company_country: "",
+			company_compliance_email: "",
+		},
+	],
 
-export default initialValues
+	agreements: [
+		{
+			agreement: "",
+			signed_at: "",
+			ip_address: "",
+			revision: "",
+		},
+	],
+	trusted_contact: {
+		trusted_given_name: "",
+		trusted_family_name: "",
+		trusted_email_address: "",
+	},
+	documents: [],
+
+	password: "",
+};
+
+export default initialValues;

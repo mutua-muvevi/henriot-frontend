@@ -1,15 +1,5 @@
-import {
-	Box,
-	FormControl,
-	FormControlLabel,
-	Radio,
-	RadioGroup,
-	Grid,
-	Typography,
-	FormLabel,
-} from "@mui/material";
+import { Box, FormControl, FormControlLabel, Radio, RadioGroup, Grid, Typography, FormLabel } from "@mui/material";
 import { styled } from "@mui/system";
-
 
 import SelectField from "../../../../components/forms/select/select";
 import { countries } from "src/content/countries";
@@ -21,110 +11,44 @@ const StyledFormContainer = styled(Box)(({ theme }) => ({}));
 
 const PrimaryPersonalInfo = (props) => {
 	const {
-		formField: { 
-			investorType,
-			email,
-			firstname,
-			lastname,
-			country,
-			phoneNumber,
-			introducerCode, },
+		formField: {
+			contact: { email_address, phone_number, street_address, unit, city, state, postal_code, country },
+		},
 	} = props;
-
-	// Get field properties and meta for 'type' field
-	const [field, meta] = useField(investorType.name);
 
 	return (
 		<StyledFormContainer>
 			<Typography variant="h6" color="primary" sx={{ mb: "20px" }}>
-				Personal information
+				Contact information
 			</Typography>
 
 			<Grid container spacing={3}>
 
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<FormControl>
-						<FormLabel id="demo-radio-buttons-group-label">
-							Project type
-						</FormLabel>
-						<RadioGroup
-							name={investorType.name}
-							row
-							{...field}
-						>
-							<FormControlLabel
-								value="private investor"
-								control={<Radio />}
-								label="Private qualified Investor"
-							/>
-							<FormControlLabel
-								value="legal entity"
-								control={<Radio />}
-								label="Legal entity autorized signatory"
-							/>
-						</RadioGroup>
-						
-						{meta.touched && meta.error && (
-							<Typography variant="caption" color="error">
-								{meta.error}
-							</Typography>
-						)}
-					</FormControl>
+					<TextfieldWrapper name="email_address" label="Email Address" fullWidth size="small" email />
 				</Grid>
 
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<TextfieldWrapper
-						name={email.name}
-						label={email.label}
-						fullWidth
-						size="small"
-						email
-					/>
-				</Grid>
-
-				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<TextfieldWrapper
-						name={firstname.name}
-						label={firstname.label}
-						fullWidth
-						size="small"
-					/>
+					<TextfieldWrapper name="phone_number" label="Phone Number" fullWidth size="small" />
 				</Grid>
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<TextfieldWrapper
-						name={lastname.name}
-						label={lastname.label}
-						fullWidth
-						size="small"
-					/>
+					<TextfieldWrapper name="street_address" label="Street Address" fullWidth size="small" />
 				</Grid>
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<SelectField
-						name={country.name}
-						label={country.label}
-						options={countries}
-						fullWidth
-						size="small"
-					/>
+					<TextfieldWrapper name="unit" label="Unit" fullWidth size="small" />
 				</Grid>
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<TextfieldWrapper
-						name={phoneNumber.name}
-						label={phoneNumber.label}
-						fullWidth
-						size="small"
-					/>
+					<TextfieldWrapper name="city" label="City" fullWidth size="small" />
 				</Grid>
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<TextfieldWrapper
-						name={introducerCode.name}
-						label={introducerCode.label}
-						fullWidth
-						size="small"
-					/>
+					<TextfieldWrapper name="state" label="State" fullWidth size="small" />
 				</Grid>
-
-				
+				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+					<TextfieldWrapper name="postal_code" label="Postal Code" fullWidth size="small" />
+				</Grid>
+				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+					<SelectField name="country" label="Country" options={countries} fullWidth size="small" />
+				</Grid>
 			</Grid>
 		</StyledFormContainer>
 	);

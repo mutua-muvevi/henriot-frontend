@@ -1,7 +1,7 @@
 import { Card, Grid, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
-const StyledIdentityReview = styled(Card)(({ theme }) => ({
+const StyledAgreementsReview = styled(Card)(({ theme }) => ({
 	padding: "20px",
 	backgroundColor: theme.palette.background.neutral
 }));
@@ -24,15 +24,15 @@ const keyStyles = {
 	marginRight: "10px",
 };
 
-const IdentityReview = ({ formValues }) => {
-	const { issuingCountry, identificationType } = formValues;
+const AgreementsReview = ({ formValues }) => {
+	const { trusted_given_name, trusted_family_name, trusted_email_address } = formValues;
 
-	const previewArray = { issuingCountry, identificationType };
+	const previewArray = { trusted_given_name, trusted_family_name, trusted_email_address };
 
 	const entries = Object.entries(previewArray);
 
 	return (
-		<StyledIdentityReview>
+		<StyledAgreementsReview>
 			{entries
 				? entries.map((entry, i) => (
 						<StyledEntriesGrid container key={i}>
@@ -48,8 +48,8 @@ const IdentityReview = ({ formValues }) => {
 						</StyledEntriesGrid>
 				  ))
 				: "Loading"}
-		</StyledIdentityReview>
+		</StyledAgreementsReview>
 	);
 };
 
-export default IdentityReview;
+export default AgreementsReview;
