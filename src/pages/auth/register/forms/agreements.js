@@ -114,9 +114,6 @@ const AgreementsDetails = (props) => {
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
 					<TextfieldWrapper name="trusted_email_address" label="Email Address" fullWidth size="small" />
 				</Grid>
-				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<TextfieldWrapper name="trusted_email_address" label="Email Address" fullWidth size="small" />
-				</Grid>
 			</Grid>
 		</StyledFormContainer>
 	);

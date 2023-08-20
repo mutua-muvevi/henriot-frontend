@@ -10,10 +10,15 @@ import SelectField from "../../../../components/forms/select/select";
 
 import TextfieldWrapper from "../../../../components/forms/textfield/textfield";
 import { countries } from "src/content/countries";
+import MultipleSelectCheckmarks from "src/components/formui/select/multiple";
+import { fundsSourceSelectOptions } from "./info";
+import { useField } from "formik";
 
 const StyledFormContainer = styled(Box)(({ theme }) => ({}));
 
+
 const SecondaryInfo = (props) => {
+	const fundingSourceField = useField("funding_source")
 
 	return (
 		<StyledFormContainer>
@@ -73,11 +78,12 @@ const SecondaryInfo = (props) => {
 					/>
 				</Grid>
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<TextfieldWrapper
+					<MultipleSelectCheckmarks
 						name="funding_source"
 						label="Funding Source"
 						fullWidth
 						size="small"
+						options={fundsSourceSelectOptions}
 					/>
 				</Grid>
 
