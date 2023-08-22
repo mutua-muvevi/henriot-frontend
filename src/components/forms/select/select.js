@@ -35,7 +35,7 @@ const SelectField = ({ name, options, variant, ...otherProps }) => {
 			{options.map((item, pos) => {
 				return (
 				<MenuItem key={pos} value={item.Name}>
-					{item.Name}
+					{item.Label ? item.Label : item.Name }
 				</MenuItem>
 				)
 			})}

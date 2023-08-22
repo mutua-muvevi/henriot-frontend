@@ -1,20 +1,14 @@
-import { Box, FormControl, FormControlLabel, Radio, RadioGroup, Grid, Typography, FormLabel } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
 import SelectField from "../../../../components/forms/select/select";
-import { countries } from "src/content/countries";
+import { countriesCode } from "src/content/countries";
 
 import TextfieldWrapper from "../../../../components/forms/textfield/textfield";
-import { useField } from "formik";
 
 const StyledFormContainer = styled(Box)(({ theme }) => ({}));
 
 const PrimaryPersonalInfo = (props) => {
-	const {
-		formField: {
-			contact: { email_address, phone_number, street_address, unit, city, state, postal_code, country },
-		},
-	} = props;
 
 	return (
 		<StyledFormContainer>
@@ -47,7 +41,7 @@ const PrimaryPersonalInfo = (props) => {
 					<TextfieldWrapper name="postal_code" label="Postal Code" fullWidth size="small" />
 				</Grid>
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<SelectField name="country" label="Country" options={countries} fullWidth size="small" />
+					<SelectField name="country" label="Country" options={countriesCode} fullWidth size="small" />
 				</Grid>
 			</Grid>
 		</StyledFormContainer>

@@ -1,4 +1,5 @@
 import * as Yup from "yup";
+import { enabledAssetsSelectOptions, fundsSourceSelectOptions } from "../forms/info";
 
 // Define validation schemas for each part of the form based on the initial values structure
 const validationSchemas = [
@@ -28,13 +29,27 @@ const validationSchemas = [
 		country_of_citizenship: Yup.string().required("Country of citizenship is required"),
 		country_of_birth: Yup.string().required("Country of birth is required"),
 		country_of_tax_residence: Yup.string().required("Country of tax residence is required"),
-		funding_source: Yup.string().required("Funding source is required"),
+		funding_source: Yup.array()
+			.min(1, "Funding source is required")
+			.of(
+				Yup.string().oneOf(
+					fundsSourceSelectOptions.map((option) => option.value),
+					"Invalid option"
+				)
+			),
 	}),
 
 	Yup.object().shape({
 		consent: Yup.boolean(),
-		enabled_assets: Yup.string(),
-		
+		enabled_assets: Yup.array()
+			.min(1, "Enabled assets field is required")
+			.of(
+				Yup.string().oneOf(
+					enabledAssetsSelectOptions.map((option) => option.value),
+					"Invalid option"
+				)
+			),
+
 		is_control_person: Yup.boolean(),
 		is_affiliated_exchange_or_finra: Yup.boolean(),
 		is_politically_exposed: Yup.boolean(),
@@ -59,7 +74,7 @@ const validationSchemas = [
 				signed_at: Yup.string().required("Signed date is required"),
 				ip_address: Yup.string().required("IP address is required"),
 				revision: Yup.string().required("Revision is required"),
-			}),
+			})
 		),
 		trusted_given_name: Yup.string(),
 		trusted_family_name: Yup.string(),

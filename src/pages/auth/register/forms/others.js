@@ -1,23 +1,20 @@
 import {
 	Box,
-	FormControl,
-	FormControlLabel,
-	Radio,
-	RadioGroup,
 	Grid,
 	Typography,
-	FormLabel,
 	Button,
 } from "@mui/material";
 import { styled } from "@mui/system";
 
 import SelectField from "../../../../components/forms/select/select";
 import CheckBoxField from "src/components/forms/checkbox/checkbox";
-import { countries } from "src/content/countries";
+import { countriesCode } from "src/content/countries";
 
 import TextfieldWrapper from "../../../../components/forms/textfield/textfield";
-import { FieldArray, useField } from "formik";
+import { FieldArray } from "formik";
 import Iconify from "src/components/iconify/iconify";
+import MultipleSelectCheckmarks from "src/components/formui/select/multiple";
+import { enabledAssetsSelectOptions } from "./info";
 
 const StyledFormContainer = styled(Box)(({ theme }) => ({}));
 
@@ -32,7 +29,13 @@ const OtherDetails = (props) => {
 
 			<Grid container spacing={3} sx={{ mb: 3 }}>
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<TextfieldWrapper name="enabled_assets" label="Enabled Assets" fullWidth size="small" />
+					<MultipleSelectCheckmarks
+						name="enabled_assets"
+						label="Enabled Assets"
+						fullWidth
+						size="small"
+						options={enabledAssetsSelectOptions}
+					/>
 				</Grid>
 
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
@@ -121,7 +124,7 @@ const OtherDetails = (props) => {
 														label="Company Country"
 														type="text"
 														size="small"
-														options={countries}
+														options={countriesCode}
 													/>
 												</Grid>
 												<Grid item xl={6} lg={6} md={6} sm={12} xs={12}>

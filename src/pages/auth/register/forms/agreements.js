@@ -17,6 +17,7 @@ import { countries } from "src/content/countries";
 import TextfieldWrapper from "../../../../components/forms/textfield/textfield";
 import { FieldArray, useField } from "formik";
 import Iconify from "src/components/iconify/iconify";
+import ReusableDateTimePicker from "src/components/forms/datepicker/datetime";
 
 const StyledFormContainer = styled(Box)(({ theme }) => ({}));
 
@@ -49,10 +50,9 @@ const AgreementsDetails = (props) => {
 													/>
 												</Grid>
 												<Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
-													<TextfieldWrapper
+													<ReusableDateTimePicker
 														name={`agreements.${index}.signed_at`}
 														label="Signed At"
-														type="text"
 														size="small"
 													/>
 												</Grid>
@@ -110,9 +110,6 @@ const AgreementsDetails = (props) => {
 				</Grid>
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
 					<TextfieldWrapper name="trusted_family_name" label="Family Name" fullWidth size="small" />
-				</Grid>
-				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<TextfieldWrapper name="trusted_email_address" label="Email Address" fullWidth size="small" />
 				</Grid>
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
 					<TextfieldWrapper name="trusted_email_address" label="Email Address" fullWidth size="small" />

@@ -45,11 +45,9 @@ const initialValues = {
 			revision: "",
 		},
 	],
-	trusted_contact: {
-		trusted_given_name: "",
-		trusted_family_name: "",
-		trusted_email_address: "",
-	},
+	trusted_given_name:"",
+	trusted_family_name:"",
+	trusted_email_address:"",
 	documents: [],
 
 	password: "",

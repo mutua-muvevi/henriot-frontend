@@ -9,9 +9,13 @@ import { styled } from "@mui/system";
 import SelectField from "../../../../components/forms/select/select";
 
 import TextfieldWrapper from "../../../../components/forms/textfield/textfield";
-import { countries } from "src/content/countries";
+import { countriesCode } from "src/content/countries";
+import MultipleSelectCheckmarks from "src/components/formui/select/multiple";
+import { fundsSourceSelectOptions } from "./info";
+import ReusableDatePicker from "src/components/forms/datepicker/date";
 
 const StyledFormContainer = styled(Box)(({ theme }) => ({}));
+
 
 const SecondaryInfo = (props) => {
 
@@ -49,12 +53,19 @@ const SecondaryInfo = (props) => {
 					/>
 				</Grid>
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<TextfieldWrapper
+					<ReusableDatePicker
 						name="date_of_birth"
 						label="Date of Birth"
 						fullWidth
 						size="small"
 					/>
+					{/* <TextfieldWrapper
+						name="date_of_birth"
+						label="Date of Birth"
+						fullWidth
+						size="small"
+					/> */}
+
 				</Grid>
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
 					<TextfieldWrapper
@@ -73,11 +84,12 @@ const SecondaryInfo = (props) => {
 					/>
 				</Grid>
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<TextfieldWrapper
+					<MultipleSelectCheckmarks
 						name="funding_source"
 						label="Funding Source"
 						fullWidth
 						size="small"
+						options={fundsSourceSelectOptions}
 					/>
 				</Grid>
 
@@ -85,7 +97,7 @@ const SecondaryInfo = (props) => {
 					<SelectField
 						name="country_of_citizenship"
 						label="Country of citizenship" 
-						options={countries} 
+						options={countriesCode} 
 						fullWidth 
 						size="small" 
 					/>
@@ -94,7 +106,7 @@ const SecondaryInfo = (props) => {
 					<SelectField
 						name="country_of_birth"
 						label="Country of birth" 
-						options={countries} 
+						options={countriesCode} 
 						fullWidth 
 						size="small" 
 					/>
@@ -103,7 +115,7 @@ const SecondaryInfo = (props) => {
 					<SelectField
 						name="country_of_tax_residence"
 						label="Country of tax residence" 
-						options={countries}
+						options={countriesCode}
 						fullWidth 
 						size="small" 
 					/>

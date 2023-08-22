@@ -27,7 +27,7 @@ const keyStyles = {
 const SecondaryReview = ({ formValues }) => {
 	const { given_name, middle_name, family_name, date_of_birth, tax_id, tax_id_type, country_of_citizenship, country_of_birth, country_of_tax_residence, funding_source } = formValues;
 
-	const previewArray = { given_name, middle_name, family_name, date_of_birth, tax_id, tax_id_type, country_of_citizenship, country_of_birth, country_of_tax_residence, funding_source };
+	const previewArray = { given_name, middle_name, family_name,  tax_id, tax_id_type, country_of_citizenship, country_of_birth, country_of_tax_residence, funding_source };
 
 	const entries = Object.entries(previewArray);
 
@@ -41,7 +41,7 @@ const SecondaryReview = ({ formValues }) => {
 									{entry[0]}
 								</Typography>
 							</StyledEntriesGridItems>
-
+							
 							<StyledEntriesGridItems item xs={6} sm={8} md={9} lg={10} xl={10}>
 								<Typography variant="body1">{entry[1]}</Typography>
 							</StyledEntriesGridItems>
