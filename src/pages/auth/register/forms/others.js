@@ -8,7 +8,7 @@ import { styled } from "@mui/system";
 
 import SelectField from "../../../../components/forms/select/select";
 import CheckBoxField from "src/components/forms/checkbox/checkbox";
-import { countries } from "src/content/countries";
+import { countriesCode } from "src/content/countries";
 
 import TextfieldWrapper from "../../../../components/forms/textfield/textfield";
 import { FieldArray } from "formik";
@@ -124,7 +124,7 @@ const OtherDetails = (props) => {
 														label="Company Country"
 														type="text"
 														size="small"
-														options={countries}
+														options={countriesCode}
 													/>
 												</Grid>
 												<Grid item xl={6} lg={6} md={6} sm={12} xs={12}>

@@ -17,6 +17,7 @@ import { countries } from "src/content/countries";
 import TextfieldWrapper from "../../../../components/forms/textfield/textfield";
 import { FieldArray, useField } from "formik";
 import Iconify from "src/components/iconify/iconify";
+import ReusableDateTimePicker from "src/components/forms/datepicker/datetime";
 
 const StyledFormContainer = styled(Box)(({ theme }) => ({}));
 
@@ -49,10 +50,9 @@ const AgreementsDetails = (props) => {
 													/>
 												</Grid>
 												<Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
-													<TextfieldWrapper
+													<ReusableDateTimePicker
 														name={`agreements.${index}.signed_at`}
 														label="Signed At"
-														type="text"
 														size="small"
 													/>
 												</Grid>
