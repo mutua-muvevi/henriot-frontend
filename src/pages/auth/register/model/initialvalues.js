@@ -2,7 +2,6 @@ const initialValues = {
 	email_address: "",
 	phone_number: "",
 	street_address: "",
-	unit: "",
 	city: "",
 	state: "",
 	postal_code: "",
@@ -39,16 +38,24 @@ const initialValues = {
 
 	agreements: [
 		{
-			agreement: "",
+			agreement: "margin_agreement",
 			signed_at: "",
 			ip_address: "",
-			revision: "",
+		},
+		{
+			agreement: "account_agreement",
+			signed_at: "",
+			ip_address: "",
+		},
+		{
+			agreement: "customer_agreement",
+			signed_at: "",
+			ip_address: "",
 		},
 	],
-	trusted_given_name:"",
-	trusted_family_name:"",
-	trusted_email_address:"",
-	documents: [],
+	trusted_given_name: "",
+	trusted_family_name: "",
+	trusted_email_address: "",
 
 	password: "",
 };

@@ -1,8 +1,4 @@
-import {
-	Box,
-	Grid,
-	Typography,
-} from "@mui/material";
+import { Box, Grid, Typography, } from "@mui/material";
 import { styled } from "@mui/system";
 
 
@@ -59,12 +55,6 @@ const SecondaryInfo = (props) => {
 						fullWidth
 						size="small"
 					/>
-					{/* <TextfieldWrapper
-						name="date_of_birth"
-						label="Date of Birth"
-						fullWidth
-						size="small"
-					/> */}
 
 				</Grid>
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>

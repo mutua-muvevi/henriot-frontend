@@ -34,6 +34,7 @@ import FormSuccess from "src/components/UI/formsuccess";
 import { registerUser } from "src/redux/auth/actions";
 import PasswordInfo from "./forms/password";
 import OtherDetails from "./forms/others";
+import DocumentsSection from "./forms/documents";
 
 const StyledParentContainer = styled(Stack)(({ theme }) => ({
 	height:"100%"
@@ -107,7 +108,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
 }));
 
 const Register = ({ open, close, user, register }) => {
-	const steps = ["Contact", "User Identity", "Other", "Trust & Agreements", "Password", "Review Registration"];
+	const steps = ["Contact", "User Identity", "Other", "Trust & Agreements", "Documents", "Password", "Review Registration"];
 	const { formId, formField } = serviceModel;
 
 	const [activeStep, setActiveStep] = useState(0);
@@ -123,6 +124,7 @@ const Register = ({ open, close, user, register }) => {
 	}
 
 	function handleSubmit(values, actions) {
+		console.log("Values from submit", values)
 		if (isLastStep) {
 			submitForm(values, actions);
 		} else {
@@ -156,7 +158,7 @@ const Register = ({ open, close, user, register }) => {
 						))}
 					</StyledStepper>
 
-					<Scrollbar sx={{height:"63vh"}}>
+					<Scrollbar sx={{height:"63vh"}}>{console.log("Active Step", activeStep)}
 						<StyledStepperItems>
 							{activeStep === steps.length ? (
 								<FormSuccess title="SUCCESS!!" text="You have registered Successfully" />
@@ -193,12 +195,19 @@ const Register = ({ open, close, user, register }) => {
 													setFieldValue={setFieldValue}
 												/>
 											) : activeStep === 4 ? (
+												<DocumentsSection
+													values={values}
+													formField={formField}
+													setFieldValue={setFieldValue}
+													activeStep={activeStep}
+												/>
+											) : activeStep === 5 ? (
 												<PasswordInfo
 													values={values}
 													formField={formField}
 													setFieldValue={setFieldValue}
 												/>
-											) : activeStep === 5 ? (
+											) : activeStep === 6 ? (
 												<ReviewRegistration values={values} />
 											) : (
 												<div>notfound</div>
