@@ -29,9 +29,6 @@ const PrimaryPersonalInfo = (props) => {
 					<TextfieldWrapper name="street_address" label="Street Address" fullWidth size="small" />
 				</Grid>
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<TextfieldWrapper name="unit" label="Unit" fullWidth size="small" />
-				</Grid>
-				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
 					<TextfieldWrapper name="city" label="City" fullWidth size="small" />
 				</Grid>
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>

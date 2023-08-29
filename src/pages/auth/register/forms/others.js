@@ -1,9 +1,4 @@
-import {
-	Box,
-	Grid,
-	Typography,
-	Button,
-} from "@mui/material";
+import { Box, Grid, Typography, Button } from "@mui/material";
 import { styled } from "@mui/system";
 
 import SelectField from "../../../../components/forms/select/select";
@@ -18,10 +13,25 @@ import { enabledAssetsSelectOptions } from "./info";
 
 const StyledFormContainer = styled(Box)(({ theme }) => ({}));
 
+const contextTypeOptions = [
+	{
+		Name: "CONTROLLED_FIRM",
+		Label: "Controlled Firm",
+	},
+	{
+		Name: "AFFILIATE_FIRM",
+		Label: "Affiliated Firm",
+	},
+	{
+		Name: "IMMEDIATE_FAMILY_EXPOSED",
+		Label: "Immidiate Family Exposed",
+	}
+]
+
 const OtherDetails = (props) => {
 	const { values } = props;
 
-	return (
+	return ( 
 		<StyledFormContainer>
 			<Typography variant="h6" color="primary" sx={{ mb: "20px" }}>
 				Other details
@@ -79,11 +89,12 @@ const OtherDetails = (props) => {
 													<Typography variant="body1">Context</Typography>
 												</Grid>
 												<Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
-													<TextfieldWrapper
+													<SelectField
 														name={`context.${index}.context_type`}
 														label="Content type"
 														type="text"
 														size="small"
+														options={contextTypeOptions}
 													/>
 												</Grid>
 												<Grid item xl={6} lg={6} md={6} sm={12} xs={12}>

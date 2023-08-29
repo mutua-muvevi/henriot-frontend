@@ -40,18 +40,6 @@ const projectModel = {
 					message: "Maximum characters required for street address is 100",
 				},
 			},
-			unit: {
-				name: "unit",
-				label: "unit*",
-				minLength: {
-					length: 3,
-					message: "Minimum characters required for unit is 3",
-				},
-				maxLength: {
-					length: 100,
-					message: "Maximum characters required for unit is 100",
-				},
-			},
 			city: {
 				name: "city",
 				label: "City*",
