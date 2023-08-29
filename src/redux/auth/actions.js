@@ -98,7 +98,7 @@ export const signOutUser = () => ({
 
 export const registerUser = (values) => {
 	return async (dispatch) => {
-		try {console.log("Values are", values)
+		try {
 			const res = await axios.post(
 				`http://localhost:8100/api/user/register`,
 				// `https://henriotgroup.onrender.com/api/user/register`,

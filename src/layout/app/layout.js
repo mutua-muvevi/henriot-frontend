@@ -9,6 +9,7 @@ import DashboardNavbar from "./topbar/topbar";
 import { Container } from "@mui/material";
 import { fetchMe } from 'src/redux/user/action';
 import { connect } from 'react-redux';
+import { fetchAssets } from 'src/redux/assets/actions';
 
 // ----------------------------------------------------------------------
 
@@ -36,10 +37,11 @@ const MainStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-const Layout = ({ token, getMe }) => {
+const Layout = ({ token, getMe, getAssets }) => {
 	const [open, setOpen] = useState(false);
 
 	getMe(token)
+	getAssets(token)
 	if(!token) return <Navigate to="/login"/>
 
 	return (
@@ -61,6 +63,7 @@ const mapStateToProps = ({ auth }) => ({
 
 const mapDispatchToProps = (dispatch) => ({
 	getMe: (token) => dispatch(fetchMe(token)),
+	getAssets: (token) => dispatch(fetchAssets(token))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Layout)

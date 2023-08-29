@@ -106,15 +106,15 @@ export const fetchMe = (token) => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.get(
-				// `http://localhost:8100/api/user/fetch/me`,
-				`https://henriotgroup.onrender.com/api/user/fetch/me`,
+				`http://localhost:8100/api/user/fetch/me`,
+				// `https://henriotgroup.onrender.com/api/user/fetch/me`,
 				{
 					headers: {
 						Authorization:`${token}`,
 					}
 				}
 			)
-			fetchMeStart()
+			dispatch(fetchMeStart())
 			dispatch(fetchMeSuccess(res))
 		} catch (error) {
 			dispatch(fetchMeFail(error.response))
