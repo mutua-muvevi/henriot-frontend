@@ -4,7 +4,7 @@ import { styled } from "@mui/system";
 import { sentenceCase } from "change-case";
 
 const StyledCard = styled(Card)(({ theme }) => ({
-
+	minHeight: 125
 }));
 
 const StyledCardContent = styled(CardContent)(({ theme }) => ({

@@ -148,7 +148,8 @@ const NavSection = ({
 
 	const match = (path) => (path ? !!matchPath({ path, end: false }, pathname) : false);
 
-	const navSection = [bankingSection, tradingSection, wealthManagementSection, guideSection];
+	// const navSection = [bankingSection, tradingSection, wealthManagementSection, guideSection];
+	const navSection = [tradingSection];
 
 	const adminNavSection = [navAdmin];
 

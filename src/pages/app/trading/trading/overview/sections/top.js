@@ -32,26 +32,22 @@ const StyledGridItemRight = styled(Grid)(({ theme }) => ({
 const titleStyle = {
 	fontSize: "33px !important",
 	lineHeight: "39px !important",
-	color: "rgba(0, 0, 0, 0.85)"
 }
 
 const subTitleStyle = {
 	fontSize: "26px !important",
 	lineHeight: "31px !important",
-	color: "rgba(0, 0, 0, 0.85)",
 	marginLeft: "5px"
 }
 
 const titleStyleTwo = {
 	fontSize: "26px !important",
 	lineHeight: "31px !important",
-	color: "rgba(0, 0, 0, 0.85)",
 }
 
 const subTitleStyleTwo = {
 	fontSize: "21px !important",
 	lineHeight: "25px !important",
-	color: "rgba(0, 0, 0, 0.85)",
 	marginLeft: "5px"
 }
 

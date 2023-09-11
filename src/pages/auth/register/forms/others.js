@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { Box, Grid, Typography, Button } from "@mui/material";
 import { styled } from "@mui/system";
 
@@ -6,7 +7,7 @@ import CheckBoxField from "src/components/forms/checkbox/checkbox";
 import { countriesCode } from "src/content/countries";
 
 import TextfieldWrapper from "../../../../components/forms/textfield/textfield";
-import { FieldArray } from "formik";
+import { FieldArray, useFormikContext } from "formik";
 import Iconify from "src/components/iconify/iconify";
 import MultipleSelectCheckmarks from "src/components/formui/select/multiple";
 import { enabledAssetsSelectOptions } from "./info";
@@ -25,13 +26,13 @@ const contextTypeOptions = [
 	{
 		Name: "IMMEDIATE_FAMILY_EXPOSED",
 		Label: "Immidiate Family Exposed",
-	}
-]
+	},
+];
 
 const OtherDetails = (props) => {
 	const { values } = props;
 
-	return ( 
+	return (
 		<StyledFormContainer>
 			<Typography variant="h6" color="primary" sx={{ mb: "20px" }}>
 				Other details
@@ -74,109 +75,243 @@ const OtherDetails = (props) => {
 						fullWidth
 					/>
 				</Grid>
+
+				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+					<CheckBoxField
+						name="immediate_family_exposed"
+						label="Is immidiate family exposed?"
+						legend="Is immidiate family exposed?"
+						fullWidth
+					/>
+				</Grid>
 			</Grid>
+{/* {console.log("Values", values)} */}
+			{values.immediate_family_exposed ? (
+				<FieldArray name="context">
+					{
+						(arrayHelper) => {
+							const context = values.context
 
-			<FieldArray name="context">
-				{(arrayHelpers) => {
-					const context = values.context;
-					return (
-						<>
-							{context && context.length > 0
-								? context.map((item, index) => (
-										<Box key={index} sx={{ marginBottom: "50px" }}>
-											<Grid container spacing={3}>
-												<Grid item xs={12}>
-													<Typography variant="body1">Context</Typography>
-												</Grid>
-												<Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
-													<SelectField
-														name={`context.${index}.context_type`}
-														label="Content type"
-														type="text"
-														size="small"
-														options={contextTypeOptions}
-													/>
-												</Grid>
-												<Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
-													<TextfieldWrapper
-														name={`context.${index}.company_name`}
-														label="Company Name"
-														type="text"
-														size="small"
-													/>
-												</Grid>
-												<Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
-													<TextfieldWrapper
-														name={`context.${index}.company_street_address`}
-														label="Company Street Address "
-														type="text"
-														size="small"
-													/>
-												</Grid>
-												<Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
-													<TextfieldWrapper
-														name={`context.${index}.company_city`}
-														label="Company City"
-														type="text"
-														size="small"
-													/>
-												</Grid>
-												<Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
-													<TextfieldWrapper
-														name={`context.${index}.company_state`}
-														label="Company State"
-														type="text"
-														size="small"
-													/>
-												</Grid>
-												<Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
-													<SelectField
-														name={`context.${index}.company_country`}
-														label="Company Country"
-														type="text"
-														size="small"
-														options={countriesCode}
-													/>
-												</Grid>
-												<Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
-													<TextfieldWrapper
-														name={`context.${index}.company_compliance_email`}
-														label="Company Compliance Email"
-														type="text"
-														size="small"
-													/>
-												</Grid>
+							arrayHelper.push({
+								context_type: "IMMEDIATE_FAMILY_EXPOSED",
+								company_name: "",
+								company_street_address: "",
+								company_city: "",
+								company_state: "",
+								company_country: "",
+								company_compliance_email: "",
+							})
 
-												<Grid item>
-													<Button type="button" onClick={() => arrayHelpers.remove(index)}>
-														<Iconify icon="icon-park:close" color="primary" />
-													</Button>
+
+							return (
+								<Box>
+									<Grid item xs={12}>
+										<Typography variant="body1">Context</Typography>
+									</Grid>
+									<Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
+										<TextfieldWrapper
+											name={`context.[0].context_type`}
+											label="Content type"
+											type="text"
+											size="small"
+											disabled
+											defaultValue="IMMEDIATE_FAMILY_EXPOSED"
+										/>
+									</Grid>
+								</Box>
+							)
+						}
+					}
+				</FieldArray>
+			) : null}
+
+			{values.is_affiliated_exchange_or_finra ? (
+				<FieldArray name="context">
+					{
+						(arrayHelper) => {
+							const context = values.context
+							
+							arrayHelper.push({
+								context_type: "AFFILIATE_FIRM",
+								company_name: "",
+								company_street_address: "",
+								company_city: "",
+								company_state: "",
+								company_country: "",
+								company_compliance_email: "",
+							})
+
+							return (
+								<Box>
+									<Grid item xs={12}>
+										<Typography variant="body1">Context</Typography>
+									</Grid>
+									<Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
+										<TextfieldWrapper
+											name={`context.[1].context_type`}
+											label="Content type"
+											type="text"
+											size="small"
+											disabled
+											defaultValue="AFFILIATE_FIRM"
+										/>
+									</Grid>
+								</Box>
+							)
+						}
+					}
+				</FieldArray>
+			) : null}
+
+			{values.is_control_person? (
+				<FieldArray name="context">
+					{
+						(arrayHelper) => {
+							const context = values.context
+
+							arrayHelper.push({
+								context_type: "CONTROLLED_FIRM",
+								company_name: "",
+								company_street_address: "",
+								company_city: "",
+								company_state: "",
+								company_country: "",
+								company_compliance_email: "",
+							})
+
+							return (
+								<Box>
+									<Grid item xs={12}>
+										<Typography variant="body1">Context</Typography>
+									</Grid>
+									<Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
+									<TextfieldWrapper
+											name={`context.[2].context_type`}
+											label="Content type"
+											type="text"
+											size="small"
+											disabled
+											defaultValue="CONTROLLED_FIRM"
+										/>
+									</Grid>
+								</Box>
+							)
+						}
+					}
+				</FieldArray>
+			) : null}
+
+
+			{/* {values.immediate_family_exposed ||
+			values.is_affiliated_exchange_or_finra ||
+			values.is_control_person ||
+			values.is_politically_exposed ? (
+				<FieldArray name="context">
+					{(arrayHelpers) => {
+						const context = values.context;
+						console.log("Array helpers", arrayHelpers)
+						return (
+							<>
+								{context && context.length > 0
+									? context.map((item, index) => (
+											<Box key={index} sx={{ marginBottom: "50px" }}>
+												<Grid container spacing={3}>
+													<Grid item xs={12}>
+														<Typography variant="body1">Context</Typography>
+													</Grid>
+													<Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
+														<SelectField
+															name={`context.${index}.context_type`}
+															label="Content type"
+															type="text"
+															size="small"
+															options={contextTypeOptions}
+														/>
+													</Grid>
+													<Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
+														<TextfieldWrapper
+															name={`context.${index}.company_name`}
+															label="Company Name"
+															type="text"
+															size="small"
+														/>
+													</Grid>
+													<Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
+														<TextfieldWrapper
+															name={`context.${index}.company_street_address`}
+															label="Company Street Address "
+															type="text"
+															size="small"
+														/>
+													</Grid>
+													<Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
+														<TextfieldWrapper
+															name={`context.${index}.company_city`}
+															label="Company City"
+															type="text"
+															size="small"
+														/>
+													</Grid>
+													<Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
+														<TextfieldWrapper
+															name={`context.${index}.company_state`}
+															label="Company State"
+															type="text"
+															size="small"
+														/>
+													</Grid>
+													<Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
+														<SelectField
+															name={`context.${index}.company_country`}
+															label="Company Country"
+															type="text"
+															size="small"
+															options={countriesCode}
+														/>
+													</Grid>
+													<Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
+														<TextfieldWrapper
+															name={`context.${index}.company_compliance_email`}
+															label="Company Compliance Email"
+															type="text"
+															size="small"
+														/>
+													</Grid>
+
+													<Grid item>
+														<Button
+															type="button"
+															onClick={() => arrayHelpers.remove(index)}
+														>
+															<Iconify icon="icon-park:close" color="primary" />
+														</Button>
+													</Grid>
 												</Grid>
-											</Grid>
-										</Box>
-								  ))
-								: null}
-							<Button
-								type="button"
-								variant="outlined"
-								onClick={() =>
-									arrayHelpers.push({
-										context_type: "",
-										company_name: "",
-										company_street_address: "",
-										company_city: "",
-										company_state: "",
-										company_country: "",
-										company_compliance_email: "",
-									})
-								}
-							>
-								Add context
-							</Button>
-						</>
-					);
-				}}
-			</FieldArray>
+											</Box>
+									  ))
+									: null}
+								<Button
+									type="button"
+									variant="outlined"
+									onClick={() =>
+										arrayHelpers.push({
+											context_type: "",
+											company_name: "",
+											company_street_address: "",
+											company_city: "",
+											company_state: "",
+											company_country: "",
+											company_compliance_email: "",
+										})
+									}
+								>
+									Add context
+								</Button>
+							</>
+						);
+					}}
+				</FieldArray>
+			) : null} */}
 		</StyledFormContainer>
 	);
 };
