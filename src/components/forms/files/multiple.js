@@ -9,7 +9,7 @@ const StyledFileInputContainer = styled("div")(({ theme }) => ({
 	gap: theme.spacing(1),
 }));
 
-const FileUploadField = ({ name, label, values, setFieldValue, ...otherProps }) => {
+const MultipleFileField = ({ name, label, values, setFieldValue, ...otherProps }) => {
 	const [meta] = useField(name);
 
 	const handleFileChange = (event) => {
@@ -39,4 +39,4 @@ const FileUploadField = ({ name, label, values, setFieldValue, ...otherProps }) 
 	);
 };
 
-export default FileUploadField;
+export default MultipleFileField;

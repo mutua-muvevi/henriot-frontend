@@ -1,14 +1,23 @@
-import React from 'react';
-import { TextField, MenuItem } from '@mui/material';
+import React from "react";
+import { TextField, MenuItem, FormControl, InputLabel, Select } from "@mui/material";
 
-import { useField, useFormikContext } from 'formik';
+import { useField, useFormikContext } from "formik";
+import Scrollbar from "src/components/UI/Scrollbar";
 
-const SelectField = ({ name, options, variant, ...otherProps }) => {
-	
+const SelectField = ({ name, label, height, options, variant, ...otherProps }) => {
+	const ITEM_HEIGHT = height ? height : 50;
+	const ITEM_PADDING_TOP = 8;
+	const MenuProps = {
+		PaperProps: {
+			style: {
+				maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+			},
+		},
+	};
 	const { setFieldValue } = useFormikContext();
 	const [field, meta] = useField(name);
 
-	const handleChange = evt => {
+	const handleChange = (evt) => {
 		const { value } = evt.target;
 		setFieldValue(name, value);
 	};
@@ -20,9 +29,10 @@ const SelectField = ({ name, options, variant, ...otherProps }) => {
 		fullWidth: true,
 		variant: variant ? variant : "outlined",
 		onChange: handleChange,
-		InputLabelProps:{
-			shrink: true
-		}
+		MenuProps: { MenuProps },
+		InputLabelProps: {
+			shrink: false,
+		},
 	};
 
 	if (meta && meta.touched && meta.error) {
@@ -31,15 +41,21 @@ const SelectField = ({ name, options, variant, ...otherProps }) => {
 	}
 
 	return (
-		<TextField {...configSelect}>
-			{options.map((item, pos) => {
-				return (
-				<MenuItem key={pos} value={item.Name}>
-					{item.Label ? item.Label : item.Name }
-				</MenuItem>
-				)
-			})}
-		</TextField>
+		<FormControl sx={{ width: "100%" }} size="small">
+			<InputLabel>{label}</InputLabel>
+			<Select
+				{...configSelect}
+				MenuProps={MenuProps}
+			>
+				{options.map((item, pos) => {
+					return (
+						<MenuItem key={pos} value={item.Name}>
+							{item.Label ? item.Label : item.Name}
+						</MenuItem>
+					);
+				})}
+			</Select>
+		</FormControl>
 	);
 };
 

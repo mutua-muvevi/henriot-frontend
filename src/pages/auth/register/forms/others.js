@@ -9,25 +9,31 @@ import { countriesCode } from "src/content/countries";
 import TextfieldWrapper from "../../../../components/forms/textfield/textfield";
 import { FieldArray, useFormikContext } from "formik";
 import Iconify from "src/components/iconify/iconify";
-import MultipleSelectCheckmarks from "src/components/formui/select/multiple";
 import { enabledAssetsSelectOptions } from "./info";
+import SelectMultipleField from "src/components/forms/select/multiple";
 
 const StyledFormContainer = styled(Box)(({ theme }) => ({}));
 
-const contextTypeOptions = [
+const controlledFirm = [
 	{
 		Name: "CONTROLLED_FIRM",
 		Label: "Controlled Firm",
 	},
+]
+
+const affiliatedFirm = [
 	{
 		Name: "AFFILIATE_FIRM",
 		Label: "Affiliated Firm",
 	},
+]
+
+const immidiateExposedFamily = [
 	{
 		Name: "IMMEDIATE_FAMILY_EXPOSED",
-		Label: "Immidiate Family Exposed",
+		Label: "Immidiate Exposed Family",
 	},
-];
+]
 
 const OtherDetails = (props) => {
 	const { values } = props;
@@ -38,9 +44,9 @@ const OtherDetails = (props) => {
 				Other details
 			</Typography>
 
-			<Grid container spacing={3} sx={{ mb: 3 }}>
+			<Grid container spacing={3} >
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<MultipleSelectCheckmarks
+					<SelectMultipleField
 						name="enabled_assets"
 						label="Enabled Assets"
 						fullWidth
@@ -85,40 +91,152 @@ const OtherDetails = (props) => {
 					/>
 				</Grid>
 			</Grid>
+
+			{values.is_control_person? (
+				<FieldArray name="context">
+					{
+						(arrayHelper) => {
+							const context = values.context
+							console.log(values)
+
+							return (
+								<Grid container spacing={3} sx={{mt:3}}>
+									<Grid item xs={12}>
+										<Typography variant="body1">Context for controlled firm</Typography>
+									</Grid>
+									<Grid item xs={12}>
+										<SelectField
+											name={`context.[0].context_type`}
+											label="Content type"
+											type="text"
+											size="small"
+											options={controlledFirm}
+										/>
+									</Grid>
+									<Grid item xs={12}>
+										<TextfieldWrapper
+											name={`context.[0].company_name`}
+											label="Company Name"
+											type="text"
+											size="small"
+										/>
+									</Grid>
+									<Grid item xs={12}>
+										<TextfieldWrapper
+											name={`context.[0].company_street_address`}
+											label="Company's Street Address"
+											type="text"
+											size="small"
+										/>
+									</Grid>
+									<Grid item xs={12}>
+										<TextfieldWrapper
+											name={`context.[0].company_city`}
+											label="Company City"
+											type="text"
+											size="small"
+										/>
+									</Grid>
+									<Grid item xs={12}>
+										<TextfieldWrapper
+											name={`context.[0].company_state`}
+											label="Company State"
+											type="text"
+											size="small"
+										/>
+									</Grid>
+									<Grid item xs={12}>
+										<SelectField
+											name={`context.[0].company_country`}
+											label="Company Country"
+											type="text"
+											size="small"
+											options={countriesCode}
+										/>
+									</Grid>
+									<Grid item xs={12}>
+										<TextfieldWrapper
+											name={`context.[0].company_compliance_email`}
+											label="Company Compliance Email"
+											type="text"
+											size="small"
+										/>
+									</Grid>
+								</Grid>
+							)
+						}
+					}
+				</FieldArray>
+			) : null}
 {/* {console.log("Values", values)} */}
 			{values.immediate_family_exposed ? (
 				<FieldArray name="context">
 					{
 						(arrayHelper) => {
-							const context = values.context
-
-							arrayHelper.push({
-								context_type: "IMMEDIATE_FAMILY_EXPOSED",
-								company_name: "",
-								company_street_address: "",
-								company_city: "",
-								company_state: "",
-								company_country: "",
-								company_compliance_email: "",
-							})
-
-
 							return (
-								<Box>
+								<Grid container spacing={3} sx={{mt:3}}>
 									<Grid item xs={12}>
-										<Typography variant="body1">Context</Typography>
+										<Typography variant="body1">Context for Immidiate Exposed Family</Typography>
 									</Grid>
-									<Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
-										<TextfieldWrapper
-											name={`context.[0].context_type`}
+									<Grid item xs={12}>
+										<SelectField
+											name={`context.[1].context_type`}
 											label="Content type"
 											type="text"
 											size="small"
-											disabled
-											defaultValue="IMMEDIATE_FAMILY_EXPOSED"
+											options={immidiateExposedFamily}
 										/>
 									</Grid>
-								</Box>
+									<Grid item xs={12}>
+										<TextfieldWrapper
+											name={`context.[1].company_name`}
+											label="Company Name"
+											type="text"
+											size="small"
+										/>
+									</Grid>
+									<Grid item xs={12}>
+										<TextfieldWrapper
+											name={`context.[1].company_street_address`}
+											label="Company's Street Address"
+											type="text"
+											size="small"
+										/>
+									</Grid>
+									<Grid item xs={12}>
+										<TextfieldWrapper
+											name={`context.[1].company_city`}
+											label="Company City"
+											type="text"
+											size="small"
+										/>
+									</Grid>
+									<Grid item xs={12}>
+										<TextfieldWrapper
+											name={`context.[1].company_state`}
+											label="Company State"
+											type="text"
+											size="small"
+										/>
+									</Grid>
+									<Grid item xs={12}>
+										<SelectField
+											name={`context.[1].company_country`}
+											label="Company Country"
+											type="text"
+											size="small"
+											options={countriesCode}
+										/>
+									</Grid>
+									<Grid item xs={12}>
+										<TextfieldWrapper
+											name={`context.[1].company_compliance_email`}
+											label="Company Compliance Email"
+											type="text"
+											size="small"
+										/>
+									</Grid>
+								</Grid>
 							)
 						}
 					}
@@ -129,77 +247,78 @@ const OtherDetails = (props) => {
 				<FieldArray name="context">
 					{
 						(arrayHelper) => {
-							const context = values.context
-							
-							arrayHelper.push({
-								context_type: "AFFILIATE_FIRM",
-								company_name: "",
-								company_street_address: "",
-								company_city: "",
-								company_state: "",
-								company_country: "",
-								company_compliance_email: "",
-							})
 
 							return (
-								<Box>
+								<Grid container spacing={3} sx={{mt:3}}>
 									<Grid item xs={12}>
-										<Typography variant="body1">Context</Typography>
+										<Typography variant="body1">Context for Affiliate echange or FINRA</Typography>
 									</Grid>
-									<Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
-										<TextfieldWrapper
-											name={`context.[1].context_type`}
-											label="Content type"
-											type="text"
-											size="small"
-											disabled
-											defaultValue="AFFILIATE_FIRM"
-										/>
-									</Grid>
-								</Box>
-							)
-						}
-					}
-				</FieldArray>
-			) : null}
-
-			{values.is_control_person? (
-				<FieldArray name="context">
-					{
-						(arrayHelper) => {
-							const context = values.context
-
-							arrayHelper.push({
-								context_type: "CONTROLLED_FIRM",
-								company_name: "",
-								company_street_address: "",
-								company_city: "",
-								company_state: "",
-								company_country: "",
-								company_compliance_email: "",
-							})
-
-							return (
-								<Box>
 									<Grid item xs={12}>
-										<Typography variant="body1">Context</Typography>
-									</Grid>
-									<Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
-									<TextfieldWrapper
+										<SelectField
 											name={`context.[2].context_type`}
 											label="Content type"
 											type="text"
 											size="small"
-											disabled
-											defaultValue="CONTROLLED_FIRM"
+											options={affiliatedFirm}
 										/>
 									</Grid>
-								</Box>
+									<Grid item xs={12}>
+										<TextfieldWrapper
+											name={`context.[2].company_name`}
+											label="Company Name"
+											type="text"
+											size="small"
+										/>
+									</Grid>
+									<Grid item xs={12}>
+										<TextfieldWrapper
+											name={`context.[2].company_street_address`}
+											label="Company's Street Address"
+											type="text"
+											size="small"
+										/>
+									</Grid>
+									<Grid item xs={12}>
+										<TextfieldWrapper
+											name={`context.[2].company_city`}
+											label="Company City"
+											type="text"
+											size="small"
+										/>
+									</Grid>
+									<Grid item xs={12}>
+										<TextfieldWrapper
+											name={`context.[2].company_state`}
+											label="Company State"
+											type="text"
+											size="small"
+										/>
+									</Grid>
+									<Grid item xs={12}>
+										<SelectField
+											name={`context.[2].company_country`}
+											label="Company Country"
+											type="text"
+											size="small"
+											options={countriesCode}
+										/>
+									</Grid>
+									<Grid item xs={12}>
+										<TextfieldWrapper
+											name={`context.[2].company_compliance_email`}
+											label="Company Compliance Email"
+											type="text"
+											size="small"
+										/>
+									</Grid>
+								</Grid>
 							)
 						}
 					}
 				</FieldArray>
 			) : null}
+
+
 
 
 			{/* {values.immediate_family_exposed ||

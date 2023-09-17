@@ -7,6 +7,7 @@ import * as Yup from "yup";
 import { buyInputs, buySelectOptionsOrderType, buySelectOptionsTimeInForce } from "../../info";
 import TextfieldWrapper from "src/components/forms/textfield/textfield";
 import SelectField from "src/components/forms/select/select";
+import { connect } from "react-redux";
 
 const StyledContainer = styled(Box)(({ Container }) => ({
 	margin: "30px 20px 20px 20px"
@@ -34,14 +35,14 @@ const FORM_VALIDATION = Yup.object().shape({
 	time_in_force: Yup.string().required("What is the time in force?"),
 })
 
-const TradeBuyOverview = () => {
+const TradeBuyOverview = ({assets}) => {
 
 	const submitHandler = (values) => {
 		console.log("VALUES ARE", values)
 	}
 
 	return (
-		<StyledContainer>
+		<StyledContainer>{console.log("Allassets are", assets)}
 			<Formik
 				initialValues={{
 					...INITIAL_FORM_STATE
@@ -100,4 +101,8 @@ const TradeBuyOverview = () => {
 	)
 }
 
-export default TradeBuyOverview
+const mapStateToProps = ({assets}) => ({
+	assets: assets.allAssets
+})
+
+export default connect(mapStateToProps)(TradeBuyOverview)
