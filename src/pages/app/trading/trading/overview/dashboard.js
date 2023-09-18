@@ -1,4 +1,4 @@
-import { Box, Grid } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import { styled } from "@mui/system";
 import Main from "./sections/main";
 import TopSection from "./sections/top";
@@ -8,27 +8,14 @@ const StyledOverviewWrapper = styled(Box)(({ theme }) => ({
 	paddingTop: 10
 }))
 
-const StyledOverviewGrid = styled(Grid)(({ theme }) => ({
-
-}))
-
-const StyledOverviewGridItem = styled(Grid)(({ theme }) => ({
-
-}))
-
 const TradingDashboard = () => {
 	return (
 		<Page title="Trading" id="trading homepage">
 			<StyledOverviewWrapper>
-				<StyledOverviewGrid container spacing={2}>
-					<StyledOverviewGridItem item xs={12} sm={12} md={12} lg={12} xl={12}>
-						<TopSection/>
-					</StyledOverviewGridItem>
-
-					<StyledOverviewGridItem item xs={12} sm={12} md={12} lg={12} xl={12}>
-						<Main/>
-					</StyledOverviewGridItem>
-				</StyledOverviewGrid>
+				<Stack direction="column" spacing={3}>
+					<TopSection/>
+					<Main/>
+				</Stack>
 			</StyledOverviewWrapper>
 		</Page>
 	)
