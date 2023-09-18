@@ -74,13 +74,7 @@ const validationSchemas = [
 
 	//Step 4: agreements
 	Yup.object().shape({
-		agreements: Yup.array().of(
-			Yup.object().shape({
-				agreement: Yup.string().required("Agreement is required"),
-				signed_at: Yup.string().required("Signed date is required"),
-				ip_address: Yup.string().required("IP address is required"),
-			})
-		),
+		agreements: Yup.array(),
 		trusted_given_name: Yup.string(),
 		trusted_family_name: Yup.string(),
 		trusted_email_address: Yup.string().email("Please use a valid email"),

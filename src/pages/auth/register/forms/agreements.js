@@ -44,11 +44,12 @@ const modalStyles = {
 };
 
 const AgreementsDetails = (props) => {
-	const { values } = props;
+	const { values, setFieldValue } = props;
 	const [showMarginModal, setShowMarginModal] = useState(false);
 	const [showAccountModal, setShowAccountModal] = useState(false);
 	const [showCustomerModal, setShowCustomerModal] = useState(false);
 	const [selectedAgreement, setSelectedAgreement] = useState(null);
+
 
 	return (
 		<StyledFormContainer>
@@ -86,6 +87,9 @@ const AgreementsDetails = (props) => {
 								onClick={() => {
 									setSelectedAgreement("margin_agreement");
 									setShowMarginModal(true);
+									setFieldValue("agreements.0.agreement", "margin_agreement");
+									setFieldValue("agreements.0.signed_at", Date.now());
+									setFieldValue("agreements.0.ip_address", "");
 								}}
 							/>
 						}
@@ -101,6 +105,9 @@ const AgreementsDetails = (props) => {
 								onClick={() => {
 									setSelectedAgreement("account_agreement");
 									setShowAccountModal(true);
+									setFieldValue("agreements.1.agreement", "account_agreement");
+									setFieldValue("agreements.1.signed_at", Date.now());
+									setFieldValue("agreements.1.ip_address", "");
 								}}
 							/>
 						}
@@ -108,6 +115,7 @@ const AgreementsDetails = (props) => {
 				</Grid>
 
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+					{console.log(values)}
 					<FormControlLabel
 						label="Read Margin Agreement"
 						control={
@@ -116,6 +124,9 @@ const AgreementsDetails = (props) => {
 								onClick={() => {
 									setSelectedAgreement("customer_agreement");
 									setShowCustomerModal(true);
+									setFieldValue("agreements.2.agreement", "customer_agreement");
+									setFieldValue("agreements.2.signed_at", Date.now());
+									setFieldValue("agreements.2.ip_address", "");
 								}}
 							/>
 						}
@@ -123,57 +134,10 @@ const AgreementsDetails = (props) => {
 				</Grid>
 			</Grid>
 
-			<FieldArray name="agreements">
-				{(arrayHelpers) => {
-					const agreements = values.agreements;
-					return (
-						<>
-							{agreements && agreements.length > 0
-								? agreements.map((item, index) => (
-										<Box key={index} sx={{ mt: 3 }}>
-											<Grid container spacing={3}>
-												<Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
-													<SelectField
-														name={`agreements.${index}.agreement`}
-														label="Agreement"
-														type="text"
-														size="small"
-														options={agreementsOption}
-													/>
-												</Grid>
-												<Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
-													<ReusableDateTimePicker
-														name={`agreements.${index}.signed_at`}
-														label="Signed At"
-														size="small"
-													/>
-												</Grid>
-												<Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
-													<TextfieldWrapper
-														name={`agreements.${index}.ip_address`}
-														label="IP Address"
-														type="text"
-														size="small"
-													/>
-												</Grid>
-
-												<Grid item>
-													<Button type="button" onClick={() => arrayHelpers.remove(index)}>
-														<Iconify icon="icon-park:close" color="primary" />
-													</Button>
-												</Grid>
-											</Grid>
-										</Box>
-								  ))
-								: null}
-						</>
-					);
-				}}
-			</FieldArray>
 			{/* Margin Agreement Modal */}
 			<Modal open={showMarginModal} onClose={() => setShowMarginModal(false)}>
 				<Box sx={modalStyles}>
-					<Stack diretion="column" spacing={3} >
+					<Stack diretion="column" spacing={3} sx={{ height: "48vh" }}>
 						<Typography gutterBottom variant="h5">
 							Margin Agreement
 						</Typography>
@@ -199,7 +163,7 @@ const AgreementsDetails = (props) => {
 			{/* Account Agreement Modal */}
 			<Modal open={showAccountModal} onClose={() => setShowAccountModal(false)}>
 				<Box sx={modalStyles}>
-					<Stack diretion="column" spacing={3} sx={{ height: "45vh" }}>
+					<Stack direction="column" spacing={3} sx={{ height: "48vh" }}>
 						<Typography variant="h5" gutterBottom>
 							Account Agreement
 						</Typography>

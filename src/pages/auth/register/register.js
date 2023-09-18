@@ -213,7 +213,7 @@ const Register = ({ open, close, user, register }) => {
 												<div>notfound</div>
 											)}
 
-											<ButtonGroup sx={{ mt: "20px" }}>
+											<ButtonGroup sx={{ mt: 3, mb: 3 }}>
 												{activeStep !== 0 && (
 													<StyledButton onClick={handleBack} variant="contained" color="error">
 														Back

@@ -54,6 +54,8 @@ const SecondaryInfo = (props) => {
 						label="Date of Birth"
 						fullWidth
 						size="small"
+						minDate={new Date("1900-01-01")}
+  						maxDate={new Date("2005-12-31")}
 					/>
 
 				</Grid>

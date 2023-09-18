@@ -1,7 +1,7 @@
-import React from "react";
 import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 import { useFormikContext } from "formik";
+
 import MultipleFileField from "src/components/forms/files/multiple";
 
 const StyledFormContainer = styled(Box)(({ theme }) => ({}));
@@ -16,7 +16,7 @@ const DocumentsSection = ({values,activeStep}) => {
 			
 			<MultipleFileField
 				name="documents"
-				label="documents"
+				label="My documents"
 				setFieldValue={setFieldValue} 
 				values={values}
 			/>
