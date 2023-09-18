@@ -3,7 +3,7 @@ import React from 'react';
 import { useField } from "formik";
 import { TextField } from "@mui/material";
 
-const TextfieldWrapper = ({name, variant, ...otherProps}) => {
+const TextfieldWrapper = ({name, variant, defaultValue, ...otherProps}) => {
 
 	const [field, meta] = useField(name)
 
@@ -14,7 +14,8 @@ const TextfieldWrapper = ({name, variant, ...otherProps}) => {
 		variant: variant ? variant : "outlined",
 		InputLabelProps:{
 			shrink: true
-		}
+		},
+		defaultValue: defaultValue ? defaultValue : ""
 	}
 
 	if (meta && meta.touched && meta.error){

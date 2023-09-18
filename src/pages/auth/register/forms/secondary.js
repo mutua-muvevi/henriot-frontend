@@ -6,9 +6,10 @@ import SelectField from "../../../../components/forms/select/select";
 
 import TextfieldWrapper from "../../../../components/forms/textfield/textfield";
 import { countriesCode } from "src/content/countries";
-import MultipleSelectCheckmarks from "src/components/formui/select/multiple";
+import SelectMultipleField from "src/components/forms/select/multiple";
 import { fundsSourceSelectOptions } from "./info";
 import ReusableDatePicker from "src/components/forms/datepicker/date";
+import DateTimePicker from "src/components/forms/datepicker/datepicker";
 
 const StyledFormContainer = styled(Box)(({ theme }) => ({}));
 
@@ -49,11 +50,13 @@ const SecondaryInfo = (props) => {
 					/>
 				</Grid>
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<ReusableDatePicker
+					<DateTimePicker
 						name="date_of_birth"
 						label="Date of Birth"
 						fullWidth
 						size="small"
+						minDate={new Date("1900-01-01")}
+  						maxDate={new Date("2005-12-31")}
 					/>
 
 				</Grid>
@@ -74,7 +77,7 @@ const SecondaryInfo = (props) => {
 					/>
 				</Grid>
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<MultipleSelectCheckmarks
+					<SelectMultipleField
 						name="funding_source"
 						label="Funding Source"
 						fullWidth

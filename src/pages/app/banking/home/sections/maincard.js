@@ -13,7 +13,6 @@ const StyledCardContent = styled(CardContent)(({ theme }) => ({
 }));
 
 const SingleColumnBox = styled(Box)(({ theme }) => ({
-	overflowY: "scroll",
 	height: 150,
 	marginTop: "10px"
 }));
@@ -71,6 +70,7 @@ const BankingMainCard = ({ data }) => {
 					)) : ""
 				}
 			</SingleColumnBox>
+			
 			<Link to="/admin/banking/current-account/details" style={linkStyles}>
 				<Button variant="text" color="primary">
 					{sentenceCase("Details")}

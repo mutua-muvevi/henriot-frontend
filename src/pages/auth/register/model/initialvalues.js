@@ -34,6 +34,24 @@ const initialValues = {
 			company_country: "",
 			company_compliance_email: "",
 		},
+		{
+			context_type: "",
+			company_name: "",
+			company_street_address: "",
+			company_city: "",
+			company_state: "",
+			company_country: "",
+			company_compliance_email: "",
+		},
+		{
+			context_type: "",
+			company_name: "",
+			company_street_address: "",
+			company_city: "",
+			company_state: "",
+			company_country: "",
+			company_compliance_email: "",
+		},
 	],
 
 	agreements: [
