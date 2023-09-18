@@ -66,7 +66,10 @@ function NavItem({ item, active }) {
 						...(isActiveRoot && activeRootStyle),
 					}}
 				>
-					<ListItemIconStyle>{icon && icon}</ListItemIconStyle>
+					<ListItemIconStyle>
+						<Iconify icon={icon}/>
+					</ListItemIconStyle>
+
 					<ListItemText disableTypography primary={title} />
 					{info && info}
 					<Iconify
@@ -92,23 +95,7 @@ function NavItem({ item, active }) {
 									}}
 								>
 									<ListItemIconStyle>
-										<Box
-											component="span"
-											sx={{
-												width: 4,
-												height: 4,
-												display: "flex",
-												borderRadius: "50%",
-												alignItems: "center",
-												justifyContent: "center",
-												bgcolor: "text.disabled",
-												transition: (theme) => theme.transitions.create("transform"),
-												...(isActiveSub && {
-													transform: "scale(2)",
-													bgcolor: "primary.main",
-												}),
-											}}
-										/>
+										<Iconify icon={item.nestedIcon}/>
 									</ListItemIconStyle>
 									<ListItemText disableTypography primary={title} />
 								</ListItemStyle>
@@ -128,7 +115,9 @@ function NavItem({ item, active }) {
 				...(isActiveRoot && activeRootStyle),
 			}}
 		>
-			<ListItemIconStyle>{icon && icon}</ListItemIconStyle>
+			<ListItemIconStyle>
+				<Iconify icon={icon}/>
+			</ListItemIconStyle>
 			<ListItemText disableTypography primary={title} />
 			{info && info}
 		</ListItemStyle>

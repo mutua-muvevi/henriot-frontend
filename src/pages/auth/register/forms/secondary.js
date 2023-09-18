@@ -9,6 +9,7 @@ import { countriesCode } from "src/content/countries";
 import SelectMultipleField from "src/components/forms/select/multiple";
 import { fundsSourceSelectOptions } from "./info";
 import ReusableDatePicker from "src/components/forms/datepicker/date";
+import DateTimePicker from "src/components/forms/datepicker/datepicker";
 
 const StyledFormContainer = styled(Box)(({ theme }) => ({}));
 
@@ -49,7 +50,7 @@ const SecondaryInfo = (props) => {
 					/>
 				</Grid>
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<ReusableDatePicker
+					<DateTimePicker
 						name="date_of_birth"
 						label="Date of Birth"
 						fullWidth

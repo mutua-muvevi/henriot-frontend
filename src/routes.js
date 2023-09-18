@@ -57,6 +57,11 @@ import TermDepositBorrowSecured from "./pages/app/banking/deposit/main/sections/
 import AdminLayout from "./layout/app/admin";
 import AdminHome from "./pages/admin/home/home";
 import AdminTransaction from "./pages/admin/transactions/transactions";
+import TradingPosition from "./pages/app/trading/position/position";
+import TradingOrders from "./pages/app/trading/orders/orders";
+import TradingActivities from "./pages/app/trading/activities/activities";
+import TradingBalances from "./pages/app/trading/balances/balances";
+import TradingConfigure from "./pages/app/trading/configure/configure";
 
 export default function Router() {
 	return useRoutes([
@@ -145,9 +150,14 @@ export default function Router() {
 					path: "trading",
 					element: <Trading />,
 					children: [
-						{ path: "trading-platform", element: <TradingPlatformPage /> },
-						{ path: "investment-platform", element: <TradingInvestmentPlatform /> },
-						{ path: "quick-buy-sell", element: <TradingBuySell /> },
+						{ path: "home", element: <TradingPlatformPage /> },
+						// { path: "investment-platform", element: <TradingInvestmentPlatform /> },
+						// { path: "quick-buy-sell", element: <TradingBuySell /> },
+						{ path: "positions", element: <TradingPosition /> },
+						{ path: "orders", element: <TradingOrders /> },
+						{ path: "activities", element: <TradingActivities /> },
+						{ path: "balances", element: <TradingBalances /> },
+						{ path: "configure", element: <TradingConfigure /> },
 					],
 				},
 				{
