@@ -135,6 +135,7 @@ const palette = (themeMode) => {
 			paper: "#fff",
 			default: "#f0faf8",
 			neutral: GREY[200],
+			tabHeader: "#65cfbb"
 		},
 		action: {
 			...COMMON.action,
@@ -154,6 +155,7 @@ const palette = (themeMode) => {
 			paper: "rgba(30, 35, 36, 1)",
 			default: "#121414",
 			neutral: alpha(GREY[500], 0.16),
+			tabHeader: "rgba(2, 11, 9, 1)"
 		},
 		action: {
 			...COMMON.action,

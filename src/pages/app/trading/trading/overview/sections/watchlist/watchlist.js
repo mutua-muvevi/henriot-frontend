@@ -1,20 +1,19 @@
 import React, { useState } from "react";
 
-import { Box, Button, Card, Divider, Grid, TextField, Typography } from "@mui/material";
+import { Box, Button, Card, CardContent, Divider, Grid, Stack, TextField, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
 import TextfieldWrapper from "src/components/forms/textfield/textfield";
 
 
-const ContainerWrapper = styled(Card)(({ theme }) => ({
+const StyledCard = styled(Card)(({ theme }) => ({
 	borderRadius: theme.shape.borderRadius,
 	minHeight: 300,
 }));
 
 
-const StyledInputGridContainer = styled(Grid)(({ theme }) => ({
-	padding: "10px",
-	
+const StyledCardContent = styled(CardContent)(({ theme }) => ({
+
 }))
 
 const StyledInputGridItemHeader = styled(Grid)(({ theme }) => ({
@@ -49,52 +48,44 @@ const WatchlistSection = () => {
 	}
 
 	return (
-		<ContainerWrapper>
-			<StyledInputGridContainer container spacing={2}>
-				<StyledInputGridItemHeader item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<Typography variant="h4">
-						Watchlist
-					</Typography>
-					{
-						showInput === true ? (
-							<Button variant="contained" type="submit" onClick={handleAddtoWatchlist}>
-								Add to Watchlist
-							</Button>
+		<StyledCard>
 
-						) : (
-							<Button variant="contained" type="button" onClick={handleShowIput}>
-								Edit Watchlist
-							</Button>
-						)
-					}
-				</StyledInputGridItemHeader>
+			<StyledCardContent >
+				<Stack direction="column" spacing={3}>
+					<Stack direction="row" alignItems="flex-end" justifyContent="space-between">
+						<Typography variant="h6">
+							Watchlist
+						</Typography>
+						{
+							showInput === true ? (
+								<Button variant="contained" type="submit" onClick={handleAddtoWatchlist}>
+									Add to Watchlist
+								</Button>
 
-				<StyledInputGridItemBody item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<TextField
-						name="search"
-						label="search"
-						type="text"
-						size="small"
-						variant="standard"
-						sx={{
-							width: "100%"
-						}}
-					/>
-				</StyledInputGridItemBody>
+							) : (
+								<Button variant="contained" type="button" onClick={handleShowIput}>
+									Edit Watchlist
+								</Button>
+							)
+						}
+					</Stack>
+				</Stack>
 
-				<StyledInputGridItemBody item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<Typography variant="body2">
-						Stocks
-					</Typography>
-				</StyledInputGridItemBody>
-
-				<StyledInputGridItemBody item xs={12} sm={12} md={12} lg={12} xl={12}>
-					<Typography variant="body2">
-						Stock items
-					</Typography>
-				</StyledInputGridItemBody>
-			</StyledInputGridContainer>
-		</ContainerWrapper>
+				<TextField
+					name="search"
+					label="search"
+					type="text"
+					size="small"
+					variant="standard"
+					sx={{
+						width: "100%"
+					}}
+				/>
+				<Typography variant="body2">
+					Stocks
+				</Typography>
+			</StyledCardContent>
+		</StyledCard>
 	)
 }
 

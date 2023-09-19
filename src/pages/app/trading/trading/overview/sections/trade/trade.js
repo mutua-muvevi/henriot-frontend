@@ -1,23 +1,32 @@
-import { Box, Card, Divider, Typography } from "@mui/material";
+import { Box, Card, CardContent, Divider, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
 import { tradeTabs } from "../../info";
 import TabComponent from "src/components/UI/Tabs";
 
-const ContainerWrapper = styled(Card)(({ theme }) => ({
-	borderRadius: theme.shape.borderRadius,
+const StyledCard = styled(Card)(({ theme }) => ({
 	minHeight: 300,
-	padding: 0
+}))
+
+const StyledCardContent = styled(CardContent)(({ theme }) => ({
+
 }))
 
 
 const TradeSection = () => {
 	return (
-		<ContainerWrapper>
-			<TabComponent
-				tabsInfo={tradeTabs}
-			/>
-		</ContainerWrapper>
+		<StyledCard>
+			<StyledCardContent>
+				<Stack direction="column" spacing={3}>
+					<Typography variant="h6">
+						Quick Trade
+					</Typography>
+				</Stack>
+				<TabComponent
+					tabsInfo={tradeTabs}
+				/>
+			</StyledCardContent>
+		</StyledCard>
 	)
 }
 

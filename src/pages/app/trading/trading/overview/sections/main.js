@@ -1,14 +1,13 @@
-import { Box, Card, Grid, Grow, Typography } from "@mui/material";
+import { Box, Grid, Stack } from "@mui/material";
 import { styled } from "@mui/system"
 
 //import SimpleCard from "../../../../components/card/simple";
-import ChartSection from "./chart/chart";
-import NotificationSection from "./notification";
-import OrderHistorySection from "./orderhistory/orderhistory";
-import PortfolioSection from "./portfolio/portfolio";
+import ChartSection from "./chart/graph/chart";
+import TopPosition from "./topposition/topposition";
+import BuyPowerSection from "./portfolio/portfolio";
 import TradeSection from "./trade/trade";
-import Twitterfeed from "./twitterfeed";
 import WatchlistSection from "./watchlist/watchlist";
+import RecentOrders from "./recentorders/recentorders";
 
 const StyledOverviewMain = styled(Box)(({ theme }) => ({
 
@@ -29,12 +28,12 @@ const StyledCommponentSection = styled(Box)(({ theme }) => ({
 
 const leftSections = [
 	{component: <ChartSection/>},
-	{component: <PortfolioSection/>},
-	{component: <OrderHistorySection/>},
+	{component: <BuyPowerSection/>},
+	{component: <TopPosition/>},
+	{component: <RecentOrders/>},
 ]
 
 const rightSections = [
-	{component: <Twitterfeed/>},
 	{component: <TradeSection/>},
 	{component: <WatchlistSection/>},
 ]
@@ -42,24 +41,28 @@ const rightSections = [
 const Main = () => {
 	return (
 		<StyledOverviewMain>
-			<StyledOverviewGridContainer container spacing={2}>
+			<StyledOverviewGridContainer container spacing={3}>
 				<StyledOverviewGridItem item  xs={12} sm={12} md={12} lg={8} xl={8}>
-					{
-						leftSections.map((el, i) => (
-							<StyledCommponentSection key={i}>
-								{el.component}
-							</StyledCommponentSection>
-						))
-					}
+					<Stack direction="column" spacing={3}>
+						{
+							leftSections.map((el, i) => (
+								<StyledCommponentSection key={i}>
+									{el.component}
+								</StyledCommponentSection>
+							))
+						}
+					</Stack>
 				</StyledOverviewGridItem>
 				<StyledOverviewGridItem item  xs={12} sm={12} md={12} lg={4} xl={4}>
-					{
-						rightSections.map((el, i) => (
-							<StyledCommponentSection key={i}>
-								{el.component}
-							</StyledCommponentSection>
-						))
-					}
+					<Stack direction="column" spacing={3}>
+						{
+							rightSections.map((el, i) => (
+								<StyledCommponentSection key={i}>
+									{el.component}
+								</StyledCommponentSection>
+							))
+						}
+					</Stack>
 				</StyledOverviewGridItem>
 			</StyledOverviewGridContainer>
 		</StyledOverviewMain>

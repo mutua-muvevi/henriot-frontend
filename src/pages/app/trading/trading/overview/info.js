@@ -1,51 +1,11 @@
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 
-import MonthlyChartHome from "./sections/chart/monthly";
-import TodayChartHome from "./sections/chart/today";
-import TotalChartHome from "./sections/chart/total";
-import YearlyChartHome from "./sections/chart/yearly";
 import PortfolioAllTableOverview from "./sections/portfolio/all";
 import PortfolioCryptoTableOverview from "./sections/portfolio/crypto";
 import PortfolioStockTableOverview from "./sections/portfolio/stock";
 import TradeBuyOverview from "./sections/trade/buy";
 import TradeSellOverview from "./sections/trade/sell";
 
-export const tabsInfo = {
-	labels: [
-		{ label: "Today" },
-		{ label: "Month" },
-		{ label: "Year" },
-		{ label: "Total" },
-	],
-	pannel: [
-		{ children : <TodayChartHome/> },
-		{ children : <MonthlyChartHome/> },
-		{ children : <YearlyChartHome/> },
-		{ children : <TotalChartHome/> },
-	]
-}
-
-export const todaysChartData = {
-	type: 'line',
-	data: {
-		labels: ['Jun', 'Jul', 'Aug'],
-		datasets: [
-			{
-				id: 1,
-				label: '',
-				data: [5, 6, 7],
-			},
-			{
-				id: 2,
-				label: '',
-				data: [3, 2, 1],
-			},
-		],
-	},
-	options: {
-		responsive: true
-	}
-}
 
 export const portfolioTabs =  {
 	labels: [
@@ -62,8 +22,8 @@ export const portfolioTabs =  {
 
 export const tradeTabs =  {
 	labels: [
-		{ label: "Buy", },
-		{ label: "Sell", },
+		{ label: "BUY", },
+		{ label: "SELL", },
 	],
 	pannel: [
 		{ children : <TradeBuyOverview/> },
@@ -88,8 +48,20 @@ export const buyInputs = [
 	},
 ]
 
-export const buySelectOptionsOrderType = [{Name: "market"}]
-export const buySelectOptionsTimeInForce = [{Name: "GTC - Goods Till Cancelled"}]
+export const buySelectOptionsOrderType = [
+	{Name: "Market"},
+	{Name: "Limit"},
+	{Name: "Stop"},
+	{Name: "Stop Limit"},
+	{Name: "Trailing Stop"},
+]
+export const buySelectOptionsTimeInForce = [
+	{Name: "GTC - Goods Till Cancelled"},
+	{Name: "FOK - Fill or Kill"},
+	{Name: "IOC - Immidiate or Cancel"},
+	{Name: "OPG - At the Open"},
+	{Name: "CLS - At the Close"},
+]
 
 export const sellInputs = [
 	{
