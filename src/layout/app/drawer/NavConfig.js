@@ -185,6 +185,23 @@ export const tradingSection = {
 				},
 			],
 		},
+		{
+			title: "Configuration",
+			path: "/admin/configuration/profile",
+			icon: "solar:settings-bold",
+			children: [
+				{
+					title: "Profile",
+					path: "/admin/configuration/profile",
+					nestedIcon: "healthicons:ui-user-profile",
+				},
+				{
+					title: "Log out",
+					path: "/login",
+					nestedIcon: "ri:user-shared-2-fill",
+				},
+			]
+		}
 	]
 }
 
