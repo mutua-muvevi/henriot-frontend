@@ -62,6 +62,9 @@ import TradingOrders from "./pages/app/trading/orders/orders";
 import TradingActivities from "./pages/app/trading/activities/activities";
 import TradingBalances from "./pages/app/trading/balances/balances";
 import TradingConfigure from "./pages/app/trading/configure/configure";
+import Configuration from "./pages/app/configuration/configuration";
+import MyProfile from "./pages/app/configuration/profile/profile";
+import LogOut from "./pages/app/configuration/logout/logout";
 
 export default function Router() {
 	return useRoutes([
@@ -159,6 +162,14 @@ export default function Router() {
 						{ path: "balances", element: <TradingBalances /> },
 						{ path: "configure", element: <TradingConfigure /> },
 					],
+				},
+				{
+					path: "configuration",
+					element: <Configuration/>,
+					children: [
+						{ path: "profile", element: <MyProfile /> },
+						{ path: "logout", element: <LogOut /> },
+					]
 				},
 				{
 					path: "wealth-management",
