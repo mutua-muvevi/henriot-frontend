@@ -3,10 +3,11 @@ import { styled } from "@mui/system"
 
 //import SimpleCard from "../../../../components/card/simple";
 import ChartSection from "./chart/graph/chart";
-import OrderHistorySection from "./orderhistory/orderhistory";
+import TopPosition from "./topposition/topposition";
 import BuyPowerSection from "./portfolio/portfolio";
 import TradeSection from "./trade/trade";
 import WatchlistSection from "./watchlist/watchlist";
+import RecentOrders from "./recentorders/recentorders";
 
 const StyledOverviewMain = styled(Box)(({ theme }) => ({
 
@@ -28,7 +29,8 @@ const StyledCommponentSection = styled(Box)(({ theme }) => ({
 const leftSections = [
 	{component: <ChartSection/>},
 	{component: <BuyPowerSection/>},
-	{component: <OrderHistorySection/>},
+	{component: <TopPosition/>},
+	{component: <RecentOrders/>},
 ]
 
 const rightSections = [
@@ -60,7 +62,6 @@ const Main = () => {
 								</StyledCommponentSection>
 							))
 						}
-\
 					</Stack>
 				</StyledOverviewGridItem>
 			</StyledOverviewGridContainer>

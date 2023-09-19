@@ -1,8 +1,10 @@
+import { useState } from "react";
+
 //mui
 import { Button, Card, CardContent, Stack, Typography, useTheme } from "@mui/material";
 import { styled } from "@mui/system";
 import TradingGraph from "./graph";
-import { useState } from "react";
+
 import { YearGraph, allTimeGraph, dayGraph, monthGraph } from "../info";
 
 const StyledCard = styled(Card)(({ theme }) => ({
@@ -29,9 +31,10 @@ const ChartSection = () => {
 			<StyledCardContent>
 				<Stack direction="column" spacing={3}>
 					<Stack direction="row" justifyContent="space-between" alignItems="center">
-						<Typography variant="h6" sx={{ fontWeight: 500 }}>
+						<Typography variant="h6">
 							Your portfolio
 						</Typography>
+
 						<Stack direction="row" alignItems="center">
 							<Button
 								onClick={() => handleButtonClick(dayGraph)}
