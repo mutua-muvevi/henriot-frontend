@@ -15,6 +15,7 @@ import {
 } from "@mui/material";
 import StepConnector, { stepConnectorClasses } from "@mui/material/StepConnector";
 import { styled } from "@mui/system";
+import { alpha } from '@mui/material/styles';
 
 import { Formik, Form } from "formik";
 
@@ -46,7 +47,7 @@ const StyledRegisterModal = styled(Paper)(({ theme }) => ({
 }));
 
 const StyledStepper = styled(Stepper)(({ theme }) => ({
-	backgroundColor: theme.palette.info.main,
+	backgroundColor: theme.palette.background.tabHeader,
 	paddingTop: "15px",
 	paddingBottom: "15px",
 	borderTopLeftRadius: theme.shape.borderRadius,
@@ -62,7 +63,7 @@ const StyledStepperItems = styled(Box)(({ theme }) => ({
 const StyledStepConnector = styled(StepConnector)(({ theme }) => ({
 	[`&.${stepConnectorClasses.active}`]: {
 		[`& .${stepConnectorClasses.line}`]: {
-			backgroundColor: "#fff",
+			backgroundColor: theme.palette.background.paper,
 		},
 	},
 	[`& .${stepConnectorClasses.line}`]: {
@@ -75,20 +76,20 @@ const StyledStepConnector = styled(StepConnector)(({ theme }) => ({
 
 const StyledSteps = styled(Step)(({ theme }) => ({
 	"& .MuiStepLabel-root .Mui-completed": {
-		color: "#fff", // circle color (COMPLETED)
+		color: theme.palette.text.primary, // circle color (COMPLETED)
 		fontWeight: "bold",
 	},
 	"& .MuiStepLabel-label.Mui-completed.MuiStepLabel-alternativeLabel": {
-		color: "rgba(255, 255, 255, 0.77)", // Just text label (COMPLETED)
+		color: alpha(theme.palette.text.primary, 0.2), // Just text label (COMPLETED)
 		fontWeight: "bold",
 	},
 	"& .MuiStepLabel-root .Mui-active": {
 		//color: 'secondary.main', // circle color (ACTIVE)
-		color: "rgba(255, 255, 255, 0.87)",
+		color: theme.palette.text.primary,
 		fontWeight: "bold",
 	},
 	"& .MuiStepLabel-label.Mui-active.MuiStepLabel-alternativeLabel": {
-		color: "common.white", // Just text label (ACTIVE)
+		color: theme.palette.text.primary, // Just text label (ACTIVE)
 	},
 	"& .MuiStepLabel-root .Mui-active .MuiStepIcon-text": {
 		fill: theme.palette.primary.main, // circle's number (ACTIVE)
@@ -97,7 +98,7 @@ const StyledSteps = styled(Step)(({ theme }) => ({
 
 const StyledStepLabel = styled(StepLabel)(({ theme }) => ({
 	"& .MuiStepLabel-label": {
-		color: theme.palette.grey[100],
+		color: theme.palette.text.primary,
 	},
 }));
 
