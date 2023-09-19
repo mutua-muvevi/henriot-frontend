@@ -22,8 +22,8 @@ export const portfolioTabs =  {
 
 export const tradeTabs =  {
 	labels: [
-		{ label: "Buy", },
-		{ label: "Sell", },
+		{ label: "BUY", },
+		{ label: "SELL", },
 	],
 	pannel: [
 		{ children : <TradeBuyOverview/> },

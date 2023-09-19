@@ -40,8 +40,6 @@ const TradeBuyOverview = ({assets}) => {
 		console.log("VALUES ARE", values)
 	}
 
-	console.log("Dem Assets", assets.data.data[0])
-
 	return (
 		<StyledWrapper>{console.log("Allassets are", assets)}
 			<Formik

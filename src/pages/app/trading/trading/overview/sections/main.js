@@ -1,13 +1,11 @@
-import { Box, Card, Grid, Grow, Typography } from "@mui/material";
+import { Box, Grid, Stack } from "@mui/material";
 import { styled } from "@mui/system"
 
 //import SimpleCard from "../../../../components/card/simple";
 import ChartSection from "./chart/graph/chart";
-import NotificationSection from "./notification";
 import OrderHistorySection from "./orderhistory/orderhistory";
-import PortfolioSection from "./portfolio/portfolio";
+import BuyPowerSection from "./portfolio/portfolio";
 import TradeSection from "./trade/trade";
-import Twitterfeed from "./twitterfeed";
 import WatchlistSection from "./watchlist/watchlist";
 
 const StyledOverviewMain = styled(Box)(({ theme }) => ({
@@ -29,7 +27,7 @@ const StyledCommponentSection = styled(Box)(({ theme }) => ({
 
 const leftSections = [
 	{component: <ChartSection/>},
-	{component: <PortfolioSection/>},
+	{component: <BuyPowerSection/>},
 	{component: <OrderHistorySection/>},
 ]
 
@@ -43,22 +41,27 @@ const Main = () => {
 		<StyledOverviewMain>
 			<StyledOverviewGridContainer container spacing={3}>
 				<StyledOverviewGridItem item  xs={12} sm={12} md={12} lg={8} xl={8}>
-					{
-						leftSections.map((el, i) => (
-							<StyledCommponentSection key={i}>
-								{el.component}
-							</StyledCommponentSection>
-						))
-					}
+					<Stack direction="column" spacing={3}>
+						{
+							leftSections.map((el, i) => (
+								<StyledCommponentSection key={i}>
+									{el.component}
+								</StyledCommponentSection>
+							))
+						}
+					</Stack>
 				</StyledOverviewGridItem>
 				<StyledOverviewGridItem item  xs={12} sm={12} md={12} lg={4} xl={4}>
-					{
-						rightSections.map((el, i) => (
-							<StyledCommponentSection key={i}>
-								{el.component}
-							</StyledCommponentSection>
-						))
-					}
+					<Stack direction="column" spacing={3}>
+						{
+							rightSections.map((el, i) => (
+								<StyledCommponentSection key={i}>
+									{el.component}
+								</StyledCommponentSection>
+							))
+						}
+\
+					</Stack>
 				</StyledOverviewGridItem>
 			</StyledOverviewGridContainer>
 		</StyledOverviewMain>
