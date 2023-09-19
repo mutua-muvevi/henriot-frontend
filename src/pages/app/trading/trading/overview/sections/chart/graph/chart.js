@@ -3,7 +3,7 @@ import { Button, Card, CardContent, Stack, Typography, useTheme } from "@mui/mat
 import { styled } from "@mui/system";
 import TradingGraph from "./graph";
 import { useState } from "react";
-import { YearGraph, allTimeGraph, dayGraph, monthGraph } from "./info";
+import { YearGraph, allTimeGraph, dayGraph, monthGraph } from "../info";
 
 const StyledCard = styled(Card)(({ theme }) => ({
 	minHeight: "50vh",
@@ -57,7 +57,7 @@ const ChartSection = () => {
 							>
 								All
 							</Button>
-							<Button>Reset Account</Button>
+							<Button sx={activeButtonStyle}>Reset Account</Button>
 						</Stack>
 					</Stack>
 

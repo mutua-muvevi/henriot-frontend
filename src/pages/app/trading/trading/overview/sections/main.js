@@ -34,7 +34,6 @@ const leftSections = [
 ]
 
 const rightSections = [
-	{component: <Twitterfeed/>},
 	{component: <TradeSection/>},
 	{component: <WatchlistSection/>},
 ]
@@ -42,7 +41,7 @@ const rightSections = [
 const Main = () => {
 	return (
 		<StyledOverviewMain>
-			<StyledOverviewGridContainer container spacing={2}>
+			<StyledOverviewGridContainer container spacing={3}>
 				<StyledOverviewGridItem item  xs={12} sm={12} md={12} lg={8} xl={8}>
 					{
 						leftSections.map((el, i) => (
