@@ -1,16 +1,22 @@
-import { Box } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import { styled } from "@mui/system";
+import OrdersDataGrid from "./sections/datagrid";
 
-const StyledWrapper = styled(Box)(({ theme }) => ({
-
-}))
+const StyledWrapper = styled(Stack)(({ theme }) => ({}));
 
 const TradingActivities = () => {
 	return (
-		<StyledWrapper>
-			<div>TradingActivities</div>
-		</StyledWrapper>
-	)
-}
+		<StyledWrapper direction="column" spacing={3}>
+			<Stack direction="column">
+				<Typography variant="h3">Your Activities</Typography>
+				<Typography variant="subtitle1" color="text.secondary">
+					View your activity history.
+				</Typography>
+			</Stack>
 
-export default TradingActivities
+			<OrdersDataGrid />
+		</StyledWrapper>
+	);
+};
+
+export default TradingActivities;

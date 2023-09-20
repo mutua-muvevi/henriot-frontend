@@ -175,14 +175,6 @@ export const tradingSection = {
 					//	{}
 					//],
 				},
-				{
-					title: "Configure",
-					path: "/admin/trading/configure",
-					nestedIcon: "mingcute:settings-2-fill",
-					//children: [
-					//	{}
-					//],
-				},
 			],
 		},
 		{
@@ -191,15 +183,14 @@ export const tradingSection = {
 			icon: "solar:settings-bold",
 			children: [
 				{
+					title: "Configure",
+					path: "/admin/configuration/account",
+					nestedIcon: "mingcute:settings-2-fill",
+				},
+				{
 					title: "Profile",
 					path: "/admin/configuration/profile",
 					nestedIcon: "healthicons:ui-user-profile",
-				},
-				{
-					title: "Log out",
-					path: "/login",
-					nestedIcon: "ri:user-shared-2-fill",
-					logout: true
 				},
 			]
 		}
