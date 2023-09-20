@@ -80,7 +80,7 @@ const BasicInfo = ({me}) => {
 					onSubmit={handleSubmit}
 				>
 					<Form id="basic info settings">
-						<Stack direction="column" spacing={2}>
+						<Stack direction="column" spacing={3}>
 							<TextfieldWrapper
 								name="email"
 								label="Email"
@@ -94,7 +94,7 @@ const BasicInfo = ({me}) => {
 							/>
 
 							<Button variant="contained" sx={{maxWidth: 300}}>
-								Update 
+								Save Changes 
 							</Button>
 						</Stack>
 					</Form>
