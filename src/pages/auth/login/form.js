@@ -64,7 +64,7 @@ const LoginForm = ({ loginUser, error, info, token}) => {
 
 	useEffect(() => {
 		if(token){
-			return navigate("/admin/banking/dashboard")
+			return navigate("/admin/trading/home")
 		} else {
 			return navigate("/login")
 		}
