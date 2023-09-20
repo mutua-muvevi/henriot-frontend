@@ -1,10 +1,9 @@
 import React from "react";
-import { TextField, MenuItem, FormControl, InputLabel, Select } from "@mui/material";
+import { MenuItem, FormControl, InputLabel, Select } from "@mui/material";
 
 import { useField, useFormikContext } from "formik";
-import Scrollbar from "src/components/UI/Scrollbar";
 
-const SelectField = ({ name, label, height, options, variant, ...otherProps }) => {
+const SelectField = ({ name, label, height, options, variant, defaultValue,...otherProps }) => {
 	const ITEM_HEIGHT = height ? height : 50;
 	const ITEM_PADDING_TOP = 8;
 	const MenuProps = {
@@ -46,6 +45,7 @@ const SelectField = ({ name, label, height, options, variant, ...otherProps }) =
 			<Select
 				{...configSelect}
 				MenuProps={MenuProps}
+				defaultValue={defaultValue ? defaultValue : ""}
 			>
 				{options.map((item, pos) => {
 					return (

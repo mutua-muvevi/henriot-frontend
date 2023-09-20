@@ -9,10 +9,9 @@ import Iconify from "src/components/iconify/iconify";
 import * as Yup from "yup";
 
 const options = [
-	{Name: "Options One"},
-	{Name: "Options Two"},
-	{Name: "Options Three"},
-	{Name: "Options Four"},
+	{Name: "4", Label: "4 The default Value"},
+	{Name: "2", Label: "2"},
+	{Name: "1", Label: "1"},
 ]
 
 const INITIAL_STATE = {
