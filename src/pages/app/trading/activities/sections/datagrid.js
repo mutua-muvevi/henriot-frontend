@@ -3,22 +3,22 @@ import { useState } from "react";
 import { Card, Button, Stack, Typography, useTheme, CardContent } from "@mui/material";
 import { styled } from "@mui/system";
 
-import { allOrders, todayOrders, openOrders, closedOrders } from "../info"
+import { allActivities, tradeActivities, transfersActivities, dividendsActivities } from "../info";
 import { columns, rows } from "src/content/datagrid";
 import DataTable from "src/components/datagrid/datatable";
 
 const StyledWrapper = styled(Card)(({ theme }) => ({
-	minHeight: "50vh"
-}))
+	minHeight: "50vh",
+}));
 
 const StyledCardTitle = styled(CardContent)(({ theme }) => ({
-	backgroundColor: theme.palette.background.tabHeader
-}))
+	backgroundColor: theme.palette.background.tabHeader,
+}));
 
-const OrdersDataGrid = () => {
-	const [selectedData, setSelectedData] = useState(allOrders);
+const ActivitiesDataGrid = () => {
+	const [selectedData, setSelectedData] = useState(allActivities);
 	const theme = useTheme();
-	
+
 	const handleButtonClick = (data) => {
 		setSelectedData(data);
 	};
@@ -33,43 +33,43 @@ const OrdersDataGrid = () => {
 			<StyledCardTitle>
 				<Stack direction="row" alignItems="center" spacing={3}>
 					<Button
-						onClick={() => handleButtonClick(allOrders)}
-						sx={selectedData === allOrders ? activeButtonStyle : {}}
+						onClick={() => handleButtonClick(allActivities)}
+						sx={selectedData === allActivities ? activeButtonStyle : {}}
 					>
 						<Typography variant="body1" color="text.primary">
 							All
 						</Typography>
 					</Button>
 					<Button
-						onClick={() => handleButtonClick(todayOrders)}
-						sx={selectedData === todayOrders ? activeButtonStyle : {}}
+						onClick={() => handleButtonClick(tradeActivities)}
+						sx={selectedData === tradeActivities ? activeButtonStyle : {}}
 					>
 						<Typography variant="body1" color="text.primary">
-							Today
+							Trade
 						</Typography>
 					</Button>
 					<Button
-						onClick={() => handleButtonClick(openOrders)}
-						sx={selectedData === openOrders ? activeButtonStyle : {}}
+						onClick={() => handleButtonClick(transfersActivities)}
+						sx={selectedData === transfersActivities ? activeButtonStyle : {}}
 					>
 						<Typography variant="body1" color="text.primary">
-							Open
+							Transfers
 						</Typography>
 					</Button>
 					<Button
-						onClick={() => handleButtonClick(closedOrders)}
-						sx={selectedData === closedOrders ? activeButtonStyle : {}}
+						onClick={() => handleButtonClick(dividendsActivities)}
+						sx={selectedData === dividendsActivities ? activeButtonStyle : {}}
 					>
 						<Typography variant="body1" color="text.primary">
-							Closed
+							Dividends
 						</Typography>
 					</Button>
 				</Stack>
 			</StyledCardTitle>
 
-			<DataTable rows={rows} columns={columns}/>
+			<DataTable rows={rows} columns={columns} />
 		</StyledWrapper>
-	)
-}
+	);
+};
 
-export default OrdersDataGrid
+export default ActivitiesDataGrid;

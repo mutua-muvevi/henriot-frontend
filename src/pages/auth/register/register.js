@@ -117,7 +117,8 @@ const Register = ({ open, close, user, register }) => {
 	const isLastStep = activeStep === steps.length - 1;
 
 	function submitForm(values, actions) {
-		actions.setSubmitting(false);
+		//changed from false to true
+		actions.setSubmitting(true);
 		
 		register(values);
 
