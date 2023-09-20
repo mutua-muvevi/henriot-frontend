@@ -55,10 +55,6 @@ const StyledCompletedSetupUnit = styled(Box)(({ theme }) => ({
 	margin: "10px auto"
 }))
 
-const StyledCompletedSetupUnitContent = styled(Box)(({ theme }) => ({
-
-}))
-
 const StyledCompletedSetupList = styled(Grid)(({ theme }) => ({
 	marginBottom: "30px"
 }))
@@ -71,7 +67,6 @@ const StyledCompletedSetupListItems = styled(Grid)(({ theme }) => ({
 }))
 
 const StyledButtonSection = styled(Box)(({ theme }) => ({
-	// backroundColor: "green",
 	margin: "20px auto",
 	width: "200px !important"
 }))
