@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 import { Box, Button, ButtonGroup,  CircularProgress, Container, Card, Grid, Stepper, Step, StepLabel, Typography } from '@mui/material';
 import { styled } from "@mui/system";
-import DatagridComponent from "../datagrid/datagrid";
 import TableComponent from "../table/table";
 
 
@@ -56,10 +55,6 @@ const StyledCompletedSetupUnit = styled(Box)(({ theme }) => ({
 	margin: "10px auto"
 }))
 
-const StyledCompletedSetupUnitContent = styled(Box)(({ theme }) => ({
-
-}))
-
 const StyledCompletedSetupList = styled(Grid)(({ theme }) => ({
 	marginBottom: "30px"
 }))
@@ -72,7 +67,6 @@ const StyledCompletedSetupListItems = styled(Grid)(({ theme }) => ({
 }))
 
 const StyledButtonSection = styled(Box)(({ theme }) => ({
-	// backroundColor: "green",
 	margin: "20px auto",
 	width: "200px !important"
 }))

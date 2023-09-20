@@ -19,7 +19,7 @@ const TopSection = ({ user }) => {
 						Hello {user && user.firstname ? sentenceCase(user.firstname) : user}{" "}
 						<Iconify icon="twemoji:waving-hand" />
 					</Typography>
-					<Typography variant="subtitle1">Welcome to your account overview.</Typography>
+					<Typography variant="subtitle1" color="text.secondary">Welcome to your account overview.</Typography>
 				</Stack>
 			</Stack>
 		</StyledWrapper>

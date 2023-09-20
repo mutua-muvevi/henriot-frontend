@@ -1,0 +1,67 @@
+export const columns = [
+	{ field: "id", hide: true },
+	{ field: "desk", headerName: "Desk", flex:1,},
+	{ field: "commodity", headerName: "Commodity", flex:1, editable: false },
+	{ field: "traderName", headerName: "Trader Name", flex:1, editable: false },
+	{ field: "traderEmail", headerName: "Trader Email", flex:1, editable: false },
+	{ field: "quantity", headerName: "Quantity", type: "number", flex:1, editable: false },
+];
+
+export const rows = [
+	{
+		id: "a5e7711f-ef03-5be1-903c-c23fd674c4d2",
+		desk: "D-3257",
+		commodity: "Sugar No.14",
+		traderName: "Verna Douglas",
+		traderEmail: "awri@uco.ls",
+		quantity: 40800,
+	},
+	{
+		id: "8b8dfae4-68e7-588e-a5e1-f1556ec839fa",
+		desk: "D-604",
+		commodity: "Milk",
+		traderName: "Georgie Jackson",
+		traderEmail: "fiwobowos@nur.sy",
+		quantity: 2394,
+	},
+	{
+		id: "8e011201-4ece-592f-a758-a7820f078329",
+		desk: "D-1386",
+		commodity: "Milk",
+		traderName: "Albert Cook",
+		traderEmail: "itohamse@meujage.bw",
+		quantity: 47041,
+	},
+	{
+		id: "eb0b0329-0038-5353-bb89-f3f92650b088",
+		desk: "D-6731",
+		commodity: "Wheat",
+		traderName: "Randall McBride",
+		traderEmail: "icdaj@pieboco.de",
+		quantity: 11073,
+	},
+	{
+		id: "205f8830-61b1-5446-9c4d-36a96ec176ff",
+		desk: "D-577",
+		commodity: "Rapeseed",
+		traderName: "Jeanette McCarthy",
+		traderEmail: "keij@utvikojo.do",
+		quantity: 28496,
+	},
+	{
+		id: "eb0b0329-0038-5353-bb89-f3f92650b077",
+		desk: "D-3761",
+		commodity: "Wheat",
+		traderName: "Randall McBride",
+		traderEmail: "icdaj@pieboco.de",
+		quantity: 11073,
+	},
+	{
+		id: "205f8830-61b1-5446-9c4d-36a96ec17619",
+		desk: "D-2577",
+		commodity: "Rapeseed",
+		traderName: "Jeanette McCarthy",
+		traderEmail: "keij@utvikojo.do",
+		quantity: 28496,
+	},
+];

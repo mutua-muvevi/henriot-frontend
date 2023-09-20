@@ -199,6 +199,7 @@ export const tradingSection = {
 					title: "Log out",
 					path: "/login",
 					nestedIcon: "ri:user-shared-2-fill",
+					logout: true
 				},
 			]
 		}
