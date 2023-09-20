@@ -11,21 +11,34 @@ import MultipleSelectCheckmarks from "src/components/forms/select/multiple";
 import SelectField from "src/components/forms/select/select";
 
 const selectOptions = [
-	{ Name: "$0 - $24,999"},
-	{ Name: "$25,000 - $99,999"},
-	{ Name: "$100,000 - $499,999"},
-	{ Name: "$500,000 - $999,999"},
-	{ Name: "$1,000,000 +"},
+	{ Name: "$0 - $24,999" },
+	{ Name: "$25,000 - $99,999" },
+	{ Name: "$100,000 - $499,999" },
+	{ Name: "$500,000 - $999,999" },
+	{ Name: "$1,000,000 +" },
 ];
 
 const StyledWrapper = styled(Stack)(({ theme }) => ({}));
 
 const AdditionalInfo = () => {
 	const INITIAL_STATE = {
-		annualIncome: "",
-		netWorth: "",
-		liquidAssets: "",
-		fundingSources: [],
+		annualIncome: "$0 - $24,999",
+		netWorth: "$0 - $24,999",
+		liquidAssets: "$0 - $24,999",
+		fundingSources: [
+			{
+				label: "Employment Income",
+				value: "employment_income",
+			},
+			{
+				label: "Investments",
+				value: "investments",
+			},
+			{
+				label: "Inheritance",
+				value: "inheritance",
+			},
+		],
 	};
 
 	const VALIDATION = Yup.object().shape({
@@ -47,23 +60,19 @@ const AdditionalInfo = () => {
 				<Form id="additional info">
 					<Stack direction="column" spacing={2}>
 						<Stack direction="column" spacing={1}>
-							<Typography variant="body1">
-								Annual Income
-							</Typography>
-							
+							<Typography variant="body1">Annual Income</Typography>
+
 							<SelectField
 								name="annualIncome"
 								fullwidth
 								size="small"
 								options={selectOptions}
 								defaultValue={"$0 - $24,999"}
-								/>
+							/>
 						</Stack>
 
 						<Stack direction="column" spacing={1}>
-							<Typography variant="body1">
-								Net Worth
-							</Typography>
+							<Typography variant="body1">Net Worth</Typography>
 
 							<SelectField
 								name="netWorth"
@@ -71,13 +80,11 @@ const AdditionalInfo = () => {
 								options={selectOptions}
 								size="small"
 								defaultValue={"$0 - $24,999"}
-								/>
+							/>
 						</Stack>
 
 						<Stack direction="column" spacing={1}>
-							<Typography variant="body1">
-								Invest-able / Liquid Assets
-							</Typography>
+							<Typography variant="body1">Invest-able / Liquid Assets</Typography>
 
 							<SelectField
 								name="liquidAssets"
@@ -85,13 +92,11 @@ const AdditionalInfo = () => {
 								options={selectOptions}
 								size="small"
 								defaultValue={"$0 - $24,999"}
-								/>
+							/>
 						</Stack>
 
 						<Stack direction="column" spacing={1}>
-							<Typography variant="body1">
-								Funding Source
-							</Typography>
+							<Typography variant="body1">Funding Source</Typography>
 
 							<MultipleSelectCheckmarks
 								name="funding_source"

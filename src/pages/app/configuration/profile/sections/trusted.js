@@ -37,62 +37,62 @@ const TrustedContact = () => {
 			</Typography>
 
 			<Formik
-					initialValues={INITIAL_STATE}
-					validationSchema={VALIDATION}
-					onSubmit={handleSubmit}
-				>
-					<Form id="trusted contacts settings">
-						<Stack direction="column" spacing={3}>
-							<Stack direction="column" spacing={1}>
-								<Typography variant="body1">
-									Firstname
-								</Typography>
+				initialValues={INITIAL_STATE}
+				validationSchema={VALIDATION}
+				onSubmit={handleSubmit}
+			>
+				<Form id="trusted contacts settings">
+					<Stack direction="column" spacing={3}>
+						<Stack direction="column" spacing={1}>
+							<Typography variant="body1">
+								Firstname
+							</Typography>
 
-								<TextfieldWrapper
-									name="firstname"
-									size="small"
-								/>
-							</Stack>
-
-							<Stack direction="column" spacing={1}>
-								<Typography variant="body1">
-									Lastname
-								</Typography>
-
-								<TextfieldWrapper
-									name="lastname"
-									size="small"
-								/>
-							</Stack>
-
-							<Stack direction="column" spacing={1}>
-								<Typography variant="body1">
-									Email
-								</Typography>
-
-								<TextfieldWrapper
-									name="email"
-									size="small"
-								/>
-							</Stack>
-
-							<Stack direction="column" spacing={1}>
-								<Typography variant="body1">
-									Phone Number
-								</Typography>
-								
-								<TextfieldWrapper
-									name="phoneNumber"
-									size="small"
-								/>
-							</Stack>
-
-							<Button variant="contained" type="submit" sx={{maxWidth: 300}}>
-								Save Changes 
-							</Button>
+							<TextfieldWrapper
+								name="firstname"
+								size="small"
+							/>
 						</Stack>
-					</Form>
-				</Formik>
+
+						<Stack direction="column" spacing={1}>
+							<Typography variant="body1">
+								Lastname
+							</Typography>
+
+							<TextfieldWrapper
+								name="lastname"
+								size="small"
+							/>
+						</Stack>
+
+						<Stack direction="column" spacing={1}>
+							<Typography variant="body1">
+								Email
+							</Typography>
+
+							<TextfieldWrapper
+								name="email"
+								size="small"
+							/>
+						</Stack>
+
+						<Stack direction="column" spacing={1}>
+							<Typography variant="body1">
+								Phone Number
+							</Typography>
+							
+							<TextfieldWrapper
+								name="phoneNumber"
+								size="small"
+							/>
+						</Stack>
+
+						<Button variant="contained" type="submit" sx={{maxWidth: 300}}>
+							Save Changes 
+						</Button>
+					</Stack>
+				</Form>
+			</Formik>
 		</StyledWrapper>
 	)
 }
