@@ -41,7 +41,7 @@ const AdditionalInfo = () => {
 	};
 	return (
 		<StyledWrapper direction="column" spacing={3}>
-			<Typography variant="h6">Addi</Typography>
+			<Typography variant="h6">Financial Profile</Typography>
 
 			<Formik initialValues={INITIAL_STATE} validationSchema={VALIDATION} onSubmit={handleSubmit}>
 				<Form id="additional info">
@@ -101,7 +101,7 @@ const AdditionalInfo = () => {
 							/>
 						</Stack>
 
-						<Button variant="contained" sx={{ maxWidth: 300 }}>
+						<Button variant="contained" type="subtmit" sx={{ maxWidth: 300 }}>
 							Save Changes
 						</Button>
 					</Stack>

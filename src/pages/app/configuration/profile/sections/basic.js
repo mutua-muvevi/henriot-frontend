@@ -4,8 +4,8 @@ import { styled } from "@mui/system";
 import { Formik, Form } from "formik";
 import * as Yup from "yup"
 
-import { connect } from "react-redux";
 import TextfieldWrapper from "src/components/forms/textfield/textfield";
+import { connect } from "react-redux";
 
 const StyledWrapper = styled(Stack)(({ theme }) => ({
 
@@ -69,7 +69,7 @@ const BasicInfo = ({me}) => {
 				</Stack>
 			</Stack>
 
-			<Stack direction="column" spacing={2}>
+			<Stack direction="column" spacing={3}>
 				<Typography variant="h6">
 					Update Details
 				</Typography>
@@ -81,19 +81,29 @@ const BasicInfo = ({me}) => {
 				>
 					<Form id="basic info settings">
 						<Stack direction="column" spacing={3}>
-							<TextfieldWrapper
-								name="email"
-								label="Email"
-								size="small"
-							/>
+						<Stack direction="column" spacing={1}>
+								<Typography variant="body1">
+									Email
+								</Typography>
 
-							<TextfieldWrapper
-								name="phoneNumber"
-								label="Phone Number"
-								size="small"
-							/>
+								<TextfieldWrapper
+									name="email"
+									size="small"
+								/>
+							</Stack>
 
-							<Button variant="contained" sx={{maxWidth: 300}}>
+							<Stack direction="column" spacing={1}>
+								<Typography variant="body1">
+									Phone Number
+								</Typography>
+								
+								<TextfieldWrapper
+									name="phoneNumber"
+									size="small"
+								/>
+							</Stack>
+
+							<Button variant="contained" type="submit" sx={{maxWidth: 300}}>
 								Save Changes 
 							</Button>
 						</Stack>
