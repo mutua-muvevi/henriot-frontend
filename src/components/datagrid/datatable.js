@@ -3,21 +3,15 @@ import { useState } from 'react';
 import { styled } from "@mui/system";
 import { DataGrid, GridToolbar  } from "@mui/x-data-grid";
 
+const DataTable = ({ columns, rows, title, actions, mt }) => {
+	const [pageSize, setPageSize] = useState(20);
 
-const DatagridComponent = ({ columns, rows, title, actions, mt }) => {
-	
 	const StyledDataGrid = styled(DataGrid)(({theme}) =>({
 		border: "none",
 		backgroundColor: theme.palette.background.default,
 		width: "100%",
-		borderRadius: theme.shape.default,
-		marginTop: mt ? mt : 20,
 		"& .MuiDataGrid-columnHeaders": {
-			backgroundColor: theme.palette.primary.main,
-			color: "#fff",
 			fontSize: 13,
-			paddingTop: 2,
-			paddingBottom: 2,
 		},
 		"& .MuiDataGrid-virtualScrollerRenderZone": {
 			"& .MuiDataGrid-row": {
@@ -25,10 +19,8 @@ const DatagridComponent = ({ columns, rows, title, actions, mt }) => {
 			}
 		}
 	}))
-	const [pageSize, setPageSize] = useState(20);
-	
 	return (
-		<div id={title}>
+		<div style={{ height: "100%", width: "100%", }}>
 			<StyledDataGrid
 				rows={rows}
 				columns={columns}
@@ -42,7 +34,7 @@ const DatagridComponent = ({ columns, rows, title, actions, mt }) => {
 				}}
 			/>
 		</div>
-	)
-}
+	);
+};
 
-export default DatagridComponent
+export default DataTable;
