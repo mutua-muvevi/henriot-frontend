@@ -4,9 +4,9 @@ import ReactApexChart from "react-apexcharts";
 
 const StyledWrapper = styled(Box)(({ theme }) => ({}));
 
-const TradingGraph = ({data}) => {
-	const theme = useTheme()
-	
+const TradingGraph = ({ data }) => {
+	const theme = useTheme();
+
 	const graphData = {
 		series: [
 			{
@@ -21,10 +21,14 @@ const TradingGraph = ({data}) => {
 				zoom: {
 					enabled: false,
 				},
+				contextMenu: {
+					// Customize the context menu's style here
+					background: theme.palette.background.paper,
+					fontSize: "12px",
+					border: `1px solid ${theme.palette.divider}`,
+				},
 			},
-			colors: [
-				theme.palette.primary.main
-			],
+			colors: [theme.palette.primary.main],
 			dataLabels: {
 				enabled: false,
 			},
@@ -42,16 +46,11 @@ const TradingGraph = ({data}) => {
 				},
 			},
 		},
-	}
+	};
 
 	return (
 		<StyledWrapper>
-			<ReactApexChart
-				options={graphData.options}
-				series={graphData.series}
-				type="area"
-				height={350}
-			/>
+			<ReactApexChart options={graphData.options} series={graphData.series} type="area" height={350} />
 		</StyledWrapper>
 	);
 };

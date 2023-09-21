@@ -98,10 +98,9 @@ const AgreementsDetails = (props) => {
 
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
 					<FormControlLabel
-						label="Read Margin Agreement"
+						label="Read Account Agreement"
 						control={
 							<Checkbox
-								label="Read Account Agreement"
 								onClick={() => {
 									setSelectedAgreement("account_agreement");
 									setShowAccountModal(true);
@@ -117,10 +116,9 @@ const AgreementsDetails = (props) => {
 				<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
 					{console.log(values)}
 					<FormControlLabel
-						label="Read Margin Agreement"
+						label="Read Customer Agreement"
 						control={
 							<Checkbox
-								label="Read Customer Agreement"
 								onClick={() => {
 									setSelectedAgreement("customer_agreement");
 									setShowCustomerModal(true);
