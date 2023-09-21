@@ -8,7 +8,7 @@ import { sentenceCase } from "change-case";
 
 const StyledWrapper = styled(Box)(({ theme }) => ({}));
 
-const TopSection = ({ user }) => {
+const TopSection = ({ me }) => {
 	return (
 		<StyledWrapper>
 			<Stack direction="column" spacing={3}>
@@ -16,7 +16,7 @@ const TopSection = ({ user }) => {
 
 				<Stack direction="column">
 					<Typography variant="h3">
-						Hello {user && user.firstname ? sentenceCase(user.firstname) : user}{" "}
+						Hello {me?.data?.data?.identity?.given_name ? sentenceCase(me.data.data.identity.given_name) : ""}
 						<Iconify icon="twemoji:waving-hand" />
 					</Typography>
 					<Typography variant="subtitle1" color="text.secondary">Welcome to your account overview.</Typography>
@@ -27,7 +27,7 @@ const TopSection = ({ user }) => {
 };
 
 const mapStateToProps = ({ user }) => ({
-	user: user.me.data.data,
+	me: user.me,
 });
 
 export default connect(mapStateToProps)(TopSection);
