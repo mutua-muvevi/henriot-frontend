@@ -1,11 +1,13 @@
 import React from 'react';
 
-import {  Box, Container, Grow } from "@mui/material";
+import {  Box, Container, Grow, useTheme } from "@mui/material";
 import { styled } from "@mui/system";
 
 import ForgotPasswordForm from "./form";
 import Page from '../../../components/UI/Page';
-import Logo from "../../../assets/logo/Black on Transparent.png";
+
+import LogoBlack from "../../../assets/logo/Black on Transparent.png";
+import LogoWhite from "../../../assets/logo/White on Transparent.png";
 
 
 const StyledForgotPassword = styled(Box)(({ theme }) => ({
@@ -22,7 +24,7 @@ const StyledLogoSection = styled(Box)(({ theme }) => ({
 	display: "flex",
 	alignItems: "center",
 	justifyContent: "left",
-	width: "450px"
+	width: "450px",
 }))
 
 const styledLogoImage = {
@@ -43,12 +45,13 @@ const StyledForgotPasswordFormWrapper = styled(Container)(({ theme }) => ({
 }))
 
 const ForgotPassword = () => {
+		const theme = useTheme();
 	return (
 		<Page title="Password reset request">
 			<StyledForgotPassword>
 				<StyledLogoSection>
 					<img
-						src={Logo}
+						src={theme.palette.mode === "dark" ? LogoWhite : LogoBlack}
 						alt="Henriot logo"
 						style={styledLogoImage}
 					/>
