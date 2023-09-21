@@ -83,7 +83,7 @@ const LoginForm = ({ loginUser, error, info, token}) => {
 			
 		}
 		setTimeout(() => {
-			navigate("/admin/banking/dashboard")
+			navigate("/admin/trading/home")
 		}, 1500);
 	}
 

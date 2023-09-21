@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 // material
 import { alpha, styled } from "@mui/material/styles";
-import { Box, Stack, AppBar, Toolbar, IconButton, InputBase, Button } from "@mui/material";
+import { Box, Stack, AppBar, Toolbar, IconButton, Button } from "@mui/material";
 // components
 import Searchbar from "./Searchbar";
 import AccountPopover from "./AccountPopover";
