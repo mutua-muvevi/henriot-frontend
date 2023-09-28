@@ -17,23 +17,22 @@ export const fetchAssetsFail = (errMessage) => ({
 
 export const fetchAssets = (token) => {
 	return async (dispatch) => {
-        try {
-            const res = await axios.get(
-                `http://localhost:8100/api/assets/fetch/all`,
-                // `https://henriotgroup.onrender.com/api/assets/fetch/all`,
-                {
-                    headers: {
-                        Authorization: `${token}`,
-                    },
-                }
-            );
+		try {
+			const res = await axios.get(
+				`http://localhost:8100/api/assets/fetch/all`,
+				// `https://henriotgroup.onrender.com/api/assets/fetch/all`,
+				{
+					headers: {
+						Authorization: `${token}`,
+					},
+				}
+			);
 
-			dispatch(fetchAssetsStart)
-			dispatch(fetchAssetsSuccess(res))
-            
-        } catch (error) {
-            console.log("Fetch assets error", error)
-			dispatch(fetchAssetsFail(error))
-        }
+			dispatch(fetchAssetsStart);
+			dispatch(fetchAssetsSuccess(res));
+		} catch (error) {
+			console.log("Fetch assets error", error);
+			dispatch(fetchAssetsFail(error));
+		}
 	};
 };
