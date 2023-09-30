@@ -3,7 +3,7 @@ import portfolioTypes from "./types";
 const initialState = {
 	loading: false,
 	portfolio: [],
-	portfolioError: []
+	portfolioError: null
 }
 
 const portfolioReducer = (state = initialState, { type, payload }) => {
