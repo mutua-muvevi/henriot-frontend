@@ -2,6 +2,7 @@ import portfolioTypes from "./types";
 
 const initialState = {
 	loading: false,
+	
 	portfolio: [],
 	portfolioError: null
 }
