@@ -29,39 +29,83 @@ export const postWatchlistFail = (errMessage) => ({
 	payload: errMessage,
 });
 
-export const deleteWatchlistsStart = () => ({
+export const deleteWatchlistStart = () => ({
 	type: watchlistTypes.START_FETCH_WATCHLIST,
 });
 
-export const deleteWatchlistsSuccess = (token) => ({
+export const deleteWatchlistSuccess = (token) => ({
 	type: watchlistTypes.SUCCESS_FETCH_WATCHLIST,
 	payload: token,
 });
 
-export const deleteWatchlistsFail = (errMessage) => ({
+export const deleteWatchlistFail = (errMessage) => ({
 	type: watchlistTypes.FAIL_FETCH_WATCHLIST,
 	payload: errMessage,
 });
 
 export const fetchWatchlist = (token) => {
 	return async (dispatch) => {
-        try {
-            const res = await axios.get(
-                `http://localhost:8100/api/assets/fetch/all`,
-                // `https://henriotgroup.onrender.com/api/assets/fetch/all`,
-                {
-                    headers: {
-                        Authorization: `${token}`,
-                    },
-                }
-            );
+		try {
+			const res = await axios.get(
+				`http://localhost:8100/api/watchlist/fetch/all`,
+				// `https://henriotgroup.onrender.com/api/assets/fetch/all`,
+				{
+					headers: {
+						Authorization: `${token}`,
+					},
+				}
+			);
 
-			dispatch(fetchWatchlistStart)
-			dispatch(fetchWatchlistSuccess(res))
-            
-        } catch (error) {
-            console.log("Fetch assets error", error)
-			dispatch(fetchWatchlistFail(error))
-        }
+			dispatch(fetchWatchlistStart);
+			dispatch(fetchWatchlistSuccess(res));
+		} catch (error) {
+			console.log("Fetch assets error", error);
+			dispatch(fetchWatchlistFail(error));
+		}
+	};
+};
+
+
+export const deleteWatchlist = (token) => {
+	return async (dispatch) => {
+		try {
+			const res = await axios.get(
+				`http://localhost:8100/api/watchlist/fetch/all`,
+				// `https://henriotgroup.onrender.com/api/assets/fetch/all`,
+				{
+					headers: {
+						Authorization: `${token}`,
+					},
+				}
+			);
+
+			dispatch(deleteWatchlistStart);
+			dispatch(deleteWatchlistSuccess(res));
+		} catch (error) {
+			console.log("Fetch assets error", error);
+			dispatch(deleteWatchlistFail(error));
+		}
+	};
+};
+
+export const postWatchlist = (token) => {
+	return async (dispatch) => {
+		try {
+			const res = await axios.get(
+				`http://localhost:8100/api/watchlist/post`,
+				// `https://henriotgroup.onrender.com/api/watchlist/post`,
+				{
+					headers: {
+						Authorization: `${token}`,
+					},
+				}
+			);
+
+			dispatch(postWatchlistStart);
+			dispatch(postWatchlistSuccess(res));
+		} catch (error) {
+			console.log("Fetch assets error", error);
+			dispatch(postWatchlistFail(error));
+		}
 	};
 };
