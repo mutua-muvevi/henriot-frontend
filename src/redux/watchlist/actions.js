@@ -167,12 +167,13 @@ export const addAssetsToWatchlist = (token, data, accountID, userID, watchlistID
 	}
 }
 
-export const editWatchlist = (token, watchlistItemID) => {
+export const editWatchlist = (token, watchlistItemID, values) => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.get(
 				`http://localhost:8100/api/watchlist/edit/${watchlistItemID}`,
 				// `https://henriotgroup.onrender.com/api/watchlist/edit/${watchlistItemID}`,
+				values,
 				{
 					headers: {
 						Authorization: `${token}`,
@@ -193,8 +194,8 @@ export const deleteAllWatchlist = (token, accountID, userID,) => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.delete(
-				`http://localhost:8100/api/watchlist//fetch/all/${userID}/${accountID}`,
-				// `https://henriotgroup.onrender.com/api/assets//fetch/all/${userID}/${accountID}`,
+				`http://localhost:8100/api/watchlist/delete/all/${userID}/${accountID}`,
+				// `https://henriotgroup.onrender.com/api/assets/delete/all/${userID}/${accountID}`,
 				{
 					headers: {
 						Authorization: `${token}`,
