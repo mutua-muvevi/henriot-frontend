@@ -9,12 +9,13 @@ import userReducer from "./user/reducer";
 import assetsReducer from './assets/reducer';
 import portfolioReducer from './portfolio/reducer';
 import orderReducer from './order/reducer';
+import positionReducer from './position/reducer';
 
 const config = {
 	key: 'root',
 	storage,
 	whitelist: [
-		"auth", "user", "assets", "portfolio", "order"
+		"auth", "user", "assets", "portfolio", "order", "position"
 	],
 };
 
@@ -25,7 +26,7 @@ const rootReducer = combineReducers({
 	assets: assetsReducer,
 	portfolio: portfolioReducer,
 	order: orderReducer,
-
+	position: positionReducer
 });
 
 const persistedReducer = persistReducer(config, rootReducer);
