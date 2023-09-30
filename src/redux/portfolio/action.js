@@ -20,8 +20,8 @@ export const fetchPortfolio = (token, userID, accountID) => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.get(
-				`http://localhost:8100/api/portfolio/fetch/all/:userID/:accountID`,
-				// `https://henriotgroup.onrender.com/api/portfolio/fetch/all/:userID/:accountID`,
+				`http://localhost:8100/api/portfolio/fetch/all/${userID}/${accountID}`,
+				// `https://henriotgroup.onrender.com/api/portfolio/fetch/all/${userID}/${accountID}`,
 				{
 					headers: {
 						Authorization:`${token}`,
