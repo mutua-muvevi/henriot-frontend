@@ -11,6 +11,7 @@ import { fetchMe } from "src/redux/user/action";
 import { connect } from "react-redux";
 import { fetchAssets } from "src/redux/assets/actions";
 import ReusableSpinner from "src/components/UI/spinner";
+import { fetchPortfolio } from "src/redux/portfolio/action";
 
 // ----------------------------------------------------------------------
 
@@ -37,7 +38,7 @@ const MainStyle = styled("div")(({ theme }) => ({
 }));
 
 // ----------------------------------------------------------------------
-const Layout = ({ token, getMe, getAssets }) => {
+const Layout = ({ token, getMe, getAssets, getPortfolio }) => {
 	const [open, setOpen] = useState(false);
 	const [isLoading, setIsLoading] = useState(true); // Add isLoading state
 
@@ -82,13 +83,15 @@ const Layout = ({ token, getMe, getAssets }) => {
 	);
 };
 
-const mapStateToProps = ({ auth }) => ({
+const mapStateToProps = ({ auth, user }) => ({
 	token: auth.token ? auth.token : null,
+	me: user.me
 });
 
 const mapDispatchToProps = (dispatch) => ({
 	getMe: (token) => dispatch(fetchMe(token)),
 	getAssets: (token) => dispatch(fetchAssets(token)),
+	getPortfolio: (token, userID, accountID) => dispatch(fetchPortfolio(token, userID, accountID))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Layout);

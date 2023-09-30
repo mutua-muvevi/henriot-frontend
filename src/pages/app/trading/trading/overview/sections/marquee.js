@@ -12,7 +12,8 @@ const fontStyles = {
 	marginRight: "10px"
 }
 
-const BankingMarquee = () => {
+const BankingMarquee = ({assets}) => {
+
 	return (
 		<Marquee
 			gradient={false}

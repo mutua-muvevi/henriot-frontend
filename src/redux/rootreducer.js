@@ -6,12 +6,13 @@ import storage from 'redux-persist/lib/storage';
 import authReducer from "./auth/reducer";
 import userReducer from "./user/reducer";
 import assetsReducer from './assets/reducer';
+import portfolioReducer from './portfolio/reducer';
 
 const config = {
 	key: 'root',
 	storage,
 	whitelist: [
-		"auth", "user", "assets"
+		"auth", "user", "assets", "portfolio"
 	],
 };
 
@@ -19,7 +20,8 @@ const rootReducer = combineReducers({
 	auth: authReducer,
 	user: userReducer,
 
-	assets: assetsReducer
+	assets: assetsReducer,
+	portfolio: portfolioReducer,
 
 });
 
